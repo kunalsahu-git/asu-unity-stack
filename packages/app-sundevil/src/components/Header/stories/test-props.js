@@ -64,7 +64,7 @@ export const HEADER_TEST_PROPS = {
     title: "Sun Devil Athletics",
   },
 
-  navTree: [
+  navTree:[
     {
         href: "/",
         text: "Home",
@@ -76,9 +76,9 @@ export const HEADER_TEST_PROPS = {
         mobile: {
             hide: false
         },
-        device: "",
+        device: "both_desktop_and_mobile",
         type: "icon-home",
-        "class": "home"
+        class: "home"
     },
     {
         href: "/sports",
@@ -91,9 +91,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Baseball",
                     device: "desktop_only",
                     icon: {
-                        "icon_name": "baseball-bat-ball",
-                        "style": "fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:3:\"fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "baseball-bat-ball",
+                        style: "fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:3:\"fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -129,8 +129,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Basketball",
                     device: "mobile_only",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/basketball_2.svg",
-                        "svg_icon_name": "Basketball hoop"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/basketball_2.svg",
+                        svg_icon_name: "Basketball hoop"
                     },
                     type: null,
                     extra_links: [
@@ -166,9 +166,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Cross Country",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "person-running",
-                        "style": "fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "person-running",
+                        style: "fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -199,9 +199,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Football",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "football",
-                        "style": "fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:6:\"fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "football",
+                        style: "fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:6:\"fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -237,8 +237,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Golf",
                     device: "mobile_only",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/golf_0.svg",
-                        "svg_icon_name": "Golf club"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/golf_0.svg",
+                        svg_icon_name: "Golf club"
                     },
                     type: null,
                     extra_links: [
@@ -269,8 +269,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Ice Hockey",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/ice-hockey_0.svg",
-                        "svg_icon_name": "Hockey puck and stick"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/ice-hockey_0.svg",
+                        svg_icon_name: "Hockey puck and stick"
                     },
                     type: null,
                     extra_links: [
@@ -306,9 +306,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Swimming and Diving",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "person-swimming",
-                        "style": "fa-fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:12:\"fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "person-swimming",
+                        style: "fa-fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:12:\"fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -339,8 +339,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Tennis",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/tennis.svg",
-                        "svg_icon_name": "Tennis racket"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/tennis.svg",
+                        svg_icon_name: "Tennis racket"
                     },
                     type: null,
                     extra_links: [
@@ -371,8 +371,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Track and Field",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/track-and-field.svg",
-                        "svg_icon_name": "Jersey"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/track-and-field.svg",
+                        svg_icon_name: "Jersey"
                     },
                     type: null,
                     extra_links: [
@@ -403,8 +403,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Wrestling",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/wrestling.svg",
-                        "svg_icon_name": "Two people grappling"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/wrestling.svg",
+                        svg_icon_name: "Two people grappling"
                     },
                     type: null,
                     extra_links: [
@@ -441,11 +441,11 @@ export const HEADER_TEST_PROPS = {
             {
                 href: "/tickets",
                 text: "Buy tickets",
-                "color": "gold",
+                color: "gold",
                 icon: {
-                    "icon_name": "ticket",
-                    "style": "fa-fas",
-                    "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:6:\"fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                    icon_name: "ticket",
+                    style: "fa-fas",
+                    settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:6:\"fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                 },
                 device: "both_desktop_and_mobile"
             }
@@ -453,7 +453,7 @@ export const HEADER_TEST_PROPS = {
         extra_section: [
             {
                 url: "/sites/default/files/2024-06/ticketmaster-5-logo-black-and-white.png",
-                "image_width": "175",
+                image_width: "175",
                 type: "image_only",
                 href: "https://am.ticketmaster.com/sundevils/buy?wt_mc_id=NCAA_ASU_DD_TAB&utm_source=sundevils.com&utm_medium=client&utm_campaign=NCAA_ASU&utm_content=DD_TAB",
                 text: "Ticketmaster",
@@ -463,7 +463,7 @@ export const HEADER_TEST_PROPS = {
         ],
         is_sports_type: true,
         mobile: "",
-        device: "both_desktop_and_mobile"
+        device: "desktop_only"
     },
     {
         href: "/sports",
@@ -476,8 +476,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Basketball",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/basketball_4.svg",
-                        "svg_icon_name": "Basketball hoop"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/basketball_4.svg",
+                        svg_icon_name: "Basketball hoop"
                     },
                     type: null,
                     extra_links: [
@@ -513,8 +513,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Beach Volleyball",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/beach-volleyball_0.svg",
-                        "svg_icon_name": "Volleyball above water"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/beach-volleyball_0.svg",
+                        svg_icon_name: "Volleyball above water"
                     },
                     type: null,
                     extra_links: [
@@ -545,9 +545,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Cross Country",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "person-running",
-                        "style": "fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "person-running",
+                        style: "fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -578,8 +578,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Golf",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/golf_1.svg",
-                        "svg_icon_name": "Golf club"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/golf_1.svg",
+                        svg_icon_name: "Golf club"
                     },
                     type: null,
                     extra_links: [
@@ -610,8 +610,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Gymnastics",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/gymnastics.svg",
-                        "svg_icon_name": "Person twirling"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/gymnastics.svg",
+                        svg_icon_name: "Person twirling"
                     },
                     type: null,
                     extra_links: [
@@ -647,8 +647,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Lacrosse",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/lacrosse_1.svg",
-                        "svg_icon_name": "Lacrosse stick and ball"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/lacrosse_1.svg",
+                        svg_icon_name: "Lacrosse stick and ball"
                     },
                     type: null,
                     extra_links: [
@@ -684,9 +684,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Soccer",
                     device: "mobile_only",
                     icon: {
-                        "icon_name": "futbol",
-                        "style": "fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:3:\"fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "futbol",
+                        style: "fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:3:\"fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -722,9 +722,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Softball",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "baseball",
-                        "style": "fa-fa-fa-fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:18:\"fa-fa-fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "baseball",
+                        style: "fa-fa-fa-fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:18:\"fa-fa-fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -760,9 +760,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Swimming and Diving",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "person-swimming",
-                        "style": "fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "person-swimming",
+                        style: "fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:9:\"fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -793,8 +793,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Tennis",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/tennis_2.svg",
-                        "svg_icon_name": "Tennis racket"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/tennis_2.svg",
+                        svg_icon_name: "Tennis racket"
                     },
                     type: null,
                     extra_links: [
@@ -825,8 +825,8 @@ export const HEADER_TEST_PROPS = {
                     text: "Track and Field",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "svg_icon": "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/track-and-field_2.svg",
-                        "svg_icon_name": "Jersey"
+                        svg_icon: "https://mobile-web-sda.ws.asu.edu//sites/default/files/2024-07/track-and-field_2.svg",
+                        svg_icon_name: "Jersey"
                     },
                     type: null,
                     extra_links: [
@@ -857,9 +857,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Triathlon",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "circle-nodes",
-                        "style": "fa-fa-fa-fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:18:\"fa-fa-fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "circle-nodes",
+                        style: "fa-fa-fa-fa-fa-fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:18:\"fa-fa-fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: [
@@ -968,7 +968,7 @@ export const HEADER_TEST_PROPS = {
         extra_section: [
             {
                 url: "/sites/default/files/2024-06/ticketmaster-5-logo-black-and-white.png",
-                "image_width": "175",
+                image_width: "175",
                 type: "image_only",
                 href: "https://am.ticketmaster.com/sundevils/buy?wt_mc_id=NCAA_ASU_DD_TAB&utm_source=sundevils.com&utm_medium=client&utm_campaign=NCAA_ASU&utm_content=DD_TAB",
                 text: "Ticketmaster",
@@ -978,7 +978,7 @@ export const HEADER_TEST_PROPS = {
         ],
         is_sports_type: true,
         mobile: "",
-        device: "both_desktop_and_mobile"
+        device: "desktop_only"
     },
     {
         href: "/tickets",
@@ -1284,7 +1284,7 @@ export const HEADER_TEST_PROPS = {
         extra_section: [
             {
                 url: "/sites/default/files/2024-06/ticketmaster-5-logo-black-and-white.png",
-                "image_width": "175",
+                image_width: "175",
                 type: "image_only",
                 href: "https://am.ticketmaster.com/sundevils/buy?wt_mc_id=NCAA_ASU_DD_TAB&utm_source=sundevils.com&utm_medium=client&utm_campaign=NCAA_ASU&utm_content=DD_TAB",
                 text: "Ticketmaster",
@@ -1294,7 +1294,7 @@ export const HEADER_TEST_PROPS = {
         ],
         is_sports_type: true,
         mobile: "",
-        device: "both_desktop_and_mobile"
+        device: "mobile_only"
     },
     {
         href: "/fans-and-community",
@@ -1537,15 +1537,15 @@ export const HEADER_TEST_PROPS = {
         buttons: "",
         extra_section: [
             {
-                "button_uri": "/support-donate/NIL",
-                "button_text": "Request now",
-                "extra_text": "Request an autograph, appearance, shoutout, social post and more from your favorite athletes.",
+                button_uri: "/support-donate/NIL",
+                button_text: "Request now",
+                extra_text: "Request an autograph, appearance, shoutout, social post and more from your favorite athletes.",
                 type: "text_with_button",
                 device: "both_desktop_and_mobile"
             },
             {
                 url: "/sites/default/files/2024-08/Omni-tempe.png",
-                "image_width": "203",
+                image_width: "203",
                 type: "image_only",
                 href: "https://www.omnihotels.com/hotels/tempe-asu/specials/asu-special-event-rate",
                 text: "Omni Tempe at Asu",
@@ -1679,7 +1679,7 @@ export const HEADER_TEST_PROPS = {
             {
                 href: "/support-donate/",
                 text: "Support the Sun Devils",
-                "color": "gold",
+                color: "gold",
                 icon: [],
                 device: "both_desktop_and_mobile"
             }
@@ -1823,7 +1823,7 @@ export const HEADER_TEST_PROPS = {
         extra_section: [
             {
                 url: "/sites/default/files/2024-06/c1583b04098111219796c2407d53f3c9.png",
-                "image_width": "213",
+                image_width: "213",
                 type: "image_only",
                 href: "https://thesundevils.com/common/controls/adhandler.aspx?ad_id=109&target=https%3A//playatgila.com/",
                 text: "Extra section",
@@ -1835,5 +1835,8 @@ export const HEADER_TEST_PROPS = {
         mobile: "",
         device: "both_desktop_and_mobile"
     }
-],
+]
+
+
+,
 };
