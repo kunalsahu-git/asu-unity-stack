@@ -204,7 +204,7 @@ const NewsStorySectionInner = ({
         style={{ paddingBottom: "32px" }}
       />
 
-    {/* <SponsorBlock sponsorBlock={sectionAdProps} /> */}
+    <SponsorBlock sponsorBlock={sectionAdProps} />
 
       <NewsStorySearchFormTopbar
         className="container"
