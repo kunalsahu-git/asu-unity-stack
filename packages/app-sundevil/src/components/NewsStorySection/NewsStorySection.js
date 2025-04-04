@@ -47,6 +47,31 @@ const LoadButtonRoot = styled.div`
   align-items: center;
 `;
 
+const sectionAdProps = {
+  sponsorBlock: {
+    text: "Presented by:",
+    name: "Desert Financial",
+    url: "https://www.desertfinancial.com/",
+    adSlotId: "div-gpt-ad-1742833033751-0", // or generate dynamically
+  },
+}
+
+const SponsorBlock = ({ sponsorBlock }) => {
+  return (
+    <div className="sponsor-block">
+      <span>{sponsorBlock.text}</span>{' '}
+      <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
+        {sponsorBlock.name}
+      </a>
+      <div
+        id={sponsorBlock.adSlotId}
+        style={{ minWidth: 135, minHeight: 38 }}
+        className="sponsor-logo-placeholder"
+      />
+    </div>
+  );
+};
+
 const DEFAULT_LIMIT = 6;
 
 /**
@@ -178,6 +203,8 @@ const NewsStorySectionInner = ({
         ref={sectionHeaderRef}
         style={{ paddingBottom: "32px" }}
       />
+
+    {/* <SponsorBlock sponsorBlock={sectionAdProps} /> */}
 
       <NewsStorySearchFormTopbar
         className="container"
