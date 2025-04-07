@@ -36,31 +36,31 @@ const Root = styled.img`
 
 const SponsorBlock = ({ sponsorBlock }) => {
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (window.googletag?.cmd) {
-        window.googletag.cmd.push(() => {
-          window.googletag.display("div-gpt-ad-1731610205689-0");
-        });
-      }
-    }, 50);
-
-    return () => clearTimeout(timeout);
-  }, ["div-gpt-ad-1731610205689-0"]);
+    if (window.googletag?.cmd) {
+      window.googletag.cmd.push(() => {
+        window.googletag.display(sponsorBlock.logo);
+      });
+    }
+  }, [sponsorBlock.adSlotId]);
+  console.log("Page fully loaded. Triggering googletag.display for", sponsorBlock.adSlotId);
 
   return (
     <div className="sponsor-block">
-      <span>{sponsorBlock.text}</span>{' '}
+      <span>{sponsorBlock.text}</span>{" "}
       <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
         {sponsorBlock.name}
       </a>
       <div
-        id="div-gpt-ad-1731610205689-0"
+        id={sponsorBlock.logo}
         style={{ minWidth: 135, minHeight: 38 }}
         className="sponsor-logo-placeholder"
       />
     </div>
   );
 };
+
+export default SponsorBlock;
+
 
 
 /**
@@ -72,7 +72,7 @@ export const VariantStatic = forwardRef(({ sponsorBlock }, ref) => {
       text: "Presented by:",
       name: "Desert Financia 0 l",
       url: "https://www.desertfinancial.com/",
-      logo: "div-gpt-ad-1731610205689-0",
+      logo: "div-gpt-ad-1742833033751-0",
     }} />
     // <Root src={sponsorBlock?.logo} alt={sponsorBlock?.name ?? " "} ref={ref} />
   );
