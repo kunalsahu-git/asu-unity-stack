@@ -260,7 +260,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
   }, []);
 
   return (
-    <body className="sponsor-block">
+    <div className="sponsor-block">
       <span>{sponsorBlock.text}</span>{' '}
       <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
         {sponsorBlock.name}
@@ -270,7 +270,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
         style={{ minWidth: 135, minHeight: 38 }}
         className="sponsor-logo-placeholder"
       />
-    </body>
+    </div>
   );
 };
 
