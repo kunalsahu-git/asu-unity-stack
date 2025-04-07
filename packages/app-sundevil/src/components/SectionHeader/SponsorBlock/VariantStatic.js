@@ -72,7 +72,7 @@ export const VariantStatic = forwardRef(({ sponsorBlock }, ref) => {
       text: "Presented by:",
       name: "Desert Financia 0 l",
       url: "https://www.desertfinancial.com/",
-      logo: "div-gpt-ad-1742833033751-0",
+      logo: "div-gpt-ad-1731610205689-0",
     }} />
     // <Root src={sponsorBlock?.logo} alt={sponsorBlock?.name ?? " "} ref={ref} />
   );
