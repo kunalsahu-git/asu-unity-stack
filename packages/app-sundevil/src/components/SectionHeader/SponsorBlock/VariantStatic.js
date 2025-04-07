@@ -14,7 +14,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
       // @ts-ignore
       window.googletag.cmd.push(() => {
         // @ts-ignore
-        window.googletag.display("div-gpt-ad-1742833033751-0");
+        window.googletag.display("div-gpt-ad-1731610205689-0");
       });
     }
   }, []);
@@ -26,7 +26,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
         {sponsorBlock.name}
       </a>
       <div
-        id="div-gpt-ad-1742833033751-0"
+        id="div-gpt-ad-1731610205689-0"
         style={{ minWidth: 135, minHeight: 38 }}
         className="sponsor-logo-placeholder"
       />
@@ -43,7 +43,7 @@ export const VariantStatic = forwardRef(({ sponsorBlock }, ref) => {
       text: "Presented by:",
       name: "Desert Financia 0 l",
       url: "https://www.desertfinancial.com/",
-      logo: "div-gpt-ad-1742833033751-0",
+      logo: "div-gpt-ad-1731610205689-0",
     }} />
     // <Root src={sponsorBlock?.logo} alt={sponsorBlock?.name ?? " "} ref={ref} />
   );
