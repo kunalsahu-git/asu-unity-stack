@@ -1,5 +1,5 @@
 // @ts-check
-import React from "react";
+import React, { useEffect } from "react";
 
 import { ALL_ID } from "../../../select-all-option";
 import { INewsStoryDataSource } from "../../NewsStory/news-story-data-source/news-story-data-source";
@@ -139,14 +139,15 @@ const props = {
   ],
   sectionHeader: {
     title: "Sun Devil Stories",
-    sponsorBlock: {
-      text: "Presented by:",
-      name: "Desert Financial",
-      adSlotId: "div-gpt-ad-1742833033751-0", 
-      // logo: `<div id='div-gpt-ad-1742833033751-0' style='min-width: 135px; min-height: 38px;'>
-      //         <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1742833033751-0'); });</script></div>`,
-      url: "https://www.desertfinancial.com/",
-    },
+    adSlotId: "div-gpt-ad-1742833033751-0", 
+    // sponsorBlock: {
+    //   text: "Presented by:",
+    //   name: "Desert Financial",
+    //   adSlotId: "div-gpt-ad-1742833033751-0", 
+    //   // logo: `<div id='div-gpt-ad-1742833033751-0' style='min-width: 135px; min-height: 38px;'>
+    //   //         <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1742833033751-0'); });</script></div>`,
+    //   url: "https://www.desertfinancial.com/",
+    // },
   },
   removeSportsWithNoStories: false,
 
@@ -241,21 +242,37 @@ const props = {
     },
   ],
 };
-// export const SponsorBlock = ({ sponsorBlock }) => {
-//   return (
-//     <div className="sponsor-block">
-//       <span>{sponsorBlock.text}</span>{' '}
-//       <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
-//         {sponsorBlock.name}
-//       </a>
-//       <div
-//         id={sponsorBlock.adSlotId}
-//         style={{ minWidth: 135, minHeight: 38 }}
-//         className="sponsor-logo-placeholder"
-//       />
-//     </div>
-//   );
-// };
+
+// /** @type {any} */
+// // @ts-ignore
+// const googletag = window.googletag;
+
+const SponsorBlock = ({ sponsorBlock }) => {
+  useEffect(() => {
+    // @ts-ignore
+    if (window.googletag?.cmd) {
+      // @ts-ignore
+      window.googletag.cmd.push(() => {
+        // @ts-ignore
+        window.googletag.display("div-gpt-ad-1742833033751-0");
+      });
+    }
+  }, []);
+
+  return (
+    <body className="sponsor-block">
+      <span>{sponsorBlock.text}</span>{' '}
+      <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
+        {sponsorBlock.name}
+      </a>
+      <div
+        id="div-gpt-ad-1742833033751-0"
+        style={{ minWidth: 135, minHeight: 38 }}
+        className="sponsor-logo-placeholder"
+      />
+    </body>
+  );
+};
 
 
 export default {
@@ -271,7 +288,16 @@ export default {
 };
 
 const Template = args => {
-  return <NewsStorySection {...args} {...props} />;
+  return (  
+  <>
+      <SponsorBlock sponsorBlock={{
+      text: "Presented by:",
+      name: "Desert Financial",
+      url: "https://www.desertfinancial.com/",
+      adSlotId: "div-gpt-ad-1742833033751-0",
+    }} />
+    <NewsStorySection {...args} {...props} />
+  </>);
 };
 
 export const SunDevilsStoriesSection = Template.bind({

@@ -47,45 +47,45 @@ const LoadButtonRoot = styled.div`
   align-items: center;
 `;
 
-const sectionAdProps = {
-  sponsorBlock: {
-    text: "Presented by:",
-    name: "Desert Financial",
-    url: "https://www.desertfinancial.com/",
-    adSlotId: "div-gpt-ad-1742833033751-0",
-  },
-}
+// const sectionAdProps = {
+//   sponsorBlock: {
+//     text: "Presented by:",
+//     name: "Desert Financial",
+//     url: "https://www.desertfinancial.com/",
+//     adSlotId: "div-gpt-ad-1742833033751-0",
+//   },
+// }
 
-/** @type {any} */
-// @ts-ignore
-const googletag = window.googletag;
+// /** @type {any} */
+// // @ts-ignore
+// const googletag = window.googletag;
 
-const SponsorBlock = ({ sponsorBlock }) => {
-  useEffect(() => {
-    // @ts-ignore
-    if (window.googletag?.cmd) {
-      // @ts-ignore
-      window.googletag.cmd.push(() => {
-        // @ts-ignore
-        window.googletag.display("div-gpt-ad-1742833033751-0");
-      });
-    }
-  }, []);
+// const SponsorBlock = ({ sponsorBlock }) => {
+//   useEffect(() => {
+//     // @ts-ignore
+//     if (window.googletag?.cmd) {
+//       // @ts-ignore
+//       window.googletag.cmd.push(() => {
+//         // @ts-ignore
+//         window.googletag.display("div-gpt-ad-1742833033751-0");
+//       });
+//     }
+//   }, []);
 
-  return (
-    <div className="sponsor-block">
-      <span>{sponsorBlock.text}</span>{' '}
-      <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
-        {sponsorBlock.name}
-      </a>
-      <div
-        id="div-gpt-ad-1742833033751-0"
-        style={{ minWidth: 135, minHeight: 38 }}
-        className="sponsor-logo-placeholder"
-      />
-    </div>
-  );
-};
+//   return (
+//     <div className="sponsor-block">
+//       <span>{sponsorBlock.text}</span>{' '}
+//       <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
+//         {sponsorBlock.name}
+//       </a>
+//       <div
+//         id="div-gpt-ad-1742833033751-0"
+//         style={{ minWidth: 135, minHeight: 38 }}
+//         className="sponsor-logo-placeholder"
+//       />
+//     </div>
+//   );
+// };
 
 const DEFAULT_LIMIT = 6;
 
@@ -219,7 +219,7 @@ const NewsStorySectionInner = ({
         style={{ paddingBottom: "32px" }}
       />
 
-    <SponsorBlock sponsorBlock={sectionAdProps} />
+    {/* <SponsorBlock sponsorBlock={sectionAdProps} /> */}
 
       <NewsStorySearchFormTopbar
         className="container"
