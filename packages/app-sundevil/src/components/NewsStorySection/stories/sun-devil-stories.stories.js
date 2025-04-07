@@ -139,10 +139,10 @@ const props = {
   ],
   sectionHeader: {
     title: "Sun Devil Stories",
-    // adSlotId: "div-gpt-ad-1742833033751-0", 
+    adSlotId: "div-gpt-ad-1742833033751-0", 
     sponsorBlock: {
       text: "Presented by:",
-      name: "Desert Financial",
+      name: "Desert Financial -1",
       logo: "div-gpt-ad-1742833033751-0", 
       // logo: `<div id='div-gpt-ad-1742833033751-0' style='min-width: 135px; min-height: 38px;'>
       //         <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1742833033751-0'); });</script></div>`,
@@ -292,7 +292,7 @@ const Template = args => {
   <>
       <SponsorBlock sponsorBlock={{
       text: "Presented by:",
-      name: "Desert Financial",
+      name: "Desert Financia 0 l",
       url: "https://www.desertfinancial.com/",
       logo: "div-gpt-ad-1742833033751-0",
     }} />
