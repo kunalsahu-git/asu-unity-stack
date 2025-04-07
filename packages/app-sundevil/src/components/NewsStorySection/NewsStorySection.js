@@ -1,7 +1,7 @@
 // https://www.figma.com/design/PwIiWs2qYfAm73B4n5UTgU/ASU-Athletics?node-id=4801-44287&node-type=canvas&t=Rka52ZSBxzrMg7eA-0
 // @ts-check
 import PropTypes from "prop-types";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
 
 import { APP_CONFIG } from "../../config";
@@ -52,11 +52,26 @@ const sectionAdProps = {
     text: "Presented by:",
     name: "Desert Financial",
     url: "https://www.desertfinancial.com/",
-    adSlotId: "div-gpt-ad-1742833033751-0", // or generate dynamically
+    adSlotId: "div-gpt-ad-1742833033751-0",
   },
 }
 
+/** @type {any} */
+// @ts-ignore
+const googletag = window.googletag;
+
 const SponsorBlock = ({ sponsorBlock }) => {
+  useEffect(() => {
+    // @ts-ignore
+    if (window.googletag?.cmd) {
+      // @ts-ignore
+      window.googletag.cmd.push(() => {
+        // @ts-ignore
+        window.googletag.display("div-gpt-ad-1742833033751-0");
+      });
+    }
+  }, []);
+
   return (
     <div className="sponsor-block">
       <span>{sponsorBlock.text}</span>{' '}
@@ -64,7 +79,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
         {sponsorBlock.name}
       </a>
       <div
-        id={sponsorBlock.adSlotId}
+        id="div-gpt-ad-1742833033751-0"
         style={{ minWidth: 135, minHeight: 38 }}
         className="sponsor-logo-placeholder"
       />

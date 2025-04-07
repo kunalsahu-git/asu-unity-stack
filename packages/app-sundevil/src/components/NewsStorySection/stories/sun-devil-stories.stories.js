@@ -142,7 +142,7 @@ const props = {
     sponsorBlock: {
       text: "Presented by:",
       name: "Desert Financial",
-      // adSlotId: "div-gpt-ad-1742833033751-0", 
+      adSlotId: "div-gpt-ad-1742833033751-0", 
       // logo: `<div id='div-gpt-ad-1742833033751-0' style='min-width: 135px; min-height: 38px;'>
       //         <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1742833033751-0'); });</script></div>`,
       url: "https://www.desertfinancial.com/",
