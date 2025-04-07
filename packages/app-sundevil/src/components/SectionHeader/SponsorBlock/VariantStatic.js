@@ -7,17 +7,45 @@ const Root = styled.img`
   max-height: 40px;
 `;
 
+// const SponsorBlock = ({ sponsorBlock }) => {
+//   useEffect(() => {
+//     // @ts-ignore
+//     if (window.googletag?.cmd) {
+//       // @ts-ignore
+//       window.googletag.cmd.push(() => {
+//         // @ts-ignore
+//         window.googletag.display("div-gpt-ad-1731610205689-0");
+//       });
+//     }
+//   }, []);
+
+//   return (
+//     <div className="sponsor-block">
+//       <span>{sponsorBlock.text}</span>{' '}
+//       <a href={sponsorBlock.url} target="_blank" rel="noopener noreferrer">
+//         {sponsorBlock.name}
+//       </a>
+//       <div
+//         id="div-gpt-ad-1731610205689-0"
+//         style={{ minWidth: 135, minHeight: 38 }}
+//         className="sponsor-logo-placeholder"
+//       />
+//     </div>
+//   );
+// };
+
 const SponsorBlock = ({ sponsorBlock }) => {
   useEffect(() => {
-    // @ts-ignore
-    if (window.googletag?.cmd) {
-      // @ts-ignore
-      window.googletag.cmd.push(() => {
-        // @ts-ignore
-        window.googletag.display("div-gpt-ad-1731610205689-0");
-      });
-    }
-  }, []);
+    const timeout = setTimeout(() => {
+      if (window.googletag?.cmd) {
+        window.googletag.cmd.push(() => {
+          window.googletag.display("div-gpt-ad-1731610205689-0");
+        });
+      }
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, ["div-gpt-ad-1731610205689-0"]);
 
   return (
     <div className="sponsor-block">
@@ -33,6 +61,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
     </div>
   );
 };
+
 
 /**
  * @type {React.FC<import("../props").SectionHeaderProps >}
