@@ -42,7 +42,7 @@ const SponsorBlock = ({ sponsorBlock }) => {
       });
     }
   }, [sponsorBlock.adSlotId]);
-  console.log("Page fully loaded. Triggering googletag.display for", sponsorBlock.adSlotId);
+  console.log("Page fully loaded. Triggering googletag.display for", sponsorBlock.logo);
 
   return (
     <div className="sponsor-block">
@@ -65,7 +65,7 @@ export default SponsorBlock;
 
 /**
  * @type {React.FC<import("../props").SectionHeaderProps >}
- */
+ */ ``  
 export const VariantStatic = forwardRef(({ sponsorBlock }, ref) => {
   return (
     <SponsorBlock sponsorBlock={{

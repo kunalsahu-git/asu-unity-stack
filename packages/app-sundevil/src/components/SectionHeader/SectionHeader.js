@@ -103,7 +103,7 @@ export const SectionHeader = forwardRef((props, ref) => {
             )}
           </div>
           {!isMobile && (
-            <div className="col-md-4 col-sm-0 mt-auto d-none d-sm-none d-md-flex justify-content-end">
+            <div className="col-md-4 col-sm-0 mt-auto d-sm-none d-md-flex justify-content-end">
               {isSponsorBlockValid(sponsorBlock) && (
                 <SponsorBlock mobile={false} {...props} />
               )}
