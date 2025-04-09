@@ -160,7 +160,7 @@ const NewsStorySectionInner = ({
 
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.title ?? "";
-
+  console.log("sectionHeaderProps inside nes story ", sectionHeaderProps)
   const hasFooter = footerButtons.length > 0 || footerLinks.length > 0;
   const footer = hasFooter ? (
     <SectionFooter

@@ -55,6 +55,7 @@ import { GameTableFormTopbar } from "./GameTableForm/GameTableFormTopbar";
 import { useGameTableForm } from "./GameTableForm/use-game-table-form";
 import { GameTableHero } from "./GameTableHero/GameTableHero";
 import { SidebarLayout } from "./SidebarLayout";
+import { VariantGoogleAd } from "../SectionHeader/SponsorBlock/VariantGoogleAd";
 
 const GameTableRoot = styled.div`
   display: flex;
@@ -259,6 +260,11 @@ const GameTableSectionInner = ({ ...props }) => {
 
   const renderGameTable = ({ className = "" } = {}) => (
     <GameTableRoot className={className}>
+      <VariantGoogleAd
+        {...props}
+        // @ts-ignore
+        // ref={ref}
+      />
       <GameTable
         {...props}
         {...props.gameTable}
