@@ -32,7 +32,7 @@ const Title = styled.div`
 `;
 
 const isCleanString = str => typeof str === "string" && str.trim().length > 0;
-
+console.log("is clean string", isCleanString)
 /**
  * @type {React.FC<import("../props").SectionHeaderProps & {mobile: boolean}>}
  */
@@ -50,42 +50,70 @@ export const SponsorBlock = props => {
     ref: variantRef,
   });
   return (
-    <Root
-      style={hideProps.style}
-      tabIndex={hideProps.tabIndex}
-      aria-hidden={hideProps["aria-hidden"]}
-      href={sponsorBlock?.url}
-      className={className}
-      onClick={() => {
-        trackGAEvent({
-          event: "link",
-          action: "click",
-          name: "onclick",
-          type: "external link",
-          region: "main content",
-          section: sponsorBlock?.text ?? " ",
-          text: sponsorBlock?.name ?? " ",
-          component: "image",
-        });
-        trackAdClickHandler({
-          adId: sponsorBlock?.adId,
-          href: sponsorBlock?.url,
-        })();
-      }}
-    >
-      {isCleanString(sponsorBlock?.text) && (
-        <Title
-          // @ts-ignore
-          darkMode={darkMode}
-        >
-          {sponsorBlock?.text}
-        </Title>
-      )}
-      <Variant
-        {...props}
-        // @ts-ignore
-        ref={variantRef}
-      />
-    </Root>
+    // <Root
+    //   style={hideProps.style}
+    //   tabIndex={hideProps.tabIndex}
+    //   aria-hidden={hideProps["aria-hidden"]}
+    //   href={sponsorBlock?.url}
+    //   className={className}
+    //   onClick={() => {
+    //     trackGAEvent({
+    //       event: "link",
+    //       action: "click",
+    //       name: "onclick",
+    //       type: "external link",
+    //       region: "main content",
+    //       section: sponsorBlock?.text ?? " ",
+    //       text: sponsorBlock?.name ?? " ",
+    //       component: "image",
+    //     });
+    //     trackAdClickHandler({
+    //       adId: sponsorBlock?.adId,
+    //       href: sponsorBlock?.url,
+    //     })();
+    //   }}
+    // >
+    //   <p>above title</p>
+    //   {isCleanString(sponsorBlock?.text) && (
+    //     <Title
+    //       // @ts-ignore
+    //       darkMode={darkMode}
+    //     >
+    //       {sponsorBlock?.text}
+    //     </Title>
+    //   )}
+    //   <p>above variant</p>
+    //   <Variant
+    //     {...props}
+    //     // @ts-ignore
+    //     ref={variantRef}
+    //   />
+    // </Root>
+    <>
+    <p>above variant</p>
+        <Variant
+    {...props}
+    // @ts-ignore
+    ref={variantRef}
+    onClick={() => {
+      console.log("✅ Variant clicked", sponsorBlock);
+      trackGAEvent({
+        event: "link",
+        action: "click",
+        name: "onclick",
+        type: "external link",
+        region: "main content",
+        section: sponsorBlock?.text ?? " ",
+        text: sponsorBlock?.name ?? " ",
+        component: "image",
+      });
+      trackAdClickHandler({
+        adId: sponsorBlock?.adId,
+        href: sponsorBlock?.url,
+      })();
+    }}
+    />
+    </>
+
   );
 };

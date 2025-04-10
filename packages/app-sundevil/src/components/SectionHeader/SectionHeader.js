@@ -55,6 +55,8 @@ export const SectionHeader = forwardRef((props, ref) => {
     title || subtitle || tabs || social || sponsorBlock
   );
 
+  console.log("in section header", props, sponsorBlock)
+
   const hasSubtitle =
     Boolean(subtitle) ||
     Boolean(Array.isArray(subtitleLinks) && subtitleLinks.length > 0) ||
@@ -105,7 +107,10 @@ export const SectionHeader = forwardRef((props, ref) => {
           {!isMobile && (
             <div className="col-md-4 col-sm-0 mt-auto d-none d-sm-none d-md-flex justify-content-end">
               {isSponsorBlockValid(sponsorBlock) && (
+                <>
+                <p>before sponsor block</p>
                 <SponsorBlock mobile={false} {...props} />
+                </>
               )}
             </div>
           )}
