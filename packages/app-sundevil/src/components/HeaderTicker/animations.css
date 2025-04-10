@@ -1,0 +1,16 @@
+@keyframes move-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-move-left {
+    display: flex;
+    white-space: nowrap;
+    animation: move-left 30s linear infinite;
+    gap: 2rem; /* adds space between words */
+  }
+  
