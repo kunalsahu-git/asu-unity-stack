@@ -30,6 +30,9 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
     limit: Infinity,
   });
 
+  console.log("this special events", specialEvents)
+  const checkIfSpecialEvents = specialEvents.length > 0 ? true : false;
+
   const sectionHeaderRef = useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
   const sectionHeaderDimensions = useElementContentDimensions(sectionHeaderRef);
@@ -42,18 +45,22 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.sectionName ?? "";
   return (
+    <>
+  {checkIfSpecialEvents && (
     <Root>
-      <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
-      {shouldPreventJitter && (
-        <SpecialEventCardCarousel
-          cards={specialEvents}
-          skeleton={isLoading}
-          cardWidth={cardWidth}
-          slidesOffsetBefore={sectionHeaderPosition.left}
-          sectionName={sectionName}
-        />
-      )}
-    </Root>
+    <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
+    {shouldPreventJitter && (
+      <SpecialEventCardCarousel
+        cards={specialEvents}
+        skeleton={isLoading}
+        cardWidth={cardWidth}
+        slidesOffsetBefore={sectionHeaderPosition.left}
+        sectionName={sectionName}
+      />
+    )}
+  </Root>
+  )}
+  </>
   );
 };
 
