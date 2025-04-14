@@ -40,6 +40,28 @@ export const drupalSocialMediaSectionProps = {
       name: "Ford",
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
       href: "https://www.ford.com/",
+      googleAdHead: `
+      <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+      <script>
+        console.log('googleAdHead');
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+          googletag.defineSlot('/23203588234/LSQA', [135, 38], 'div-gpt-ad-1731610205689-0').addService(googletag.pubads());
+          googletag.pubads().enableSingleRequest();
+          googletag.pubads().collapseEmptyDivs();
+          googletag.enableServices();
+        });
+      </script>
+      `,
+      googleAdBody: `
+      <!-- /23203588234/LSQA -->
+      <div id='div-gpt-ad-1731610205689-0' style='min-width: 135px; min-height: 38px;'>
+        <script>
+          console.log('googleAdBody');
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1731610205689-0'); });
+        </script>
+      </div>
+      `,
     },
   ],
 };

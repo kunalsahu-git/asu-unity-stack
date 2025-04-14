@@ -15,6 +15,8 @@ const drupalSponsorBlockPropTypes = PropTypes.shape({
   text: PropTypes.string,
   url: PropTypes.string,
   name: PropTypes.string,
+  googleAdBody: PropTypes.string,
+  googleAdHead: PropTypes.string,
 });
 
 const drupalPropTypes = {
