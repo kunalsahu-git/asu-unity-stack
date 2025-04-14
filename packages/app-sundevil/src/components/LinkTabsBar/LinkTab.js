@@ -15,6 +15,7 @@ export const Root = styled.a`
   text-decoration: none;
   cursor: pointer;
   height: 100%;
+  max-width: 40%;
   font-weight: bold;
   background-color: transparent;
   overlap: hidden;
@@ -43,8 +44,7 @@ const LabelRoot = styled.div`
   gap: 1rem;
   justify-content: flex-start;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: 50%;
   flex: 1;
 `;
 
