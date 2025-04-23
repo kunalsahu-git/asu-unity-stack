@@ -3,6 +3,7 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 const Root = styled.img`
+  width: 148px;
   max-height: 100%;
   object-fit: cover;
 `;
