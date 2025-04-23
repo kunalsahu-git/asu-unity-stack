@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { APP_CONFIG } from "../../config";
@@ -30,34 +30,45 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
     limit: Infinity,
   });
 
-  const checkIfSpecialEvents = specialEvents.length > 0 ? true : false;
   const sectionHeaderRef = useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
+
+  const [isLayoutReady, setIsLayoutReady] = useState(false);
   const sectionHeaderDimensions = useElementContentDimensions(sectionHeaderRef);
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   const cardWidth = isMobile
     ? sectionHeaderDimensions.width
     : DESKTOP_CARD_WIDTH;
 
-  const shouldPreventJitter = sectionHeaderPosition.left > 0;
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.sectionName ?? "";
+  const checkIfSpecialEvents = specialEvents.length > 0;
+
+  useEffect(() => {
+    // Check layout readiness by watching the 'left' position
+    if (sectionHeaderPosition.left > 0) {
+      setIsLayoutReady(true);
+    } else {
+      setIsLayoutReady(false);
+    }
+  }, [sectionHeaderPosition]);
+
   return (
     <>
-    {checkIfSpecialEvents && 
-      <Root>
-      <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
-      {shouldPreventJitter && (
-        <SpecialEventCardCarousel
-          cards={specialEvents}
-          skeleton={isLoading}
-          cardWidth={cardWidth}
-          slidesOffsetBefore={sectionHeaderPosition.left}
-          sectionName={sectionName}
-        />
+      {checkIfSpecialEvents && (
+        <Root>
+          <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
+          {isLayoutReady && ( // Only render carousel once position is measured
+            <SpecialEventCardCarousel
+              cards={specialEvents}
+              skeleton={isLoading}
+              cardWidth={cardWidth}
+              slidesOffsetBefore={sectionHeaderPosition.left}
+              sectionName={sectionName}
+            />
+          )}
+        </Root>
       )}
-    </Root>
-    }
     </>
   );
 };
