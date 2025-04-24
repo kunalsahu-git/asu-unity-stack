@@ -80,6 +80,8 @@ export const GameTable = ({
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   const isDesktop = !isMobile;
 
+  console.log("Games:", games)
+
   const isSkeleton = skeleton && games.length === 0;
 
   const isEmpty =
