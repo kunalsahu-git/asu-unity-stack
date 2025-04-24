@@ -19,6 +19,8 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   gap: 52px;
+  padding-top: 32px;
+  padding-bottom: 48px;
   position: relative;
 `;
 
