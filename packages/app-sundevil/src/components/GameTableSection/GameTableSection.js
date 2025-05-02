@@ -443,7 +443,7 @@ GameTableSectionInner.propTypes = {
 //
 //
 //
-//
+// 
 
 export const GameTableSection = ({
   gameDataSource: gameDataSourceConfig,

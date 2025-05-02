@@ -7,7 +7,6 @@ import { NewsStorySection } from "../index";
 
 const imageSrc =
   "https://asuevents.asu.edu/sites/default/files/2024-07/football-2024.jpg";
-
 // @ts-ignore
 // eslint-disable-next-line no-unused-vars
 const newsStories = [

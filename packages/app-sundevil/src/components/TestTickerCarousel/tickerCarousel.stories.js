@@ -1,50 +1,96 @@
 // @ts-check
 import React from "react";
 
-import { Ads } from "../Ads";
+// import { Sport } from "../Sport";
 import TickerCarousel from "./TickerCarousel";
 
-/** @type {import("../Ads").Props} */
-const props = {
-  // width: 970,
-  // height: 66,
-  storage: window.localStorage,
-  storageKey: "sun-devils-ads",
-  id: "root-ad",
-  target: "_blank",
-  ads: [
-    {
-      imageSrc: "https://tpc.googlesyndication.com/simgad/15906690503191566407",
-      imageAlt: "Placeholder",
-      href: "https://www.example.com",
-      id: "some-ad",
-      target: "_blank",
-      // width: 970,
-      // height: 66,
-    },
-    {
-      imageSrc: "https://tpc.googlesyndication.com/simgad/4947683613591479131",
-      imageAlt: "Placeholder",
-      href: "https://www.example.com",
-      target: "_blank",
-      // width: 970,
-      // height: 66,
-    },
-    {
-      imageSrc: "https://tpc.googlesyndication.com/simgad/8450655694590921544",
-      imageAlt: "Placeholder",
-      href: "https://www.example.com",
-
-      target: "_blank",
-      // width: 728,
-      // height: 90,
-    },
-  ],
-};
+// /** @type {import("../Sport").Props} */
+// const props = {
+//   // width: 970,
+//   // height: 66,
+//   storage: window.localStorage,
+//   storageKey: "sun-devils-ads",
+//   id: "root-ad",
+//   target: "_blank",
+//   // sports: [
+//   //   {
+//   //     name: "All Sports",
+//   //     icon: "fas fa-sync-alt",
+//   //     position: 1,
+//   //     id: ALL_ID,
+//   //   },
+//   //   {
+//   //     name: "Football",
+//   //     icon: "fas fa-football-ball",
+//   //     position: 2,
+//   //     id: "football",
+//   //   },
+//   //   {
+//   //     name: "M. Basketball",
+//   //     icon: "fas fa-basketball-ball",
+//   //     position: 3,
+//   //     id: "basketball",
+//   //   },
+//   //   {
+//   //     name: "Hockey",
+//   //     icon: "fas fa-hockey-puck",
+//   //     position: 4,
+//   //     id: "hockey",
+//   //   },
+//   //   {
+//   //     name: "Baseball",
+//   //     icon: "fas fa-baseball-ball",
+//   //     position: 5,
+//   //     id: "baseball",
+//   //   },
+//   //   {
+//   //     name: "W. Basketball",
+//   //     icon: "fas fa-basketball-ball",
+//   //     id: "w-basketball",
+//   //     position: 6,
+//   //   },
+//   //   {
+//   //     name: "Softball",
+//   //     icon: "fas fa-futbol",
+//   //     id: "softball",
+//   //     position: 7,
+//   //   },
+//   //   {
+//   //     name: "Soccer",
+//   //     icon: "fas fa-baseball-ball",
+//   //     id: "soccer",
+//   //     position: 8,
+//   //   },
+//   //   {
+//   //     name: "Swimming",
+//   //     icon: "fas fa-swimmer",
+//   //     id: "swimming",
+//   //     position: 9,
+//   //   },
+//   //   {
+//   //     name: "Golf",
+//   //     icon: "fas fa-golf-ball",
+//   //     id: "golf",
+//   //     position: 10,
+//   //   },
+//   //   {
+//   //     name: "Tennis",
+//   //     icon: "fas fa-table-tennis",
+//   //     id: "tennis",
+//   //     position: 11,
+//   //   },
+//   //   {
+//   //     name: "W. Lacrosse",
+//   //     icon: "fas fa-lacrosse",
+//   //     id: "w-lacrosse",
+//   //     position: 12,
+//   //   },
+//   // ],
+// };
 
 export default {
   title: "Ticker Carousel",
-  component: args => <TickerCarousel />,
+  component: <TickerCarousel />,
   parameters: {
     docs: {
       description: {
@@ -59,4 +105,80 @@ const Template = args => {
 };
 
 export const Default = Template.bind({});
-Default.args = props;
+Default.args = {
+  title: "Ticket Carousel",
+  // sports: [
+  //   {
+  //     name: "All Sports",
+  //     icon: "fas fa-sync-alt",
+  //     position: 1,
+  //     id: "football",
+  //   },
+  //   {
+  //     name: "Football",
+  //     icon: "fas fa-football-ball",
+  //     position: 2,
+  //     id: "football",
+  //   },
+  //   {
+  //     name: "M. Basketball",
+  //     icon: "fas fa-basketball-ball",
+  //     position: 3,
+  //     id: "basketball",
+  //   },
+  //   {
+  //     name: "Hockey",
+  //     icon: "fas fa-hockey-puck",
+  //     position: 4,
+  //     id: "hockey",
+  //   },
+  //   {
+  //     name: "Baseball",
+  //     icon: "fas fa-baseball-ball",
+  //     position: 5,
+  //     id: "baseball",
+  //   },
+  //   {
+  //     name: "W. Basketball",
+  //     icon: "fas fa-basketball-ball",
+  //     id: "w-basketball",
+  //     position: 6,
+  //   },
+  //   {
+  //     name: "Softball",
+  //     icon: "fas fa-futbol",
+  //     id: "softball",
+  //     position: 7,
+  //   },
+  //   {
+  //     name: "Soccer",
+  //     icon: "fas fa-baseball-ball",
+  //     id: "soccer",
+  //     position: 8,
+  //   },
+  //   {
+  //     name: "Swimming",
+  //     icon: "fas fa-swimmer",
+  //     id: "swimming",
+  //     position: 9,
+  //   },
+  //   {
+  //     name: "Golf",
+  //     icon: "fas fa-golf-ball",
+  //     id: "golf",
+  //     position: 10,
+  //   },
+  //   {
+  //     name: "Tennis",
+  //     icon: "fas fa-table-tennis",
+  //     id: "tennis",
+  //     position: 11,
+  //   },
+  //   {
+  //     name: "W. Lacrosse",
+  //     icon: "fas fa-lacrosse",
+  //     id: "w-lacrosse",
+  //     position: 12,
+  //   },
+  // ],
+}

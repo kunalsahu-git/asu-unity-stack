@@ -36,6 +36,7 @@ export const gameDataSourcePropTypes = PropTypes.oneOfType([
 ]);
 
 export const buildGameDataSource = input => {
+  console.log("input is", input)
   switch (input?.type) {
     case "static": {
       return new GameDataSourceStatic(input);
@@ -47,6 +48,7 @@ export const buildGameDataSource = input => {
       return new GameDataSourceAsuEvents(input);
     }
     case "special-events": {
+      console.log("input is 1", input)
       return new GameDataSourceSpecialEvents(input);
     }
     case "custom": {

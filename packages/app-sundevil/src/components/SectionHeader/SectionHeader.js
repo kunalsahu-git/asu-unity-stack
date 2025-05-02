@@ -55,8 +55,6 @@ export const SectionHeader = forwardRef((props, ref) => {
     title || subtitle || tabs || social || sponsorBlock
   );
 
-  console.log("in section header", props, sponsorBlock)
-
   const hasSubtitle =
     Boolean(subtitle) ||
     Boolean(Array.isArray(subtitleLinks) && subtitleLinks.length > 0) ||
