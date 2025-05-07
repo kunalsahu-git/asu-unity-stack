@@ -14,12 +14,16 @@ const TickerCarousel = () => {
   const maxScroll = -(itemWidth * (items.length - visibleCount)); 
   const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0)); // Don't scroll past the first item
   const slideRight = () => setPosition(prev => Math.max(prev - itemWidth, maxScroll)); // Don't scroll past the last item
-
+  const winningHighlightStyle = (highlight) => ({
+    background: highlight ? '#FFC627' : 'black',
+    color: highlight ? 'black' : 'white',
+    padding: '2px',
+  });
   useEffect(() => {
     const fetchData = async () => {
       const url =
         "https://hokiesports.com/website-api/schedule-events?filter%5Bpast%5D=true&sort%5B0%5D=datetime&include%5B0%5D=conference.image&include%5B1%5D=opponent.customLogo&include%5B2%5D=opponent.officialLogo&include%5B3%5D=opponentLogo&include%5B4%5D=postEventArticle.image&include%5B5%5D=preEventArticle.image&include%5B6%5D=presentedBy&include%5B7%5D=schedule.sport&include%5B8%5D=scheduleEventLinks.icon&include%5B9%5D=scheduleEventResult&include%5B10%5D=secondOpponent.customLogo&include%5B11%5D=secondOpponent.officialLogo&include%5B12%5D=secondOpponentLogo&include%5B13%5D=tournament&per_page=100&page=1";
-
+      // "https://thesundevils-com.wmt-dev-test-2.c.wmt.dev/website-api/schedule-events?filter%5Bpast%5D=true&sort%5B0%5D=datetime&include%5B0%5D=conference.image&include%5B1%5D=opponent.customLogo&include%5B2%5D=opponent.officialLogo&include%5B3%5D=opponentLogo&include%5B4%5D=postEventArticle.image&include%5B5%5D=preEventArticle.image&include%5B6%5D=presentedBy&include%5B7%5D=schedule.sport&include%5B8%5D=scheduleEventLinks.icon&include%5B9%5D=scheduleEventResult&include%5B10%5D=secondOpponent.customLogo&include%5B11%5D=secondOpponent.officialLogo&include%5B12%5D=secondOpponentLogo&include%5B13%5D=tournament&per_page=100&page=1"
       const dataSource = new GameDataSourceSpecialEvents(url);
       const games = await dataSource.findMany();
       setItems(games);
@@ -43,18 +47,23 @@ const TickerCarousel = () => {
               {item.sportName}
             </div>
             <div className="line" style={{fontWeight: "normal"}}>{item.gameday}</div>
-            <div className="line">{item.homeTeamName} {item.winningScore}</div>
-            <div className="line">{item.opponentName} {item.losingScore}</div>
+            <div className="line">
+            {/* <div style={winningHighlightStyle(item.sunDevilsWon)}>{item.homeTeamName} {item.sunDevilsScore}</div>
+            <div style={winningHighlightStyle(!item.sunDevilsWon)}>{item.opponentName} {item.opponentScore}</div> */}
+            {/* <div>{item.result} {item.venueType}</div> */}
+            <div style={winningHighlightStyle(item.firstTeam.won)}>{item.firstTeam.name} {item.firstTeam.score}</div>
+            <div style={winningHighlightStyle(item.secondTeam.won)}>{item.secondTeam.name} {item.secondTeam.score}</div>
+            </div>
           </div>
         ))}
       </div>
     </div>
 
-    <div className="nav">
-      <button className="nav-button" onClick={slideLeft}>
+    <div className="slider">
+      <button className="nav-slider" onClick={slideLeft}>
         <FontAwesomeIcon icon={faArrowLeft} />
       </button>
-      <button className="nav-button" onClick={slideRight}>
+      <button className="nav-slider" onClick={slideRight}>
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
     </div>
