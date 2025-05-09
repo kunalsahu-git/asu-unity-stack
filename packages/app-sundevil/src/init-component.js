@@ -178,7 +178,7 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 
 import { VideoSection } from "./components/VideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
-import { TickerCarousel } from "./components/TestTickerCarousel"
+import TickerCarousel from "./components/TestTickerCarousel"
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
