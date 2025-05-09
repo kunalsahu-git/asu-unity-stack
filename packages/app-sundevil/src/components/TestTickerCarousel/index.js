@@ -1,1 +1,1 @@
-export * from "./TickerCarousel";
+export { default as TickerCarousel } from "./TickerCarousel";
