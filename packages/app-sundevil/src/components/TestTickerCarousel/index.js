@@ -1,1 +1,0 @@
-export { default as TickerCarousel } from "./TickerCarousel";
