@@ -55,12 +55,12 @@ export const TickerCarousel = (props) => {
     </div>
 
     <div className="slider">
-      <button className="nav-slider" onClick={slideLeft}>
+      <div className="nav-slider" onClick={slideLeft}>
         <FontAwesomeIcon icon={faArrowLeft} />
-      </button>
-      <button className="nav-slider" onClick={slideRight}>
+      </div>
+      <div className="nav-slider" onClick={slideRight}>
         <FontAwesomeIcon icon={faArrowRight} />
-      </button>
+      </div>
     </div>
   </div>  
   );
