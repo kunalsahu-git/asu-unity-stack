@@ -41,6 +41,11 @@ const Header = styled.header`
         height: 0;
         overflow: hidden;
       }
+      .carousel-wrapper {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+      }
       .title {
         margin: 0.5rem 0;
       }
@@ -107,6 +112,11 @@ const HeaderDiv = styled.div`
   @media (min-width: ${({ breakpoint }) => breakpoints[breakpoint]}) {
     &.scrolled {
       .universal-nav {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      .carousel-wrapper {
         min-height: 0;
         height: 0;
         overflow: hidden;
