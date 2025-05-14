@@ -45,6 +45,7 @@ const Header = styled.header`
         min-height: 0;
         height: 0;
         overflow: hidden;
+        border: 0;
       }
       .title {
         margin: 0.5rem 0;
@@ -73,6 +74,16 @@ const Header = styled.header`
       padding-left: 0;
       padding-right: 0;
       max-width: 100%;
+    }
+  }
+  @media (max-width: 922px) {
+    &.scrolled {
+      .carousel-wrapper {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+      }
     }
   }
 `;
@@ -120,6 +131,7 @@ const HeaderDiv = styled.div`
         min-height: 0;
         height: 0;
         overflow: hidden;
+        border: 0;
       }
       .title {
         margin: 0.5rem 0;
@@ -148,6 +160,16 @@ const HeaderDiv = styled.div`
       padding-left: 0;
       padding-right: 0;
       max-width: 100%;
+    }
+  }
+  @media (max-width: 922px) {
+    &.scrolled {
+      .carousel-wrapper {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+      }
     }
   }
 `;
