@@ -6,8 +6,6 @@
   border-top: 1px solid #747474;
   border-bottom: 1px solid #747474;
   overflow: hidden;
-  position: relative;
-  top: 272px;
 }
 
 .carousel-score {
@@ -22,7 +20,7 @@
   font-size: 16px;
   border-right: 1px solid #747474;
   background: black;
-  position: relative;
+  z-index: 1;
 }
 
 .carousel-view {
