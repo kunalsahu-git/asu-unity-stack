@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useDeviceType = () => {
-  const getDeviceType = () => (typeof window !== "undefined" && window.innerWidth <= 768 ? "mobile" : "desktop");
+  const getDeviceType = () => (typeof window !== "undefined" && window.innerWidth <= 1260 ? "mobile" : "desktop");
 
   const [device, setDevice] = useState(getDeviceType);
 
