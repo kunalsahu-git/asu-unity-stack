@@ -4,6 +4,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SportIcon } from "../SportIcon";
 import { stringToClosestSportName } from "../SportIcon/sport-name";
+import { DropDown } from "../DropDown";
 import { GameDataTicker } from "./game-data-ticker";
 
 export const TickerCarousel = (props) => {
@@ -31,6 +32,7 @@ export const TickerCarousel = (props) => {
   }, []);
 
   return (
+    <>
     <div className="carousel-wrapper">
     <div className="carousel-score">Scores :</div>
     <div className="carousel-view">
@@ -63,6 +65,21 @@ export const TickerCarousel = (props) => {
       </div>
     </div>
   </div>  
+  <div>
+  <DropDown
+      open={open}
+      onClose={() => setOpen(false)}
+      style={{ height: "100%" }}
+      position="bottom-end"
+      renderReference={({ ref, open: isOpen }) => (
+        <p>HI</p>
+      )}
+      renderContent={() => (
+        <p>HI</p>
+      )}
+    />
+  </div>
+  </>
   );
 };
 

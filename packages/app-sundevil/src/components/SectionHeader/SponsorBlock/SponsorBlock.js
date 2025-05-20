@@ -82,7 +82,6 @@ export const SponsorBlock = props => {
     //       {sponsorBlock?.text}
     //     </Title>
     //   )}
-    //   <p>above variant</p>
     //   <Variant
     //     {...props}
     //     // @ts-ignore
@@ -90,7 +89,6 @@ export const SponsorBlock = props => {
     //   />
     // </Root>
     <>
-    <p>above variant</p>
         <Variant
     {...props}
     // @ts-ignore

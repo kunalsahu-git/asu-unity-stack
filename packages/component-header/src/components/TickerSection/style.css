@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 56px;
-  background: black;
+  background: #191919;
   border-top: 1px solid #747474;
   border-bottom: 1px solid #747474;
   overflow: hidden;
@@ -15,11 +15,11 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
-  color: white;
+  color: #d0d0d0;
   font-weight: bold;
   font-size: 16px;
   border-right: 1px solid #747474;
-  background: black;
+  background: #191919;
   z-index: 1;
 }
 
@@ -47,12 +47,12 @@
   width: auto;
   height: 100%;
   padding: 16px;
-  color: white;
+  color:  #d0d0d0;
   border-right: 1px solid #747474;
   font-size: 12px;
   font-weight: bold;
   box-sizing: border-box;
-  background: black;
+  background: 191919;
   margin-right: 0 !important;
 }
 
@@ -78,7 +78,7 @@
   padding: 8px 16px;
   height: 100%;
   width: 46px;
-  color: #fff;
+  color: #fafafa;
   font-size: 16px;
   cursor: pointer;
 }
