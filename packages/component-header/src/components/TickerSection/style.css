@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
-  color: white;
+  color: #D0D0D0;
   font-weight: bold;
   font-size: 16px;
   border-right: 1px solid #747474;
@@ -47,7 +47,7 @@
   width: auto;
   height: 100%;
   padding: 16px;
-  color: white;
+  color: #D0D0D0;
   border-right: 1px solid #747474;
   font-size: 12px;
   font-weight: bold;
@@ -78,13 +78,28 @@
   padding: 8px 16px;
   height: 100%;
   width: 46px;
-  color: #fff;
+  color: #FAFAFA;
   font-size: 16px;
   cursor: pointer;
 }
 
 .nav-slider:active {
   background: #747474;
+}
+
+.dropdown-score {
+  flex: 0 0 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  color: #D0D0D0;
+  font-weight: bold;
+  font-size: 16px;
+  border-right: 1px solid #747474;
+  background: black;
 }
 
 .dropdown {
@@ -97,8 +112,9 @@
 .dropdown-content {
   position: absolute;
   background-color: black;
-  color: white;
+  color: #D0D0D0;
   max-height: 519px;
+  width: 100%;
 
   /* width: 361px;
   height: 74px;
@@ -118,8 +134,8 @@
 
 .game-item {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-  width: 361px;
+  border-bottom: 1px solid #747474;
+  width: 100%;
   /* height: 74px; */
   padding: 16px;
 }

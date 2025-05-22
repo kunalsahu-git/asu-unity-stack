@@ -10,6 +10,8 @@ import { tryAddActivePage } from "./core/utils/helpers/active-page";
 import { Header, HeaderDiv } from "./header.styles";
 import { TickerSection } from "./components/TickerSection";
 import TickerMobileView from "./components/TickerSection/TickerMobileView";
+import { useBreakpoint } from "../../app-sundevil/src/utils/use-breakpoint";
+import { APP_CONFIG } from "../../app-sundevil/src/config";
 /**
  * @typedef {import("./core/models/types").HeaderProps} HeaderProps
  */
@@ -93,6 +95,7 @@ const ASUHeader = ({
 }) => {
   const navTree = tryAddActivePage(rawNavTree);
   const mobileNavTree = tryAddActivePage(rawMobileNavTree);
+  const isLargeScreen = !useBreakpoint(APP_CONFIG.breakpointTablet); // > 1024px
 
   /**
    * @type {React.MutableRefObject<HTMLDivElement | null>}
@@ -147,8 +150,11 @@ const ASUHeader = ({
               id={stickyPortalEntranceId}
             />
           )}
-        <TickerSection {...tickerProps} />
-        <TickerMobileView {...tickerProps} />
+          {isLargeScreen ? (
+            <TickerSection {...tickerProps} />
+          ) : (
+            <TickerMobileView {...tickerProps} />
+          )}
       </Wrapper>
     );
   };

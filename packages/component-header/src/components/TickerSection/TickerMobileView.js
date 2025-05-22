@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export const TickerCarousel = (props) => {
   const [items, setItems] = useState([]);
@@ -31,7 +31,7 @@ export const TickerCarousel = (props) => {
 
   return (
     <>
-    <div className="carousel-score" onClick={toggleDropdown}>Scores </div>
+    <div className="dropdown-score d-flex justify-content-between align-items-center" onClick={toggleDropdown}>Scores <FontAwesomeIcon icon={faChevronDown} /></div>
     <div className="dropdown">
       {isOpen && (
       <div className="dropdown-content">
