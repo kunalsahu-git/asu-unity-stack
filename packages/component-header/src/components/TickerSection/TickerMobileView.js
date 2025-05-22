@@ -31,47 +31,42 @@ export const TickerCarousel = (props) => {
 
   return (
     <>
-    <div className="carousel-score" onClick={toggleDropdown}>Scores :</div>
-    {/* <div className="carousel-view">
-      <div
-        className="carousel-track"
-        style={{ transform: `translateX(${position}px)` }}
-      >
-        {items.map((item, index) => (
-          <div key={index} className="carousel-item">
-            <div className="line">
-              <SportIcon sportName={stringToClosestSportName(item.sportName)} />
-              {item.sportName}
-            </div>
-            <div className="line" style={{fontWeight: "normal"}}>{item.gameday}</div>
-            <div className="line">
-            <div style={winningHighlightStyle(item.firstTeam.won)}>{item.firstTeam.name} {item.firstTeam.score}</div>
-            <div style={winningHighlightStyle(item.secondTeam.won)}>{item.secondTeam.name} {item.secondTeam.score}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div> */}
-
+    <div className="carousel-score" onClick={toggleDropdown}>Scores </div>
     <div className="dropdown">
       {isOpen && (
-        <div className="dropdown-content">
-        {items.map((item, index) => (
-          <div key={index} className="game-item">
-            <div class="row">
-                <div class="col-6">
-                <SportIcon sportName={stringToClosestSportName(item.sportName)} />  {item.sportName}
-                </div>
-                <div class="col-6" style={{fontWeight: "normal"}}>
-                {item.gameday}
-                </div>
-
+      <div className="dropdown-content">
+      {items.map((item, index) => (
+        <div key={index} className="game-item">
+          {/* Row 1: Sport Name and Gameday */}
+          <div className="d-flex justify-content-between align-items-center" style={{ paddingBottom: '24px'}}>
+            <div>
+              <SportIcon sportName={stringToClosestSportName(item.sportName)} /> {item.sportName}
             </div>
-            <div class="row" style={winningHighlightStyle(item.firstTeam.won)}>{item.firstTeam.name} {item.firstTeam.score}</div>
-            <div class="row" style={winningHighlightStyle(item.secondTeam.won)}>{item.secondTeam.name} {item.secondTeam.score}</div>
+            <div style={{ fontWeight: 'normal' }}>
+              {item.gameday}
+            </div>
           </div>
-        ))}
+    
+          {/* Row 2: First Team */}
+          <div className="d-flex justify-content-between align-items-center" style={{ paddingBottom: '12px'}}>
+          <div style={winningHighlightStyle(item.firstTeam.won)}>
+            {item.firstTeam.name}
+          </div>
+          <div>
+          {item.firstTeam.score}
+          </div>
+          </div>
+    
+          {/* Row 3: Second Team */}
+          <div className="d-flex justify-content-between align-items-center">
+          <div style={winningHighlightStyle(item.secondTeam.won)}>
+            {item.secondTeam.name}
+          </div>
+          <div> {item.secondTeam.score} </div>
+          </div>
         </div>
+      ))}
+    </div>
       )}
     </div>
   </>  
