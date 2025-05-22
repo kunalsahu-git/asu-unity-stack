@@ -86,3 +86,34 @@
 .nav-slider:active {
   background: #747474;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: black;
+  color: white;
+  max-height: 519px;
+
+  /* width: 361px;
+  height: 74px;
+  padding: 16px; */
+  overflow-y: auto;
+  /* border: 1px solid #ccc; */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.game-item {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  width: 361px;
+  /* height: 74px; */
+  padding: 16px;
+}

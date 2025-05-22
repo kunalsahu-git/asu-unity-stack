@@ -9,6 +9,7 @@ import { HeaderPropTypes } from "./core/models/app-prop-types";
 import { tryAddActivePage } from "./core/utils/helpers/active-page";
 import { Header, HeaderDiv } from "./header.styles";
 import { TickerSection } from "./components/TickerSection";
+import TickerMobileView from "./components/TickerSection/TickerMobileView";
 /**
  * @typedef {import("./core/models/types").HeaderProps} HeaderProps
  */
@@ -147,6 +148,7 @@ const ASUHeader = ({
             />
           )}
         <TickerSection {...tickerProps} />
+        <TickerMobileView {...tickerProps} />
       </Wrapper>
     );
   };
