@@ -96,8 +96,7 @@ const ASUHeader = ({
 }) => {
   const navTree = tryAddActivePage(rawNavTree);
   const mobileNavTree = tryAddActivePage(rawMobileNavTree);
-  const isLargeScreen = !useBreakpoint(APP_CONFIG.breakpointTablet); // > 1024px
-console.log("tikcer api", tickerAPI)
+  const isLargeScreen = !useBreakpoint(APP_CONFIG.breakpointDesktopSmall); // > 1024px
   /**
    * @type {React.MutableRefObject<HTMLDivElement | null>}
    */

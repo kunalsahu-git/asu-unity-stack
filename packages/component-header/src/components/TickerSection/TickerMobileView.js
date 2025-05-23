@@ -10,7 +10,7 @@ export const TickerMobile = ({tickerAPI}) => {
   const [items, setItems] = useState([]);
   const winningHighlightStyle = highlight => ({
     background: highlight ? "#FFC627" : "black",
-    color: highlight ? "black" : "white",
+    color: highlight ? "black" : "#D0D0D0",
     padding: "2px",
   });
 

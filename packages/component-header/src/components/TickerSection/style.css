@@ -59,6 +59,7 @@
 .carousel-item .line {
   display: flex;
   align-items: center;
+  color: #D0D0D0;
   gap: 6px;
 }
 
