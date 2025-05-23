@@ -46,12 +46,14 @@ const Header = styled.header`
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
       .dropdown-section {
         min-height: 0;
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
       .title {
         margin: 0.5rem 0;
@@ -89,6 +91,7 @@ const Header = styled.header`
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
     }
   }
@@ -137,12 +140,14 @@ const HeaderDiv = styled.div`
         min-height: 0;
         height: 0;
         overflow: hidden;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
       .carousel-wrapper {
         min-height: 0;
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
       .title {
         margin: 0.5rem 0;
@@ -180,12 +185,14 @@ const HeaderDiv = styled.div`
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
       .dropdown-section {
         min-height: 0;
         height: 0;
         overflow: hidden;
         border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
     }
   }
