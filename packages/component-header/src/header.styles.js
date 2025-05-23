@@ -47,6 +47,12 @@ const Header = styled.header`
         overflow: hidden;
         border: 0;
       }
+      .dropdown-section {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+      }
       .title {
         margin: 0.5rem 0;
       }
@@ -127,6 +133,11 @@ const HeaderDiv = styled.div`
         height: 0;
         overflow: hidden;
       }
+      .dropdown-section {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+      }
       .carousel-wrapper {
         min-height: 0;
         height: 0;
@@ -165,6 +176,12 @@ const HeaderDiv = styled.div`
   @media (max-width: 922px) {
     &.scrolled {
       .carousel-wrapper {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+      }
+      .dropdown-section {
         min-height: 0;
         height: 0;
         overflow: hidden;

@@ -6,7 +6,7 @@ import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
 
-export const TickerCarousel = (props) => {
+export const TickerCarousel = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [position, setPosition] = useState(0);
   const itemWidth = 360; // Width of each carousel item
@@ -21,8 +21,8 @@ export const TickerCarousel = (props) => {
   });
   useEffect(() => {
     const fetchData = async () => {
-      const url = props.tickerAPI;
-      const dataSource = new GameDataTicker(url);
+      // const url = tickerAPI;
+      const dataSource = new GameDataTicker(tickerAPI);
       const games = await dataSource.findMany();
       setItems(games);
     };
