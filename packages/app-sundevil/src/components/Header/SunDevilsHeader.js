@@ -6,7 +6,6 @@ import { mapProps } from "./props-map";
 
 export const SunDevilsHeader = props => {
   const mappedProps = { ...mapProps(props) };
-  // console.log("mapped props", props, mappedProps)
   return <ASUHeader {...mappedProps} />;
 };
 SunDevilsHeader.propTypes = headerPropTypes;

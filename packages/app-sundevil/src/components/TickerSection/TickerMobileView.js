@@ -82,7 +82,7 @@ export const TickerMobile = ({tickerAPI}) => {
                   <div style={winningHighlightStyle(item.firstTeam.won)}>
                     {item.firstTeam.name}
                   </div>
-                  <div>{item.firstTeam.score}</div>
+                  <div style={{color: 'white'}}>{item.firstTeam.score}</div>
                 </div>
 
                 {/* Row 3: Second Team */}
@@ -90,7 +90,7 @@ export const TickerMobile = ({tickerAPI}) => {
                   <div style={winningHighlightStyle(item.secondTeam.won)}>
                     {item.secondTeam.name}
                   </div>
-                  <div> {item.secondTeam.score} </div>
+                  <div style={{color: 'white'}}> {item.secondTeam.score} </div>
                 </div>
               </div>
             ))}
