@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 56px;
-  background: black;
+  background: #191919;
   border-top: 1px solid #747474;
   border-bottom: 1px solid #747474;
   overflow: hidden;
@@ -19,7 +19,7 @@
   font-weight: bold;
   font-size: 16px;
   border-right: 1px solid #747474;
-  background: black;
+  background: #191919;
   z-index: 1;
 }
 
@@ -52,7 +52,7 @@
   font-size: 12px;
   font-weight: bold;
   box-sizing: border-box;
-  background: black;
+  background: #191919;
   margin-right: 0 !important;
 }
 
@@ -99,8 +99,8 @@
   color: #D0D0D0;
   font-weight: bold;
   font-size: 16px;
-  border-right: 1px solid #747474;
-  background: black;
+  border-bottom: 1px solid #747474;
+  background: #191919;
 }
 
 .dropdown {
@@ -112,7 +112,7 @@
 
 .dropdown-content {
   position: absolute;
-  background-color: black;
+  background-color: #191919;
   color: #D0D0D0;
   max-height: 519px;
   width: 100vw;
