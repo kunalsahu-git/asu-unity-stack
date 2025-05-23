@@ -8,7 +8,6 @@ export const useElementContentXPosition = elementRef => {
 
   const rafId = useRef(null);
   const lastContentXPosition = useRef(contentXPosition);
-  const retries = useRef(0); // Track retry attempts
 
   const handleContentXPosition = useCallback(() => {
     if (elementRef.current) {
@@ -43,22 +42,6 @@ export const useElementContentXPosition = elementRef => {
     rafId.current = requestAnimationFrame(handleContentXPosition);
   }, [handleContentXPosition]);
 
-  const retryMeasurement = () => {
-    // Retry the measurement if position is still 0 (and retry count is under the limit)
-    if (retries.current < 10 && contentXPosition.left === 0) {
-      retries.current += 1;
-      console.log("Retrying layout measurement..."); // Debugging output
-      setTimeout(() => {
-        handleContentXPosition();
-        if (contentXPosition.left === 0) {
-          setTimeout(retryMeasurement, 100); // Retry after a short delay
-        }
-      }, 100); // Retry after a short delay
-    } else if (retries.current >= 10) {
-      console.log("Max retries reached, position may not have been updated.");
-    }
-  };
-
   useEffect(() => {
     const resizeObserver = new ResizeObserver(debouncedHandleContentXPosition);
     if (elementRef.current) {
@@ -69,9 +52,6 @@ export const useElementContentXPosition = elementRef => {
 
     // Initial position calculation
     handleContentXPosition();
-    if (contentXPosition.left === 0) {
-      setTimeout(retryMeasurement, 100); // Start retry logic if position is 0 after initial render
-    }
 
     return () => {
       if (rafId.current) {
@@ -80,7 +60,7 @@ export const useElementContentXPosition = elementRef => {
       resizeObserver.disconnect();
       window.removeEventListener("resize", debouncedHandleContentXPosition);
     };
-  }, [elementRef, contentXPosition]);
+  }, [elementRef, handleContentXPosition, debouncedHandleContentXPosition]);
 
   return contentXPosition;
 };
