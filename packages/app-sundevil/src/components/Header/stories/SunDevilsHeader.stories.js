@@ -4,7 +4,6 @@ import React from "react";
 import { SunDevilsHeader } from "../SunDevilsHeader";
 import { Content } from "./Content";
 import { HEADER_TEST_PROPS } from "./test-props";
-console.log("Header test props", HEADER_TEST_PROPS)
 export default {
   title: "Header / Sun Devils Header",
   component: SunDevilsHeader,

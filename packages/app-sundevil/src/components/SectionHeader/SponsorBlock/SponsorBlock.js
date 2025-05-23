@@ -96,7 +96,6 @@ export const SponsorBlock = props => {
     // @ts-ignore
     ref={variantRef}
     onClick={() => {
-      console.log("✅ Variant clicked", sponsorBlock);
       trackGAEvent({
         event: "link",
         action: "click",

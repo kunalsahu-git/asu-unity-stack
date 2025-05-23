@@ -14,7 +14,6 @@ const Root = styled.section`
 
 export const SocialMediaSectionEmbedded = ({ sectionHeader, embedCode }) => {
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
-  console.log("section header props", sectionHeaderProps)
   const sectionName = sectionHeaderProps.title;
   const embedCodeRef = useRef();
   useTrackChildrenClicksDynamic({

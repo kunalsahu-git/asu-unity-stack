@@ -40,7 +40,9 @@ export const TickerCarousel = ({ tickerAPI }) => {
         {items.map((item, index) => (
           <div key={index} className="carousel-item">
             <div className="line">
+              <div style={{color: '#fafafa'}}>
               <SportIcon sportName={stringToClosestSportName(item.sportName)} />
+              </div>
               {item.sportName}
             </div>
             <div className="line" style={{fontWeight: "normal"}}>{item.gameday}</div>

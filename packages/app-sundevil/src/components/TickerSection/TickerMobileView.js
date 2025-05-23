@@ -6,7 +6,7 @@ import { stringToClosestSportName } from "../../../../app-sundevil/src/component
 import { GameDataTicker } from "./game-data-ticker";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-export const TickerMobile = ({tickerAPI}) => {
+export const TickerMobile = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const winningHighlightStyle = highlight => ({
     background: highlight ? "#FFC627" : "black",
@@ -65,11 +65,15 @@ export const TickerMobile = ({tickerAPI}) => {
                   className="d-flex justify-content-between align-items-center"
                   style={{ paddingBottom: "24px" }}
                 >
-                  <div>
-                    <SportIcon
-                      sportName={stringToClosestSportName(item.sportName)}
-                    />{" "}
+                  <div class="d-flex">
+                    <div style={{ color: "#fafafa", marginRight: '4px'}}>
+                      <SportIcon
+                        sportName={stringToClosestSportName(item.sportName)}
+                      />
+                    </div>
+                    <div>
                     {item.sportName}
+                    </div>
                   </div>
                   <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
                 </div>
@@ -82,7 +86,7 @@ export const TickerMobile = ({tickerAPI}) => {
                   <div style={winningHighlightStyle(item.firstTeam.won)}>
                     {item.firstTeam.name}
                   </div>
-                  <div style={{color: 'white'}}>{item.firstTeam.score}</div>
+                  <div style={{ color: "white" }}>{item.firstTeam.score}</div>
                 </div>
 
                 {/* Row 3: Second Team */}
@@ -90,7 +94,10 @@ export const TickerMobile = ({tickerAPI}) => {
                   <div style={winningHighlightStyle(item.secondTeam.won)}>
                     {item.secondTeam.name}
                   </div>
-                  <div style={{color: 'white'}}> {item.secondTeam.score} </div>
+                  <div style={{ color: "white" }}>
+                    {" "}
+                    {item.secondTeam.score}{" "}
+                  </div>
                 </div>
               </div>
             ))}
