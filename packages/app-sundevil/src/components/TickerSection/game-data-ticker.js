@@ -80,7 +80,7 @@ export class GameDataTicker extends IGameDataSource {
     try {
       const response = await fetch(this.url);
       const dataRes = await response.json();
-      const data = dataRes?.data ?? [];
+      const data = dataRes ?? [];
       const items = Array.isArray(data) ? data : [data];
       const games = items.map(itemToGame);
       return games;
