@@ -15,8 +15,9 @@ export const TickerCarousel = ({ tickerAPI }) => {
   const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0)); // Don't scroll past the first item
   const slideRight = () => setPosition(prev => Math.max(prev - itemWidth, maxScroll)); // Don't scroll past the last item
   const winningHighlightStyle = (highlight) => ({
-    background: highlight ? '#FFC627' : 'black',
-    color: highlight ? 'black' : '#D0D0D0',
+    background: highlight ? '#FFC627' : '#191919',
+    color: highlight ? '#191919' : '#D0D0D0',
+    padding: '2px',
   });
   useEffect(() => {
     const fetchData = async () => {

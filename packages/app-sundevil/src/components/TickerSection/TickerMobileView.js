@@ -9,8 +9,8 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 export const TickerMobile = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const winningHighlightStyle = highlight => ({
-    background: highlight ? "#FFC627" : "black",
-    color: highlight ? "black" : "#D0D0D0",
+    background: highlight ? "#FFC627" : "#191919",
+    color: highlight ? "#191919" : "#D0D0D0",
     padding: "2px",
   });
 

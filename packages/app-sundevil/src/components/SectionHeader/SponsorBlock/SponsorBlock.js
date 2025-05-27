@@ -90,7 +90,6 @@ export const SponsorBlock = props => {
     //   />
     // </Root>
     <>
-    <p>above variant</p>
         <Variant
     {...props}
     // @ts-ignore

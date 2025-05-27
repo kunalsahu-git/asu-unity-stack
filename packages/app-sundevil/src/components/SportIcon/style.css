@@ -1,0 +1,5 @@
+.color-image {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(96%) saturate(16%) hue-rotate(360deg) brightness(104%) contrast(105%);
+    width: 18px;
+    height: 18px;
+  }

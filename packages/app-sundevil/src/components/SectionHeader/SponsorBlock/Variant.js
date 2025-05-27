@@ -8,12 +8,10 @@ import { VariantGoogleAd } from "./VariantGoogleAd";
  */
 export const Variant = forwardRef((props, ref) => {
     return (
-      <>
        <VariantGoogleAd
         {...props}
         // @ts-ignore
         ref={ref}
       />
-      <p>hi</p></>
     );
 });

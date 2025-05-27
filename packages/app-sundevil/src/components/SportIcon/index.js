@@ -2,7 +2,6 @@ import {
   faBaseballBall,
   faBasketballBall,
   faBiking,
-  faDumbbell,
   faFistRaised,
   faFootball,
   faFutbol,
@@ -12,10 +11,12 @@ import {
   faSwimmer,
   faTableTennis,
   faVolleyballBall,
-  faWater,
+  faBaseballBatBall,
+  faPersonRunning
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import "./style.css";
 
 import { sportNamePropTypes } from "./sport-name";
 
@@ -28,7 +29,7 @@ const sportIconPropTypes = {
  */
 
 const iconMap = {
-  "baseball": faBaseballBall,
+  "baseball": faBaseballBatBall,
   "basketball": faBasketballBall,
   "cross-country": faRunning,
   "football": faFootball,
@@ -39,13 +40,11 @@ const iconMap = {
   "track-and-field": faRunning,
   "wrestling": faFistRaised,
   "beach-volleyball": faVolleyballBall,
-  "gymnastics": faDumbbell,
-  "lacrosse": faFootball, // Replace with appropriate icon
+  "gymnastics": faPersonRunning,
   "soccer": faFutbol,
-  "softball": faBaseballBall, // Replace with appropriate icon
+  "softball": faBaseballBall,
   "triathlon": faBiking,
   "volleyball": faVolleyballBall,
-  "water-polo": faWater, // Replace with appropriate icon
 };
 
 /**
@@ -53,7 +52,14 @@ const iconMap = {
  */
 export const SportIcon = ({ sportName }) => {
   const icon = iconMap[sportName] || faFootball;
-  return <FontAwesomeIcon color="currentColor" icon={icon} />;
+  if (sportName === "water-polo") {
+    return <img src="https://sundevils.com/sites/default/files/2024-08/water-polo_0.svg" alt="Water Polo" class="color-image"/>
+  } else if (sportName === "lacrosse") {
+    return <img src="https://sundevils.com/sites/default/files/2024-07/lacrosse_0.svg" alt="Lacrose" class="color-image"/>
+  } else {
+    const icon = iconMap[sportName] || faFootball;
+    return <FontAwesomeIcon color="currentColor" icon={icon} />;
+  }
 };
 
 SportIcon.propTypes = sportIconPropTypes;
