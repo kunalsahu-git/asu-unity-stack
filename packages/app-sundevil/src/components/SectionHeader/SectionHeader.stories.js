@@ -70,7 +70,7 @@ Default.args = {
  * @type {{ args: ComponentType, parameters: object}}
  */
 export const GoogleAd = Template.bind({});
-console.log("base props", baseProps)
+// console.log("base props", baseProps)
 GoogleAd.args = {
   ...baseProps,
   sponsorBlock: {
