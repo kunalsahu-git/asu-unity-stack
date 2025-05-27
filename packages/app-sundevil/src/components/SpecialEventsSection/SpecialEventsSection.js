@@ -15,13 +15,6 @@ import { SpecialEventCardCarousel } from "./SpecialEventCardCarousel";
 import { SpecialEventsDataSourceProvider } from "./SpecialEventsDataSourceContext";
 import { useSpecialEventsLoader } from "./use-special-events-loader";
 
-const Root = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 52px;
-  position: relative;
-`;
-
 const DESKTOP_CARD_WIDTH = 588;
 
 const SpecialEventsSectionInner = ({ sectionHeader }) => {
@@ -30,7 +23,13 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
     limit: Infinity,
   });
 
-  const checkIfSpecialEvents = specialEvents.length > 0 ? true : false;
+  const Root = styled.section`
+  display: ${({ checkIfSpecialEvents }) => (checkIfSpecialEvents ? 'flex' : 'none')};
+  flex-direction: column;
+  gap: 52px;
+  position: relative;
+`;
+
   const sectionHeaderRef = useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
   const sectionHeaderDimensions = useElementContentDimensions(sectionHeaderRef);
@@ -43,9 +42,7 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.sectionName ?? "";
   return (
-    <>
-    {checkIfSpecialEvents && 
-      <Root>
+    <Root checkIfSpecialEvents={specialEvents.length > 0}>
       <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
       {shouldPreventJitter && (
         <SpecialEventCardCarousel
@@ -57,8 +54,6 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
         />
       )}
     </Root>
-    }
-    </>
   );
 };
 
