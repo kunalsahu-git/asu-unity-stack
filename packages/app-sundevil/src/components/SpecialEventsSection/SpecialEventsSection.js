@@ -24,7 +24,12 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
   });
 
   const Root = styled.section`
-  display: ${({ checkIfSpecialEvents }) => (checkIfSpecialEvents ? 'flex' : 'none')};
+  visibility: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 'visible' : 'hidden')};
+  opacity: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 1 : 0)};
+  height: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 'auto' : 0)};
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
   gap: 52px;
   position: relative;
@@ -42,7 +47,7 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.sectionName ?? "";
   return (
-    <Root checkIfSpecialEvents={specialEvents.length > 0}>
+    <Root $checkIfSpecialEvents={!isLoading && specialEvents.length > 0}>
       <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
       {shouldPreventJitter && (
         <SpecialEventCardCarousel
