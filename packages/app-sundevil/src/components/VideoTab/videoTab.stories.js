@@ -8,13 +8,13 @@ const props = {
   subtitle2: "The ASU Sun Devil Marching Band has many traditions within the band program that continue to be honored today.",
   video1: {
     youtubeVideoUrl: "https://www.youtube.com/watch?v=TIH5bbkwK_s",
-    imageSrc: "",
+    imageSrc: "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/3c03829479fe4fcd9499b48b5ddcbd60f1d9c33c.webp",
     lyric: "Fight, Devils Down The Field Fight With Your Might and Don't Ever Yield Long May Our Colors Outshine All Others Echo From The Buttes, Give 'Em Hell Devils! Cheer, Cheer For A-S-U Fight For The Old Maroon For it's Hail, Hail, The Gang's All Here And It's Onward to Victory!"
   },
   video2: {
-    youtubeVideoUrl: "https://www.youtube.com/watch?v=TIH5bbkwK_s",
-    imageSrc: "",
-    lyric: "Fight, Devils Down The Field Fight With Your Might and Don't Ever Yield Long May Our Colors Outshine All Others Echo From The Buttes, Give 'Em Hell Devils! Cheer, Cheer For A-S-U Fight For The Old Maroon For it's Hail, Hail, The Gang's All Here And It's Onward to Victory!"
+    youtubeVideoUrl: "https://www.youtube.com/watch?v=E09vEyj-gp0",
+    imageSrc: "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/3c03829479fe4fcd9499b48b5ddcbd60f1d9c33c.webp",
+    lyric: "Alma Mater Where the bold saguaros Raise their arms on high Praying strength for brave tomorrows From the western sky Where eternal mountains kneel at sunset's gate Here we hail thee, Alma Mater Arizona State"
   },
 }
 

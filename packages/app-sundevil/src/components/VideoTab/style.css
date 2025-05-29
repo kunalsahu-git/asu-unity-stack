@@ -10,37 +10,61 @@
   align-items: center;
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-/* .body-section {
-  padding: 128px 0 128px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding-bottom: 128px;
-} */
-
 .body-section {
   padding: 128px 0;
   display: flex;
-  flex-direction: column; /* stack vertically */
-  justify-content: center; /* vertical center */
-  align-items: center;     /* horizontal center */
-  min-height: 100vh;       /* ensure it fills the screen */
+  flex-direction: column;
+  align-items: center; /* centers tab-container */
+  min-height: 100vh;
 }
 
+.tab-container {
+  width: 1168px;
+  margin: 0 auto;
+}
+
+.header-section {
+  width: 1168px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.header-1{
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -2.88px;
+  margin-bottom: 0;
+}
+
+.header-2{
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  padding: 48px 0;
+  margin-bottom: 0;
+}
+
+.header-3{
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 26px */
+  padding-bottom: 48px;
+}
 
 .nav-tabs {
   display: flex;
   list-style: none;
   padding: 0;
-  border-bottom: 2px solid #ddd;
   margin-bottom: 0;
 }
 
@@ -57,6 +81,7 @@
   align-items: center;
   gap: 12px;
   flex: 1 0 0;
+  color: white;
 }
 
 .nav-tabs li.active {
@@ -64,24 +89,101 @@
   border-bottom: 2px solid white;
   background-color: #f9f9f9;
   font-weight: bold;
+  color: black;
 }
 
 .tab-content {
-  border: 1px solid #ddd;
-  padding-top: 0;
+  padding: 16px;
+  background-color: white;
 }
 
 .content {
- display: flex; 
- background-color: white;
- flex-direction: column;
+  display: flex; 
+  background-color: white;
+  flex-direction: column;
+  padding: 16px;
 }
 
 .video-section {
+  margin-top: 50px; /* or padding-top: 32px; */
   width: 500px;
+  display: flex;
+  height: 488.925px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
 }
 
 .lyric-section {
   width: 260px;
 }
 
+.lyric-header{
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; 
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.lyrics {
+  color: #191919;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.lyrics p {
+  margin-bottom: 12px;
+}
+
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .header-1 {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  .header-2,
+  .header-3 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .tab-container {
+    width: 100%;
+  }
+
+  /* .nav-tabs {
+    flex-direction: column;
+  } */
+
+  /* .nav-tabs li {
+    width: 50%;
+  } */
+
+  .video-section {
+    width: 321;
+    height: 177.885009765625;
+    gap: 10px;
+    padding: 24px;    
+  }
+  .lyric-section {
+    width: 100%;
+  }
+
+  .lyrics {
+    font-size: 14px;
+  }
+
+  .lyric-header {
+    padding-top: 32px;
+    padding-bottom: 16px;
+  }
+}
