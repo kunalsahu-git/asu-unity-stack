@@ -1,0 +1,1 @@
+export { default as VideoTabSection } from "./VideoTabSection.js";
