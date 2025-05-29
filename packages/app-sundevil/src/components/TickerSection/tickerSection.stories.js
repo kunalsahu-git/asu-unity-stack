@@ -7,7 +7,7 @@ const props = {
 }
 export default {
   title: "Ticker Section",
-  component: <TickerSection />,
+  component: <TickerSection tickerAPI={undefined} />,
 };
 
 const Template = () => {

@@ -21,9 +21,13 @@ export const TickerCarousel = ({ tickerAPI }) => {
   });
   useEffect(() => {
     const fetchData = async () => {
-      // const url = tickerAPI;
       const dataSource = new GameDataTicker(tickerAPI);
-      const games = await dataSource.findMany();
+      let games = await dataSource.findMany();
+      games.sort((a, b) => {
+        const dateA = new Date(a.gameday);
+        const dateB = new Date(b.gameday);
+        return dateB.getTime() - dateA.getTime();
+      });
       setItems(games);
     };
 
