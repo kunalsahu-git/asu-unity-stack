@@ -12,7 +12,8 @@ const props = {
   body: "Sparky the Sun Devil doesn’t just show up to games. He brings the heat! From the moment he bursts on the scene with his iconic trident in hand, whether he’s stomping the bus, doing pushups, or playing the drums behind the “Curtain of Distraction,” Sparky's always ready to spark some excitement.",
   bgdesktopImage:
     "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/sparkys-spirit-bg-desktop.webp",
-  bgmobileImage: "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/sparkys-spirit-bg-mobile.webp",
+  bgmobileImage:
+    "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/sparkys-spirit-bg-mobile.webp",
   videoData: {
     bottomButtons: [],
     newsStories: [

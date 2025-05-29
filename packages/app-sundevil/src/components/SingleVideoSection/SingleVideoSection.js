@@ -1,17 +1,8 @@
-import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { VideoSection } from "../VideoSection";
 
 import "./style.css";
 import { repeat } from "../../utils/repeat";
-
-const propTypes = {
-  title: PropTypes.string,
-  body: PropTypes.string,
-  bgdesktopImage: PropTypes.string,
-  bgmobileImage: PropTypes.string,
-  videoData: PropTypes.object,
-};
 
 export const SingleVideoSection = ({
   title,
@@ -57,6 +48,5 @@ export const SingleVideoSection = ({
     </section>
   );
 };
-SingleVideoSection.propTypes = propTypes;
 
 export default SingleVideoSection;
