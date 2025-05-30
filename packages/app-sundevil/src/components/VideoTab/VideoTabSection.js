@@ -7,6 +7,7 @@ export const VideoTabSection = ({
   title,
   subtitle,
   subtitle2,
+  heroImage,
   video1,
   video2,
 }) => {
@@ -26,7 +27,7 @@ export const VideoTabSection = ({
   return (
     <section
       style={{
-        backgroundImage: `url('https://websecurity-web-sda.ws.asu.edu/sites/default/files/2024-08/thrive.webp')`,
+        backgroundImage: `url('${heroImage}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -66,11 +67,11 @@ export const VideoTabSection = ({
                 </div>
                 <div className="lyric-section">
                   <p className="lyric-header">Lyrics</p>
-                  <div className="lyrics">
-                    {video1.lyric.split("\n").map((line, idx) => (
-                      <p key={idx}>{line}</p>
+                  <p className="lyrics">
+                    {video1.lyric.split("/n").map((line, index) => (
+                      <p key={index}>{line}</p>
                     ))}
-                  </div>
+                  </p>
                 </div>
               </div>
             )}
@@ -83,11 +84,14 @@ export const VideoTabSection = ({
                     maxCards={1}
                     sectionName={"Alma mater"}
                   />
-                  {/* <VideoSection {...secondVideo} /> */}
                 </div>
                 <div className="lyric-section">
                   <p className="lyric-header">Lyrics</p>
-                  <p className="lyrics">{video2.lyric}</p>
+                  <p className="lyrics">
+                    {video2.lyric.split("/n").map((line, index) => (
+                      <p key={index}>{line}</p>
+                    ))}
+                  </p>
                 </div>
               </div>
             )}
