@@ -177,6 +177,7 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 // );
 
 import { VideoSection } from "./components/VideoSection";
+import { SingleVideoSection } from "./components/SingleVideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
@@ -270,6 +271,13 @@ export const initVideoSection = input => {
   RenderReact({
     ...input,
     component: VideoSection,
+  });
+};
+
+export const initSingleVideoSection = input => {
+  RenderReact({
+    ...input,
+    component: SingleVideoSection,
   });
 };
 
