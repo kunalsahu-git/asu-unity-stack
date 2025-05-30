@@ -37,7 +37,7 @@ const CardContent = styled.div`
 
 const CardTitle = styled.p`
   margin: 0;
-  padding: 24px 0;
+  padding: 0;
   font-size: 32px;
   font-weight: 700;
 `;
@@ -57,7 +57,6 @@ const CardBodyText = styled.p`
   font-size: 16px;
   color: white;
   line-height: 1.2em;
-  // max-height: 2.4em; /* 2 lines * 1.2em line-height */
   overflow: hidden;
   position: relative;
   word-wrap: break-word;
