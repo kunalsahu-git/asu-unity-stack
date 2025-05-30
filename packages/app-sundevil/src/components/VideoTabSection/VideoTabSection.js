@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { VideoSection } from "../VideoSection";
 import { NewsStoryCardGridFeatured } from "../NewsStory/NewsStoryCardGrid/NewsStoryCardGrid";
 import "./style.css";
 

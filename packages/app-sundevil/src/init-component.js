@@ -176,8 +176,10 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 //   }))
 // );
 
+import { VideoTabSection } from "./components/VideoTabSection";
+
 import { VideoSection } from "./components/VideoSection";
-import { VideoTabs } from "./components/VideoTab"
+
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
@@ -271,6 +273,13 @@ export const initVideoSection = input => {
   RenderReact({
     ...input,
     component: VideoSection,
+  });
+};
+
+export const initVideoTabSection = input => {
+  RenderReact({
+    ...input,
+    component: VideoTabSection,
   });
 };
 
@@ -396,12 +405,5 @@ export const initPlayPauseButton = input => {
   RenderReact({
     ...input,
     component: PlayPauseButton,
-  });
-};
-
-export const initVideoTabSection = input => {
-  RenderReact({
-    ...input,
-    component: VideoTabs,
   });
 };
