@@ -1,21 +1,14 @@
 import { IGameDataSource } from "../../../../app-sundevil/src/components/Game/game-data-source";
 
 const itemToGame = item => {
-  const {
-    id,
-    opponent_name,
-    datetime,
-    venue_type,
-    schedule,
-    schedule_event_result,
-  } = item;
-
-  const sportName = schedule?.sport?.name ?? "Unknown";
-  const result = schedule_event_result?.result;
-  const winningScore = schedule_event_result?.winning_score;
-  const losingScore = schedule_event_result?.losing_score;
+  console.log("item.att", item.attributes);
+  const sportName = item.attributes?.field_sport_name ?? "Unknown";
+  const result = item.attributes?.field_result;
+  const winningScore = item.attributes?.field_winning_score;
+  const losingScore = item.attributes?.field_loosing_score;
   const homeTeamName = "Sun Devils";
-  const opponentName = opponent_name;
+  const opponentName = item.attributes?.field_opponent_name;
+  const venueType = item.attributes?.field_venue_type;
   const firstTeam = {
     name: "",
     score: "",
@@ -27,7 +20,7 @@ const itemToGame = item => {
     won: false,
   };
 
-  if (venue_type === "home") {
+  if (venueType === "home") {
     firstTeam.name = opponentName;
     secondTeam.name = homeTeamName;
     if (result === "win") {
@@ -39,7 +32,7 @@ const itemToGame = item => {
       secondTeam.score = Math.trunc(losingScore ?? 0);
       firstTeam.won = true;
     }
-  } else if (venue_type === "away") {
+  } else if (venueType === "away") {
     firstTeam.name = homeTeamName;
     secondTeam.name = opponentName;
     if (result === "win") {
@@ -80,8 +73,9 @@ export class GameDataTicker extends IGameDataSource {
     try {
       const response = await fetch(this.url);
       const dataRes = await response.json();
-      const data = dataRes ?? [];
+      const data = dataRes.data ?? [];
       const items = Array.isArray(data) ? data : [data];
+      // console.log("items", items)
       const games = items.map(itemToGame);
       return games;
     } catch (error) {

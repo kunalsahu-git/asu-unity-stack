@@ -22,6 +22,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
   useEffect(() => {
     const fetchData = async () => {
       const dataSource = new GameDataTicker(tickerAPI);
+      console.log("Ticker api", dataSource)
       let games = await dataSource.findMany();
       games.sort((a, b) => {
         const dateA = new Date(a.gameday);
