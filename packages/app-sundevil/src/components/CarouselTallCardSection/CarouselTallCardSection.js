@@ -25,7 +25,7 @@ const Root = styled.section`
 
   background: ${({ backgroundImageUrl }) => `
     radial-gradient(128.06% 100% at 50% 100%, rgba(255,198,39,0.85) 0%, rgba(140,29,64,0.65) 25%, rgba(25,25,25,0.3) 50%, rgba(25,25,25,0) 100%),
-    linear-gradient(180deg, #191919 37.88%, rgba(25,25,25,0.25) 108.23%),
+    linear-gradient(180deg, #191919 37.88%, rgba(25,25,25,0.25) 75.23%),
     url(${backgroundImageUrl}) center / cover no-repeat,
     var(--Neutral-Primary, #191919);
   `};
@@ -63,13 +63,13 @@ export const CarouselTallCardSection = ({
       $visible={!skeleton && cards.length > 0}
       backgroundImageUrl={backgroundImageUrl}
     >
-      <div style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", padding: "24px" }}>
+      <div style={{ padding: "24px" }}>
         <SectionHeaderWrapper>
           <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
         </SectionHeaderWrapper>
       </div>
       {sectionHeaderPosition.left > 0 && (
-        <div style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", padding: "24px" }}>
+        <div style={{ padding: "24px" }}>
           <CarouselTallCardCarousel
             cards={cards}
             skeleton={skeleton}

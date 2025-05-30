@@ -177,6 +177,7 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 // );
 
 import { VideoSection } from "./components/VideoSection";
+import { SingleVideoSection } from "./components/SingleVideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 // import { TickerSection } from "./components/TickerSection";
 import { VideoTabs } from "./components/VideoTab";
@@ -274,6 +275,13 @@ export const initVideoSection = input => {
   RenderReact({
     ...input,
     component: VideoSection,
+  });
+};
+
+export const initSingleVideoSection = input => {
+  RenderReact({
+    ...input,
+    component: SingleVideoSection,
   });
 };
 

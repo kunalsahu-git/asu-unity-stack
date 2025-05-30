@@ -32,7 +32,6 @@ const CardContent = styled.div`
   z-index: 2;
   color: white;
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 `;
 
 const CardTitle = styled.p`
