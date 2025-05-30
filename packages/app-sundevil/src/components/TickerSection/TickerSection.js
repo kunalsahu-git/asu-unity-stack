@@ -22,8 +22,10 @@ export const TickerCarousel = ({ tickerAPI }) => {
   useEffect(() => {
     const fetchData = async () => {
       const dataSource = new GameDataTicker(tickerAPI);
-      console.log("Ticker api", dataSource)
-      let games = await dataSource.findMany();
+      // console.log("Ticker api", dataSource)
+      const data = await dataSource.findMany();
+      let games = data.games;
+      console.log("games", games)
       games.sort((a, b) => {
         const dateA = new Date(a.gameday);
         const dateB = new Date(b.gameday);
@@ -56,7 +58,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
             <div style={winningHighlightStyle(item.firstTeam.won)}>{item.firstTeam.name} {item.firstTeam.score}</div>
             <div style={winningHighlightStyle(item.secondTeam.won)}>{item.secondTeam.name} {item.secondTeam.score}</div>
             </div>
-          </div>
+          </div> 
         ))}
       </div>
     </div>

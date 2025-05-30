@@ -39,23 +39,26 @@ const itemToGame = item => {
       secondTeam.score = Math.trunc(losingScore ?? 0);
       firstTeam.score = Math.trunc(winningScore ?? 0);
       firstTeam.won = true;
-    } else {
+    } else  if (result === "lose"){
       secondTeam.score = Math.trunc(winningScore ?? 0);
       firstTeam.score = Math.trunc(losingScore ?? 0);
       secondTeam.won = true;
     }
+  } else {
+    firstTeam.name = homeTeamName;
+    secondTeam.name = opponentName;
   }
 
   const options = { month: "short", day: "numeric", year: "numeric" };
-  const gameday = datetime
-    ? new Date(datetime).toLocaleDateString("en-US", {
+  const gameday = item.attributes.field_date_time
+    ? new Date(item.attributes.field_date_time).toLocaleDateString("en-US", {
         ...options,
         timeZone: "America/Phoenix",
       })
     : "Invalid Date";
 
   return {
-    id,
+    // id,
     sportName,
     gameday,
     firstTeam,
@@ -74,10 +77,14 @@ export class GameDataTicker extends IGameDataSource {
       const response = await fetch(this.url);
       const dataRes = await response.json();
       const data = dataRes.data ?? [];
+      const nextLink = dataRes.links.next.href;
       const items = Array.isArray(data) ? data : [data];
       // console.log("items", items)
       const games = items.map(itemToGame);
-      return games;
+      return {
+        games,
+        nextLink
+      };
     } catch (error) {
       console.error("Error fetching game data:", error);
       return [];
