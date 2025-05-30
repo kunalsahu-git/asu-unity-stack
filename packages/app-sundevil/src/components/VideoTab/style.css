@@ -97,12 +97,12 @@
   background-color: white;
 }
 
-.content {
+/* .content {
   display: flex; 
   background-color: white;
   flex-direction: column;
   padding: 16px;
-}
+} */
 
 .video-section {
   margin-top: 50px; /* or padding-top: 32px; */
@@ -143,6 +143,66 @@
 }
 
 
+@media (max-width: 992px) {
+  .body-section {
+    padding: 128px 32px;
+  }
+
+  .tab-container {
+    width: 100%;
+  }
+
+  .header-section {
+    width: 100%;
+    /* max-width: 90%; */
+    text-align: left;
+    /* padding: 0 16px; */
+  }
+
+  /* .header-1,
+  .header-2,
+  .header-3 {
+    text-align: left; 
+  } */
+    .row {
+      flex-direction: column; /* stack vertically on tablets & mobile */
+    }
+  
+
+
+  .video-section {
+    display: flex;
+    height: 408.175px;
+    width: 100%;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lyric-section {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .nav-tabs li {
+    font-size: 14px;
+    padding: 8px;
+    height: auto;
+  }
+
+  .header-1 {
+    font-size: 64px;
+    letter-spacing: -1.5px;
+  }
+
+  .header-2,
+  .header-3 {
+    font-size: 16px;
+    padding: 24px 0;
+  }
+}
+
+
 /* Mobile (≤ 768px) */
 @media (max-width: 768px) {
   .header-1 {
@@ -168,14 +228,23 @@
     width: 50%;
   } */
 
-  .video-section {
-    width: 321;
-    height: 177.885009765625;
-    gap: 10px;
-    padding: 24px;    
+  .row {
+    flex-direction: column; /* stack vertically on tablets & mobile */
   }
+
+
+  .video-section {
+    display: flex;
+    height: 185px;
+    padding: 4px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
   .lyric-section {
     width: 100%;
+    background-color: #FAFAFA;
   }
 
   .lyrics {

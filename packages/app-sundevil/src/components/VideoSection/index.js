@@ -81,13 +81,13 @@ export const VideoSection = ({
           slidesOffsetBefore={sectionHeaderPosition.left}
           slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
           cardWidth={cardWidth}
-          renderBottomRightContent={() => (
-            <BottomButtons
-              sectionName={sectionName}
-              buttons={bottomButtons}
-              skeleton={skeleton}
-            />
-          )}
+          // renderBottomRightContent={() => (
+          //   <BottomButtons
+          //     sectionName={sectionName}
+          //     buttons={bottomButtons}
+          //     skeleton={skeleton}
+          //   />
+          // )}
           sectionName={sectionName}
         />
       )}
@@ -100,13 +100,13 @@ export const VideoSection = ({
             maxCards={maxCards}
             sectionName={sectionName}
           />
-          <BottomButtonsRoot>
+          {/* <BottomButtonsRoot>
             <BottomButtons
               sectionName={sectionName}
               buttons={bottomButtons}
               skeleton={skeleton}
             />
-          </BottomButtonsRoot>
+          </BottomButtonsRoot> */}
         </div>
       )}
     </Root>

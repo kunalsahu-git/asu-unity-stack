@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { VideoSection } from "../VideoSection";
-
+import { NewsStoryCardGridFeatured } from "../NewsStory/NewsStoryCardGrid/NewsStoryCardGrid";
 import "./style.css";
 
 export const VideoTabSection = ({ title, subtitle, subtitle2, video1, video2 }) => {
@@ -16,13 +16,14 @@ export const VideoTabSection = ({ title, subtitle, subtitle2, video1, video2 }) 
     newsStories: [video2],
   };
 
+  const newsStoriesSliced = secondVideo.newsStories.slice(0, 1);
+
   return (
     <section
       style={{
         backgroundImage: `url('https://websecurity-web-sda.ws.asu.edu/sites/default/files/2024-08/thrive.webp')`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "100vh",
+        backgroundPosition: "center"
       }}
     >
       <div className="body-section">
@@ -49,7 +50,6 @@ export const VideoTabSection = ({ title, subtitle, subtitle2, video1, video2 }) 
 
           <div className="tab-content">
             {activeTab === "fight song" && (
-              <div className="content">
                 <div className="row">
                   <div className="video-section">
                     <VideoSection {...firstVideo} />
@@ -63,20 +63,25 @@ export const VideoTabSection = ({ title, subtitle, subtitle2, video1, video2 }) 
                     </div>
                   </div>
                 </div>
-              </div>
             )}
             {activeTab === "alma mater" && (
-              <div className="content">
                 <div className="row">
                   <div className="video-section">
-                    <VideoSection {...secondVideo} />
+                  <NewsStoryCardGridFeatured
+            layout="fullWidth"
+            newsStories={newsStoriesSliced}
+            // skeleton={Boolean(skeleton)}
+            maxCards={1}
+            sectionName={"Alma mater"}
+           
+            />
+                     {/* <VideoSection {...secondVideo} /> */}
                   </div>
                   <div className="lyric-section">
                     <p className="lyric-header">Lyrics</p>
                     <p className="lyrics">{video2.lyric}</p>
                   </div>
                 </div>
-              </div>
             )}
           </div>
         </div>
