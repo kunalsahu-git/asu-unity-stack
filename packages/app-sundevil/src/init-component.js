@@ -179,6 +179,7 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 import { VideoSection } from "./components/VideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 import { TickerSection } from "./components/TickerSection";
+import { VideoTabs } from "./components/VideoTab";
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -405,3 +406,11 @@ export const initTickerSection = input => {
     component: TickerSection,
   });
 };
+
+export const initVideoTabSection = input => {
+  RenderReact({
+    ...input,
+    component: VideoTabs,
+  });
+};
+
