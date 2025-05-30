@@ -108,7 +108,7 @@ export const CarouselTallCardCarousel = ({
       <Carousel
         slidesPerView="auto"
         loop={false}
-        slidesOffsetBefore={isMobile ? 32 : 24}
+        slidesOffsetBefore={isMobile ? 32 : slidesOffsetBefore}
         slidesOffsetAfter={isMobile ? 0 : cardWidth}
         centeredSlides={false}
         initialSlide={0}
