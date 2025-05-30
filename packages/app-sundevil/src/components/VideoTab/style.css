@@ -97,15 +97,9 @@
   background-color: white;
 }
 
-/* .content {
-  display: flex; 
-  background-color: white;
-  flex-direction: column;
-  padding: 16px;
-} */
 
 .video-section {
-  margin-top: 50px; /* or padding-top: 32px; */
+  margin-top: 50px;
   width: 500px;
   display: flex;
   height: 488.925px;
@@ -142,8 +136,7 @@
   margin-bottom: 12px;
 }
 
-
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .body-section {
     padding: 128px 32px;
   }
@@ -154,22 +147,30 @@
 
   .header-section {
     width: 100%;
-    /* max-width: 90%; */
     text-align: left;
-    /* padding: 0 16px; */
   }
 
-  /* .header-1,
-  .header-2,
+  .header-1 {
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .header-2{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 48px 0;
+
+  }
   .header-3 {
-    text-align: left; 
-  } */
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 64px;
+    margin-bottom: 0;
+  }
     .row {
       flex-direction: column; /* stack vertically on tablets & mobile */
     }
   
-
-
   .video-section {
     display: flex;
     height: 408.175px;
@@ -190,30 +191,37 @@
     height: auto;
   }
 
+  .header-section {
+    text-align: left;
+  }
+
   .header-1 {
     font-size: 64px;
     letter-spacing: -1.5px;
-  }
-
-  .header-2,
-  .header-3 {
-    font-size: 16px;
-    padding: 24px 0;
   }
 }
 
 
 /* Mobile (≤ 768px) */
 @media (max-width: 768px) {
-  .header-1 {
-    font-size: 42px;
-    text-align: center;
+
+  .header-section {
+    text-align: left;
   }
 
-  .header-2,
+  .header-1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .header-2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
   .header-3 {
-    font-size: 14px;
-    text-align: center;
+    font-size: 20px;
+    font-family: 400;
   }
 
   .tab-container {
@@ -231,20 +239,25 @@
   .row {
     flex-direction: column; /* stack vertically on tablets & mobile */
   }
+  
 
 
   .video-section {
     display: flex;
-    height: 185px;
+    height: auto;
     padding: 4px;
     width: 100%;
+    margin-top: 0;
     align-items: center;
     justify-content: center;
   }
 
   .lyric-section {
     width: 100%;
+    height: auto;
     background-color: #FAFAFA;
+    margin: 0;
+    padding: 2px;
   }
 
   .lyrics {
@@ -252,7 +265,8 @@
   }
 
   .lyric-header {
-    padding-top: 32px;
-    padding-bottom: 16px;
+    padding: 24px 0;
+    margin-bottom: 0;
+    text-align: left;
   }
 }
