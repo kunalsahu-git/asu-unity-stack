@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { VideoSection } from "../VideoSection";
 import { NewsStoryCardGridFeatured } from "../NewsStory/NewsStoryCardGrid/NewsStoryCardGrid";
 import "./style.css";
 
@@ -26,6 +25,7 @@ export const VideoTabSection = ({
 
   return (
     <section
+      className="videos-tabs-section"
       style={{
         backgroundImage: `url('${heroImage}')`,
         backgroundSize: "cover",
@@ -38,7 +38,7 @@ export const VideoTabSection = ({
           <p className="header-2">{subtitle}</p>
           <p className="header-3">{subtitle2}</p>
         </div>
-        <div className="tab-container">
+        <div className="container">
           <ul className="nav-tabs">
             <li
               className={activeTab === "fight song" ? "active" : ""}
@@ -67,11 +67,10 @@ export const VideoTabSection = ({
                 </div>
                 <div className="lyric-section">
                   <p className="lyric-header">Lyrics</p>
-                  <p className="lyrics">
-                    {video1.lyric.split("/n").map((line, index) => (
-                      <p key={index}>{line}</p>
-                    ))}
-                  </p>
+                  <p
+                    className="lyrics"
+                    dangerouslySetInnerHTML={{ __html: video1.lyric }}
+                  ></p>
                 </div>
               </div>
             )}
@@ -87,11 +86,10 @@ export const VideoTabSection = ({
                 </div>
                 <div className="lyric-section">
                   <p className="lyric-header">Lyrics</p>
-                  <p className="lyrics">
-                    {video2.lyric.split("/n").map((line, index) => (
-                      <p key={index}>{line}</p>
-                    ))}
-                  </p>
+                  <p
+                    className="lyrics"
+                    dangerouslySetInnerHTML={{ __html: video2.lyric }}
+                  ></p>
                 </div>
               </div>
             )}

@@ -180,7 +180,7 @@ import { VideoSection } from "./components/VideoSection";
 import { SingleVideoSection } from "./components/SingleVideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 // import { TickerSection } from "./components/TickerSection";
-import { VideoTabs } from "./components/VideoTab";
+import { VideoTabSection } from "./components/VideoTabSection";
 
 import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 // const VideoSection = React.lazy(() =>
@@ -420,10 +420,9 @@ export const initPlayPauseButton = input => {
 export const initVideoTabSection = input => {
   RenderReact({
     ...input,
-    component: VideoTabs,
+    component: VideoTabSection,
   });
 };
-
 
 export const initCarouselTallCardSection = input => {
   RenderReact({
