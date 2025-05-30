@@ -1,7 +1,7 @@
 import { IGameDataSource } from "../../../../app-sundevil/src/components/Game/game-data-source";
 
 const itemToGame = item => {
-  console.log("item.att", item.attributes);
+  // console.log("item.att", item.attributes);
   const sportName = item.attributes?.field_sport_name ?? "Unknown";
   const result = item.attributes?.field_result;
   const winningScore = item.attributes?.field_winning_score;
