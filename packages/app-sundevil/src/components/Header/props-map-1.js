@@ -1,3 +1,7 @@
+//doent have mobile logic
+
+
+// @ts-chec
 import React from "react";
 
 import { trackGAEvent } from "../../track-ga/track-ga-event";
@@ -33,39 +37,17 @@ const assocNavTreeVariant = navTreeItem => {
   };
 };
 
-const extractIconName = (icon) => {
-  if (!icon || icon === "") return undefined;
-  if (typeof icon === "string") return icon;
-  if (icon.icon_name) return icon.icon_name;
-  if (icon.svg_icon) return icon.svg_icon;
-  return undefined;
-};
-
-const mapNavTreeItemItem = (item) => {
-  const iconName = extractIconName(item.icon);
-
+/** @type {(item: object) => object} */
+const mapNavTreeItemItem = item => {
   return {
     ...item,
-    renderStartIcon: () => {
-      if (!iconName) return null;
-      if (iconName.startsWith("http")) {
-        return <img src={iconName} alt={`${item.text} icon`} style={{ width: 20, height: 20 }} />;
-      }
-      return <Icon icon={iconName} />;
-    },
+    renderStartIcon: () => <Icon icon={item.icon} />,
   };
 };
 
 /** @type {(props: NavTreeItemVariant) => NavTreeItemVariant} */
-const mapNavTreeItemButtons = (navTreeItem, deviceType) => {
-  const buttons = Array.isArray(navTreeItem.buttons)
-    ? navTreeItem.buttons.filter(button =>
-        button.device === "both_desktop_and_mobile" ||
-        (button.device === "desktop_only" && deviceType === "desktop") ||
-        (button.device === "mobile_only" && deviceType === "mobile")
-      )
-    : [];
- console.log("buttons", buttons)
+const mapNavTreeItemButtons = navTreeItem => {
+  const buttons = Array.isArray(navTreeItem.buttons) ? navTreeItem.buttons : [];
   return {
     ...navTreeItem,
     buttons: buttons.map(button => ({
@@ -84,29 +66,24 @@ const mapNavTreeItemButtons = (navTreeItem, deviceType) => {
 const ensureArray = value => (Array.isArray(value) ? value : [value]);
 
 /** @type {(props: NavTreeItemVariant) => NavTreeItemVariant} */
-const mapNavTreeItemToSportLinks = (navTreeItem, deviceType) => {
-  const sports = ensureArray(navTreeItem.items)
-    .flatMap(column =>
-      ensureArray(column)
-        .filter(item =>
-          item.device === "both_desktop_and_mobile" ||
-          (item.device === "desktop_only" && deviceType === "desktop") ||
-          (item.device === "mobile_only" && deviceType === "mobile")
-        )
-        .map(item => {
-          const extraLinks = ensureArray(item?.extra_links);
+const mapNavTreeItemToSportLinks = navTreeItem => {
+  const sports = ensureArray(navTreeItem.items).flatMap(column =>
+    ensureArray(column).map(item => {
+      const extraLinks = ensureArray(item?.extra_links);
 
+      return {
+        href: item.href,
+        sportName: item.text,
+        sportLinks: extraLinks.map(extraLink => {
           return {
-            href: item.href,
-            sportName: item.text,
-            sportLinks: extraLinks.map(extraLink => ({
-              label: extraLink.text,
-              url: extraLink.href,
-            })),
-            icon: item.icon,
+            label: extraLink.text,
+            url: extraLink.href,
           };
-        })
-    );
+        }),
+        icon: item.icon,
+      };
+    })
+  );
 
   const allHrefs = new Set(
     ensureArray(sports).flatMap(sport => [
@@ -139,33 +116,15 @@ const mapNavTreeItemToSportLinks = (navTreeItem, deviceType) => {
 };
 
 /** @type {(props: NavTreeItemVariant) => NavTreeItemVariant}  */
-const mapNavTreeItemItems = (navTreeItem, deviceType) => {
+const mapNavTreeItemItems = navTreeItem => {
   return {
     ...navTreeItem,
-    items: navTreeItem.items?.map?.((item) => {
+    items: navTreeItem.items?.map?.(item => {
       if (Array.isArray(item)) {
-        return item
-          .filter(
-            (subItem) =>
-              subItem.device === "both_desktop_and_mobile" ||
-              (subItem.device === "desktop_only" && deviceType === "desktop") ||
-              (subItem.device === "mobile_only" && deviceType === "mobile")
-          )
-          .map((subItem) => mapNavTreeItemItems(subItem, deviceType))
-          .map(mapNavTreeItemItem); // map icon on each sub-item
+        return item.map(mapNavTreeItemItem);
       }
-
-      if (
-        item.device === "both_desktop_and_mobile" ||
-        (item.device === "desktop_only" && deviceType === "desktop") ||
-        (item.device === "mobile_only" && deviceType === "mobile")
-      ) {
-        const mappedItem = mapNavTreeItemItems(item, deviceType);
-        return mapNavTreeItemItem(mappedItem); // map icon here too
-      }
-
-      return null;
-    }).filter(Boolean),
+      return mapNavTreeItemItem(item);
+    }),
   };
 };
 
@@ -255,41 +214,26 @@ const mapNavTreeFooters = navTreeItem => {
 const pipe = (data, ...fns) => fns.reduce((acc, fn) => fn(acc), data);
 
 /** @type {(props: NavTreeItemVariant) => NavTreeItemVariant}  */
-const mapNavTreeItem = (navTreeItem, deviceType) => {
-  // ✅ Filter items based on `deviceType`
-  if (
-    navTreeItem.device !== "both_desktop_and_mobile" &&
-    !(
-      navTreeItem.device === "desktop_only" && deviceType === "desktop"
-    ) &&
-    !(
-      navTreeItem.device === "mobile_only" && deviceType === "mobile"
-    )
-  ) {
-    return null; // Skip items that shouldn't be displayed on the current device
-  }
-
+const mapNavTreeItem = navTreeItem => {
   switch (navTreeItem.type) {
     case "sport-links": {
       return pipe(
         navTreeItem,
         mapNavTreeFooters,
-        item => mapNavTreeItemToSportLinks(item, deviceType),
-        item => mapNavTreeItemButtons(item, deviceType)
+        mapNavTreeItemToSportLinks,
+        mapNavTreeItemButtons
       );
     }
     default: {
       return pipe(
         navTreeItem,
-        mapNavTreeItemItem, 
-        item => mapNavTreeItemItems(item, deviceType), // Process nested items properly
+        mapNavTreeItemItems,
         mapNavTreeFooters,
-        item => mapNavTreeItemButtons(item, deviceType)
+        mapNavTreeItemButtons
       );
     }
   }
 };
-
 
 const ensureOnlyOneSelectedItem = navTree => {
   if (!Array.isArray(navTree) || navTree.length === 0) {
@@ -317,18 +261,15 @@ const ensureOnlyOneSelectedItem = navTree => {
 };
 
 /** @type {(props: import("./props").HeaderProps['navTree']) => import("./props").HeaderProps['navTree']}  */
-const mapNavTree = (navTree, deviceType) =>
+const mapNavTree = navTree =>
   Array.isArray(navTree)
-    ? navTree
-        .map(navItem => assocNavTreeVariant(navItem, deviceType))
-        .map(navItem => mapNavTreeItem(navItem, deviceType))
-        .filter(Boolean) // Remove null values
+    ? navTree.map(assocNavTreeVariant).map(mapNavTreeItem)
     : [];
 
 /** @type {(props: import("./props").HeaderProps) => import("./props").HeaderProps}  */
-export const mapProps = (props, deviceType) => ({
+export const mapProps = props => ({
   ...props,
-  navTree: ensureOnlyOneSelectedItem(mapNavTree(props.navTree, deviceType)),
+  navTree: ensureOnlyOneSelectedItem(mapNavTree(props.navTree)),
   sponsorLogo: mapSponsorLogoProps(props?.sponsorLogo ?? {}),
   universalNavbar: {
     renderStart: () => (
