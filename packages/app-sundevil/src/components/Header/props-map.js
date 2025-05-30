@@ -46,13 +46,7 @@ const mapNavTreeItemItem = (item) => {
 
   return {
     ...item,
-    renderStartIcon: () => {
-      if (!iconName) return null;
-      if (iconName.startsWith("http")) {
-        return <img src={iconName} alt={`${item.text} icon`} style={{ width: 20, height: 20 }} />;
-      }
-      return <Icon icon={iconName} />;
-    },
+    renderStartIcon: () => <Icon icon={item.icon} />,
   };
 };
 
@@ -65,7 +59,6 @@ const mapNavTreeItemButtons = (navTreeItem, deviceType) => {
         (button.device === "mobile_only" && deviceType === "mobile")
       )
     : [];
- console.log("buttons", buttons)
   return {
     ...navTreeItem,
     buttons: buttons.map(button => ({
@@ -99,10 +92,12 @@ const mapNavTreeItemToSportLinks = (navTreeItem, deviceType) => {
           return {
             href: item.href,
             sportName: item.text,
-            sportLinks: extraLinks.map(extraLink => ({
-              label: extraLink.text,
-              url: extraLink.href,
-            })),
+            sportLinks: extraLinks.map(extraLink => {
+              return {
+                label: extraLink.text,
+                url: extraLink.href,
+              }
+            }),
             icon: item.icon,
           };
         })
