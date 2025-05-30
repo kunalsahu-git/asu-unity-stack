@@ -178,6 +178,8 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 
 import { VideoSection } from "./components/VideoSection";
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
+
+import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -395,5 +397,12 @@ export const initPlayPauseButton = input => {
   RenderReact({
     ...input,
     component: PlayPauseButton,
+  });
+};
+
+export const initCarouselTallCardSection = input => {
+  RenderReact({
+    ...input,
+    component: CarouselTallCardSection,
   });
 };
