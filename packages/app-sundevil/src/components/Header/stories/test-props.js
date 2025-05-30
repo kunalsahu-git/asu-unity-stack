@@ -999,9 +999,9 @@ export const HEADER_TEST_PROPS = {
                     text: "Football",
                     device: "both_desktop_and_mobile",
                     icon: {
-                        "icon_name": "football",
-                        "style": "fa-fa-fa-fa-fas",
-                        "settings": "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:15:\"fa-fa-fa-fa-fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
+                        icon_name: "baseball-bat-ball",
+                        style: "fas",
+                        settings: "a:2:{s:7:\"masking\";a:2:{s:4:\"mask\";s:0:\"\";s:5:\"style\";s:3:\"fas\";}s:16:\"power_transforms\";a:3:{s:5:\"scale\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_y\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}s:10:\"position_x\";a:2:{s:4:\"type\";s:0:\"\";s:5:\"value\";s:0:\"\";}}}"
                     },
                     type: null,
                     extra_links: ""
@@ -1294,7 +1294,7 @@ export const HEADER_TEST_PROPS = {
         ],
         is_sports_type: true,
         mobile: "",
-        device: "mobile_only"
+        device: "both_desktop_and_mobile"
     },
     {
         href: "/fans-and-community",

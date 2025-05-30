@@ -33,8 +33,17 @@ const assocNavTreeVariant = navTreeItem => {
   };
 };
 
-/** @type {(item: object) => object} */
-const mapNavTreeItemItem = item => {
+const extractIconName = (icon) => {
+  if (!icon || icon === "") return undefined;
+  if (typeof icon === "string") return icon;
+  if (icon.icon_name) return icon.icon_name;
+  if (icon.svg_icon) return icon.svg_icon;
+  return undefined;
+};
+
+const mapNavTreeItemItem = (item) => {
+  const iconName = extractIconName(item.icon);
+
   return {
     ...item,
     renderStartIcon: () => <Icon icon={item.icon} />,
@@ -50,7 +59,6 @@ const mapNavTreeItemButtons = (navTreeItem, deviceType) => {
         (button.device === "mobile_only" && deviceType === "mobile")
       )
     : [];
-
   return {
     ...navTreeItem,
     buttons: buttons.map(button => ({
@@ -84,10 +92,12 @@ const mapNavTreeItemToSportLinks = (navTreeItem, deviceType) => {
           return {
             href: item.href,
             sportName: item.text,
-            sportLinks: extraLinks.map(extraLink => ({
-              label: extraLink.text,
-              url: extraLink.href,
-            })),
+            sportLinks: extraLinks.map(extraLink => {
+              return {
+                label: extraLink.text,
+                url: extraLink.href,
+              }
+            }),
             icon: item.icon,
           };
         })
@@ -127,22 +137,30 @@ const mapNavTreeItemToSportLinks = (navTreeItem, deviceType) => {
 const mapNavTreeItemItems = (navTreeItem, deviceType) => {
   return {
     ...navTreeItem,
-    items: navTreeItem.items?.map?.(item => {
+    items: navTreeItem.items?.map?.((item) => {
       if (Array.isArray(item)) {
         return item
-          .filter(subItem =>
-            subItem.device === "both_desktop_and_mobile" ||
-            (subItem.device === "desktop_only" && deviceType === "desktop") ||
-            (subItem.device === "mobile_only" && deviceType === "mobile")
+          .filter(
+            (subItem) =>
+              subItem.device === "both_desktop_and_mobile" ||
+              (subItem.device === "desktop_only" && deviceType === "desktop") ||
+              (subItem.device === "mobile_only" && deviceType === "mobile")
           )
-          .map(subItem => mapNavTreeItemItems(subItem, deviceType));
+          .map((subItem) => mapNavTreeItemItems(subItem, deviceType))
+          .map(mapNavTreeItemItem); // map icon on each sub-item
       }
-      return item.device === "both_desktop_and_mobile" ||
+
+      if (
+        item.device === "both_desktop_and_mobile" ||
         (item.device === "desktop_only" && deviceType === "desktop") ||
         (item.device === "mobile_only" && deviceType === "mobile")
-        ? mapNavTreeItemItems(item, deviceType)
-        : null; // Exclude items not meant for the current device
-    }).filter(Boolean), // Remove `null` values from the filtered list
+      ) {
+        const mappedItem = mapNavTreeItemItems(item, deviceType);
+        return mapNavTreeItemItem(mappedItem); // map icon here too
+      }
+
+      return null;
+    }).filter(Boolean),
   };
 };
 
@@ -258,6 +276,7 @@ const mapNavTreeItem = (navTreeItem, deviceType) => {
     default: {
       return pipe(
         navTreeItem,
+        mapNavTreeItemItem, 
         item => mapNavTreeItemItems(item, deviceType), // Process nested items properly
         mapNavTreeFooters,
         item => mapNavTreeItemButtons(item, deviceType)
