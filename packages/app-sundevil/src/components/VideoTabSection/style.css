@@ -1,0 +1,278 @@
+/* styles.css */
+.videos-tabs-section .hero {
+  background-image: url('https://websecurity-web-sda.ws.asu.edu/sites/default/files/2024-08/thrive.webp');
+  background-size: cover;
+  background-position: center;
+  height: 1292px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videos-tabs-section .body-section {
+  padding: 128px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centers tab-container */
+  min-height: 100vh;
+}
+
+.videos-tabs-section .tab-container {
+  width: 1168px;
+  margin: 0 auto;
+}
+
+.videos-tabs-section .header-section {
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.videos-tabs-section .header-1 {
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -2.88px;
+  margin-bottom: 0;
+}
+
+.videos-tabs-section .header-2 {
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  /* 24px */
+  padding: 48px 0;
+  margin-bottom: 0;
+}
+
+.videos-tabs-section .header-3 {
+  color: #FAFAFA;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  /* 26px */
+  padding-bottom: 48px;
+}
+
+.videos-tabs-section .nav-tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.videos-tabs-section .nav-tabs li {
+  cursor: pointer;
+  border: 1px solid transparent;
+  width: 50%;
+  border-bottom: none;
+  display: flex;
+  height: 96px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  color: white;
+}
+
+.videos-tabs-section .nav-tabs li.active {
+  border: 1px solid #fff;
+  border-bottom: 2px solid white;
+  background-color: #fff;
+  font-weight: bold;
+  color: black;
+}
+
+.videos-tabs-section .tab-content {
+  padding: 16px;
+  background-color: white;
+}
+
+
+.videos-tabs-section .video-section {
+  margin-top: 50px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+}
+
+.videos-tabs-section .lyric-section {
+  width: 260px;
+}
+
+.videos-tabs-section .lyric-header {
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.videos-tabs-section .lyrics {
+  color: #191919;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.videos-tabs-section .lyrics p {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 991px) {
+  .videos-tabs-section .body-section {
+    padding: 128px 32px;
+  }
+
+  .videos-tabs-section .tab-container {
+    width: 100%;
+  }
+
+  .videos-tabs-section .header-section {
+    text-align: left;
+  }
+
+  .videos-tabs-section .header-1 {
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .videos-tabs-section .header-2 {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 48px 0;
+
+  }
+
+  .videos-tabs-section .header-3 {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 64px;
+    margin-bottom: 0;
+  }
+
+  .videos-tabs-section .row {
+    flex-direction: column;
+    /* stack vertically on tablets & mobile */
+  }
+
+  .videos-tabs-section .video-section {
+    display: flex;
+    margin-top: 0px;
+    width: 100%;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .videos-tabs-section .lyric-section {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .videos-tabs-section .lyric-header {
+    padding-top: 0px;
+  }
+
+  .videos-tabs-section .nav-tabs li {
+    font-size: 14px;
+    padding: 8px;
+    height: auto;
+  }
+
+  .videos-tabs-section .header-section {
+    text-align: left;
+  }
+
+  .videos-tabs-section .header-1 {
+    font-size: 64px;
+    letter-spacing: -1.5px;
+  }
+}
+
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .videos-tabs-section .body-section{
+    padding: 48px 0px;
+  }
+  .videos-tabs-section .header-section {
+    text-align: left;
+  }
+
+  .videos-tabs-section .header-1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .videos-tabs-section .header-2 {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 32px 0px;
+  }
+
+  .videos-tabs-section .header-3 {
+    font-size: 20px;
+    font-family: 400;
+    padding-bottom: 16px;
+  }
+
+  .videos-tabs-section .tab-container {
+    width: 100%;
+  }
+
+
+
+  .videos-tabs-section .row {
+    flex-direction: column;
+    /* stack vertically on tablets & mobile */
+  }
+
+  .videos-tabs-section .video-section {
+    display: flex;
+    height: auto;
+    padding: 4px;
+    width: 100%;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .videos-tabs-section .lyric-section {
+    width: 100%;
+    height: auto;
+    background-color: #FAFAFA;
+    margin: 0;
+    padding: 2px;
+  }
+
+  .videos-tabs-section .lyrics {
+    font-size: 14px;
+  }
+
+  .videos-tabs-section .lyric-header {
+    padding: 24px 0;
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
