@@ -39,7 +39,7 @@ const SectionHeaderWrapper = styled.div`
 `;
 
 export const CarouselTallCardSection = ({
-  sectionHeader,
+  sectionHeader,  
   cards = [],
   skeleton = false,
   backgroundImageUrl,
