@@ -1,8 +1,7 @@
 import { IGameDataSource } from "../../../../app-sundevil/src/components/Game/game-data-source";
 
 const itemToGame = item => {
-  // console.log("item.att", item.attributes);
-  const sportName = item.attributes?.field_sport_name ?? "Unknown";
+  const sportName = updateSportName(item.attributes?.field_sport_name);
   const result = item.attributes?.field_result;
   const winningScore = item.attributes?.field_winning_score;
   const losingScore = item.attributes?.field_loosing_score;
@@ -89,5 +88,61 @@ export class GameDataTicker extends IGameDataSource {
       console.error("Error fetching game data:", error);
       return [];
     }
+  }
+}
+
+function updateSportName(sportName) {
+  if (sportName != null) {
+    if (sportName == "Baseball") {
+      sportName = "Baseball";
+    } else if (sportName == "Beach Volleyball") {
+      sportName = "Beach Volleyball";
+    } else if (sportName == "Cross Country") {
+      sportName = "Cross Country";
+    } else if (sportName == "Football") {
+      sportName = "Football";
+    } else if (sportName == "Gymnastic") {
+      sportName = "Gymnastics";
+    } else if (sportName == "Ice Hockey") {
+      sportName = "Ice Hockey";
+    } else if (sportName == "Lacrosse") {
+      sportName = "Lacrosse";
+    } else if (sportName == "Men's Basketball") {
+      sportName = "M. Basketball";
+    } else if (sportName == "Men's Golf") {
+      sportName = "M. Golf";
+    } else if (
+      sportName == "M. Swim and Dive" ||
+      sportName == "Men's Swimming and Diving"
+    ) {
+      sportName = "M. Swimming and Diving";
+    } else if (sportName == "Men's Tennis") {
+      sportName = "M. Tennis";
+    } else if (sportName == "Soccer") {
+      sportName = "Soccer";
+    } else if (sportName == "Softball") {
+      sportName = "Softball";
+    } else if (sportName == "Track and Field") {
+      sportName = "Track & Field";
+    } else if (sportName == "Triathlon") {
+      sportName = "Triathlon";
+    } else if (sportName == "Volleyball") {
+      sportName = "Volleyball";
+    } else if (sportName == "Women's Basketball") {
+      sportName = "W. Basketball";
+    } else if (sportName == "Women's Golf") {
+      sportName = "W. Golf";
+    } else if (sportName == "Women's Swimming and Diving") {
+      sportName = "W. Swimming and Diving";
+    } else if (sportName == "Women's Tennis") {
+      sportName = "W. Tennis";
+    } else if (sportName == "Water Polo") {
+      sportName = "Water Polo";
+    } else if (sportName == "Wrestling") {
+      sportName = "Wrestling";
+    } else {
+      sportName;
+    }
+    return sportName;
   }
 }
