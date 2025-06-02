@@ -94,9 +94,9 @@ const ASUHeader = ({
   style = {},
   scrollTarget,
   tickerAPI,
-  baseTickerUrl,
-  currentUrl,
-  allowedTickerUrl,
+  // baseTickerUrl,
+  // currentUrl,
+  // allowedTickerUrl,
 }) => {
   const navTree = tryAddActivePage(rawNavTree);
   const mobileNavTree = tryAddActivePage(rawMobileNavTree);
@@ -106,12 +106,12 @@ const ASUHeader = ({
    */
   const headerRef = useRef(null);
 
-  const allowedFullUrls = allowedTickerUrl
-    .split(",")
-    .map(path => `${baseTickerUrl}${path}`);
+  // const allowedFullUrls = allowedTickerUrl
+  //   .split(",")
+  //   .map(path => `${baseTickerUrl}${path}`);
 
-  const fullCurrentUrl = `${baseTickerUrl}${currentUrl}`;
-  const isAllowed = allowedFullUrls.includes(fullCurrentUrl);
+  // const fullCurrentUrl = `${baseTickerUrl}${currentUrl}`;
+  // const isAllowed = allowedFullUrls.includes(fullCurrentUrl);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -159,17 +159,17 @@ const ASUHeader = ({
               id={stickyPortalEntranceId}
             />
           )}
-        {isAllowed &&
+        {/* {isAllowed &&
           (isLargeScreen ? (
             <TickerSection tickerAPI={tickerAPI} />
           ) : (
             <TickerMobileView tickerAPI={tickerAPI} />
-          ))}
-        {/* {isLargeScreen ? (
+          ))} */}
+        {isLargeScreen ? (
           <TickerSection tickerAPI={tickerAPI} />
         ) : (
           <TickerMobileView tickerAPI={tickerAPI} />
-        )} */}
+        )}
       </Wrapper>
     );
   };
