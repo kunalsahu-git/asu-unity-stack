@@ -133,6 +133,10 @@
  * @property {Function} [renderTop]
  * @property {import("react").CSSProperties} style
  * @property {HTMLElement | null} [scrollTarget]
+ * @property {string} tickerAPI
+ * @property {string} baseTickerUrl
+ * @property {string} currentUrl
+ * @property {string} allowedTickerUrl
  */
 
 export const JSDOC = "jsdoc";
