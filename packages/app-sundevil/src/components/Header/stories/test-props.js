@@ -3,6 +3,9 @@
 /** @type {import("../props").HeaderProps} */
 export const HEADER_TEST_PROPS = {
   tickerAPI: "https://webfix-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
+  baseTickerUrl:"https://accordion-web-sda.ws.asu.edu",
+  currentUrl:"/sports/cross-country",
+  allowedTickerUrl:"/sports/mens/baseball,/sports/mens/basketball,/sports/mens/football,/sports/mens/golf,/sports/mens/ice-hockey,/sports/mens/swimming-diving",
   searchUrl: "https://search.asu.edu/search",
   // searchUrl: `${new URL(window.location.href).origin}/search`,
   universalNavbar: {
