@@ -38,7 +38,7 @@ const itemToGame = item => {
       secondTeam.score = Math.trunc(losingScore ?? 0);
       firstTeam.score = Math.trunc(winningScore ?? 0);
       firstTeam.won = true;
-    } else  if (result === "lose"){
+    } else  if (result === "lose" || result === "loss"){
       secondTeam.score = Math.trunc(winningScore ?? 0);
       firstTeam.score = Math.trunc(losingScore ?? 0);
       secondTeam.won = true;
