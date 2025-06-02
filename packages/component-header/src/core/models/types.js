@@ -139,4 +139,5 @@
  * @property {string} allowedTickerUrl
  */
 
+
 export const JSDOC = "jsdoc";

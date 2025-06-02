@@ -16,6 +16,7 @@ import { APP_CONFIG } from "../../app-sundevil/src/config";
  * @typedef {import("./core/models/types").HeaderProps} HeaderProps
  */
 
+
 /**
  *
  * @param {{headerRef: React.MutableRefObject<HTMLDivElement | null>, scrollTarget: HTMLElement | Window}} input
