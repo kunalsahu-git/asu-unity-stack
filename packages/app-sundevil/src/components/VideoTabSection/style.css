@@ -241,18 +241,23 @@
     width: 100%;
   }
 
-
+  .videos-tabs-section .tab-content {
+    padding:0;
+  }
 
   .videos-tabs-section .row {
     flex-direction: column;
+    margin: 0;
+    padding-top: 4px;
     /* stack vertically on tablets & mobile */
   }
 
   .videos-tabs-section .video-section {
     display: flex;
-    height: auto;
-    padding: 4px;
+    min-height: 178px;
+    overflow: hidden;
     width: 100%;
+    padding: 4px;
     margin-top: 0;
     align-items: center;
     justify-content: center;
@@ -261,9 +266,9 @@
   .videos-tabs-section .lyric-section {
     width: 100%;
     height: auto;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     margin: 0;
-    padding: 2px;
+    padding: 20px;
   }
 
   .videos-tabs-section .lyrics {
@@ -271,7 +276,7 @@
   }
 
   .videos-tabs-section .lyric-header {
-    padding: 24px 0;
+    padding:0 0 24px 0;
     margin-bottom: 0;
     text-align: left;
   }
