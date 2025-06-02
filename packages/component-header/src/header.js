@@ -8,7 +8,10 @@ import { AppContextProvider } from "./core/context/app-context";
 import { HeaderPropTypes } from "./core/models/app-prop-types";
 import { tryAddActivePage } from "./core/utils/helpers/active-page";
 import { Header, HeaderDiv } from "./header.styles";
-
+import { TickerSection } from "../../app-sundevil/src/components/TickerSection";
+import TickerMobileView from "../../app-sundevil/src/components/TickerSection/TickerMobileView";
+import { useBreakpoint } from "../../app-sundevil/src/utils/use-breakpoint";
+import { APP_CONFIG } from "../../app-sundevil/src/config";
 /**
  * @typedef {import("./core/models/types").HeaderProps} HeaderProps
  */
@@ -89,14 +92,25 @@ const ASUHeader = ({
   renderTop,
   style = {},
   scrollTarget,
+  tickerAPI,
+  baseTickerUrl,
+  currentUrl,
+  allowedTickerUrl,
 }) => {
   const navTree = tryAddActivePage(rawNavTree);
   const mobileNavTree = tryAddActivePage(rawMobileNavTree);
-
+  const isLargeScreen = !useBreakpoint(APP_CONFIG.breakpointDesktopSmall); // > 1024px
   /**
    * @type {React.MutableRefObject<HTMLDivElement | null>}
    */
   const headerRef = useRef(null);
+
+  const allowedFullUrls = allowedTickerUrl
+    .split(",")
+    .map(path => `${baseTickerUrl}${path}`);
+
+  const fullCurrentUrl = `${baseTickerUrl}${currentUrl}`;
+  const isAllowed = allowedFullUrls.includes(fullCurrentUrl);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -144,6 +158,17 @@ const ASUHeader = ({
               id={stickyPortalEntranceId}
             />
           )}
+        {isAllowed &&
+          (isLargeScreen ? (
+            <TickerSection tickerAPI={tickerAPI} />
+          ) : (
+            <TickerMobileView tickerAPI={tickerAPI} />
+          ))}
+        {/* {isLargeScreen ? (
+          <TickerSection tickerAPI={tickerAPI} />
+        ) : (
+          <TickerMobileView tickerAPI={tickerAPI} />
+        )} */}
       </Wrapper>
     );
   };
