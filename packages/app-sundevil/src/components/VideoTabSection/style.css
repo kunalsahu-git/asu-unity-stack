@@ -179,7 +179,7 @@
 
   .videos-tabs-section .video-section {
     display: flex;
-    height: 408.175px;
+    margin-top: 0px;
     width: 100%;
     padding: 24px;
     justify-content: center;
@@ -188,7 +188,12 @@
 
   .videos-tabs-section .lyric-section {
     width: 100%;
-    margin-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .videos-tabs-section .lyric-header {
+    padding-top: 0px;
   }
 
   .videos-tabs-section .nav-tabs li {
