@@ -3,8 +3,8 @@ import { IGameDataSource } from "../../../../app-sundevil/src/components/Game/ga
 const itemToGame = item => {
   const sportName = updateSportName(item.attributes?.field_sport_name);
   const result = item.attributes?.field_result;
-  const winningScore = item.attributes?.field_winning_score;
-  const losingScore = item.attributes?.field_loosing_score;
+  let winningScore = item.attributes?.field_winning_score;
+  let losingScore = item.attributes?.field_loosing_score;
   const homeTeamName = "Sun Devils";
   const opponentName = item.attributes?.field_opponent_name;
   const venueType = item.attributes?.field_venue_type;
@@ -19,33 +19,35 @@ const itemToGame = item => {
     won: false,
   };
 
-  if (venueType === "home") {
+  if (sportName != "Gymnastics"){
+    winningScore = Math.trunc(winningScore ?? 0);
+    losingScore = Math.trunc(losingScore ?? 0);
+  }
+
+  if (venueType === "home" || venueType === "neutral") {
     firstTeam.name = opponentName;
     secondTeam.name = homeTeamName;
     if (result === "win") {
-      firstTeam.score = Math.trunc(losingScore ?? 0);
-      secondTeam.score = Math.trunc(winningScore ?? 0);
+      firstTeam.score = losingScore;
+      secondTeam.score = winningScore;
       secondTeam.won = true;
     } else {
-      firstTeam.score = Math.trunc(winningScore ?? 0);
-      secondTeam.score = Math.trunc(losingScore ?? 0);
+      firstTeam.score = winningScore;
+      secondTeam.score = losingScore;
       firstTeam.won = true;
     }
   } else if (venueType === "away") {
     firstTeam.name = homeTeamName;
     secondTeam.name = opponentName;
     if (result === "win") {
-      secondTeam.score = Math.trunc(losingScore ?? 0);
-      firstTeam.score = Math.trunc(winningScore ?? 0);
+      secondTeam.score = losingScore;
+      firstTeam.score = winningScore;
       firstTeam.won = true;
     } else  if (result === "lose" || result === "loss"){
-      secondTeam.score = Math.trunc(winningScore ?? 0);
-      firstTeam.score = Math.trunc(losingScore ?? 0);
+      secondTeam.score = winningScore;
+      firstTeam.score = losingScore;
       secondTeam.won = true;
     }
-  } else {
-    firstTeam.name = homeTeamName;
-    secondTeam.name = opponentName;
   }
 
   const options = { month: "short", day: "numeric", year: "numeric" };
@@ -78,7 +80,6 @@ export class GameDataTicker extends IGameDataSource {
       const data = dataRes.data ?? [];
       const nextLink = dataRes.links.next.href;
       const items = Array.isArray(data) ? data : [data];
-      // console.log("items", items)
       const games = items.map(itemToGame);
       return {
         games,

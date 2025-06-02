@@ -32,7 +32,6 @@ const Title = styled.div`
 `;
 
 const isCleanString = str => typeof str === "string" && str.trim().length > 0;
-console.log("is clean string", isCleanString)
 /**
  * @type {React.FC<import("../props").SectionHeaderProps & {mobile: boolean}>}
  */
