@@ -19,12 +19,12 @@ const itemToGame = item => {
     won: false,
   };
 
-  if (sportName != "Gymnastics"){
+  if (sportName != "Gymnastics" || sportName != "Gymnastic") {
     winningScore = Math.trunc(winningScore ?? 0);
     losingScore = Math.trunc(losingScore ?? 0);
   }
 
-  if (venueType === "home" || venueType === "neutral") {
+  if (venueType === "home") {
     firstTeam.name = opponentName;
     secondTeam.name = homeTeamName;
     if (result === "win") {
@@ -36,14 +36,14 @@ const itemToGame = item => {
       secondTeam.score = losingScore;
       firstTeam.won = true;
     }
-  } else if (venueType === "away") {
+  } else if (venueType === "away" || venueType === "neutral") {
     firstTeam.name = homeTeamName;
     secondTeam.name = opponentName;
     if (result === "win") {
       secondTeam.score = losingScore;
       firstTeam.score = winningScore;
       firstTeam.won = true;
-    } else  if (result === "lose" || result === "loss"){
+    } else if (result === "lose" || result === "loss") {
       secondTeam.score = winningScore;
       firstTeam.score = losingScore;
       secondTeam.won = true;
@@ -83,7 +83,7 @@ export class GameDataTicker extends IGameDataSource {
       const games = items.map(itemToGame);
       return {
         games,
-        nextLink
+        nextLink,
       };
     } catch (error) {
       console.error("Error fetching game data:", error);
@@ -94,52 +94,65 @@ export class GameDataTicker extends IGameDataSource {
 
 function updateSportName(sportName) {
   if (sportName != null) {
-    if (sportName == "Baseball") {
+    if (sportName === "Baseball") {
       sportName = "Baseball";
-    } else if (sportName == "Beach Volleyball") {
+    } else if (sportName === "Beach Volleyball") {
       sportName = "Beach Volleyball";
-    } else if (sportName == "Cross Country") {
+    } else if (sportName === "Cross Country") {
       sportName = "Cross Country";
-    } else if (sportName == "Football") {
+    } else if (sportName === "Football") {
       sportName = "Football";
-    } else if (sportName == "Gymnastic") {
+    } else if (sportName === "Gymnastic" || sportName === "Gymnastics") {
       sportName = "Gymnastics";
-    } else if (sportName == "Ice Hockey") {
+    } else if (sportName === "Ice Hockey") {
       sportName = "Ice Hockey";
-    } else if (sportName == "Lacrosse") {
+    } else if (sportName === "Lacrosse") {
       sportName = "Lacrosse";
-    } else if (sportName == "Men's Basketball") {
+    } else if (
+      sportName === "Men's Basketball" ||
+      sportName === "M. Basketball"
+    ) {
       sportName = "M. Basketball";
-    } else if (sportName == "Men's Golf") {
+    } else if (sportName === "Men's Golf" || sportName === "M. Golf") {
       sportName = "M. Golf";
     } else if (
-      sportName == "M. Swim and Dive" ||
-      sportName == "Men's Swimming and Diving"
+      sportName === "M. Swim and Dive" ||
+      sportName === "Men's Swimming and Diving" ||
+      sportName === "Men's Swim & Diving"
     ) {
       sportName = "M. Swimming and Diving";
-    } else if (sportName == "Men's Tennis") {
+    } else if (sportName === "Men's Tennis") {
       sportName = "M. Tennis";
-    } else if (sportName == "Soccer") {
+    } else if (sportName === "Soccer") {
       sportName = "Soccer";
-    } else if (sportName == "Softball") {
+    } else if (sportName === "Softball") {
       sportName = "Softball";
-    } else if (sportName == "Track and Field") {
+    } else if (
+      sportName === "Track and Field" ||
+      sportName === "Track & Field"
+    ) {
       sportName = "Track & Field";
-    } else if (sportName == "Triathlon") {
+    } else if (sportName === "Triathlon") {
       sportName = "Triathlon";
-    } else if (sportName == "Volleyball") {
+    } else if (sportName === "Volleyball") {
       sportName = "Volleyball";
-    } else if (sportName == "Women's Basketball") {
+    } else if (
+      sportName === "Women's Basketball" ||
+      sportName === "W. Basketball"
+    ) {
       sportName = "W. Basketball";
-    } else if (sportName == "Women's Golf") {
+    } else if (sportName === "Women's Golf") {
       sportName = "W. Golf";
-    } else if (sportName == "Women's Swimming and Diving") {
+    } else if (
+      sportName === "Women's Swimming and Diving" ||
+      sportName === "Women's Swim & Diving"
+    ) {
       sportName = "W. Swimming and Diving";
-    } else if (sportName == "Women's Tennis") {
+    } else if (sportName === "Women's Tennis") {
       sportName = "W. Tennis";
-    } else if (sportName == "Water Polo") {
+    } else if (sportName === "Water Polo") {
       sportName = "Water Polo";
-    } else if (sportName == "Wrestling") {
+    } else if (sportName === "Wrestling") {
       sportName = "Wrestling";
     } else {
       sportName;
