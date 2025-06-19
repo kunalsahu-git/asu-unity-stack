@@ -66,8 +66,13 @@
 }
 
 .carousel-item .line svg {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.carousel-item .line img {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 
