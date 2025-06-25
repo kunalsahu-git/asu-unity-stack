@@ -12,5 +12,3 @@ export const SunDevilsHeader = props => {
   return <ASUHeader {...mappedProps} />;
 };
 SunDevilsHeader.propTypes = headerPropTypes;
-
-// test
