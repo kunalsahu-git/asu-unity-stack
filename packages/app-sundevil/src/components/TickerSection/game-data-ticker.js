@@ -78,9 +78,9 @@ export class GameDataTicker extends IGameDataSource {
       const response = await fetch(this.url);
       const dataRes = await response.json();
       const data = dataRes.data ?? [];
-      const nextLink = dataRes.links.next.href;
       const items = Array.isArray(data) ? data : [data];
       const games = items.map(itemToGame);
+      const nextLink = dataRes.links.next ? dataRes.links.next.href : "";
       return {
         games,
         nextLink,
