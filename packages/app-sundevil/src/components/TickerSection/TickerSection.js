@@ -18,10 +18,10 @@ export const TickerCarousel = ({ tickerAPI }) => {
 
   const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0));
 
-  const winningHighlightStyle = (highlight) => ({
-    background: highlight ? '#FFC627' : '#191919',
-    color: highlight ? '#191919' : '#D0D0D0',
-    padding: '2px',
+  const winningHighlightStyle = highlight => ({
+    background: highlight ? "#FFC627" : "#191919",
+    color: highlight ? "#191919" : "#D0D0D0",
+    padding: "2px",
   });
 
   const fetchData = async (url = tickerAPI) => {
@@ -30,9 +30,11 @@ export const TickerCarousel = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
-      const games = data.games.sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+      const games = data.games.sort(
+        (a, b) => new Date(b.gameday) - new Date(a.gameday)
+      );
       setItems(prev => [...prev, ...games]);
-      setNextLink(data.nextLink); 
+      setNextLink(data.nextLink);
     } catch (e) {
       console.error("Error fetching ticker data:", e);
     } finally {
@@ -54,6 +56,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
     });
   };
 
+  console.log(items, "items");
   return (
     <div className="carousel-wrapper">
       <div className="carousel-score">Scores :</div>
@@ -62,25 +65,42 @@ export const TickerCarousel = ({ tickerAPI }) => {
           className="carousel-track"
           style={{ transform: `translateX(${position}px)` }}
         >
-          {items.map((item, index) => (
-            <div key={index} className="carousel-item">
-              <div className="line">
-                <div style={{ color: '#fafafa' }}>
-                  <SportIcon sportName={stringToClosestSportName(item.sportName)} />
+          {items.map((item, index) => {
+            // Check if both scores are not zero
+            if (
+              item.firstTeam.score !== 0 &&
+              item.secondTeam.score !== 0 &&
+              item.firstTeam.score !== null &&
+              item.secondTeam.score !== null
+            ) {
+              return (
+                <div key={index} className="carousel-item">
+                  <div className="line">
+                    <div style={{ color: "#fafafa" }}>
+                      <SportIcon
+                        sportName={stringToClosestSportName(item.sportName)}
+                      />
+                    </div>
+                    {item.sportName}
+                  </div>
+                  <div className="line" style={{ fontWeight: "normal" }}>
+                    {item.gameday}
+                  </div>
+                  <div className="line">
+                    <div style={winningHighlightStyle(item.firstTeam.won)}>
+                      {item.firstTeam.name} {item.firstTeam.score}
+                    </div>
+                    <div style={winningHighlightStyle(item.secondTeam.won)}>
+                      {item.secondTeam.name} {item.secondTeam.score}
+                    </div>
+                  </div>
                 </div>
-                {item.sportName}
-              </div>
-              <div className="line" style={{ fontWeight: "normal" }}>{item.gameday}</div>
-              <div className="line">
-                <div style={winningHighlightStyle(item.firstTeam.won)}>
-                  {item.firstTeam.name} {item.firstTeam.score}
-                </div>
-                <div style={winningHighlightStyle(item.secondTeam.won)}>
-                  {item.secondTeam.name} {item.secondTeam.score}
-                </div>
-              </div>
-            </div>
-          ))}
+              );
+            }
+
+            // Skip rendering if the condition fails
+            return null;
+          })}
         </div>
       </div>
 

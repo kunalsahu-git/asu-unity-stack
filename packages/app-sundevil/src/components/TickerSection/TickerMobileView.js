@@ -100,48 +100,60 @@ export const TickerMobile = ({ tickerAPI }) => {
           ref={contentRef}
           style={{ maxHeight: "300px", overflowY: "auto" }}
         >
-          {items.map((item, index) => (
-            <div key={index} className="game-item">
-              {/* Row 1 */}
-              <div
-                className="d-flex justify-content-between align-items-center"
-                style={{ paddingBottom: "24px" }}
-              >
-                <div className="d-flex">
-                  <div style={{ color: "#fafafa", marginRight: "4px" }}>
-                    <SportIcon
-                      sportName={stringToClosestSportName(item.sportName)}
-                    />
+          {items.map((item, index) => {
+            // Only render the item if both team scores are not zero
+            if (item.firstTeam.score !== 0 && item.secondTeam.score !== 0) {
+              return (
+                <div key={index} className="game-item">
+                  {/* Row 1 */}
+                  <div
+                    className="d-flex justify-content-between align-items-center"
+                    style={{ paddingBottom: "24px" }}
+                  >
+                    <div className="d-flex">
+                      <div style={{ color: "#fafafa", marginRight: "4px" }}>
+                        <SportIcon
+                          sportName={stringToClosestSportName(item.sportName)}
+                        />
+                      </div>
+                      <div>{item.sportName}</div>
+                    </div>
+                    <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
                   </div>
-                  <div>{item.sportName}</div>
-                </div>
-                <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
-              </div>
 
-              {/* Row 2 */}
-              <div
-                className="d-flex justify-content-between align-items-center"
-                style={{ paddingBottom: "12px" }}
-              >
-                <div style={winningHighlightStyle(item.firstTeam.won)}>
-                  {item.firstTeam.name}
-                </div>
-                <div style={{ color: "white" }}>{item.firstTeam.score}</div>
-              </div>
+                  {/* Row 2 */}
+                  <div
+                    className="d-flex justify-content-between align-items-center"
+                    style={{ paddingBottom: "12px" }}
+                  >
+                    <div style={winningHighlightStyle(item.firstTeam.won)}>
+                      {item.firstTeam.name}
+                    </div>
+                    <div style={{ color: "white" }}>{item.firstTeam.score}</div>
+                  </div>
 
-              {/* Row 3 */}
-              <div className="d-flex justify-content-between align-items-center">
-                <div style={winningHighlightStyle(item.secondTeam.won)}>
-                  {item.secondTeam.name}
+                  {/* Row 3 */}
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div style={winningHighlightStyle(item.secondTeam.won)}>
+                      {item.secondTeam.name}
+                    </div>
+                    <div style={{ color: "white" }}>
+                      {item.secondTeam.score}
+                    </div>
+                  </div>
                 </div>
-                <div style={{ color: "white" }}>{item.secondTeam.score}</div>
-              </div>
-            </div>
-          ))}
+              );
+            }
+
+            // Skip rendering if scores are 0
+            return null;
+          })}
 
           {/* Optional loader */}
           {isFetching && (
-            <div style={{ textAlign: "center", padding: "10px", color: "#ccc" }}>
+            <div
+              style={{ textAlign: "center", padding: "10px", color: "#ccc" }}
+            >
               Loading more...
             </div>
           )}
