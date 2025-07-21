@@ -47,7 +47,13 @@ export const CellTitle = props => {
 
           <Chips {...props} />
         </div>
-
+        <div
+          className="cell-title-divider"
+          style={{
+            borderLeft: "1px solid #d0d0d0",
+            height: "100%",
+          }}
+        />
         <SupplementalLinks {...props} />
       </Cell>
     )

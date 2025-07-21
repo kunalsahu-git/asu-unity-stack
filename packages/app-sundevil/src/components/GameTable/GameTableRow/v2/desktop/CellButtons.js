@@ -50,10 +50,19 @@ export const CellButtons = props => {
         gap: "12px",
       }}
     >
-      {game?.buttons?.map(button => {
+      {game?.buttons?.map((button, index) => {
+        const totalButtons = (game?.buttons ?? []).length;
+
+        // Determine fallback color
+        let fallbackColor = "gray";
+        if (totalButtons === 1 || index === 0) {
+          fallbackColor = "dark"; // ← switch from "black" to "dark"
+        }
+
         const buttonProps = {
           ...button,
-          color: stringToColor(button.color),
+          color: stringToColor(fallbackColor),
+
           target: stringToTarget(configCells?.cellTicketButton?.button?.target),
           size: stringToSize(configCells?.cellTicketButton?.button?.size),
           icon: [],
@@ -64,6 +73,7 @@ export const CellButtons = props => {
             type: TYPE_INTERNAL_LINK,
           },
         };
+
         return (
           <Button
             key={button.href ?? button.label}

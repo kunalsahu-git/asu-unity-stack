@@ -1,4 +1,5 @@
 import React from "react";
+
 import { CarouselTallCardSection } from "./CarouselTallCardSection";
 
 // Sample reusable card data

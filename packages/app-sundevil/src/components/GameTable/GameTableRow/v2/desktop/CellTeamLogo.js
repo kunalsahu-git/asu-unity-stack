@@ -4,8 +4,8 @@
 import React, { useEffect, useState } from "react";
 
 import { Anchor } from "../../Anchor";
-import { Cell, isCleanString, STYLES_TRUNCATE } from "./shared";
 import { toTeamLogoAlt } from "../mobile/shared";
+import { Cell, isCleanString, STYLES_TRUNCATE } from "./shared";
 
 export const CELL_TEAM_LOGO_WIDTH = 112;
 

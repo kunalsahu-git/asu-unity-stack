@@ -3,8 +3,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { decodeHtml } from "../../../../../utils/decode-html";
 import { trackGAEvent } from "../../../../../track-ga/track-ga-event";
+import { decodeHtml } from "../../../../../utils/decode-html";
 
 const Title = styled.a`
   color: #191919 !important;

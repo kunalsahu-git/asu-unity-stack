@@ -10,7 +10,7 @@ export const Cell = styled.div`
 export const STYLES_TRUNCATE = {
   overflow: "hidden",
   textOverflow: "ellipsis",
-  whiteSpace: "nowrap",
+  whiteSpace: "wrap",
 };
 
 /**

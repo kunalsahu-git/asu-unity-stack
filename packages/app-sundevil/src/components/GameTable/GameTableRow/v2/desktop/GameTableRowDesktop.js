@@ -17,8 +17,8 @@ const Root = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 120px;
-  max-height: 120px;
+  height: 100%;
+  max-height: 100%;
   overflow: hidden;
   justify-content: center;
   align-items: stretch;
@@ -54,7 +54,7 @@ export const GameTableRowDesktop = forwardRef(
       <Skeleton
         skeleton={skeleton}
         ref={ref}
-        style={{ height: "120px", maxHeight: "120px" }}
+        style={{ height: "100%", maxHeight: "100%" }}
       >
         <Root
           aria-hidden={empty}

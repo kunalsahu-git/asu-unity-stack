@@ -33,7 +33,7 @@ export const CellDate = props => {
       <Cell
         style={{
           width: "208px",
-          height: "120px",
+          height: "auto",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

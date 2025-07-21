@@ -19,9 +19,9 @@ import {
   gameTableRowStore,
 } from "../store";
 
-const MAX_LINES = 4;
-const LINE_HEIGHT = 20;
-const BASE_WIDTH = 144;
+const MAX_LINES = 10;
+const LINE_HEIGHT = 30;
+const BASE_WIDTH = 200;
 
 /**
  * @type {React.FC<import("../shared").CellProps>}

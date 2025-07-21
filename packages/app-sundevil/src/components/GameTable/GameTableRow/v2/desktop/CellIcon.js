@@ -26,7 +26,7 @@ export const CellIcon = props => {
         justifyContent: "center",
         gap: "6px",
         width: "120px",
-        height: "120px",
+        height: "auto",
         flexDirection: "column",
         flexShrink: 0,
         padding: "12px",
