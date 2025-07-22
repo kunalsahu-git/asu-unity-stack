@@ -27,13 +27,22 @@ export const TickerMobile = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(link);
       const data = await dataSource.findMany();
-
       const games = Array.isArray(data.games) ? data.games : [];
-      const sorted = games.sort(
-        (a, b) => new Date(b.gameday) - new Date(a.gameday)
-      );
 
-      setItems(prev => [...prev, ...sorted]);
+      const filtered = games
+        .filter(item => {
+          const firstScore = Number(item.firstTeam.score);
+          const secondScore = Number(item.secondTeam.score);
+          return (
+            !isNaN(firstScore) &&
+            !isNaN(secondScore) &&
+            firstScore !== 0 &&
+            secondScore !== 0
+          );
+        })
+        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+
+      setItems(prev => [...prev, ...filtered]);
       setNextLink(data.nextLink || null);
     } catch (error) {
       console.error("Failed to fetch ticker data", error);
@@ -50,7 +59,6 @@ export const TickerMobile = ({ tickerAPI }) => {
     setIsOpen(prev => !prev);
   };
 
-  // Reattach scroll listener each time dropdown opens
   useEffect(() => {
     const container = contentRef.current;
     if (!isOpen || !container) return;
@@ -100,56 +108,45 @@ export const TickerMobile = ({ tickerAPI }) => {
           ref={contentRef}
           style={{ maxHeight: "300px", overflowY: "auto" }}
         >
-          {items.map((item, index) => {
-            // Only render the item if both team scores are not zero
-            if (item.firstTeam.score !== 0 && item.secondTeam.score !== 0) {
-              return (
-                <div key={index} className="game-item">
-                  {/* Row 1 */}
-                  <div
-                    className="d-flex justify-content-between align-items-center"
-                    style={{ paddingBottom: "24px" }}
-                  >
-                    <div className="d-flex">
-                      <div style={{ color: "#fafafa", marginRight: "4px" }}>
-                        <SportIcon
-                          sportName={stringToClosestSportName(item.sportName)}
-                        />
-                      </div>
-                      <div>{item.sportName}</div>
-                    </div>
-                    <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
+          {items.map((item, index) => (
+            <div key={index} className="game-item">
+              {/* Row 1 */}
+              <div
+                className="d-flex justify-content-between align-items-center"
+                style={{ paddingBottom: "24px" }}
+              >
+                <div className="d-flex">
+                  <div style={{ color: "#fafafa", marginRight: "4px" }}>
+                    <SportIcon
+                      sportName={stringToClosestSportName(item.sportName)}
+                    />
                   </div>
-
-                  {/* Row 2 */}
-                  <div
-                    className="d-flex justify-content-between align-items-center"
-                    style={{ paddingBottom: "12px" }}
-                  >
-                    <div style={winningHighlightStyle(item.firstTeam.won)}>
-                      {item.firstTeam.name}
-                    </div>
-                    <div style={{ color: "white" }}>{item.firstTeam.score}</div>
-                  </div>
-
-                  {/* Row 3 */}
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div style={winningHighlightStyle(item.secondTeam.won)}>
-                      {item.secondTeam.name}
-                    </div>
-                    <div style={{ color: "white" }}>
-                      {item.secondTeam.score}
-                    </div>
-                  </div>
+                  <div>{item.sportName}</div>
                 </div>
-              );
-            }
+                <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
+              </div>
 
-            // Skip rendering if scores are 0
-            return null;
-          })}
+              {/* Row 2 */}
+              <div
+                className="d-flex justify-content-between align-items-center"
+                style={{ paddingBottom: "12px" }}
+              >
+                <div style={winningHighlightStyle(item.firstTeam.won)}>
+                  {item.firstTeam.name}
+                </div>
+                <div style={{ color: "white" }}>{item.firstTeam.score}</div>
+              </div>
 
-          {/* Optional loader */}
+              {/* Row 3 */}
+              <div className="d-flex justify-content-between align-items-center">
+                <div style={winningHighlightStyle(item.secondTeam.won)}>
+                  {item.secondTeam.name}
+                </div>
+                <div style={{ color: "white" }}>{item.secondTeam.score}</div>
+              </div>
+            </div>
+          ))}
+
           {isFetching && (
             <div
               style={{ textAlign: "center", padding: "10px", color: "#ccc" }}

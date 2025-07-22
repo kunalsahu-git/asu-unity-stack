@@ -131,7 +131,7 @@ function updateSportName(sportName) {
       sportName === "Track and Field" ||
       sportName === "Track & Field"
     ) {
-      sportName = "Track & Field";
+      sportName = "Track and Field";
     } else if (sportName === "Triathlon") {
       sportName = "Triathlon";
     } else if (sportName === "Volleyball") {
