@@ -10,6 +10,7 @@ import { Button } from "../../Button";
 import { UniversalNavbar } from "../../UniversalNavbar";
 import { Wrapper } from "./index.styles";
 import { NavItem } from "./NavItem";
+import { LogoSponsor } from "../LogoSponsor";
 
 /**
  * @type {React.FC<{navBarHeight: number; hidden?: boolean, toggleMobileMenu: () => void}>}
@@ -75,20 +76,23 @@ const NavbarContainer = forwardRef(
                   : navTree?.map((link, i) => renderItem(link, i))}
               </ul>
             )}
-            {!!buttons?.length && (
-              <form
-                className="buttons-container"
-                data-testid="buttons-container"
-              >
-                {buttons?.map(button => (
-                  <Button
-                    {...button}
-                    key={button.text}
-                    onFocus={() => trackGAEvent({ text: button.text })}
-                  />
-                ))}
-              </form>
-            )}
+            <div className="d-flex flex-column-reverse">
+              {!!buttons?.length && (
+                <form
+                  className="buttons-container d-flex"
+                  data-testid="buttons-container"
+                >
+                  {buttons?.map(button => (
+                    <Button
+                      {...button}
+                      key={button.text}
+                      onFocus={() => trackGAEvent({ text: button.text })}
+                    />
+                  ))}
+                </form>
+              )}
+              <LogoSponsor />
+            </div>
           </div>
         )}
         {/* Navbar Footer */}

@@ -82,7 +82,7 @@ const HeaderMain = () => {
                       navBarHeight={navbarDimensions.height}
                     />
                   </div>
-                  <LogoSponsor />
+                  {/* <LogoSponsor /> */}
                 </>
               )}
 
