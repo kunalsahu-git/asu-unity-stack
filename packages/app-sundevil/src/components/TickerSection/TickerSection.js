@@ -67,7 +67,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
 
   return (
     <div className="carousel-wrapper">
-      <div className="carousel-score">Scores :</div>
+      <div className="carousel-score">Scores:</div>
       <div className="carousel-view">
         <div
           className="carousel-track"
