@@ -28,8 +28,9 @@ import { SectionFooter } from "../SectionFooter";
 import { mapSectionHeaderProps, SectionHeader } from "../SectionHeader";
 import { stringToSportId } from "../Sport/sport-id";
 import { useUrlSportId } from "../Sport/use-url-sport-id";
-import { SportsTabsDesktop, SportsTabsMobile } from "../SportsTabs";
+import { SportsTabsDesktop } from "../SportsTabs";
 import { sportWithFooterPropTypes } from "../SportsTabs/sports-tabs";
+import { SportsTabsMobile } from "./MobileTab/SportsTabsMobile";
 import {
   configAddToCalendarPropTypes,
   useAddToCalendarCallbackRegistry,
@@ -363,7 +364,7 @@ const GameTableSectionInner = ({ ...props }) => {
               sports={sports}
               onSportItemClick={onSportItemClick}
               variant="borderless"
-              sectionName={sectionName ?? " "}
+              sectionName="Choose a sport"
             />
           </div>
         )}
