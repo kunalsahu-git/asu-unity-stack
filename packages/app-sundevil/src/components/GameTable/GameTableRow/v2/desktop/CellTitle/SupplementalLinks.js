@@ -76,7 +76,7 @@ export const SupplementalLinks = props => {
           minWidth: "0",
           flexShrink: 1,
           width: `${cellWidth}px`,
-          padding: "12px 6px 12px 0px",
+          padding: "20px 6px 20px 0px",
           maxHeight: "100%",
           ...STYLES_TRUNCATE,
         }}
@@ -96,7 +96,6 @@ export const SupplementalLinks = props => {
               fontWeight: "400",
               whiteSpace: "normal",
               wordWrap: "break-word",
-              lineHeight: `${LINE_HEIGHT}px`,
               opacity: mounted ? 1 : 0,
               ...link.style,
             }}

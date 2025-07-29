@@ -23,7 +23,7 @@ export const Chips = props => {
           flexWrap: "wrap",
           gap: "8px",
           // IMPORTANT to use margin to overflowing chips are cutoff correctly
-          margin: "0px 0px 16px 16px",
+          margin: "0px 0px 20px 16px",
           ...STYLES_TRUNCATE,
         }}
       >

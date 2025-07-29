@@ -58,7 +58,7 @@ export const RowDate = props => {
         {game?.dateDayName && (
           <div
             style={{
-              fontWeight: "normal",
+              fontWeight: "bold",
               paddingLeft: "4px",
             }}
             dangerouslySetInnerHTML={{
@@ -76,7 +76,11 @@ export const RowDate = props => {
             }}
           />
         )}
+        <span style={{ margin: "0px 0px 0px 4px", fontWeight: "normal" }}>
+          (MST)
+        </span>
       </div>
+
       {game?.dateLinks && (
         <div
           style={{

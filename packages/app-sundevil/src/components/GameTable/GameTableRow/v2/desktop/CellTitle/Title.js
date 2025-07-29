@@ -42,7 +42,7 @@ export const Title = props => {
     <Root
       style={{
         ...STYLES_TRUNCATE,
-        padding: "16px",
+        padding: "20px",
         paddingBottom: "0",
         flexShrink: 0,
       }}

@@ -41,27 +41,11 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
     supplementalLinks: [
       {
         id: "2",
-        label:
-          "History History History History History History History History ",
+        label: "History",
         href: "https://www.example.com/1",
       },
       {
         id: "1",
-        label: "History",
-        href: "https://www.example.com/1",
-      },
-      {
-        id: "3",
-        label: "History",
-        href: "https://www.example.com/1",
-      },
-      {
-        id: "4",
-        label: "History",
-        href: "https://www.example.com/1",
-      },
-      {
-        id: "5",
         label: "History",
         href: "https://www.example.com/1",
       },

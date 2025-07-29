@@ -38,7 +38,7 @@ export const CellDate = props => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: "16px",
+          padding: "20px 16px",
           flexShrink: 0,
         }}
       >
@@ -65,7 +65,7 @@ export const CellDate = props => {
               style={{
                 fontSize: "24px",
                 fontWeight: "bold",
-                lineHeight: "24px",
+                lineHeight: "28px",
               }}
               dangerouslySetInnerHTML={{
                 __html: [game?.dateMonth ?? "", game?.dateDay ?? ""].join(" "),

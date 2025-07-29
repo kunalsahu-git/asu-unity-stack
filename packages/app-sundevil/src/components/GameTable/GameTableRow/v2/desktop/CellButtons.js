@@ -23,7 +23,7 @@ import { Cell } from "./shared";
 /**
  * @type {import("./shared").CellComponent}
  */
-export const CellButtons = props => {
+export const CellButtons = (props) => {
   const { game, configCells, configLayout } = props;
   const componentId = useId();
 
@@ -50,19 +50,19 @@ export const CellButtons = props => {
         gap: "12px",
       }}
     >
-      {game?.buttons?.map((button, index) => {
-        const totalButtons = (game?.buttons ?? []).length;
+      {game.buttons.map((button, index) => {
+        const totalButtons = game.buttons.length;
 
-        // Determine fallback color
-        let fallbackColor = "gray";
-        if (totalButtons === 1 || index === 0) {
-          fallbackColor = "dark"; // ← switch from "black" to "dark"
-        }
+        const fallbackColor =
+          totalButtons === 1
+            ? "dark"
+            : index === 0
+            ? "dark"
+            : "gray";
 
         const buttonProps = {
           ...button,
           color: stringToColor(fallbackColor),
-
           target: stringToTarget(configCells?.cellTicketButton?.button?.target),
           size: stringToSize(configCells?.cellTicketButton?.button?.size),
           icon: [],
@@ -77,17 +77,15 @@ export const CellButtons = props => {
         return (
           <Button
             key={button.href ?? button.label}
-            renderIcon={() => {
-              return (
-                <Icon
-                  icon={button.startIcon}
-                  style={{
-                    paddingRight: "4px",
-                    textDecoration: "none !important",
-                  }}
-                />
-              );
-            }}
+            renderIcon={() => (
+              <Icon
+                icon={button.startIcon}
+                style={{
+                  paddingRight: "4px",
+                  textDecoration: "none !important",
+                }}
+              />
+            )}
             {...buttonProps}
           />
         );
