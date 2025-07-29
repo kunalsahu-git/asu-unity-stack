@@ -6,18 +6,6 @@ import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
 
-const SPORTS_TO_HIDE = [
-  "M. Golf",
-  "W. Golf",
-  "Wrestling",
-  "Gymnastics",
-  "M. Swimming and Diving",
-  "W. Swimming and Diving",
-  "Cross Country",
-  "Track and Field",
-  "Triathlon",
-];
-
 export const TickerCarousel = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [position, setPosition] = useState(0);
@@ -28,9 +16,9 @@ export const TickerCarousel = ({ tickerAPI }) => {
   const visibleCount = 4;
   const maxScroll = -(itemWidth * (items.length - visibleCount));
 
-  const slideLeft = () => setPosition((prev) => Math.min(prev + itemWidth, 0));
+  const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0));
 
-  const winningHighlightStyle = (highlight) => ({
+  const winningHighlightStyle = highlight => ({
     background: highlight ? "#FFC627" : "#191919",
     color: highlight ? "#191919" : "#D0D0D0",
     padding: "2px",
@@ -43,9 +31,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
       const games = data.games
-        .filter((item) => {
-          if (SPORTS_TO_HIDE.includes(item.sportName)) return false;
-
+        .filter(item => {
           const firstScore = Number(item.firstTeam.score);
           const secondScore = Number(item.secondTeam.score);
 
@@ -58,7 +44,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
         })
         .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
 
-      setItems((prev) => [...prev, ...games]);
+      setItems(prev => [...prev, ...games]);
       setNextLink(data.nextLink);
     } catch (e) {
       console.error("Error fetching ticker data:", e);
@@ -72,7 +58,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
   }, []);
 
   const slideRight = () => {
-    setPosition((prev) => {
+    setPosition(prev => {
       const nextPos = Math.max(prev - itemWidth, maxScroll);
       if (nextPos === maxScroll && nextLink && !isFetching) {
         fetchData(nextLink);
