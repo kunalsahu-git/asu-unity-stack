@@ -7,6 +7,7 @@ import { idGenerator, trackGAEvent } from "../../../../../../shared";
 import { useAppContext } from "../../../core/context/app-context";
 import { useIsMobile } from "../../../core/hooks/isMobile";
 import { Button } from "../../Button";
+import { LogoButton } from "../../LogoButton";
 import { UniversalNavbar } from "../../UniversalNavbar";
 import { Wrapper } from "./index.styles";
 import { NavItem } from "./NavItem";
@@ -76,14 +77,14 @@ const NavbarContainer = forwardRef(
                   : navTree?.map((link, i) => renderItem(link, i))}
               </ul>
             )}
-            <div className="d-flex flex-column-reverse">
+            <div className="d-flex section-button-logo flex-column-reverse">
               {!!buttons?.length && (
                 <form
                   className="buttons-container d-flex"
                   data-testid="buttons-container"
                 >
                   {buttons?.map(button => (
-                    <Button
+                    <LogoButton
                       {...button}
                       key={button.text}
                       onFocus={() => trackGAEvent({ text: button.text })}

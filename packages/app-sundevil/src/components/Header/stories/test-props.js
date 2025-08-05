@@ -43,12 +43,24 @@ export const HEADER_TEST_PROPS = {
     {
       color: "maroon",
       href: "/example",
-      text: "test",
+      text: "Tickets",
+      icon: {
+        icon_name: "ticket",
+        style: "fa-fas",
+        settings:
+          'a:2:{s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:6:"fa-fas";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}',
+      },
     },
     {
-      color: "gold",
+      color: "dark",
       href: "/test",
-      text: "test",
+      text: "Shop",
+      icon: {
+        icon_name: "cart",
+        style: "fa-fas",
+        settings:
+          'a:2:{s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:6:"fa-fas";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}',
+      },
     },
   ],
   logo: {

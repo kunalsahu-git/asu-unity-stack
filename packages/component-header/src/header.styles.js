@@ -73,7 +73,7 @@ const Header = styled.header`
       .navbar-brand img {
         height: 64px;
         transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-        margin: 12px 1rem 12px 0;
+        margin: 12px -28px 0 0;
       }
     }
   }
@@ -167,7 +167,7 @@ const HeaderDiv = styled.div`
       .navbar-brand img {
         height: 64px;
         transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-        margin: 12px 1rem 12px 0;
+        margin: 12px -28px 0 0;
       }
     }
   }
@@ -199,4 +199,3 @@ const HeaderDiv = styled.div`
 `;
 
 export { Header, HeaderDiv };
-

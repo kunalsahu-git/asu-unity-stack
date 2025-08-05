@@ -10,7 +10,7 @@ import { UniversalNavbar } from "../UniversalNavbar";
 import { HamburgerButton } from "./HamburgerButton";
 import { HeaderMainWrapper } from "./index.styles";
 import { Logo } from "./Logo";
-import { LogoSponsor } from "./LogoSponsor";
+// import { LogoSponsor } from "./LogoSponsor";
 import { NavbarContainer } from "./NavbarContainer";
 import { Partner } from "./Partner";
 import { Title } from "./Title";
@@ -82,7 +82,7 @@ const HeaderMain = () => {
                       navBarHeight={navbarDimensions.height}
                     />
                   </div>
-                  <LogoSponsor />
+                  {/* <LogoSponsor /> */}
                 </>
               )}
 

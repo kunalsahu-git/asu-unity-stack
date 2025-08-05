@@ -20,7 +20,7 @@ const NavItemWrapper = styled.li`
       display: block;
       height: 0.5rem;
       position: relative;
-      top: 0.6rem;
+      top: 0.5rem;
       right: 12px;
       width: 0;
       background-image: linear-gradient(
