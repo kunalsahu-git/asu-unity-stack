@@ -15,7 +15,7 @@ const HeaderMainWrapper = styled.div`
       display: block;
       height: 72px;
       width: auto;
-      margin: 20px 1rem 20px 0;
+      margin: 20px 1rem 20px 0px !important;
     }
     .horiz {
       display: none;
