@@ -23,7 +23,7 @@ import { Cell } from "./shared";
 /**
  * @type {import("./shared").CellComponent}
  */
-export const CellButtons = (props) => {
+export const CellButtons = props => {
   const { game, configCells, configLayout } = props;
   const componentId = useId();
 
@@ -50,19 +50,10 @@ export const CellButtons = (props) => {
         gap: "12px",
       }}
     >
-      {game.buttons.map((button, index) => {
-        const totalButtons = game.buttons.length;
-
-        const fallbackColor =
-          totalButtons === 1
-            ? "dark"
-            : index === 0
-            ? "dark"
-            : "gray";
-
+      {game?.buttons?.map(button => {
         const buttonProps = {
           ...button,
-          color: stringToColor(fallbackColor),
+          color: stringToColor(button.color),
           target: stringToTarget(configCells?.cellTicketButton?.button?.target),
           size: stringToSize(configCells?.cellTicketButton?.button?.size),
           icon: [],
@@ -73,19 +64,20 @@ export const CellButtons = (props) => {
             type: TYPE_INTERNAL_LINK,
           },
         };
-
         return (
           <Button
             key={button.href ?? button.label}
-            renderIcon={() => (
-              <Icon
-                icon={button.startIcon}
-                style={{
-                  paddingRight: "4px",
-                  textDecoration: "none !important",
-                }}
-              />
-            )}
+            renderIcon={() => {
+              return (
+                <Icon
+                  icon={button.startIcon}
+                  style={{
+                    paddingRight: "4px",
+                    textDecoration: "none !important",
+                  }}
+                />
+              );
+            }}
             {...buttonProps}
           />
         );
