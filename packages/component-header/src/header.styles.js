@@ -25,6 +25,18 @@ const Header = styled.header`
     margin-right: auto;
     margin-left: auto;
     width: 100%;
+    .main-logo {
+      img {
+        margin: 20px 1rem 15px 0px !important;
+      }
+    }
+    .nav-list {
+      a {
+        &::after {
+          top: 0.7rem !important;
+        }
+      }
+    }
   }
   button,
   a {
@@ -57,6 +69,18 @@ const Header = styled.header`
       }
       .title {
         margin: 0.5rem 0;
+        position: relative;
+        top: 12px;
+      }
+      .content-container {
+        margin-top: -28px;
+        .nav-list {
+          a {
+            &::after {
+              top: 0.6rem !important;
+            }
+          }
+        }
       }
       a.unit-name {
         display: none;
@@ -64,6 +88,8 @@ const Header = styled.header`
       }
       a.subunit-name {
         margin: 0.52rem 0;
+        position: relative;
+        top: 12px;
       }
       a.subunit-name,
       a.title-subunit-name {
@@ -151,6 +177,8 @@ const HeaderDiv = styled.div`
       }
       .title {
         margin: 0.5rem 0;
+        position: relative;
+        top: 12px;
       }
       a.unit-name {
         display: none;
@@ -169,7 +197,7 @@ const HeaderDiv = styled.div`
       .navbar-brand img {
         height: 64px;
         transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-        margin: 12px -28px 0 0;
+        margin: 12px -28px 3px 0;
       }
     }
   }

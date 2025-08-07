@@ -23,7 +23,7 @@ const Wrapper = styled.nav`
     margin-top: -72px;
     position: relative;
     .buttons-container {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
     .navbar-brand {
       display: flex;

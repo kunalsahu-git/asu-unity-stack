@@ -67,7 +67,7 @@ const HeaderMain = () => {
               }`}
               ref={navbarRef}
             >
-              {!isPartner && <Logo />}
+              <div className="main-logo">{!isPartner && <Logo />}</div>
 
               {isDesktop && (
                 <>

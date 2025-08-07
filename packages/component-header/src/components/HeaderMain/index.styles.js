@@ -11,6 +11,7 @@ const HeaderMainWrapper = styled.div`
     flex-wrap: nowrap;
     .content-container {
       height: 80px;
+      margin-top: -40px;
     }
   }
   .navbar-brand {
@@ -27,6 +28,8 @@ const HeaderMainWrapper = styled.div`
   .sponsor-logo {
     .vert {
       margin-right: -28px !important;
+      position: relative;
+      top: 12px;
     }
   }
   .navbar-toggler {
