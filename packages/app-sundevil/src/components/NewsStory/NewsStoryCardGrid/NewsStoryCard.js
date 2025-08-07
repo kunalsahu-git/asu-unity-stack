@@ -192,12 +192,12 @@ export const NewsStoryCard = ({
           />
         </BackgroundImageSkeletonWrapper>
         <Content>
-          {newsStory.showSportName && (
-            <SportName>
-              {newsStory.sportIcon && <StyledIcon icon={newsStory.sportIcon} />}
-              {newsStory.sportName}
-            </SportName>
-          )}
+          {/* {newsStory.showSportName && ( */}
+          <SportName>
+            {newsStory.sportIcon && <StyledIcon icon={newsStory.sportIcon} />}
+            {newsStory.sportName}
+          </SportName>
+          {/* )} */}
 
           <WhiteSpaceFill />
 
