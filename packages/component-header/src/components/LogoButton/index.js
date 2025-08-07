@@ -39,7 +39,7 @@ const LogoButton = ({
     // @ts-ignore
     <ButtonWrapper
       href={href}
-      className={`button-${color} ${classes ?? ""}`}
+      className={`btn btn-sm button-${color} ${classes ?? ""}`}
       onClick={onClick}
       onFocus={onFocus}
       style={style}

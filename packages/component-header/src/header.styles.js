@@ -161,6 +161,8 @@ const HeaderDiv = styled.div`
       }
       a.subunit-name,
       a.title-subunit-name {
+        margin-bottom: 0px;
+        margin-top: 16px;
         font-size: 1.5em;
         transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
