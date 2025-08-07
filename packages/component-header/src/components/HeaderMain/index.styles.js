@@ -9,6 +9,9 @@ const HeaderMainWrapper = styled.div`
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
+    .content-container {
+      height: 80px;
+    }
   }
   .navbar-brand {
     .vert {
@@ -19,6 +22,11 @@ const HeaderMainWrapper = styled.div`
     }
     .horiz {
       display: none;
+    }
+  }
+  .sponsor-logo {
+    .vert {
+      margin-right: -28px !important;
     }
   }
   .navbar-toggler {
@@ -65,9 +73,15 @@ const HeaderMainWrapper = styled.div`
 
       .horiz {
         display: block;
-
         height: 48px;
         width: auto;
+      }
+    }
+    .sponsor-logo {
+      .horiz {
+        width: 35px;
+        height: 21px;
+        margin-right: 20px;
       }
     }
     .navbar-toggler {
