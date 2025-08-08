@@ -31,7 +31,7 @@ const mapItemToNewsStory = node => {
     // @ts-ignore
     node?.image_url?.alt;
 
-  const featuredText = node?.featuredText;
+  const featuredText = node?.field_featured_video_text;
 
   const sportName =
     // @ts-ignore
