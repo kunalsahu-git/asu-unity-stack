@@ -9,6 +9,8 @@ import { Skeleton } from "../../Skeleton";
 import * as NewsStory from "../news-story";
 import { useNewsStoryCardConfig } from "./config-card";
 import { EmbeddedYoutubeVideo } from "./EmbeddedYoutubeVideo";
+import { faTv } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Root = styled.a`
   overflow: hidden;
@@ -150,6 +152,7 @@ export const NewsStoryCard = ({
   if (!newsStory) {
     return null;
   }
+  const hasFeaturedText = newsStory.featuredText != null;
 
   const hasHref =
     typeof newsStory.href === "string" && newsStory.href.trim().length > 0;
@@ -191,6 +194,41 @@ export const NewsStoryCard = ({
             onLoad={() => setIsImageLoaded(true)}
           />
         </BackgroundImageSkeletonWrapper>
+        {hasFeaturedText && (
+          <div
+            className="featured-text"
+            style={{
+              position: "absolute",
+              top: "16px",
+              right: "16px",
+              zIndex: "2",
+              padding: "6px",
+              background: "rgba(0, 0, 0, 0.60)",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "9.218px",
+                fontStyle: "normal",
+                display: "flex",
+                fontWeight: "700",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faTv}
+                style={{
+                  marginRight: "12px",
+                  marginTop: "3px",
+                }}
+                className="text-gold"
+              />
+              <div>
+                <span className="text-gold">FEATURED EPISODE</span> <br />
+                <span className="text-white">{newsStory?.featuredText}</span>
+              </div>
+            </div>
+          </div>
+        )}
         <Content>
           {/* {newsStory.showSportName && ( */}
           <SportName>

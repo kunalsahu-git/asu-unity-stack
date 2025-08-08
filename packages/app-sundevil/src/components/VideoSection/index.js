@@ -52,6 +52,7 @@ export const VideoSection = ({
   sectionHeader,
   bottomButtons,
   skeleton,
+  subtitle,
   maxCards = DEFAULT_MAX_CARDS,
 }) => {
   const sectionHeaderRef = React.useRef();
@@ -62,6 +63,7 @@ export const VideoSection = ({
 
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   const isDesktop = !isMobile;
+  const isSubtitle = subtitle != null;
 
   const newsStoriesSliced = newsStories.slice(0, maxCards);
 
@@ -73,7 +75,22 @@ export const VideoSection = ({
 
   return (
     <Root hasSectionHeader={hasSectionHeader}>
-      <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
+      {isSubtitle && (
+        <div
+          className="container text-gold"
+          style={{
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontWeight: "700",
+            marginBottom: "-58px",
+          }}
+        >
+          {subtitle}
+        </div>
+      )}
+      <div className="section-title">
+        <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
+      </div>
       {isMobile && (
         <NewsStoryCardCarousel
           skeleton={Boolean(skeleton)}
@@ -119,4 +136,5 @@ VideoSection.propTypes = {
   bottomButtons: PropTypes.arrayOf(ButtonProp.buttonPropTypes),
   skeleton: PropTypes.bool,
   maxCards: PropTypes.number,
+  subtitle: PropTypes.string,
 };

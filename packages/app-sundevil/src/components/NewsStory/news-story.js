@@ -30,6 +30,7 @@ export const newsStoryPropTypes = PropTypes.shape({
   sportId: PropTypes.string,
   sportName: PropTypes.string,
   sportIcon: iconPropType,
+  featuredText: PropTypes.string,
   showNewsType: PropTypes.bool,
   showSportName: PropTypes.bool,
   youtubeVideoUrl: PropTypes.string,
