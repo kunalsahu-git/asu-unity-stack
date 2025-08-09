@@ -83,6 +83,8 @@ export const VideoSection = ({
             fontStyle: "normal",
             fontWeight: "700",
             marginBottom: "-58px",
+            lineHeight: "normal",
+            letterSpacing: "3.2px",
           }}
         >
           {subtitle}
@@ -103,6 +105,7 @@ export const VideoSection = ({
               sectionName={sectionName}
               buttons={bottomButtons}
               skeleton={skeleton}
+              className="text-white"
             />
           )}
           sectionName={sectionName}
