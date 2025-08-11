@@ -30,6 +30,7 @@ const CardContent = styled.div`
   gap: 8px;
   padding: 24px;
   flex-shrink: 0;
+  background-color: white;
 `;
 
 const SportHeading = styled.div`
