@@ -34,7 +34,6 @@ export const TickerCarousel = ({ tickerAPI }) => {
         .filter(item => {
           const firstScore = Number(item.firstTeam.score);
           const secondScore = Number(item.secondTeam.score);
-
           return (
             !isNaN(firstScore) &&
             !isNaN(secondScore) &&
@@ -43,7 +42,6 @@ export const TickerCarousel = ({ tickerAPI }) => {
           );
         })
         .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
-
       setItems(prev => [...prev, ...games]);
       setNextLink(data.nextLink);
     } catch (e) {
