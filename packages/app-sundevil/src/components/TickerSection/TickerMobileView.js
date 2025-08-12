@@ -27,32 +27,13 @@ export const TickerMobile = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(link);
       const data = await dataSource.findMany();
+
       const games = Array.isArray(data.games) ? data.games : [];
+      const sorted = games.sort(
+        (a, b) => new Date(b.gameday) - new Date(a.gameday)
+      );
 
-      const filtered = games
-        .filter(item => {
-          const firstScore = Number(item.firstTeam.score);
-          const secondScore = Number(item.secondTeam.score);
-
-          const firstValid =
-            !isNaN(firstScore) &&
-            item.firstTeam.score !== null &&
-            item.firstTeam.score !== "";
-
-          const secondValid =
-            !isNaN(secondScore) &&
-            item.secondTeam.score !== null &&
-            item.secondTeam.score !== "";
-
-          // Hide if BOTH are invalid or both are 0
-          if ((!firstValid || firstScore === 0) && (!secondValid || secondScore === 0)) {
-            return false;
-          }
-          return true;
-        })
-        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
-
-      setItems(prev => [...prev, ...filtered]);
+      setItems(prev => [...prev, ...sorted]);
       setNextLink(data.nextLink || null);
     } catch (error) {
       console.error("Failed to fetch ticker data", error);
@@ -69,6 +50,7 @@ export const TickerMobile = ({ tickerAPI }) => {
     setIsOpen(prev => !prev);
   };
 
+  // Reattach scroll listener each time dropdown opens
   useEffect(() => {
     const container = contentRef.current;
     if (!isOpen || !container) return;
@@ -78,6 +60,7 @@ export const TickerMobile = ({ tickerAPI }) => {
       const nearBottom = scrollTop + clientHeight >= scrollHeight - 50;
 
       if (nearBottom && nextLink && !isFetching) {
+        console.log("Fetching more via scroll...");
         fetchData(nextLink);
       }
     };
@@ -156,6 +139,7 @@ export const TickerMobile = ({ tickerAPI }) => {
             </div>
           ))}
 
+          {/* Optional loader */}
           {isFetching && (
             <div
               style={{ textAlign: "center", padding: "10px", color: "#ccc" }}
