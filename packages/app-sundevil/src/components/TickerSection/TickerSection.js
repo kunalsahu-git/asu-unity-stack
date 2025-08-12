@@ -6,7 +6,7 @@ import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
 
-export const TickerSection = ({ tickerAPI }) => {
+export const TickerCarousel = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [position, setPosition] = useState(0);
   const [nextLink, setNextLink] = useState(null);
@@ -18,10 +18,10 @@ export const TickerSection = ({ tickerAPI }) => {
 
   const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0));
 
-  const winningHighlightStyle = highlight => ({
-    background: highlight ? "#FFC627" : "#191919",
-    color: highlight ? "#191919" : "#D0D0D0",
-    padding: "2px",
+  const winningHighlightStyle = (highlight) => ({
+    background: highlight ? '#FFC627' : '#191919',
+    color: highlight ? '#191919' : '#D0D0D0',
+    padding: '2px',
   });
 
   const fetchData = async (url = tickerAPI) => {
@@ -30,24 +30,7 @@ export const TickerSection = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
-
-      const games = data.games
-        .filter(item => {
-          const firstScore = Number(item.firstTeam.score);
-          const secondScore = Number(item.secondTeam.score);
-
-          const firstValid = !isNaN(firstScore) && item.firstTeam.score !== null && item.firstTeam.score !== "";
-          const secondValid = !isNaN(secondScore) && item.secondTeam.score !== null && item.secondTeam.score !== "";
-
-          // Hide if both are invalid or both are 0
-          if ((!firstValid || firstScore === 0) && (!secondValid || secondScore === 0)) {
-            return false;
-          }
-
-          return true;
-        })
-        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
-
+      const games = data.games.sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
       setItems(prev => [...prev, ...games]);
       setNextLink(data.nextLink);
     } catch (e) {
@@ -73,7 +56,7 @@ export const TickerSection = ({ tickerAPI }) => {
 
   return (
     <div className="carousel-wrapper">
-      <div className="carousel-score">Scores:</div>
+      <div className="carousel-score">Scores :</div>
       <div className="carousel-view">
         <div
           className="carousel-track"
@@ -82,16 +65,12 @@ export const TickerSection = ({ tickerAPI }) => {
           {items.map((item, index) => (
             <div key={index} className="carousel-item">
               <div className="line">
-                <div style={{ color: "#fafafa" }}>
-                  <SportIcon
-                    sportName={stringToClosestSportName(item.sportName)}
-                  />
+                <div style={{ color: '#fafafa' }}>
+                  <SportIcon sportName={stringToClosestSportName(item.sportName)} />
                 </div>
                 {item.sportName}
               </div>
-              <div className="line" style={{ fontWeight: "normal" }}>
-                {item.gameday}
-              </div>
+              <div className="line" style={{ fontWeight: "normal" }}>{item.gameday}</div>
               <div className="line">
                 <div style={winningHighlightStyle(item.firstTeam.won)}>
                   {item.firstTeam.name} {item.firstTeam.score}
@@ -117,4 +96,4 @@ export const TickerSection = ({ tickerAPI }) => {
   );
 };
 
-export default TickerSection;
+export default TickerCarousel;
