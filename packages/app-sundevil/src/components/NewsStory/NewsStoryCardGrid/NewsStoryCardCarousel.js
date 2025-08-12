@@ -73,6 +73,7 @@ export const NewsStoryCardCarousel = ({
   empty = false,
   skeletonCount = 6,
   sectionName,
+  showOverlay,
 }) => {
   const [carouselController] = React.useState(() => new CarouselController());
   const [index, setIndex] = React.useState(0);
@@ -105,6 +106,7 @@ export const NewsStoryCardCarousel = ({
                     skeleton={Boolean(skeleton)}
                     newsStory={newsStory}
                     sectionName={sectionName}
+                    showOverlay={showOverlay}
                   />
                 </div>
               </CarouselItem>
@@ -123,6 +125,7 @@ export const NewsStoryCardCarousel = ({
                     sectionName={sectionName}
                     skeleton
                     newsStory={newsStory}
+                    showOverlay={showOverlay}
                   />
                 </div>
               </CarouselItem>
@@ -143,6 +146,7 @@ export const NewsStoryCardCarousel = ({
                   sectionName={sectionName}
                   empty
                   newsStory={newsStorySkeleton[0]}
+                  showOverlay={showOverlay}
                 />
                 <EmptyStateMessage message={emptyStateMessage} />
               </div>
@@ -174,4 +178,5 @@ NewsStoryCardCarousel.propTypes = {
   emptyStateMessage: PropTypes.string,
   skeletonCount: PropTypes.number,
   sectionName: PropTypes.string,
+  showOverlay: PropTypes.bool,
 };

@@ -126,6 +126,51 @@ const ContentBottom = styled.div`
   gap: 8px;
 `;
 
+function getOverlayImage(sportName) {
+  const defaultOverlay = "";
+  if (!sportName) return defaultOverlay;
+
+  const name = sportName.toLowerCase();
+  if (name.includes("baseball"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_baseball.png";
+  if (name.includes("beach volleyball"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_beach-volleyball.png";
+  if (name.includes("basketball"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_basketball.png";
+  if (name.includes("cross country"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_cross-country.png";
+  if (name.includes("football"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_football.png";
+  if (name.includes("golf"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_golf.png";
+  if (name.includes("gymnastics"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_gymnastics.png";
+  if (name.includes("hockey"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_hockey.png";
+  if (name.includes("lacrosse"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_lacrosse.png";
+  if (name.includes("soccer"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_soccer.png";
+  if (name.includes("softball"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_softball.png";
+  if (name.includes("swimming and diving"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_swimming-and-diving.png";
+  if (name.includes("tennis"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_tennis.png";
+  if (name.includes("track and field"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_track-and-field.png";
+  if (name.includes("wrestling"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_wrestling.png";
+  if (name.includes("water polo"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_water-polo.png";
+  if (name.includes("volleyball"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_volleyball.png";
+  if (name.includes("triathlon"))
+    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_triathlon.png";
+
+  return defaultOverlay;
+}
+
 /**
  * @typedef {{newsStory: NewsStory.NewsStory, style: StyleSheet; skeleton?: boolean, size?: "large" | "default"; sectionName: string }} Props
  */
@@ -144,6 +189,7 @@ export const NewsStoryCard = ({
   size = "default",
   empty = false,
   sectionName,
+  showOverlay,
 }) => {
   const configCard = useNewsStoryCardConfig();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -193,7 +239,28 @@ export const NewsStoryCard = ({
             src={newsStory?.imageSrc}
             onLoad={() => setIsImageLoaded(true)}
           />
+          {showOverlay && (
+            <img
+              src={getOverlayImage(newsStory?.sportName)}
+              alt="Background Overlay"
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                zIndex: 1,
+                pointerEvents: "none",
+                background:
+                  "radial-gradient(78.55% 62% at 50% 38%, rgba(0, 0, 0, 0.00) 50%, rgba(0, 0, 0, 0.52) 75%, rgba(0, 0, 0, 0.80) 100%)",
+              }}
+            />
+          )}
         </BackgroundImageSkeletonWrapper>
+
         {hasFeaturedText && (
           <div
             className="featured-text"
@@ -233,6 +300,12 @@ export const NewsStoryCard = ({
           {/* {newsStory.showSportName && ( */}
           <SportName>
             {newsStory.sportIcon && <StyledIcon icon={newsStory.sportIcon} />}
+            {newsStory?.icon && (
+              <Icon
+                icon={newsStory?.icon?.name}
+                style={newsStory?.icon?.style}
+              />
+            )}
             {newsStory.sportName}
           </SportName>
           {/* )} */}
@@ -268,4 +341,5 @@ NewsStoryCard.propTypes = {
   size: PropTypes.oneOf(["large", "default"]),
   empty: PropTypes.bool,
   sectionName: PropTypes.string,
+  showOverlay: PropTypes.bool,
 };

@@ -160,6 +160,7 @@ const NewsStorySectionInner = ({
 
   const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
   const sectionName = sectionHeaderProps?.title ?? "";
+  const showOverlay = true;
 
   const hasFooter = footerButtons.length > 0 || footerLinks.length > 0;
   const footer = hasFooter ? (
@@ -213,6 +214,7 @@ const NewsStorySectionInner = ({
               emptyStateMessage={emptyStateMessage}
               skeleton={skeleton}
               sectionName={sectionName}
+              showOverlay={showOverlay}
             />
             <div style={{ paddingTop: "32px" }}>{footer}</div>
           </div>
@@ -248,6 +250,7 @@ const NewsStorySectionInner = ({
               emptyStateMessage={emptyStateMessage}
               renderBottomRightContent={() => footer}
               sectionName={sectionName}
+              showOverlay={showOverlay}
             />
           )}
 
@@ -261,6 +264,7 @@ const NewsStorySectionInner = ({
                 columns={1}
                 skeletonCount={limit}
                 sectionName={sectionName}
+                showOverlay={showOverlay}
               />
               {footer}
             </div>
