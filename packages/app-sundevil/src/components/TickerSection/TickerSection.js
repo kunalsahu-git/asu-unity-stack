@@ -6,7 +6,7 @@ import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
 
-export const TickerCarousel = ({ tickerAPI }) => {
+export const TickerSection = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [position, setPosition] = useState(0);
   const [nextLink, setNextLink] = useState(null);
@@ -30,18 +30,24 @@ export const TickerCarousel = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
+
       const games = data.games
         .filter(item => {
           const firstScore = Number(item.firstTeam.score);
           const secondScore = Number(item.secondTeam.score);
-          return (
-            !isNaN(firstScore) &&
-            !isNaN(secondScore) &&
-            firstScore !== 0 &&
-            secondScore !== 0
-          );
+
+          const firstValid = !isNaN(firstScore) && item.firstTeam.score !== null && item.firstTeam.score !== "";
+          const secondValid = !isNaN(secondScore) && item.secondTeam.score !== null && item.secondTeam.score !== "";
+
+          // Hide if both are invalid or both are 0
+          if ((!firstValid || firstScore === 0) && (!secondValid || secondScore === 0)) {
+            return false;
+          }
+
+          return true;
         })
         .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+
       setItems(prev => [...prev, ...games]);
       setNextLink(data.nextLink);
     } catch (e) {
@@ -111,4 +117,4 @@ export const TickerCarousel = ({ tickerAPI }) => {
   );
 };
 
-export default TickerCarousel;
+export default TickerSection;

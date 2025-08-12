@@ -6,7 +6,7 @@ import { APP_CONFIG } from "../../config";
 import { useBreakpoint } from "../../utils/use-breakpoint";
 import { useElementContentDimensions } from "../../utils/use-element-content-dimensions";
 import { useElementContentXPosition } from "../../utils/use-element-content-x-position";
-import { mapSectionHeaderProps, SectionHeader } from "../SectionHeader";
+import { mapSectionHeaderProps } from "../SectionHeader";
 import {
   buildSpecialEventsDataSource,
   specialEventsDataSourcePropTypes,
@@ -14,6 +14,7 @@ import {
 import { SpecialEventCardCarousel } from "./SpecialEventCardCarousel";
 import { SpecialEventsDataSourceProvider } from "./SpecialEventsDataSourceContext";
 import { useSpecialEventsLoader } from "./use-special-events-loader";
+import { SectionHeader } from "./SectionHeader/SectionHeader";
 
 const DESKTOP_CARD_WIDTH = 588;
 
@@ -24,16 +25,18 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
   });
 
   const Root = styled.section`
-  visibility: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 'visible' : 'hidden')};
-  opacity: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 1 : 0)};
-  height: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 'auto' : 0)};
-  transition: opacity 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 52px;
-  position: relative;
-`;
+    visibility: ${({ $checkIfSpecialEvents }) =>
+      $checkIfSpecialEvents ? "visible" : "hidden"};
+    opacity: ${({ $checkIfSpecialEvents }) => ($checkIfSpecialEvents ? 1 : 0)};
+    height: ${({ $checkIfSpecialEvents }) =>
+      $checkIfSpecialEvents ? "auto" : 0};
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+    position: relative;
+  `;
 
   const sectionHeaderRef = useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);

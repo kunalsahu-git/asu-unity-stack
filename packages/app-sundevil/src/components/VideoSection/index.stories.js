@@ -28,6 +28,8 @@ const props = {
       target: "_blank",
     },
   ],
+  subtitle: "subtitle",
+  sectionHeader: { title: "Video Section / Video Section" },
   newsStories: [
     {
       imageSrc:

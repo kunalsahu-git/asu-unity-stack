@@ -1,10 +1,11 @@
 // @ts-check
 import React from "react";
-import TickerSection from "./TickerSection.js";
+import { TickerSection } from "./TickerSection";
 
 const props = {
-  tickerAPI: "https://dev-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time"
-}
+  tickerAPI:
+    "https://dev-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
+};
 export default {
   title: "Ticker Section",
   component: <TickerSection />,

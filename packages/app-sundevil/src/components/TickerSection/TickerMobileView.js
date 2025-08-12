@@ -33,12 +33,22 @@ export const TickerMobile = ({ tickerAPI }) => {
         .filter(item => {
           const firstScore = Number(item.firstTeam.score);
           const secondScore = Number(item.secondTeam.score);
-          return (
+
+          const firstValid =
             !isNaN(firstScore) &&
+            item.firstTeam.score !== null &&
+            item.firstTeam.score !== "";
+
+          const secondValid =
             !isNaN(secondScore) &&
-            firstScore !== 0 &&
-            secondScore !== 0
-          );
+            item.secondTeam.score !== null &&
+            item.secondTeam.score !== "";
+
+          // Hide if BOTH are invalid or both are 0
+          if ((!firstValid || firstScore === 0) && (!secondValid || secondScore === 0)) {
+            return false;
+          }
+          return true;
         })
         .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
 
@@ -68,7 +78,6 @@ export const TickerMobile = ({ tickerAPI }) => {
       const nearBottom = scrollTop + clientHeight >= scrollHeight - 50;
 
       if (nearBottom && nextLink && !isFetching) {
-        console.log("Fetching more via scroll...");
         fetchData(nextLink);
       }
     };

@@ -12,24 +12,6 @@ import { NewsStoryCardCarousel } from "../NewsStory/NewsStoryCardGrid/NewsStoryC
 import { NewsStoryCardGridFeatured } from "../NewsStory/NewsStoryCardGrid/NewsStoryCardGrid";
 import { mapSectionHeaderProps, SectionHeader } from "../SectionHeader";
 
-/**
- * @typedef {import("../Navigation").Sport} Sport
- */
-
-/**
- * @typedef {import("../NewsStory/news-story").NewsStory} NewsStory
- */
-
-/**
- * @typedef {{
- *  newsStories: NewsStory[]
- *  sectionHeader?: object;
- *  bottomButtons: ButtonProp.ButtonProp[]
- *  skeleton?: boolean;
- *  maxCards?: number;
- * }} Props
- */
-
 const Root = styled.section`
   display: flex;
   flex-direction: column;
@@ -42,11 +24,21 @@ const BottomButtonsRoot = styled.div`
   padding-top: 3rem;
 `;
 
+const Subtitle = styled.div`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: -58px;
+  line-height: normal;
+  letter-spacing: 3.2px;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+`;
+
 const DEFAULT_MAX_CARDS = 4;
 
-/**
- * @type {React.FC<Props>}
- */
 export const VideoSection = ({
   newsStories,
   sectionHeader,
@@ -76,19 +68,7 @@ export const VideoSection = ({
   return (
     <Root hasSectionHeader={hasSectionHeader}>
       {isSubtitle && (
-        <div
-          className="container text-gold"
-          style={{
-            fontSize: "16px",
-            fontStyle: "normal",
-            fontWeight: "700",
-            marginBottom: "-58px",
-            lineHeight: "normal",
-            letterSpacing: "3.2px",
-          }}
-        >
-          {subtitle}
-        </div>
+        <Subtitle className="container text-gold">{subtitle}</Subtitle>
       )}
       <div className="section-title">
         <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
