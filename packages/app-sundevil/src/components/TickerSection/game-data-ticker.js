@@ -24,7 +24,7 @@ const itemToGame = item => {
     losingScore = Math.trunc(losingScore ?? 0);
   }
 
-  if (venueType === "home") {
+  if (venueType === "home" || venueType === "neutral") {
     firstTeam.name = opponentName;
     secondTeam.name = homeTeamName;
     if (result === "win") {
@@ -36,7 +36,7 @@ const itemToGame = item => {
       secondTeam.score = losingScore;
       firstTeam.won = true;
     }
-  } else if (venueType === "away" || venueType === "neutral") {
+  } else if (venueType === "away") {
     firstTeam.name = homeTeamName;
     secondTeam.name = opponentName;
     if (result === "win") {
