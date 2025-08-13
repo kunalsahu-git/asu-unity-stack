@@ -99,5 +99,4 @@ export const VideoTabSection = ({
     </section>
   );
 };
-
 export default VideoTabSection;
