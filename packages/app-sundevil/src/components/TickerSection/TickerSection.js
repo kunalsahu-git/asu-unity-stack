@@ -64,7 +64,7 @@ export const TickerSection = ({ tickerAPI }) => {
           className="carousel-track"
           style={{ transform: `translateX(${position}px)` }}
         >
-          {items.map((item, index) => (
+          {/* {items.map((item, index) => (
             <div key={index} className="carousel-item">
               <div className="line">
                 <div style={{ color: "#fafafa" }}>
@@ -86,7 +86,53 @@ export const TickerSection = ({ tickerAPI }) => {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
+
+          {items
+            .filter(item => {
+              const firstScore = Number(item.firstTeam.score);
+              const secondScore = Number(item.secondTeam.score);
+
+              const isFirstValid =
+                !isNaN(firstScore) && firstScore !== null && firstScore !== "";
+              const isSecondValid =
+                !isNaN(secondScore) &&
+                secondScore !== null &&
+                secondScore !== "";
+
+              // Hide if both are invalid or both are 0
+              if (
+                (firstScore === 0 || !isFirstValid) &&
+                (secondScore === 0 || !isSecondValid)
+              ) {
+                return false;
+              }
+
+              return true;
+            })
+            .map((item, index) => (
+              <div key={index} className="carousel-item">
+                <div className="line">
+                  <div style={{ color: "#fafafa" }}>
+                    <SportIcon
+                      sportName={stringToClosestSportName(item.sportName)}
+                    />
+                  </div>
+                  {item.sportName}
+                </div>
+                <div className="line" style={{ fontWeight: "normal" }}>
+                  {item.gameday}
+                </div>
+                <div className="line">
+                  <div style={winningHighlightStyle(item.firstTeam.won)}>
+                    {item.firstTeam.name} {item.firstTeam.score}
+                  </div>
+                  <div style={winningHighlightStyle(item.secondTeam.won)}>
+                    {item.secondTeam.name} {item.secondTeam.score}
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
 

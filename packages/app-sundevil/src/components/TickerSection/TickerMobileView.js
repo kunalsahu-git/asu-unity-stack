@@ -94,7 +94,7 @@ export const TickerMobile = ({ tickerAPI }) => {
         Scores <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
       </div>
 
-      {isOpen && (
+      {/* {isOpen && (
         <div
           className="dropdown-content"
           ref={contentRef}
@@ -102,7 +102,7 @@ export const TickerMobile = ({ tickerAPI }) => {
         >
           {items.map((item, index) => (
             <div key={index} className="game-item">
-              {/* Row 1 */}
+
               <div
                 className="d-flex justify-content-between align-items-center"
                 style={{ paddingBottom: "24px" }}
@@ -118,7 +118,7 @@ export const TickerMobile = ({ tickerAPI }) => {
                 <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
               </div>
 
-              {/* Row 2 */}
+
               <div
                 className="d-flex justify-content-between align-items-center"
                 style={{ paddingBottom: "12px" }}
@@ -129,7 +129,7 @@ export const TickerMobile = ({ tickerAPI }) => {
                 <div style={{ color: "white" }}>{item.firstTeam.score}</div>
               </div>
 
-              {/* Row 3 */}
+
               <div className="d-flex justify-content-between align-items-center">
                 <div style={winningHighlightStyle(item.secondTeam.won)}>
                   {item.secondTeam.name}
@@ -139,7 +139,86 @@ export const TickerMobile = ({ tickerAPI }) => {
             </div>
           ))}
 
-          {/* Optional loader */}
+
+          {isFetching && (
+            <div
+              style={{ textAlign: "center", padding: "10px", color: "#ccc" }}
+            >
+              Loading more...
+            </div>
+          )}
+        </div>
+      )} */}
+
+      {isOpen && (
+        <div
+          className="dropdown-content"
+          ref={contentRef}
+          style={{ maxHeight: "300px", overflowY: "auto" }}
+        >
+          {items
+            .filter(item => {
+              const firstScore = Number(item.firstTeam.score);
+              const secondScore = Number(item.secondTeam.score);
+
+              const isFirstValid =
+                !isNaN(firstScore) &&
+                item.firstTeam.score !== null &&
+                item.firstTeam.score !== "";
+              const isSecondValid =
+                !isNaN(secondScore) &&
+                item.secondTeam.score !== null &&
+                item.secondTeam.score !== "";
+
+              // Hide if both invalid or both zero
+              if (
+                (firstScore === 0 || !isFirstValid) &&
+                (secondScore === 0 || !isSecondValid)
+              ) {
+                return false;
+              }
+
+              return true;
+            })
+            .map((item, index) => (
+              <div key={index} className="game-item">
+                {/* Row 1 */}
+                <div
+                  className="d-flex justify-content-between align-items-center"
+                  style={{ paddingBottom: "24px" }}
+                >
+                  <div className="d-flex">
+                    <div style={{ color: "#fafafa", marginRight: "4px" }}>
+                      <SportIcon
+                        sportName={stringToClosestSportName(item.sportName)}
+                      />
+                    </div>
+                    <div>{item.sportName}</div>
+                  </div>
+                  <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
+                </div>
+
+                {/* Row 2 */}
+                <div
+                  className="d-flex justify-content-between align-items-center"
+                  style={{ paddingBottom: "12px" }}
+                >
+                  <div style={winningHighlightStyle(item.firstTeam.won)}>
+                    {item.firstTeam.name}
+                  </div>
+                  <div style={{ color: "white" }}>{item.firstTeam.score}</div>
+                </div>
+
+                {/* Row 3 */}
+                <div className="d-flex justify-content-between align-items-center">
+                  <div style={winningHighlightStyle(item.secondTeam.won)}>
+                    {item.secondTeam.name}
+                  </div>
+                  <div style={{ color: "white" }}>{item.secondTeam.score}</div>
+                </div>
+              </div>
+            ))}
+
           {isFetching && (
             <div
               style={{ textAlign: "center", padding: "10px", color: "#ccc" }}
