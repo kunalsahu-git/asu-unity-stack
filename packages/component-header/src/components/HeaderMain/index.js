@@ -67,7 +67,7 @@ const HeaderMain = () => {
               }`}
               ref={navbarRef}
             >
-              {!isPartner && <Logo />}
+              <div className="main-logo">{!isPartner && <Logo />}</div>
 
               {isDesktop && (
                 <>
@@ -82,11 +82,11 @@ const HeaderMain = () => {
                       navBarHeight={navbarDimensions.height}
                     />
                   </div>
-                  <LogoSponsor />
                 </>
               )}
 
               {isMobile && <MobileTitle />}
+              {isMobile && <LogoSponsor />}
 
               <HamburgerButton
                 hidden={isDesktop}

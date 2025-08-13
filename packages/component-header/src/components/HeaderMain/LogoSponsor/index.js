@@ -23,7 +23,7 @@ const LogoSponsor = () => {
   return (
     <LogoSponsorWrapper
       href={sponsorLogo?.brandLink ?? "https://asu.edu"}
-      className="navbar-brand"
+      className="navbar-brand sponsor-logo"
       data-testid="logo"
       onFocus={
         sponsorLogo?.onFocus ?? (() => trackGAEvent({ text: "asu logo" }))
