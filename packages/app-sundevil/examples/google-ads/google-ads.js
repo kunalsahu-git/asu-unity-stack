@@ -98,8 +98,9 @@ function initExample({ variant = VARIANT.SECTION_HEADER } = {}) {
       alt: "Arizona State University",
       title: "ASU home page",
       brandLink: "https://www.asu.edu",
-      src: "https://thesundevils.com/images/responsive/primary_logo.svg",
-      mobileSrc: "https://thesundevils.com/images/responsive/primary_logo.svg",
+      src: "https://ticker-web-sda.ws.asu.edu/modules/custom/sun_devils_react_integration/assets/img/pitchfork.svg",
+      mobileSrc:
+        "https://ticker-web-sda.ws.asu.edu/modules/custom/sun_devils_react_integration/assets/img/pitchfork.svg",
       width: "107",
       height: "74",
       mobileWidth: "67",

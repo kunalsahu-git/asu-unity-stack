@@ -68,7 +68,8 @@ export const SectionHeader = forwardRef((props, ref) => {
   const hasHeaderBody = hasSubtitle || hasTabs || hasSocial;
 
   const sectionName = title;
-  const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
+  // const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
+  const isMobile = useBreakpoint("1900px");
 
   return (
     <div>
@@ -120,7 +121,7 @@ export const SectionHeader = forwardRef((props, ref) => {
         </div>
       )}
       {isMobile && (
-        <div className="container" ref={ref} style={style}>
+        <div className="container aneesa" ref={ref} style={style}>
           {hasContent && (
             <div className="row">
               <div className="col-md-8 col-sm-12">
@@ -146,7 +147,7 @@ export const SectionHeader = forwardRef((props, ref) => {
                     </HeaderBody>
                   )}
                   {isMobile && (
-                    <div className="mt-auto d-flex d-sm-flex d-md-none align-items-start justify-content-end">
+                    <div className="mt-auto d-flex align-items-start justify-content-end">
                       {isSponsorBlockValid(sponsorBlock) && (
                         <SponsorBlock mobile {...props} />
                       )}
@@ -155,7 +156,7 @@ export const SectionHeader = forwardRef((props, ref) => {
                 </div>
               </div>
               {!isMobile && (
-                <div className="col-md-4 col-sm-0 mt-auto d-none d-sm-none d-md-flex justify-content-end">
+                <div className="col-md-4 col-sm-0 mt-auto d-flex justify-content-end">
                   {isSponsorBlockValid(sponsorBlock) && (
                     <SponsorBlock mobile={false} {...props} />
                   )}

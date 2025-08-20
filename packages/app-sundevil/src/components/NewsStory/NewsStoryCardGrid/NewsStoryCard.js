@@ -98,9 +98,9 @@ const SportName = styled.p`
   font-size: 12px;
   font-weight: bold;
   color: white;
-  display: flex;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  gap: 12px;
+  gap: 4px;
+  display: flex;
   align-items: center;
 `;
 
@@ -132,45 +132,151 @@ function getOverlayImage(sportName) {
 
   const name = sportName.toLowerCase();
   if (name.includes("baseball"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_baseball.png";
+    return "/sites/default/files/2025-08/Media%20Card.png";
   if (name.includes("beach volleyball"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_beach-volleyball.png";
+    return "/sites/default/files/2025-08/Media%20Card-16.png";
   if (name.includes("basketball"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_basketball.png";
+    return "/sites/default/files/2025-08/Media%20Card-1.png";
   if (name.includes("cross country"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_cross-country.png";
+    return "/sites/default/files/2025-08/Media%20Card-17.png";
   if (name.includes("football"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_football.png";
+    return "/sites/default/files/2025-08/Media%20Card-2.png";
   if (name.includes("golf"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_golf.png";
+    return "/sites/default/files/2025-08/Media%20Card-3.png";
   if (name.includes("gymnastics"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_gymnastics.png";
+    return "/sites/default/files/2025-08/Media%20Card-4.png";
   if (name.includes("hockey"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_hockey.png";
+    return "/sites/default/files/2025-08/Media%20Card-5.png";
   if (name.includes("lacrosse"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_lacrosse.png";
+    return "/sites/default/files/2025-08/Media%20Card-15.png";
   if (name.includes("soccer"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_soccer.png";
+    return "/sites/default/files/2025-08/Media%20Card-6.png";
   if (name.includes("softball"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_softball.png";
+    return "/sites/default/files/2025-08/Media%20Card-7.png";
   if (name.includes("swimming and diving"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_swimming-and-diving.png";
+    return "/sites/default/files/2025-08/Media%20Card-8.png";
   if (name.includes("tennis"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_tennis.png";
+    return "/sites/default/files/2025-08/Media%20Card-9.png";
   if (name.includes("track and field"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_track-and-field.png";
+    return "/sites/default/files/2025-08/Media%20Card-13.png";
   if (name.includes("wrestling"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_wrestling.png";
+    return "/sites/default/files/2025-08/Media%20Card-12.png";
   if (name.includes("water polo"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_water-polo.png";
+    return "/sites/default/files/2025-08/Media%20Card-11.png";
   if (name.includes("volleyball"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_volleyball.png";
+    return "/sites/default/files/2025-08/Media%20Card-10.png";
   if (name.includes("triathlon"))
-    return "https://4week-web-sda.ws.asu.edu/sites/default/files/2025-08/media-card-overlay_triathlon.png";
+    return "/sites/default/files/2025-08/Media%20Card-14.png";
 
   return defaultOverlay;
 }
 
+function getSportIcon(sportName) {
+  const defaultIcon = "";
+  if (!sportName) return defaultIcon;
+
+  const baseSiteUrl = window.location.href;
+
+  const name = sportName.toLowerCase();
+  if (name.includes("baseball"))
+    return {
+      icon_name: "baseball-bat-ball",
+      settings:
+        'a:2:{s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:6:"fa-fas";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}',
+      style: "fa-fas",
+    };
+  if (name.includes("beach volleyball"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/beach-volleyball_1.svg",
+      svg_icon_name: "beach-volleyball_1.svg",
+    };
+  if (name.includes("basketball"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/basketball_7.svg",
+      svg_icon_name: "basketball_7.svg",
+    };
+  if (name.includes("cross country"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/cross-country_0.svg",
+      svg_icon_name: "cross-country_0.svg",
+    };
+  if (name.includes("football"))
+    return {
+      icon_name: "football",
+      settings:
+        'a:2:{s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:6:"fa-fas";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}',
+      style: "fa-fas",
+    };
+  if (name.includes("golf"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/golf_2.svg",
+      svg_icon_name: "golf_2.svg",
+    };
+  if (name.includes("gymnastics"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/gymnastics.svg",
+      svg_icon_name: "gymnastics.svg",
+    };
+  if (name.includes("hockey"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/ice-hockey.svg",
+      svg_icon_name: "ice-hockey.svg",
+    };
+  if (name.includes("lacrosse"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/lacrosse.svg",
+      svg_icon_name: "lacrosse.svg",
+    };
+  if (name.includes("soccer"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/soccer.svg",
+      svg_icon_name: "soccer.svg",
+    };
+  if (name.includes("softball"))
+    return {
+      icon_name: "baseball",
+      settings:
+        'a:2:{s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:6:"fa-fas";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}',
+      style: "fa-fas",
+    };
+  if (name.includes("swimming and diving"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/swimming-and-diving_0.svg",
+      svg_icon_name: "swimming-and-diving_0.svg",
+    };
+  if (name.includes("tennis"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/tennis_3.svg",
+      svg_icon_name: "tennis_3.svg",
+    };
+  if (name.includes("track and field"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/track-and-field_0.svg",
+      svg_icon_name: "track-and-field_0.svg",
+    };
+  if (name.includes("wrestling"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/wrestling.svg",
+      svg_icon_name: "wrestling.svg",
+    };
+  if (name.includes("water polo"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/water-polo_1.svg",
+      svg_icon_name: "water-polo_1.svg",
+    };
+  if (name.includes("volleyball"))
+    return {
+      svg_icon: "/sites/default/files/2024-08/volleyball.svg",
+      svg_icon_name: "volleyball.svg",
+    };
+  if (name.includes("triathlon"))
+    return {
+      svg_icon: "/sites/default/files/2024-07/triathalon_0.svg",
+      svg_icon_name: "triathalon_0.svg",
+    };
+
+  return defaultIcon;
+}
 /**
  * @typedef {{newsStory: NewsStory.NewsStory, style: StyleSheet; skeleton?: boolean, size?: "large" | "default"; sectionName: string }} Props
  */
@@ -252,6 +358,7 @@ export const NewsStoryCard = ({
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                objectPosition: "bottom",
                 zIndex: 1,
                 pointerEvents: "none",
                 background:
@@ -299,14 +406,13 @@ export const NewsStoryCard = ({
         <Content>
           {/* {newsStory.showSportName && ( */}
           <SportName>
-            {newsStory.sportIcon && <StyledIcon icon={newsStory.sportIcon} />}
-            {newsStory?.icon && (
-              <Icon
-                icon={newsStory?.icon?.name}
-                style={newsStory?.icon?.style}
+            {newsStory?.sportName && (
+              <StyledIcon
+                className="icons"
+                icon={getSportIcon(newsStory?.sportName)}
               />
             )}
-            {newsStory.sportName}
+            <span>{newsStory.sportName}</span>
           </SportName>
           {/* )} */}
 
