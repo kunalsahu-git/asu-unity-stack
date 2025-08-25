@@ -95,7 +95,7 @@ export const SectionHeader = forwardRef((props, ref) => {
                 </div>
 
                 {hasHeaderBody && (
-                  <HeaderBody>
+                  <HeaderBody className="section-body">
                     <SubtitleSection {...props} />
 
                     {tabs && tabs.length > 0 && <TabsSection {...props} />}
@@ -121,7 +121,7 @@ export const SectionHeader = forwardRef((props, ref) => {
         </div>
       )}
       {isMobile && (
-        <div className="container aneesa" ref={ref} style={style}>
+        <div className="container" ref={ref} style={style}>
           {hasContent && (
             <div className="row">
               <div className="col-md-8 col-sm-12">
@@ -133,7 +133,7 @@ export const SectionHeader = forwardRef((props, ref) => {
                     {title}
                   </Title>
                   {hasHeaderBody && (
-                    <HeaderBody>
+                    <HeaderBody className="section-body">
                       <SubtitleSection {...props} />
 
                       {tabs && tabs.length > 0 && <TabsSection {...props} />}

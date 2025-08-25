@@ -6,7 +6,7 @@ import { stringToClosestSportName } from "../../../../app-sundevil/src/component
 import { GameDataTicker } from "./game-data-ticker";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-export const TickerMobile = ({ tickerAPI }) => {
+export const TickerMobileView = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [nextLink, setNextLink] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -87,9 +87,7 @@ export const TickerMobile = ({ tickerAPI }) => {
 
   return (
     <div className="dropdown-section" ref={dropdownRef}>
-      <div
-        className="dropdown-score d-flex justify-content-between align-items-center"
-        onClick={toggleDropdown}
+      <div className="dropdown-score d-flex justify-content-between align-items-center" onClick={toggleDropdown}
       >
         Scores <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
       </div>
@@ -149,7 +147,6 @@ export const TickerMobile = ({ tickerAPI }) => {
           )}
         </div>
       )} */}
-
       {isOpen && (
         <div
           className="dropdown-content"
@@ -217,7 +214,8 @@ export const TickerMobile = ({ tickerAPI }) => {
                   <div style={{ color: "white" }}>{item.secondTeam.score}</div>
                 </div>
               </div>
-            ))}
+            ))
+            .slice(0, 20)}
 
           {isFetching && (
             <div
@@ -232,4 +230,4 @@ export const TickerMobile = ({ tickerAPI }) => {
   );
 };
 
-export default TickerMobile;
+export default TickerMobileView;

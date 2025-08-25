@@ -56,6 +56,11 @@
   box-sizing: border-box;
   background: #191919;
   margin-right: 0 !important;
+
+}
+
+.carousel-item:last-child {
+  display: none;
 }
 
 .carousel-item .line {

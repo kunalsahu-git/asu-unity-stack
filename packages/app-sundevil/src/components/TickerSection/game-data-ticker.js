@@ -155,7 +155,7 @@ function updateSportName(sportName) {
     } else if (sportName === "Wrestling") {
       sportName = "Wrestling";
     } else {
-      sportName;
+      sportName = "";
     }
     return sportName;
   }

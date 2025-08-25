@@ -87,7 +87,7 @@ export const SectionFooter = ({
             <FooterLink
               key={link.label}
               href={link.href}
-              className={link?.class ?? link?.className}
+              className={`footer-links ${link?.class ?? link?.className ?? ""}`}
               onClick={() => {
                 trackGAEvent({
                   event: "link",
