@@ -31,10 +31,13 @@ const itemToGame = item => {
       firstTeam.score = losingScore;
       secondTeam.score = winningScore;
       secondTeam.won = true;
-    } else {
+    } else if (result === "lose" || result === "loss") {
       firstTeam.score = winningScore;
       secondTeam.score = losingScore;
       firstTeam.won = true;
+    } else {
+      firstTeam.score = winningScore;
+      secondTeam.score = losingScore;
     }
   } else if (venueType === "away") {
     firstTeam.name = homeTeamName;
@@ -47,6 +50,9 @@ const itemToGame = item => {
       secondTeam.score = winningScore;
       firstTeam.score = losingScore;
       secondTeam.won = true;
+    } else {
+      secondTeam.score = winningScore;
+      firstTeam.score = losingScore;
     }
   }
 
