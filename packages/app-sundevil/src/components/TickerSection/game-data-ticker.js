@@ -24,19 +24,22 @@ const itemToGame = item => {
     losingScore = Math.trunc(losingScore ?? 0);
   }
 
-  if (venueType === "home") {
+  if (venueType === "home" || venueType === "neutral") {
     firstTeam.name = opponentName;
     secondTeam.name = homeTeamName;
     if (result === "win") {
       firstTeam.score = losingScore;
       secondTeam.score = winningScore;
       secondTeam.won = true;
-    } else {
+    } else if (result === "lose" || result === "loss") {
       firstTeam.score = winningScore;
       secondTeam.score = losingScore;
       firstTeam.won = true;
+    } else {
+      firstTeam.score = winningScore;
+      secondTeam.score = losingScore;
     }
-  } else if (venueType === "away" || venueType === "neutral") {
+  } else if (venueType === "away") {
     firstTeam.name = homeTeamName;
     secondTeam.name = opponentName;
     if (result === "win") {
@@ -47,6 +50,9 @@ const itemToGame = item => {
       secondTeam.score = winningScore;
       firstTeam.score = losingScore;
       secondTeam.won = true;
+    } else {
+      secondTeam.score = winningScore;
+      firstTeam.score = losingScore;
     }
   }
 
@@ -155,7 +161,7 @@ function updateSportName(sportName) {
     } else if (sportName === "Wrestling") {
       sportName = "Wrestling";
     } else {
-      sportName;
+      sportName = "";
     }
     return sportName;
   }
