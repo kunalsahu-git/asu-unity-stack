@@ -6,7 +6,7 @@ import { SportIcon } from "../../../../app-sundevil/src/components/SportIcon";
 import { stringToClosestSportName } from "../../../../app-sundevil/src/components/SportIcon/sport-name";
 import { GameDataTicker } from "./game-data-ticker";
 
-export const TickerCarousel = ({ tickerAPI }) => {
+export const TickerSection = ({ tickerAPI }) => {
   const [items, setItems] = useState([]);
   const [position, setPosition] = useState(0);
   const [nextLink, setNextLink] = useState(null);
@@ -24,6 +24,23 @@ export const TickerCarousel = ({ tickerAPI }) => {
     padding: "2px",
   });
 
+  const isGameValid = game => {
+    const firstScore = Number(game.firstTeam.score);
+    const secondScore = Number(game.secondTeam.score);
+
+    const isFirstValid = !isNaN(firstScore) && game.firstTeam.score !== "";
+    const isSecondValid = !isNaN(secondScore) && game.secondTeam.score !== "";
+
+    // Hide if both are invalid or both are 0
+    if (
+      (firstScore === 0 || !isFirstValid) &&
+      (secondScore === 0 || !isSecondValid)
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   const fetchData = async (url = tickerAPI) => {
     if (isFetching) return;
     setIsFetching(true);
@@ -31,20 +48,31 @@ export const TickerCarousel = ({ tickerAPI }) => {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
       const games = data.games
-        .filter(item => {
-          const firstScore = Number(item.firstTeam.score);
-          const secondScore = Number(item.secondTeam.score);
+        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday))
+        .filter(isGameValid);
 
-          return (
-            !isNaN(firstScore) &&
-            !isNaN(secondScore) &&
-            firstScore !== 0 &&
-            secondScore !== 0
-          );
-        })
-        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+      // setItems(prev => [...prev, ...games]); // this shows all the events and below takes first 20 and then appends a ghost item for spacing
+      setItems(prev => {
+        const merged = [...prev, ...games];
+        const trimmed = merged.slice(0, 20);
 
-      setItems(prev => [...prev, ...games]);
+        let modTrimmed = trimmed; // default fallback
+
+        if (trimmed.length > 0) {
+          modTrimmed = [
+            ...trimmed,
+            {
+              firstTeam: { name: "", score: "", won: "" },
+              gameday: "",
+              secondTeam: { name: "", score: "", won: "" },
+              sportName: "",
+            },
+          ];
+        }
+
+        return modTrimmed;
+      });
+
       setNextLink(data.nextLink);
     } catch (e) {
       console.error("Error fetching ticker data:", e);
@@ -113,4 +141,4 @@ export const TickerCarousel = ({ tickerAPI }) => {
   );
 };
 
-export default TickerCarousel;
+export default TickerSection;
