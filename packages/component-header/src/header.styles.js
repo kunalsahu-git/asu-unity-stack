@@ -108,6 +108,11 @@ const Header = styled.header`
       padding-left: 0;
       padding-right: 0;
       max-width: 100%;
+      .main-logo {
+        img {
+          margin: 0px !important;
+        }
+      }
     }
   }
   @media (max-width: 922px) {
