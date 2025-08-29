@@ -124,6 +124,13 @@ const Header = styled.header`
         border: 0;
         transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
       }
+      .dropdown-section {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+      }
     }
   }
 `;
@@ -144,6 +151,15 @@ const HeaderDiv = styled.div`
   ul {
     list-style-type: none;
     padding: 0;
+  }
+  .carousel-wrapper {
+    .carousel-track {
+      .carousel-item {
+        &:last-child {
+          display: none !important;
+        }
+      }
+    }
   }
   .container-xl {
     height: 100%;

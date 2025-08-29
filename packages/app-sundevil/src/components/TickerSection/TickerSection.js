@@ -85,10 +85,18 @@ export const TickerSection = ({ tickerAPI }) => {
     fetchData();
   }, []);
 
+  // inside TickerSection
+
   const slideRight = () => {
     setPosition(prev => {
-      const nextPos = Math.max(prev - itemWidth, maxScroll);
-      if (nextPos === maxScroll && nextLink && !isFetching) {
+      let nextPos = Math.max(prev - itemWidth, maxScroll);
+
+      // When we reach the last item, give extra 300px space
+      if (nextPos === maxScroll) {
+        nextPos -= 300;
+      }
+
+      if (nextPos <= maxScroll && nextLink && !isFetching) {
         fetchData(nextLink);
       }
       return nextPos;
@@ -104,7 +112,11 @@ export const TickerSection = ({ tickerAPI }) => {
           style={{ transform: `translateX(${position}px)` }}
         >
           {items.map((item, index) => (
-            <div key={index} className="carousel-item">
+            <div
+              key={index}
+              className="carousel-item"
+              style={index === items.length - 1 ? { display: "none" } : {}}
+            >
               <div className="line">
                 <div style={{ color: "#fafafa" }}>
                   <SportIcon
@@ -126,6 +138,7 @@ export const TickerSection = ({ tickerAPI }) => {
               </div>
             </div>
           ))}
+          <div style={{ minWidth: "100px" }} />
         </div>
       </div>
 
