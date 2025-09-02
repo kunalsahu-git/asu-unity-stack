@@ -19,7 +19,7 @@ const itemToGame = item => {
     won: false,
   };
 
-  if (sportName != "Gymnastics" || sportName != "Gymnastic") {
+  if (sportName !== "Gymnastics" || sportName !== "Gymnastic") {
     winningScore = Math.trunc(winningScore ?? 0);
     losingScore = Math.trunc(losingScore ?? 0);
   }

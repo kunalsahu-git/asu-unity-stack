@@ -51,9 +51,11 @@ const HeaderMain = () => {
   });
 
   return (
-    <>
-      {renderTop?.({ isMobile, isDesktop })}
-      {isDesktop && <UniversalNavbar />}
+    <div>
+      <div className="section-hide-on-scroll">
+        {renderTop?.({ isMobile, isDesktop })}
+        {isDesktop && <UniversalNavbar />}
+      </div>
       <HeaderMainWrapper
         // @ts-ignore
         breakpoint={breakpoint}
@@ -106,7 +108,7 @@ const HeaderMain = () => {
           </div>
         </div>
       </HeaderMainWrapper>
-    </>
+    </div>
   );
 };
 

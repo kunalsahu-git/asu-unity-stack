@@ -87,7 +87,9 @@ export const TickerMobileView = ({ tickerAPI }) => {
 
   return (
     <div className="dropdown-section" ref={dropdownRef}>
-      <div className="dropdown-score d-flex justify-content-between align-items-center" onClick={toggleDropdown}
+      <div
+        className="dropdown-score d-flex justify-content-between align-items-center"
+        onClick={toggleDropdown}
       >
         Scores <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
       </div>
