@@ -305,6 +305,7 @@ export const NewsStoryCard = ({
     return null;
   }
   const hasFeaturedText = newsStory.featuredText != null;
+  const hasFeaturedImage = newsStory.featuredImage != null;
 
   const hasHref =
     typeof newsStory.href === "string" && newsStory.href.trim().length > 0;
@@ -399,6 +400,38 @@ export const NewsStoryCard = ({
               <div>
                 <span className="text-gold">FEATURED EPISODE</span> <br />
                 <span className="text-white">{newsStory?.featuredText}</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {hasFeaturedImage && (
+          <div
+            className="featured-image"
+            style={{
+              position: "absolute",
+              top: "16px",
+              right: "16px",
+              zIndex: "2",
+              padding: "6px",
+              background: "rgba(0, 0, 0, 0.60)",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "9.218px",
+                fontStyle: "normal",
+                display: "flex",
+                fontWeight: "700",
+              }}
+            >
+              <div>
+                <img
+                  src={newsStory?.featuredImage}
+                  width={newsStory?.imageWidth}
+                  height={newsStory?.imageHeight}
+                  className="text-white"
+                />
               </div>
             </div>
           </div>

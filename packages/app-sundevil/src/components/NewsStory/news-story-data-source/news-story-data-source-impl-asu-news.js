@@ -32,6 +32,9 @@ const mapItemToNewsStory = node => {
     node?.image_url?.alt;
 
   const featuredText = node?.field_featured_video_text;
+  const featuredImage = node?.field_image;
+  const imageWidth = node?.field_image_width;
+  const imageHeight = node?.field_image_height;
 
   const sportName =
     // @ts-ignore
@@ -43,6 +46,9 @@ const mapItemToNewsStory = node => {
     id,
     title,
     featuredText,
+    featuredImage,
+    imageHeight,
+    imageWidth,
     newsType,
     href,
     imageSrc,
