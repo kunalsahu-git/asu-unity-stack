@@ -4,11 +4,12 @@ import { TickerSection } from "./TickerSection";
 // import { TickerMobileView } from "./TickerMobileView";
 
 const props = {
-  tickerAPI: "https://4week-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time"
-}
+  tickerAPI:
+    "https://4week-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
+};
 export default {
   title: "Ticker Section",
-  component: <TickerSection />,
+  component: TickerSection,
   // component: <TickerMobileView />,
 };
 
