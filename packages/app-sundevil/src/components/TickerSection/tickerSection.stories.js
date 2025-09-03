@@ -1,7 +1,7 @@
 // @ts-check
 import React from "react";
-// import { TickerMobileView } from "./TickerMobileView";
 import { TickerSection } from "./TickerSection";
+// import { TickerMobileView } from "./TickerMobileView";
 
 const props = {
   tickerAPI:
@@ -9,13 +9,13 @@ const props = {
 };
 export default {
   title: "Ticker Section",
-  // component: TickerMobileView,
   component: TickerSection,
+  // component: <TickerMobileView />,
 };
 
 const Template = () => {
-  // return <TickerMobileView {...props} />;
   return <TickerSection {...props} />;
+  // return <TickerMobileView {...props} />;
 };
 
 export const Default = Template.bind({});
