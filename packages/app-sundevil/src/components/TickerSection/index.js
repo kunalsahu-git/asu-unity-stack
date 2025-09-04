@@ -1,1 +1,1 @@
-export { default as TickerSection } from "./TickerSection.js";
+export * from "./TickerSection";

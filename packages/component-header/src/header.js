@@ -8,14 +8,13 @@ import { AppContextProvider } from "./core/context/app-context";
 import { HeaderPropTypes } from "./core/models/app-prop-types";
 import { tryAddActivePage } from "./core/utils/helpers/active-page";
 import { Header, HeaderDiv } from "./header.styles";
-import { TickerSection } from "../../app-sundevil/src/components/TickerSection";
-import TickerMobileView from "../../app-sundevil/src/components/TickerSection/TickerMobileView";
+import { TickerSection } from "../../app-sundevil/src/components/TickerSection/TickerSection";
+import { TickerMobileView } from "../../app-sundevil/src/components/TickerSection/TickerMobileView";
 import { useBreakpoint } from "../../app-sundevil/src/utils/use-breakpoint";
 import { APP_CONFIG } from "../../app-sundevil/src/config";
 /**
  * @typedef {import("./core/models/types").HeaderProps} HeaderProps
  */
-
 
 /**
  *
