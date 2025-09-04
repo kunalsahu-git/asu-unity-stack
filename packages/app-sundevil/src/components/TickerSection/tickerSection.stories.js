@@ -5,7 +5,7 @@ import { TickerSection } from "./TickerSection";
 
 const props = {
   tickerAPI:
-    "https://4week-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
+    "https://ticker-new-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
 };
 export default {
   title: "Ticker Section",

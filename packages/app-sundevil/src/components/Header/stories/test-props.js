@@ -23,6 +23,8 @@ export const HEADER_TEST_PROPS = {
     position: "static",
   },
   baseUrl: "https://web-sda.ddev.site:8443/",
+  tickerAPI:
+    "https://ticker-new-web-sda.ws.asu.edu/jsonapi/node/past_games_new?sort=-field_date_time",
   title: "Sun Devils",
   parentOrg: "",
   parentOrgUrl: "",
@@ -68,7 +70,8 @@ export const HEADER_TEST_PROPS = {
     title: "ASU home page",
     brandLink: "https://www.asu.edu",
     src: "https://ticker-web-sda.ws.asu.edu/modules/custom/sun_devils_react_integration/assets/img/pitchfork.svg",
-    mobileSrc: "https://ticker-web-sda.ws.asu.edu/modules/custom/sun_devils_react_integration/assets/img/pitchfork.svg",
+    mobileSrc:
+      "https://ticker-web-sda.ws.asu.edu/modules/custom/sun_devils_react_integration/assets/img/pitchfork.svg",
     width: "107",
     height: "74",
     mobileWidth: "67",
