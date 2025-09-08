@@ -64,10 +64,12 @@ const itemToGame = item => {
       })
     : "Invalid Date";
 
+  const gameDayModified = updateGameDay(gameday);
+
   return {
     // id,
     sportName,
-    gameday,
+    gameDayModified,
     firstTeam,
     secondTeam,
   };
@@ -165,4 +167,29 @@ function updateSportName(sportName) {
     }
     return sportName;
   }
+}
+
+function updateGameDay(gameDayValue) {
+  if (!gameDayValue) return "";
+
+  const monthMap = {
+    Jan: "Jan.",
+    Feb: "Feb.",
+    Mar: "Mar.",
+    Apr: "Apr.",
+    May: "May.",
+    Jun: "Jun.",
+    Jul: "Jul.",
+    Aug: "Aug.",
+    Sep: "Sept.",
+    Oct: "Oct.",
+    Nov: "Nov.",
+    Dec: "Dec.",
+  };
+
+  // Match the month at the start of the string
+  return gameDayValue.replace(
+    /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/,
+    match => monthMap[match] || match
+  );
 }

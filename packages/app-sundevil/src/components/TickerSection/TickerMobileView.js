@@ -30,7 +30,7 @@ export const TickerMobileView = ({ tickerAPI }) => {
 
       const games = Array.isArray(data.games) ? data.games : [];
       const sorted = games.sort(
-        (a, b) => new Date(b.gameday) - new Date(a.gameday)
+        (a, b) => new Date(b.gameDayModified) - new Date(a.gameDayModified)
       );
 
       setItems(prev => [...prev, ...sorted]);
@@ -194,7 +194,7 @@ export const TickerMobileView = ({ tickerAPI }) => {
                     </div>
                     <div>{item.sportName}</div>
                   </div>
-                  <div style={{ fontWeight: "normal" }}>{item.gameday}</div>
+                  <div style={{ fontWeight: "normal" }}>{item.gameDayModified}</div>
                 </div>
 
                 {/* Row 2 */}
