@@ -26,6 +26,7 @@ export const RowButtons = props => {
 
   return hasContent ? (
     <div
+      className="game-table-buttons"
       style={{
         display: "flex",
         flexDirection: "row",
@@ -34,10 +35,15 @@ export const RowButtons = props => {
         padding: "16px 0",
       }}
     >
-      {game?.buttons?.map?.(button => {
+      {game?.buttons?.map?.((button, idx) => {
+        const isSingleButton = game.buttons.length === 1;
+        const forcedColor = isSingleButton
+          ? "dark"
+          : stringToColor(button.color);
+
         const buttonProps = {
           ...button,
-          color: stringToColor(button.color),
+          color: forcedColor,
           target: stringToTarget(configCells?.cellTicketButton?.button?.target),
           size: stringToSize(configCells?.cellTicketButton?.button?.size),
           icon: [],
@@ -47,21 +53,21 @@ export const RowButtons = props => {
           trackingOverrides: {
             type: TYPE_INTERNAL_LINK,
           },
+          className: `force-btn-color-${forcedColor}`, // ✅ add forced class
         };
+
         return (
           <Button
-            key={button.href ?? button.label}
-            renderIcon={() => {
-              return (
-                <Icon
-                  icon={button.startIcon}
-                  style={{
-                    paddingRight: "4px",
-                    textDecoration: "none !important",
-                  }}
-                />
-              );
-            }}
+            key={button.href ?? button.label ?? idx}
+            renderIcon={() => (
+              <Icon
+                icon={button.startIcon}
+                style={{
+                  paddingRight: "4px",
+                  textDecoration: "none !important",
+                }}
+              />
+            )}
             {...buttonProps}
           />
         );
