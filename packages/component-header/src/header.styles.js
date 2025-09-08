@@ -33,7 +33,7 @@ const Header = styled.header`
     .nav-list {
       a {
         &::after {
-          top: 0.7rem !important;
+          top: 0.5rem !important;
         }
       }
     }

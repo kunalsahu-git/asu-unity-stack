@@ -45,7 +45,7 @@ export const TickerSection = ({ tickerAPI }) => {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
       const games = data.games
-        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday))
+        .sort((a, b) => new Date(b.gameDayModified) - new Date(a.gameDayModified))
         .filter(isGameValid);
 
       setItems(prev => {
@@ -108,7 +108,7 @@ export const TickerSection = ({ tickerAPI }) => {
                 {item.sportName}
               </div>
               <div className="line" style={{ fontWeight: "normal" }}>
-                {item.gameday}
+                {item.gameDayModified}
               </div>
               <div className="line">
                 <div style={winningHighlightStyle(item.firstTeam.won)}>
