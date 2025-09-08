@@ -36,6 +36,13 @@ const Header = styled.header`
           top: 0.5rem !important;
         }
       }
+      &:hover {
+        a {
+          &::after {
+            top: 0.6rem !important;
+          }
+        }
+      }
     }
   }
   button,
