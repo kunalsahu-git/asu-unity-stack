@@ -38,6 +38,10 @@ const props = {
         "Sun Devil Football Staff Update: Hines Ward New Wide Receivers Coach",
       youtubeVideoUrl: "https://www.youtube.com/watch?v=I07k7P0txjY",
       featuredText: "ASU All Access",
+      featuredImage:
+        "https://ticker-web-sda.ws.asu.edu/sites/default/files/2025-09/0eea8024c5ff27988f3570670bccbc38938a37c2.png",
+      imageWidth: "176px",
+      imageHeight: "58px",
     },
     {
       imageSrc:
@@ -56,6 +60,10 @@ const props = {
       title: "Rohr Pac-12 Coach of the Year, Kensinger Honored",
       youtubeVideoUrl: "https://www.youtube.com/watch?v=I07k7P0txjY",
       featuredText: "Name of show or series",
+      featuredImage:
+        "https://ticker-web-sda.ws.asu.edu/sites/default/files/2025-09/a9181f3d3877c4b53ce34f9780ac21c41104458e.png",
+      imageWidth: "40px",
+      imageHeight: "40px",
     },
     {
       title: "Lacrosse Downs Ducks, Will Face Stanford in Pac-12 Semifinals",
