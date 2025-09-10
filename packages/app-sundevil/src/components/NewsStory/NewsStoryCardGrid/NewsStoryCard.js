@@ -427,6 +427,7 @@ export const NewsStoryCard = ({
             >
               <div>
                 <img
+                  alt="featured logo"
                   src={newsStory?.featuredImage}
                   width={newsStory?.imageWidth}
                   height={newsStory?.imageHeight}
