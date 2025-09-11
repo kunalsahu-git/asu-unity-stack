@@ -8,6 +8,8 @@ import { Icon } from "../../Icon_";
 import { Skeleton } from "../../Skeleton";
 import * as NewsStory from "../news-story";
 import { useNewsStoryCardConfig } from "./config-card";
+import { APP_CONFIG } from "../../../config";
+import { useBreakpoint } from "../../../utils/use-breakpoint";
 import { EmbeddedYoutubeVideo } from "./EmbeddedYoutubeVideo";
 import { faTv } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -304,13 +306,25 @@ export const NewsStoryCard = ({
   if (!newsStory) {
     return null;
   }
-  const hasFeaturedText = newsStory.featuredText != null;
-  const hasFeaturedImage = newsStory.featuredImage != null;
+  const hasFeaturedText = !!newsStory?.featuredText;
+  const hasFeaturedImage = !!newsStory?.featuredImage;
 
   const hasHref =
     typeof newsStory.href === "string" && newsStory.href.trim().length > 0;
 
   const isClickable = Boolean(hasHref);
+
+  let featuredImageWidth = null;
+  let featuredImageHeigth = null;
+
+  const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
+  if (isMobile) {
+    featuredImageWidth = newsStory?.imageMobileWidth;
+    featuredImageHeigth = newsStory?.imageMobileHeight;
+  } else {
+    featuredImageWidth = newsStory?.imageWidth;
+    featuredImageHeigth = newsStory?.imageHeight;
+  }
 
   return (
     <Skeleton
@@ -410,8 +424,8 @@ export const NewsStoryCard = ({
             className="featured-image"
             style={{
               position: "absolute",
-              top: "16px",
-              right: "16px",
+              top: "8px",
+              right: "8px",
               zIndex: "2",
               padding: "6px",
               background: "rgba(0, 0, 0, 0.60)",
@@ -429,8 +443,8 @@ export const NewsStoryCard = ({
                 <img
                   alt="featured logo"
                   src={newsStory?.featuredImage}
-                  width={newsStory?.imageWidth}
-                  height={newsStory?.imageHeight}
+                  width={featuredImageWidth}
+                  height={featuredImageHeigth}
                   className="text-white"
                 />
               </div>

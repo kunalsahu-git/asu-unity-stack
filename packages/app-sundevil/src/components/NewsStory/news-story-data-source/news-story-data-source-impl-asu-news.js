@@ -31,10 +31,12 @@ const mapItemToNewsStory = node => {
     // @ts-ignore
     node?.image_url?.alt;
 
-  const featuredText = node?.field_featured_video_text;
-  const featuredImage = node?.field_image;
-  const imageWidth = node?.field_image_width;
-  const imageHeight = node?.field_image_height;
+  const featuredText = node?.field_featured_video_text; // @ts-ignore
+  const featuredImage = node?.field_image; // @ts-ignore
+  const imageWidth = node?.field_image_width; // @ts-ignore
+  const imageHeight = node?.field_image_height; // @ts-ignore
+  const imageMobileWidth = node?.field_image_mobile_width; // @ts-ignore
+  const imageMobileHeight = node?.field_image_mobile_height; // @ts-ignore
 
   const sportName =
     // @ts-ignore
@@ -49,6 +51,8 @@ const mapItemToNewsStory = node => {
     featuredImage,
     imageHeight,
     imageWidth,
+    imageMobileWidth,
+    imageMobileHeight,
     newsType,
     href,
     imageSrc,

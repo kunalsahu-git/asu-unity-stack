@@ -42,6 +42,8 @@ const props = {
         "https://ticker-web-sda.ws.asu.edu/sites/default/files/2025-09/0eea8024c5ff27988f3570670bccbc38938a37c2.png",
       imageWidth: "176px",
       imageHeight: "58px",
+      imageMobileWidth: "88px",
+      imageMobileHeight: "30px",
     },
     {
       imageSrc:
