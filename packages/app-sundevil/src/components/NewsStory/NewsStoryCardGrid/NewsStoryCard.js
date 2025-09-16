@@ -314,16 +314,13 @@ export const NewsStoryCard = ({
 
   const isClickable = Boolean(hasHref);
 
-  let featuredImageWidth = null;
-  let featuredImageHeigth = null;
+  let featuredImageValue = null;
 
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   if (isMobile) {
-    featuredImageWidth = newsStory?.imageMobileWidth;
-    featuredImageHeigth = newsStory?.imageMobileHeight;
+    featuredImageValue = newsStory?.featuredImageMobile;
   } else {
-    featuredImageWidth = newsStory?.imageWidth;
-    featuredImageHeigth = newsStory?.imageHeight;
+    featuredImageValue = newsStory?.featuredImage;
   }
 
   return (
@@ -442,9 +439,9 @@ export const NewsStoryCard = ({
               <div>
                 <img
                   alt="featured logo"
-                  src={newsStory?.featuredImage}
-                  width={featuredImageWidth}
-                  height={featuredImageHeigth}
+                  src={featuredImageValue}
+                  width="auto"
+                  height="auto"
                   className="text-white"
                 />
               </div>

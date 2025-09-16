@@ -33,10 +33,7 @@ const mapItemToNewsStory = node => {
 
   const featuredText = node?.field_featured_video_text; // @ts-ignore
   const featuredImage = node?.field_image; // @ts-ignore
-  const imageWidth = node?.field_image_width; // @ts-ignore
-  const imageHeight = node?.field_image_height; // @ts-ignore
-  const imageMobileWidth = node?.field_image_mobile_width; // @ts-ignore
-  const imageMobileHeight = node?.field_image_mobile_height; // @ts-ignore
+  const featuredImageMobile = node?.field_mobile_image; // @ts-ignore
 
   const sportName =
     // @ts-ignore
@@ -49,10 +46,7 @@ const mapItemToNewsStory = node => {
     title,
     featuredText,
     featuredImage,
-    imageHeight,
-    imageWidth,
-    imageMobileWidth,
-    imageMobileHeight,
+    featuredImageMobile,
     newsType,
     href,
     imageSrc,
