@@ -59,6 +59,7 @@ const SpecialEventsSectionInner = ({ sectionHeader }) => {
           cardWidth={cardWidth}
           slidesOffsetBefore={sectionHeaderPosition.left}
           sectionName={sectionName}
+
         />
       )}
     </Root>

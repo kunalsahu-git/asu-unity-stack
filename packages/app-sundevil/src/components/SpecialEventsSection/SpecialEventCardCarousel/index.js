@@ -50,6 +50,11 @@ const Root = styled.div`
       height: auto !important;
     }
   }
+  @media (max-width: 1900px) {
+    swiper-container {
+      background-color: white;
+    }
+  }
 `;
 
 const ArrowButtonsWrapper = styled.div`
