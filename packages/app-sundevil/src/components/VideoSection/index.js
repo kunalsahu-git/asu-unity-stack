@@ -37,6 +37,21 @@ const Subtitle = styled.div`
   }
 `;
 
+const SubtitleWhite = styled.div`
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.2px;
+  margin-bottom: 24px;
+  padding-top: 48px;
+  margin-top: -72px;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+`;
+
 const DEFAULT_MAX_CARDS = 4;
 
 export const VideoSection = ({
@@ -45,6 +60,7 @@ export const VideoSection = ({
   bottomButtons,
   skeleton,
   subtitle,
+  subtitleWhite,
   maxCards = DEFAULT_MAX_CARDS,
 }) => {
   const sectionHeaderRef = React.useRef();
@@ -56,6 +72,7 @@ export const VideoSection = ({
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   const isDesktop = !isMobile;
   const isSubtitle = subtitle != null;
+  const isSubtitleWhite = subtitleWhite != null;
 
   const newsStoriesSliced = newsStories.slice(0, maxCards);
 
@@ -73,6 +90,12 @@ export const VideoSection = ({
       <div className="section-title">
         <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
       </div>
+      {isSubtitleWhite && (
+        <SubtitleWhite className="container text-white">
+          {subtitleWhite}
+        </SubtitleWhite>
+      )}
+
       {isMobile && (
         <NewsStoryCardCarousel
           skeleton={Boolean(skeleton)}
@@ -120,4 +143,5 @@ VideoSection.propTypes = {
   skeleton: PropTypes.bool,
   maxCards: PropTypes.number,
   subtitle: PropTypes.string,
+  subtitleWhite: PropTypes.string,
 };

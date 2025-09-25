@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Load React. -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+
+  <link rel="stylesheet" href="https://unity.web.asu.edu/@asu/bootstrap4-theme/css/bootstrap-asu.css" />
+  <link rel="stylesheet"
+    href="https://asu.github.io/asu-unity-stack/@asu/unity-bootstrap-theme/css/unity-bootstrap-theme.bundle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- *************************************************************** -->
+  <!-- include bundled scripts from packages -->
+  <script src="../dist/vendor.umd.js"></script>
+  <script src="../dist/sunDevil.umd.js"></script>
+</head>
+
+<body>
+  <div id="section-container">
+    <div>This will be removed</div>
+    <div class="contextual"></div>
+  </div>
+  <script>
+    const imageSrc =
+      "https://asuevents.asu.edu/sites/default/files/2024-07/football-2024.jpg";
+
+    /** @type {Props} */
+    const props = [
+      {
+        id: "sparkys-den",
+        title: "Sparky's Den",
+        coach: "with Coach Dillingham",
+        description:
+          "Join Head Coach Kenny Dillingham, Sun Devil Football players, and special guests for a one-hour look inside Sun Devil Football.",
+        image:
+          "https://api.builder.io/api/v1/image/assets/TEMP/a40312238d890d9c1b3ba7d0331ce5d75c28e935?width=1176",
+      },
+      {
+        id: "hell-frozen-over",
+        title: "Hell Frozen Over",
+        coach: "with Greg Powers",
+        description:
+          "Join Sun Devil Hockey Head Coach Greg Powers, players, and special guests for a one-hour look inside Sun Devil Hockey.",
+        image:
+          "https://api.builder.io/api/v1/image/assets/TEMP/4c17539be63d3ab051298f6a8e421d5d0c3448fb?width=1176",
+      },
+      {
+        id: "dugout-chatter",
+        title: "Dugout Chatter",
+        coach: "with Willie Bloomquist",
+        description:
+          "Join Sun Devil Baseball Head Coach Willie Bloomquist, players, and special guests for a one-hour look inside Sun Devil Baseball.",
+        image:
+          "https://api.builder.io/api/v1/image/assets/TEMP/e09264e65117ae02955ff1d306ba37caa9d458db?width=1176",
+      },
+      {
+        id: "title-tbd",
+        title: "Title TBD",
+        coach: "with Molly Miller",
+        description:
+          "Join Sun Devil Women's Basketball Head Coach Molly Miller, players, and special guests for a one-hour look inside Sun Devil Women's Basketball.",
+        image:
+          "https://api.builder.io/api/v1/image/assets/TEMP/e6db2a2d3d5defd136cb506591cd04d054c62bad?width=1176",
+      },
+    ];
+    initVideoCardsSection({
+      targetSelector: "#video-section-container",
+      props,
+      renderWithinChildWhiteList: [".contextual"],
+    });
+  </script>
+</body>
+
+</html>

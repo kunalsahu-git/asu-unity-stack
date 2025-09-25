@@ -11,10 +11,6 @@ import { VideoSection } from "./index";
  * @typedef {import("./index").Props} Props
  */
 
-/**
- * @typedef {import("../NewsStory/news-story").NewsStory} NewsStory
- */
-
 const imageSrc =
   "https://asuevents.asu.edu/sites/default/files/2024-07/football-2024.jpg";
 
@@ -29,7 +25,14 @@ const props = {
     },
   ],
   subtitle: "subtitle",
+  subtitleWhite: "subtitleWhite",
   sectionHeader: { title: "Video Section / Video Section" },
+  sponsorBlock: {
+    text: "Presented by: ",
+    name: "Ford",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
+    url: "https://www.ford.com/",
+  },
   newsStories: [
     {
       imageSrc:
