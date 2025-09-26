@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import { EmbeddedYoutubeVideo } from "../NewsStory/NewsStoryCardGrid/EmbeddedYoutubeVideo";
+import { APP_CONFIG } from "../../config";
+import { useBreakpoint } from "../../utils/use-breakpoint";
 
 export const VideoCardsSection = ({ shows = [], heading, description }) => {
   const list = Array.isArray(shows) ? shows : shows ? Object.values(shows) : [];
@@ -17,8 +19,14 @@ export const VideoCardsSection = ({ shows = [], heading, description }) => {
     }));
   };
 
+  const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
+
   const showCards = list.map(show => {
     const videoKey = show.youtubeVideoUrl || show.title; // fallback if url missing
+
+    const featuredImageValue = isMobile
+      ? show.featuredImageMobile
+      : show.featuredImage;
 
     return (
       <div className="col-12 mt-0 col-lg-6" key={videoKey}>
@@ -27,11 +35,11 @@ export const VideoCardsSection = ({ shows = [], heading, description }) => {
           aria-label={`Video card for ${show.title}`}
         >
           {/* Featured image logo (optimized with width/height for CLS) */}
-          {show.featuredImage && (
+          {featuredImageValue && (
             <div className="featured-logo-wrapper">
               <img
                 alt="featured logo"
-                src={show.featuredImage}
+                src={featuredImageValue}
                 width="auto"
                 height="auto"
                 loading="lazy"
@@ -40,13 +48,12 @@ export const VideoCardsSection = ({ shows = [], heading, description }) => {
             </div>
           )}
 
-          {/* Episode Text (positioned absolutely, accessible) */}
-          {show.episodeText && (
-            <div className="episode-text-badge">{show.episodeText}</div>
-          )}
-
           {/* Video Preview (use responsive ratio + lazy load) */}
           <div className="ratio ratio-16x9 overflow-hidden">
+            {/* Episode Text (positioned absolutely, accessible) */}
+            {show.episodeText && (
+              <span className="episode-text-badge">{show.episodeText}</span>
+            )}
             <img
               src={show.imageSrc}
               alt={`${show.title} preview`}
@@ -82,7 +89,7 @@ export const VideoCardsSection = ({ shows = [], heading, description }) => {
             )}
 
             {show.description && (
-              <p className="card-text text-white mb-3">{show.description}</p>
+              <p className="card-text text-white mb-2">{show.description}</p>
             )}
 
             <div className="mt-auto">
@@ -127,6 +134,7 @@ VideoCardsSection.propTypes = {
         description: PropTypes.string,
         imageSrc: PropTypes.string,
         featuredImage: PropTypes.string,
+        featuredImageMobile: PropTypes.string,
         youtubeVideoUrl: PropTypes.string.isRequired,
         episodeText: PropTypes.string,
       })
