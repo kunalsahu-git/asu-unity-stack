@@ -63,6 +63,6 @@ export const Default = Template.bind({});
 Default.args = {
   heading: "Coaches shows",
   description:
-    "Get an inside look at Sun Devil Athletics through our lineup of coaches' shows, featuring conversations with ASU head coaches, players, and special guests.",
+    "<p>Get an inside look at Sun Devil Athletics through our lineup of coaches' shows, featuring conversations with ASU head coaches, players, and special guests.</p>",
   shows,
 };

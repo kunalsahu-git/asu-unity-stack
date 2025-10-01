@@ -177,10 +177,19 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 // );
 
 import { VideoSection } from "./components/VideoSection";
+
 import { VideoCardsSection } from "./components/VideoCardsSection";
+
+import { SectionFeaturedVideo } from "./components/SectionFeaturedVideo";
+
+import { SectionCardsAndMobileCarousel } from "./components/SectionCardsAndMobileCarousel";
+
 import { SingleVideoSection } from "./components/SingleVideoSection";
+
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
+
 import { TickerSection } from "./components/TickerSection";
+
 import { VideoTabSection } from "./components/VideoTabSection";
 
 import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
@@ -283,6 +292,13 @@ export const initSingleVideoSection = input => {
   RenderReact({
     ...input,
     component: SingleVideoSection,
+  });
+};
+
+export const initSectionCardsAndMobileCarousel = input => {
+  RenderReact({
+    ...input,
+    component: SectionCardsAndMobileCarousel,
   });
 };
 
@@ -429,6 +445,13 @@ export const initVideoCardsSection = input => {
   RenderReact({
     ...input,
     component: VideoCardsSection,
+  });
+};
+
+export const initSectionFeaturedVideo = input => {
+  RenderReact({
+    ...input,
+    component: SectionFeaturedVideo,
   });
 };
 

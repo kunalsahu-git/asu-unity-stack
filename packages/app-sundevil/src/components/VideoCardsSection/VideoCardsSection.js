@@ -108,15 +108,16 @@ export const VideoCardsSection = ({ shows = [], heading, description }) => {
   });
 
   return (
-    <section className="bg-black text-white py-5">
+    <section className="text-white video-cards-section">
       <div className="container">
         <div className="row mb-4">
           <div className="col-12 col-lg-8">
             <h2 className="section-title mt-0">{heading}</h2>
-            <p className="section-description mb-4 text-white">{description}</p>
+            <p className="section-description mb-4 text-white">
+              {description.replace(/<[^>]+>/g, "")}
+            </p>
           </div>
         </div>
-
         <div className="row g-4">{showCards}</div>
       </div>
     </section>
