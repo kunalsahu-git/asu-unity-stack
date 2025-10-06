@@ -1,0 +1,44 @@
+.radio-broadcasts-section .card-wrapper .card-image-wrapper img {
+  min-height: 217px;
+  max-height: 217px;
+}
+
+.radio-broadcasts-section .card-wrapper .card-image-wrapper .card-content .card-title {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 20px;
+  -webkit-line-clamp: 6;
+  line-height: calc(24px);
+  max-height: calc(144px);
+}
+
+.radio-broadcasts-section .card-wrapper .card-image-wrapper .card-content {
+  padding: 18px 24px;
+}
+
+.radio-broadcasts-section .cards-carousel-section swiper-slide {
+  width: fit-content;
+}
+
+.radio-broadcasts-section .card-wrapper-mobile img {
+  min-height: 217px;
+  max-height: 217px;
+}
+
+
+.radio-broadcasts-section .card-wrapper-mobile .card-content .card-title {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 20px;
+  -webkit-line-clamp: 6;
+  line-height: calc(24px);
+  max-height: calc(144px);
+}

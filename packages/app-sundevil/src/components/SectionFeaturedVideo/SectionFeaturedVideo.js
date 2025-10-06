@@ -14,7 +14,8 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
     setOpenVideos(prev => ({
       ...prev,
       [videoKey]: true,
-    }));
+    }));67
+
   };
 
   const showCards = list.map((show, index) => {
