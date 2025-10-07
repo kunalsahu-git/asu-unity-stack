@@ -15,14 +15,14 @@ const Card = styled.div`
   }
 `;
 
-const CardImage = styled.img`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-`;
+// const CardImage = styled.img`
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   z-index: 0;
+// `;
 
 const CardContent = styled.div`
   position: absolute;
@@ -82,12 +82,44 @@ export const CarouselTallCard = ({ specialEventCard, cardWidth, skeleton }) => {
         }}
       >
         {!isImageLoaded && <Skeleton />}
-        <CardImage
+        {/* <CardImage
           src={specialEventCard.imageSrc}
           alt={specialEventCard.imageAlt ?? " "}
           onLoad={() => setIsImageLoaded(true)}
           style={{ display: isImageLoaded ? "block" : "none" }}
-        />
+        /> */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "inline-block",
+          }}
+        >
+          <img
+            src={specialEventCard.imageSrc}
+            alt={specialEventCard.imageAlt ?? " "}
+            onLoad={() => setIsImageLoaded(true)}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%)",
+            }}
+          />
+        </div>
+
         <CardContent>
           <CardTitle>{specialEventCard.title}</CardTitle>
           <CardBody className="card-body">
