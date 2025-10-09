@@ -134,41 +134,41 @@ function getOverlayImage(sportName) {
 
   const name = sportName.toLowerCase();
   if (name.includes("baseball"))
-    return "/sites/default/files/2025-08/Media%20Card.png";
+    return "/sites/default/files/2025-10/Media%20Card.png";
   if (name.includes("beach volleyball"))
-    return "/sites/default/files/2025-08/Media%20Card-16.png";
+    return "/sites/default/files/2025-10/Media%20Card-16.png";
   if (name.includes("basketball"))
-    return "/sites/default/files/2025-08/Media%20Card-1.png";
+    return "/sites/default/files/2025-10/Media%20Card-1.png";
   if (name.includes("cross country"))
-    return "/sites/default/files/2025-08/Media%20Card-17.png";
+    return "/sites/default/files/2025-10/Media%20Card-17.png";
   if (name.includes("football"))
-    return "/sites/default/files/2025-08/Media%20Card-2.png";
+    return "/sites/default/files/2025-10/Media%20Card-2.png";
   if (name.includes("golf"))
-    return "/sites/default/files/2025-08/Media%20Card-3.png";
+    return "/sites/default/files/2025-10/Media%20Card-3.png";
   if (name.includes("gymnastics"))
-    return "/sites/default/files/2025-08/Media%20Card-4.png";
+    return "/sites/default/files/2025-10/Media%20Card-4.png";
   if (name.includes("hockey"))
-    return "/sites/default/files/2025-08/Media%20Card-5.png";
+    return "/sites/default/files/2025-10/Media%20Card-5.png";
   if (name.includes("lacrosse"))
-    return "/sites/default/files/2025-08/Media%20Card-15.png";
+    return "/sites/default/files/2025-10/Media%20Card-15.png";
   if (name.includes("soccer"))
-    return "/sites/default/files/2025-08/Media%20Card-6.png";
+    return "/sites/default/files/2025-10/Media%20Card-6.png";
   if (name.includes("softball"))
-    return "/sites/default/files/2025-08/Media%20Card-7.png";
+    return "/sites/default/files/2025-10/Media%20Card-7.png";
   if (name.includes("swimming and diving"))
-    return "/sites/default/files/2025-08/Media%20Card-8.png";
+    return "/sites/default/files/2025-10/Media%20Card-8.png";
   if (name.includes("tennis"))
-    return "/sites/default/files/2025-08/Media%20Card-9.png";
+    return "/sites/default/files/2025-10/Media%20Card-9.png";
   if (name.includes("track and field"))
-    return "/sites/default/files/2025-08/Media%20Card-13.png";
+    return "/sites/default/files/2025-10/Media%20Card-13.png";
   if (name.includes("wrestling"))
-    return "/sites/default/files/2025-08/Media%20Card-12.png";
+    return "/sites/default/files/2025-10/Media%20Card-12.png";
   if (name.includes("water polo"))
-    return "/sites/default/files/2025-08/Media%20Card-11.png";
+    return "/sites/default/files/2025-10/Media%20Card-11.png";
   if (name.includes("volleyball"))
-    return "/sites/default/files/2025-08/Media%20Card-10.png";
+    return "/sites/default/files/2025-10/Media%20Card-10.png";
   if (name.includes("triathlon"))
-    return "/sites/default/files/2025-08/Media%20Card-14.png";
+    return "/sites/default/files/2025-10/Media%20Card-14.png";
 
   return defaultOverlay;
 }
