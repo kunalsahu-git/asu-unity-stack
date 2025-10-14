@@ -24,7 +24,7 @@ const shows = [
       "with Coach with Coach Dillingham  with Coach Dillingham  with Coach Dillingham  Dillingham",
     youtubeVideoUrl: "https://www.youtube.com/watch?v=TIH5bbkwK_s",
     imageSrc:
-      "https://media-web-sda.ws.asu.edu/sites/default/files/styles/image/public/2024-07/video1.png?itok=uNUjujgt",
+      "https://thesundevils.com/imgproxy/1727AbSq9lVjGwZbYYJnML0zaaNZrO8ffMNSXLmWHks/rs:fit:1980:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RoZXN1bmRldmlscy1jb20tcHJvZC8yMDI1LzEwLzAyL3hSUzViVHlkWkZrNlZPZ1lHcGs0V0tKcTM0QUlrdzNqNmpMcjBPdGcuanBn.jpg",
     featuredImage: "",
     episodeText: "Episode 14 (8/21/25)",
   },

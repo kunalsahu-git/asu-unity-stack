@@ -1,44 +1,21 @@
-.radio-broadcasts-section .card-wrapper .card-image-wrapper img {
-  min-height: 217px;
-  max-height: 217px;
+.section-card-videos .video-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(78.55% 62% at 50% 38%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.52) 75%,
+      rgba(0, 0, 0, 0.8) 100%);
 }
 
-.radio-broadcasts-section .card-wrapper .card-image-wrapper .card-content .card-title {
-  color: white;
-  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 4px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-weight: bold;
-  font-size: 20px;
-  -webkit-line-clamp: 6;
-  line-height: calc(24px);
-  max-height: calc(144px);
+.section-card-videos .card .cards-preview {
+  width: 100%;
+  min-height: 220px;
 }
 
-.radio-broadcasts-section .card-wrapper .card-image-wrapper .card-content {
-  padding: 18px 24px;
-}
-
-.radio-broadcasts-section .cards-carousel-section swiper-slide {
-  width: fit-content;
-}
-
-.radio-broadcasts-section .card-wrapper-mobile img {
-  min-height: 217px;
-  max-height: 217px;
-}
-
-
-.radio-broadcasts-section .card-wrapper-mobile .card-content .card-title {
-  color: white;
-  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 4px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-weight: bold;
-  font-size: 20px;
-  -webkit-line-clamp: 6;
-  line-height: calc(24px);
-  max-height: calc(144px);
+.section-card-videos .description {
+  max-width: 700px
 }

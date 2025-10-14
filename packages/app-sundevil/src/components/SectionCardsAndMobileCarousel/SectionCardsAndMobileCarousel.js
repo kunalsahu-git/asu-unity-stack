@@ -1,12 +1,40 @@
-import "./sectionCard.css";
-import PropTypes from "prop-types";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { APP_CONFIG } from "../../config";
 import { useBreakpoint } from "../../utils/use-breakpoint";
-import { ArrowButtons } from "../ArrowButtons";
-import { Carousel, CarouselController, CarouselItem } from "../Carousel";
+import "./sectionCard.css";
 import { EmbeddedYoutubeVideo } from "../NewsStory/NewsStoryCardGrid/EmbeddedYoutubeVideo";
+import { Carousel, CarouselController, CarouselItem } from "../Carousel";
+import { ArrowButtons } from "../ArrowButtons";
+import { useElementContentXPosition } from "../../utils/use-element-content-x-position";
+
+const Root = styled.section`
+  margin-top: 24px;
+  gap: ${({ hasSectionHeader }) => (hasSectionHeader ? "48px" : "0")};
+
+  swiper-container {
+    width: 100%;
+  }
+
+  swiper-slide {
+    width: auto;
+    padding: 0 24px 0 0;
+    height: auto !important;
+  }
+
+  .swiper-content {
+    height: 100% !important;
+  }
+
+  @media (max-width: 768px) {
+    swiper-slide {
+      width: auto;
+      padding: 0 12px 0 0;
+      height: auto !important;
+    }
+  }
+`;
 
 const ArrowButtonsWrapper = styled.div`
   display: flex;
@@ -44,365 +72,178 @@ const ArrowButtonsWrapper = styled.div`
   }
 `;
 
-const Root = styled.div`
-  margin-top: 24px;
-  /* Ensure swiper-container and swiper-slide have full width */
-  swiper-container {
-    width: 100%;
-  }
-
-  swiper-slide {
-    width: auto;
-    padding: 0 24px 0 0;
-    height: auto !important;
-  }
-
-  .swiper-content {
-    height: 100% !important;
-  }
-
-  @media (max-width: 768px) {
-    swiper-slide {
-      width: auto;
-      padding: 0 12px 0 0;
-      height: auto !important;
-    }
-  }
-`;
-
-export const SectionCardsAndMobileCarousel = ({
-  cards = [],
-  heading,
+const SectionCardsAndMobileCarousel = ({
+  headingh2,
+  headingh3,
   description,
+  sectionName,
+  skeleton,
   buttonTitle,
   buttonUrl,
-  slidesOffsetBefore,
-  cardWidth,
-  skeleton,
-  sectionName,
+  cards = [],
 }) => {
+  const [openVideos, setOpenVideos] = useState({});
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
-  const [carouselController] = useState(() => new CarouselController());
-  const [index, setIndex] = useState(0);
+  const handlePlay = videoKey =>
+    setOpenVideos(prev => ({ ...prev, [videoKey]: true }));
+
+  const carouselController = new CarouselController();
   const carouselRef = useRef(null);
+  const [index, setIndex] = useState(0);
+  const sectionHeaderRef = useRef();
+  const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
+  const cardWidth = Math.abs(
+    sectionHeaderPosition.left - sectionHeaderPosition.right
+  );
 
   return (
-    <section className="radio-broadcasts-section">
-      <div className="container">
-        <h2 className="section-title text-white mb-3 mt-0">{heading}</h2>
-        <p className="section-description text-white mb-3">{description}</p>
-        <a href={buttonUrl}>
-          <button type="button" className="btn btn-md btn-gold">
-            {buttonTitle}
-          </button>
-        </a>
+    <Root className="section-card-videos" hasSectionHeader={!!skeleton}>
+      <div className="container flex flex-col gap-6">
+        {/* Headings */}
+        {headingh2 && <h2 className="text-white font-bold">{headingh2}</h2>}
+        {headingh3 && <h3 className="text-white">{headingh3}</h3>}
+
+        {/* Description */}
+        {description && <p className="text-white description">{description}</p>}
+
+        {/* CTA Button */}
+        {buttonUrl && buttonTitle && (
+          <a href={buttonUrl}>
+            <button type="button" className="rounded-full btn btn-gold">
+              {buttonTitle}
+            </button>
+          </a>
+        )}
+
+        {/* Desktop Grid */}
         {!isMobile && (
-          <div className="media-grid mt-3 row row-col-3">
-            {cards.map((card, index) => (
-              <div className="card-wrapper mb-3 col-4" key={index}>
-                <a
-                  href={card.cardLink}
-                  className="card-link"
-                  style={{ textDecoration: "none" }}
-                >
-                  {/* Card Image Wrapper */}
-                  <div
-                    className="card-image-wrapper"
-                    style={{ position: "relative", borderRadius: 0 }}
-                    aria-hidden="false"
+          <div className="row mt-3">
+            {cards.map((card, idx) => {
+              const videoKey = card.youtubeVideoUrl || card.title || idx;
+              return (
+                <div className="col-12 mt-0 mb-3 col-lg-4" key={videoKey}>
+                  <article
+                    className="card bg-transparent text-white border-0 h-100"
+                    aria-label={`Video card for ${card.title}`}
                   >
-                    <img
-                      src={card.cardImage}
-                      alt={card.cardTitle || "card image"}
-                      className="card-main-image"
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        display: "block",
-                      }}
-                    />
-                    {/* Background overlay */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        zIndex: 1,
-                        pointerEvents: "none",
-                        background:
-                          "radial-gradient(78.55% 62% at 50% 38%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.52) 75%, rgba(0,0,0,0.8) 100%)",
-                      }}
-                    />
-                    {/* Card content overlay */}
-                    <div
-                      className="card-content"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "flex-end",
-                        padding: "12px",
-                        zIndex: 2,
-                        color: "#fff",
-                      }}
-                    >
-                      {card.category && (
-                        <p className="card-category" style={{ margin: 0 }}>
-                          <span
-                            className="card-icon"
-                            style={{
-                              display: "inline-block",
-                              width: "12px",
-                              height: "12px",
-                              backgroundImage: `url(${card.categoryIcon})`,
-                              backgroundSize: "contain",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              marginRight: "6px",
-                            }}
-                          />
-                          <span>{card.category}</span>
-                        </p>
+                    <div className="ratio cards-preview overflow-hidden">
+                      {card.episodeText && (
+                        <span className="episode-text-badge">
+                          {card.episodeText}
+                        </span>
                       )}
-                      <div className="card-title">{card.cardTitle}</div>
+
+                      <img
+                        src={card.imageSrc}
+                        alt={`${card.title} preview`}
+                        className="card-img-top object-fit-cover w-100 h-100"
+                        width={640}
+                        height={360}
+                        loading="lazy"
+                        decoding="async"
+                        style={{ objectFit: "cover" }}
+                      />
+
+                      <div className="video-overlay-gradient" />
+
+                      <EmbeddedYoutubeVideo
+                        youtubeVideoUrl={card.youtubeVideoUrl}
+                        isVideoOpen={!!openVideos[videoKey]}
+                        onClickPlay={() => handlePlay(videoKey)}
+                        sectionName={card.title}
+                      />
                     </div>
-                  </div>
-                </a>
-              </div>
-            ))}
+                  </article>
+                </div>
+              );
+            })}
           </div>
         )}
 
+        {/* Mobile / Tablet Carousel */}
         {isMobile && (
-          <Root className="cards-carousel-section">
+          <div className="cards-carousel-section mt-3 overflow-x-visible">
             <Carousel
               slidesPerView="auto"
               loop={false}
-              slidesOffsetBefore={isMobile ? 0 : slidesOffsetBefore}
-              slidesOffsetAfter={isMobile ? 0 : cardWidth}
+              slidesOffsetBefore={0} // small left margin
+              slidesOffsetAfter={24} // small right margin
               centeredSlides={false}
-              initialSlide={0}
               controller={carouselController}
               index={index}
               onIndexChanged={setIndex}
               ref={carouselRef}
               disabled={skeleton}
             >
-              {!skeleton && (
-                <>
-                  {cards.map(card => (
-                    <CarouselItem key={card.id}>
-                      <div className="card-wrapper-mobile" key={index}>
-                        <a
-                          href={card.cardLink}
-                          className="card-link"
-                          style={{ textDecoration: "none" }}
-                        >
-                          {/* Card Image Wrapper */}
-                          <div
-                            className="card-image-wrapper"
-                            style={{ position: "relative", borderRadius: 0 }}
-                            aria-hidden="false"
-                          >
-                            <img
-                              src={card.cardImage}
-                              alt={card.cardTitle || "card image"}
-                              className="card-main-image"
-                              style={{
-                                width: "100%",
-                                objectFit: "cover",
-                                height: "auto",
-                                display: "block",
-                              }}
-                            />
-                            {/* Background overlay */}
-                            <div
-                              style={{
-                                position: "absolute",
-                                inset: 0,
-                                width: "100%",
-                                height: "100%",
-                                zIndex: 1,
-                                pointerEvents: "none",
-                                background:
-                                  "radial-gradient(78.55% 62% at 50% 38%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.52) 75%, rgba(0,0,0,0.8) 100%)",
-                              }}
-                            />
-                            {/* Card content overlay */}
-                            <div
-                              className="card-content"
-                              style={{
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "flex-end",
-                                padding: "12px",
-                                zIndex: 2,
-                                color: "#fff",
-                              }}
-                            >
-                              {card.category && (
-                                <p
-                                  className="card-category"
-                                  style={{ margin: 0 }}
-                                >
-                                  <span
-                                    className="card-icon"
-                                    style={{
-                                      display: "inline-block",
-                                      width: "12px",
-                                      height: "12px",
-                                      backgroundImage: `url(${card.categoryIcon})`,
-                                      backgroundSize: "contain",
-                                      backgroundRepeat: "no-repeat",
-                                      backgroundPosition: "center",
-                                      marginRight: "6px",
-                                    }}
-                                  />
-                                  <span>{card.category}</span>
-                                </p>
-                              )}
-                              <div className="card-title">{card.cardTitle}</div>
-                            </div>
-                          </div>
-                        </a>
+              {cards.map((card, idx) => {
+                const videoKey = card.youtubeVideoUrl || card.title || idx;
+                return (
+                  <CarouselItem
+                    key={videoKey}
+                    style={{ flex: "0 0 100%", maxWidth: "100%" }}
+                  >
+                    <article className="card bg-transparent text-white border-0 h-100">
+                      <div className="ratio cards-preview overflow-hidden">
+                        {card.episodeText && (
+                          <span className="episode-text-badge">
+                            {card.episodeText}
+                          </span>
+                        )}
+                        <img
+                          src={card.imageSrc}
+                          alt={`${card.title} preview`}
+                          className="card-img-top object-fit-cover w-100 h-100"
+                          width={640}
+                          height={360}
+                          loading="lazy"
+                          decoding="async"
+                          style={{ objectFit: "cover" }}
+                        />
+                        <div className="video-overlay-gradient" />
+                        <EmbeddedYoutubeVideo
+                          youtubeVideoUrl={card.youtubeVideoUrl}
+                          isVideoOpen={!!openVideos[videoKey]}
+                          onClickPlay={() => handlePlay(videoKey)}
+                          sectionName={card.title}
+                        />
                       </div>
-                    </CarouselItem>
-                  ))}
-                </>
-              )}
-
-              {skeleton && (
-                <>
-                  {cards.map(card => (
-                    <CarouselItem key={card.id}>
-                      <div className="card-wrapper" key={index}>
-                        <a
-                          href={card.cardLink}
-                          className="card-link"
-                          style={{ textDecoration: "none" }}
-                        >
-                          {/* Card Image Wrapper */}
-                          <div
-                            className="card-image-wrapper"
-                            style={{ position: "relative", borderRadius: 0 }}
-                            aria-hidden="false"
-                          >
-                            <img
-                              src={card.cardImage}
-                              alt={card.cardTitle || "card image"}
-                              className="card-main-image"
-                              style={{
-                                width: "100%",
-                                height: "auto",
-                                display: "block",
-                              }}
-                            />
-                            {/* Background overlay */}
-                            <div
-                              style={{
-                                position: "absolute",
-                                inset: 0,
-                                width: "100%",
-                                height: "100%",
-                                zIndex: 1,
-                                pointerEvents: "none",
-                                background:
-                                  "radial-gradient(78.55% 62% at 50% 38%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.52) 75%, rgba(0,0,0,0.8) 100%)",
-                              }}
-                            />
-                            {/* Card content overlay */}
-                            <div
-                              className="card-content"
-                              style={{
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "flex-end",
-                                padding: "12px",
-                                zIndex: 2,
-                                color: "#fff",
-                              }}
-                            >
-                              {card.category && (
-                                <p
-                                  className="card-category"
-                                  style={{ margin: 0 }}
-                                >
-                                  <span
-                                    className="card-icon"
-                                    style={{
-                                      display: "inline-block",
-                                      width: "12px",
-                                      height: "12px",
-                                      backgroundImage: `url(${card.categoryIcon})`,
-                                      backgroundSize: "contain",
-                                      backgroundRepeat: "no-repeat",
-                                      backgroundPosition: "center",
-                                      marginRight: "6px",
-                                    }}
-                                  />
-                                  <span>{card.category}</span>
-                                </p>
-                              )}
-                              <div className="card-title">{card.cardTitle}</div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </>
-              )}
+                    </article>
+                  </CarouselItem>
+                );
+              })}
             </Carousel>
-            {(cards.length > 0 || skeleton) && (
-              <ArrowButtonsWrapper className="container">
-                <div className="arrow-buttons">
-                  <ArrowButtons
-                    skeleton={skeleton}
-                    onLeft={() => carouselController.slidePrev()}
-                    onRight={() => carouselController.slideNext()}
-                    sectionName={sectionName}
-                  />
-                </div>
-              </ArrowButtonsWrapper>
-            )}
-          </Root>
+
+            <ArrowButtonsWrapper className="container px-0 pt-3">
+              <ArrowButtons
+                skeleton={skeleton}
+                onLeft={() => carouselController.slidePrev()}
+                onRight={() => carouselController.slideNext()}
+                sectionName={sectionName}
+              />
+            </ArrowButtonsWrapper>
+          </div>
         )}
       </div>
-    </section>
+    </Root>
   );
 };
 
 SectionCardsAndMobileCarousel.propTypes = {
-  heading: PropTypes.string,
+  headingh2: PropTypes.string,
+  headingh3: PropTypes.string,
   description: PropTypes.string,
   buttonTitle: PropTypes.string,
   buttonUrl: PropTypes.string,
-  cards: PropTypes.arrayOf(
-    PropTypes.shape({
-      cardTitle: PropTypes.string,
-      cardImage: PropTypes.string,
-      cardLink: PropTypes.string,
-    })
-  ),
-  slidesOffsetBefore: PropTypes.number,
-  cardWidth: PropTypes.number,
   skeleton: PropTypes.bool,
   sectionName: PropTypes.string,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      imageSrc: PropTypes.string,
+      youtubeVideoUrl: PropTypes.string,
+      episodeText: PropTypes.string,
+    })
+  ),
 };
 
 export default SectionCardsAndMobileCarousel;

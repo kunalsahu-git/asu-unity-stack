@@ -1,0 +1,23 @@
+.custom-table .table-heading {
+  color: #E8E8E8;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 1rem;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+}
+
+.custom-table table tr {
+  border-bottom: 1px solid #747474;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.custom-table .section-table {
+  overflow-x: auto;
+}
+
+.custom-table tr td {
+  padding: 1rem;
+}

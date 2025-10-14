@@ -186,11 +186,19 @@ import { SectionCardsAndMobileCarousel } from "./components/SectionCardsAndMobil
 
 import { SingleVideoSection } from "./components/SingleVideoSection";
 
+import { SectionBackgroundVideoPlay } from "./components/SectionBackgroundVideoPlay";
+
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
 
 import { TickerSection } from "./components/TickerSection";
 
 import { VideoTabSection } from "./components/VideoTabSection";
+
+import { CustomTable } from "./components/CustomTable";
+
+import { SectionLoadMore } from "./components/SectionLoadMore";
+
+import { SectionLogoCarousel } from "./components/SectionLogoCarousel";
 
 import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 // const VideoSection = React.lazy(() =>
@@ -292,6 +300,13 @@ export const initSingleVideoSection = input => {
   RenderReact({
     ...input,
     component: SingleVideoSection,
+  });
+};
+
+export const initSectionLoadMore = input => {
+  RenderReact({
+    ...input,
+    component: SectionLoadMore,
   });
 };
 
@@ -445,6 +460,27 @@ export const initVideoCardsSection = input => {
   RenderReact({
     ...input,
     component: VideoCardsSection,
+  });
+};
+
+export const initSectionBackgroundVideoPlay = input => {
+  RenderReact({
+    ...input,
+    component: SectionBackgroundVideoPlay,
+  });
+};
+
+export const initCustomTable = input => {
+  RenderReact({
+    ...input,
+    component: CustomTable,
+  });
+};
+
+export const initSectionLogoCarousel = input => {
+  RenderReact({
+    ...input,
+    component: SectionLogoCarousel,
   });
 };
 
