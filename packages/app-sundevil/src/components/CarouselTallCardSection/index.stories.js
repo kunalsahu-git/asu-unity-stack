@@ -4,7 +4,7 @@ import { CarouselTallCardSection } from "./CarouselTallCardSection";
 // Sample reusable card data
 const cardBase = {
   imageSrc:
-    "https://dev-web-sda.ws.asu.edu/sites/default/files/2025-05/test.jpg",
+    "https://asuapp4ode1.prod.acquia-sites.com/sites/default/files/Sparky%2520at%2520CBCB%2520%25281%2529.webp",
   sportName: "Football",
   sportIcon: "fas fa-football-ball",
   title: "Maroon and Gold Spring Game",

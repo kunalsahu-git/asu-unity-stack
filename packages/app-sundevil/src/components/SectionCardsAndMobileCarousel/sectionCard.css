@@ -19,3 +19,14 @@
 .section-card-videos .description {
   max-width: 700px
 }
+
+.section-card-videos .featured-logo-wrapper {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  padding: 0.375rem;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: flex-end;
+}

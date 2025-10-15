@@ -100,7 +100,7 @@ const SectionCardsAndMobileCarousel = ({
     <Root className="section-card-videos" hasSectionHeader={!!skeleton}>
       <div className="container flex flex-col gap-6">
         {/* Headings */}
-        {headingh2 && <h2 className="text-white font-bold">{headingh2}</h2>}
+        {headingh2 && <h2 className="text-white">{headingh2}</h2>}
         {headingh3 && <h3 className="text-white">{headingh3}</h3>}
 
         {/* Description */}
@@ -120,19 +120,30 @@ const SectionCardsAndMobileCarousel = ({
           <div className="row mt-3">
             {cards.map((card, idx) => {
               const videoKey = card.youtubeVideoUrl || card.title || idx;
+              const featuredImageValue = isMobile
+                ? card.featuredImageMobile
+                : card.featuredImage;
               return (
                 <div className="col-12 mt-0 mb-3 col-lg-4" key={videoKey}>
                   <article
                     className="card bg-transparent text-white border-0 h-100"
                     aria-label={`Video card for ${card.title}`}
                   >
-                    <div className="ratio cards-preview overflow-hidden">
-                      {card.episodeText && (
-                        <span className="episode-text-badge">
-                          {card.episodeText}
-                        </span>
-                      )}
+                    {/* Featured image logo (optimized with width/height for CLS) */}
+                    {featuredImageValue && (
+                      <div className="featured-logo-wrapper">
+                        <img
+                          alt="featured logo"
+                          src={featuredImageValue}
+                          width="auto"
+                          height="auto"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
 
+                    <div className="ratio cards-preview overflow-hidden">
                       <img
                         src={card.imageSrc}
                         alt={`${card.title} preview`}
@@ -177,18 +188,29 @@ const SectionCardsAndMobileCarousel = ({
             >
               {cards.map((card, idx) => {
                 const videoKey = card.youtubeVideoUrl || card.title || idx;
+                const featuredImageValue = isMobile
+                  ? card.featuredImageMobile
+                  : card.featuredImage;
                 return (
                   <CarouselItem
                     key={videoKey}
                     style={{ flex: "0 0 100%", maxWidth: "100%" }}
                   >
                     <article className="card bg-transparent text-white border-0 h-100">
+                      {/* Featured image logo (optimized with width/height for CLS) */}
+                      {featuredImageValue && (
+                        <div className="featured-logo-wrapper">
+                          <img
+                            alt="featured logo"
+                            src={featuredImageValue}
+                            width="auto"
+                            height="auto"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                      )}
                       <div className="ratio cards-preview overflow-hidden">
-                        {card.episodeText && (
-                          <span className="episode-text-badge">
-                            {card.episodeText}
-                          </span>
-                        )}
                         <img
                           src={card.imageSrc}
                           alt={`${card.title} preview`}
@@ -213,14 +235,17 @@ const SectionCardsAndMobileCarousel = ({
               })}
             </Carousel>
 
-            <ArrowButtonsWrapper className="container px-0 pt-3">
-              <ArrowButtons
-                skeleton={skeleton}
-                onLeft={() => carouselController.slidePrev()}
-                onRight={() => carouselController.slideNext()}
-                sectionName={sectionName}
-              />
-            </ArrowButtonsWrapper>
+            {cards.length > 0 && (
+              <ArrowButtonsWrapper className="container">
+                <div className="arrow-buttons">
+                  <ArrowButtons
+                    onLeft={() => carouselController.slidePrev()}
+                    onRight={() => carouselController.slideNext()}
+                    sectionName={sectionName}
+                  />
+                </div>
+              </ArrowButtonsWrapper>
+            )}
           </div>
         )}
       </div>
@@ -241,7 +266,6 @@ SectionCardsAndMobileCarousel.propTypes = {
       title: PropTypes.string,
       imageSrc: PropTypes.string,
       youtubeVideoUrl: PropTypes.string,
-      episodeText: PropTypes.string,
     })
   ),
 };
