@@ -9,20 +9,11 @@ const Card = styled.div`
   height: 520px;
   position: relative;
   overflow: hidden;
-  &:hover .card-body {
+  &:hover .card-tall-body {
     opacity: 1;
     max-height: 200px;
   }
 `;
-
-// const CardImage = styled.img`
-//   position: absolute;
-//   inset: 0;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   z-index: 0;
-// `;
 
 const CardContent = styled.div`
   position: absolute;
@@ -122,7 +113,7 @@ export const CarouselTallCard = ({ specialEventCard, cardWidth, skeleton }) => {
 
         <CardContent>
           <CardTitle>{specialEventCard.title}</CardTitle>
-          <CardBody className="card-body">
+          <CardBody className="card-tall-body">
             <CardBodyText
               dangerouslySetInnerHTML={{ __html: specialEventCard.body }}
             />
