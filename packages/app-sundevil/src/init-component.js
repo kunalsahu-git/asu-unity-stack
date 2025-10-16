@@ -182,8 +182,6 @@ import { VideoCardsSection } from "./components/VideoCardsSection";
 
 import { SectionFeaturedVideo } from "./components/SectionFeaturedVideo";
 
-import { SectionCardsAndMobileCarousel } from "./components/SectionCardsAndMobileCarousel";
-
 import { SingleVideoSection } from "./components/SingleVideoSection";
 
 import { SectionBackgroundVideoPlay } from "./components/SectionBackgroundVideoPlay";
@@ -307,13 +305,6 @@ export const initSectionLoadMore = input => {
   RenderReact({
     ...input,
     component: SectionLoadMore,
-  });
-};
-
-export const initSectionCardsAndMobileCarousel = input => {
-  RenderReact({
-    ...input,
-    component: SectionCardsAndMobileCarousel,
   });
 };
 
