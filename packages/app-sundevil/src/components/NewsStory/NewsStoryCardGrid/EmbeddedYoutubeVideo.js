@@ -47,14 +47,6 @@ const PlayButton = styled.button`
   &:hover {
     scale: 1.1;
   }
-
-  &:active,
-  &:focus,
-  &:focus-visible {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
 `;
 
 export const EmbeddedYoutubeVideo = ({
