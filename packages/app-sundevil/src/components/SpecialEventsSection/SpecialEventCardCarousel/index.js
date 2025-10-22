@@ -62,6 +62,10 @@ const ArrowButtonsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 52px;
+
+  button:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #191919 !important;
+  }
 `;
 
 /**

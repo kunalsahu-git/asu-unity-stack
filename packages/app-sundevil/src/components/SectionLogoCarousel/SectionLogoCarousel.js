@@ -21,6 +21,7 @@ const propTypes = {
   loop: PropTypes.bool,
   slidesOffsetBefore: PropTypes.number,
   initialSlide: PropTypes.number,
+  pageUrl: PropTypes.string,
   sectionName: PropTypes.string,
 };
 
@@ -86,6 +87,7 @@ export const SectionLogoCarousel = ({
   sectionHeader,
   images = [],
   loop = false,
+  pageUrl,
   slidesOffsetBefore = 0,
   initialSlide = 0,
   sectionName,
@@ -120,19 +122,21 @@ export const SectionLogoCarousel = ({
       >
         {images.map(post => (
           <CarouselItem>
-            <div
-              className="image-card"
-              style={{
-                background: `linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.80) 100%),
+            <a href={post.pageUrl}>
+              <div
+                className="image-card"
+                style={{
+                  background: `linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.80) 100%),
                  url(${post.backgroundUrl}) center center / cover no-repeat`,
-              }}
-            >
-              {post.episodeText && (
-                <span className="episode-text-badge">{post.episodeText}</span>
-              )}
-              <img alt="logo" src={post.url} className="image-logo" />
-              <div className="video-overlay-gradient" />
-            </div>
+                }}
+              >
+                {post.episodeText && (
+                  <span className="episode-text-badge">{post.episodeText}</span>
+                )}
+                <img alt="logo" src={post.url} className="image-logo" />
+                <div className="video-overlay-gradient" />
+              </div>
+            </a>
           </CarouselItem>
         ))}
       </Carousel>

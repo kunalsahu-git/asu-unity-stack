@@ -199,6 +199,10 @@ import { SectionLoadMore } from "./components/SectionLoadMore";
 import { SectionLogoCarousel } from "./components/SectionLogoCarousel";
 
 import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
+
+import { SectionVideosAtlas } from "./components/SectionVideosAtlas";
+
+import { SectionCardAndMobileCarousel } from "./components/SectionCardAndMobileCarousel";
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -472,6 +476,20 @@ export const initSectionLogoCarousel = input => {
   RenderReact({
     ...input,
     component: SectionLogoCarousel,
+  });
+};
+
+export const initSectionCardAndMobileCarousel = input => {
+  RenderReact({
+    ...input,
+    component: SectionCardAndMobileCarousel,
+  });
+};
+
+export const initSectionVideosAtlas = input => {
+  RenderReact({
+    ...input,
+    component: SectionVideosAtlas,
   });
 };
 
