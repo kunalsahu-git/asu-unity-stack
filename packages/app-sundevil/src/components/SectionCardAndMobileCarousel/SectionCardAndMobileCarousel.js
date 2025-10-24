@@ -121,7 +121,12 @@ export const SectionCardAndMobileCarousel = ({
         {headingh3 && <h3 className="text-white">{headingh3}</h3>}
 
         {/* Description */}
-        {description && <p className="text-white description">{description}</p>}
+        {description && (
+          <p
+            className="text-white description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
 
         {/* CTA Button */}
         {buttonUrl && buttonTitle && (

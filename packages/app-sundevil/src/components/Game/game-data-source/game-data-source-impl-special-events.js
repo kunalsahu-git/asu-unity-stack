@@ -51,7 +51,7 @@ export class GameDataSourceSpecialEvents extends IGameDataSource {
   async findMany(input) {
     const response = await fetch(
       this.url ??
-        "https://dev-web-sda.ws.asu.edu/feeds/json/node/special_events"
+        "https://asuapp4stage.prod.acquia-sites.com/feeds/json/node/special_events"
     );
     const data = await response.json();
     const items = Array.isArray(data) ? data : [data];

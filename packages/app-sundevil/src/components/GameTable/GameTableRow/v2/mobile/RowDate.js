@@ -67,14 +67,14 @@ export const RowDate = props => {
           />
         )}
         {game?.dateTimeRange && (
-          <div
-            style={{
-              fontWeight: "normal",
-            }}
-            dangerouslySetInnerHTML={{
-              __html: [",", game?.dateTimeRange].filter(Boolean).join(" "),
-            }}
-          />
+          <div style={{ fontWeight: "normal", display: "flex" }}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: [",", game?.dateTimeRange].filter(Boolean).join(" "),
+              }}
+            />
+            <div style={{ marginLeft: "4px" }}>(MST)</div>
+          </div>
         )}
       </div>
       {game?.dateLinks && (

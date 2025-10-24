@@ -47,6 +47,15 @@
   width: 100%;
 }
 
+.desktop-section .content-right .latest-label {
+  color: #FFC627;
+  font-size: 12px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
 .desktop-section .content-right .content-right-video {
   max-width: 460px;
   width: 100%;
@@ -162,15 +171,7 @@
   margin-bottom: 16px;
 }
 
-.desktop-section .badge-latest {
-  background: none;
-  color: #FFC627;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  line-height: normal;
-}
+
 
 .desktop-section .episode-preview {
   width: 417px;
@@ -338,15 +339,6 @@
   margin: 0;
 }
 
-.mobile-section .badge-latest {
-  color: #FFC627;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  line-height: normal;
-}
-
 .mobile-section .episode-preview {
   width: 100%;
   height: 178px;
@@ -413,4 +405,12 @@
   background-color: #ffffff !important;
   border-color: #ffffff !important;
   color: #191919 !important;
+}
+
+.mobile-section .content-right .latest-label {
+  color: #FFC627;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
 }

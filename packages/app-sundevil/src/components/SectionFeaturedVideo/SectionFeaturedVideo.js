@@ -14,8 +14,8 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
     setOpenVideos(prev => ({
       ...prev,
       [videoKey]: true,
-    }));67
-
+    }));
+    67;
   };
 
   const showCards = list.map((show, index) => {
@@ -81,11 +81,12 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
                                 href={link.buttonLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                style={{ textDecoration: "none" }}
                               >
                                 {isYoutube ? (
                                   <button
                                     type="button"
-                                    className="btn btn-outline-light rounded-pill fw-bold d-flex align-items-center gap-2"
+                                    className="btn btn-outline-light rounded-pill fw-bold d-flex align-items-center gap-1"
                                     onClick={() => handlePlay(videoKey)}
                                   >
                                     <svg
@@ -119,6 +120,7 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
 
                     {/* Right content (Embedded YouTube Video) */}
                     <div className="content-right">
+                      <p className="latest-label">Lastest episode</p>
                       <div className="content-right-video position-relative">
                         {/* Preview Image */}
                         <img
@@ -177,6 +179,7 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
 
                   {/* Latest episode section */}
                   <div className="content-right">
+                    <p className="latest-label">Lastest episode</p>
                     <div className="content-right-video position-relative">
                       {/* Preview Image */}
                       <img
@@ -245,7 +248,7 @@ export const SectionFeaturedVideo = ({ shows = [], heading }) => {
                             {isYoutube ? (
                               <button
                                 type="button"
-                                className="btn btn-outline-light rounded-pill fw-bold d-flex align-items-center gap-2"
+                                className="btn btn-outline-light rounded-pill fw-bold d-flex align-items-center gap-1"
                                 onClick={() => handlePlay(videoKey)}
                               >
                                 <svg

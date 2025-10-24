@@ -13,7 +13,7 @@ Default.args = {
   headingh2: "Radio broadcasts",
   headingh3: "Featured episodes",
   description:
-    "Catch every moment of Sun Devil action with audio-only game broadcasts available across radio and streaming platforms. Relive past games with the familiar voices of our broadcast team who bring you every snap, hit, goal and basket of Sun Devil Athletics.",
+    "<p>Catch every moment of Sun Devil action with audio-only game broadcasts available across radio and streaming platforms. Relive past games with the familiar voices of our broadcast team who bring you every snap, hit, goal and basket of Sun Devil Athletics.</p>",
   buttonTitle: "See all broadcasts",
   buttonUrl: "/example",
   cards: [

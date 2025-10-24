@@ -124,9 +124,11 @@ export const SectionBackgroundVideoPlay = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button type="button" className="btn btn-gold">
+                      <button type="button" className="btn btn-md btn-gold">
                         <YouTubeIcon />
-                        <span>{youtubeButtonText}</span>
+                        <span style={{ marginLeft: "8px" }}>
+                          {youtubeButtonText}
+                        </span>
                       </button>
                     </a>
                   </div>
@@ -137,7 +139,7 @@ export const SectionBackgroundVideoPlay = ({
         </div>
       )}
       {isMobile && (
-        <div>
+        <div className="w-100">
           {/* Background Pattern */}
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/e36e33e36d3dcdc02f7ed200702af21b870f71b3?width=5664"
@@ -186,33 +188,30 @@ export const SectionBackgroundVideoPlay = ({
               </div>
 
               {/* Logo */}
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/c220a53b2e591c29f5678508038be8954059709d?width=605"
-                alt="Sparky's Den Logo"
-                className="show-logo"
-              />
+              <img src={logoSrc} alt={`${title} Logo`} className="show-logo" />
 
               {/* Show Info */}
               <div className="show-info-section">
                 <div className="show-titles">
-                  <h1 className="show-title">Sparky's Den</h1>
-                  <h2 className="show-subtitle">with Coach Dillingham</h2>
+                  <h1 className="show-title">{title}</h1>
+                  <h2 className="show-subtitle">{subtitle}</h2>
                 </div>
               </div>
 
               {/* Listen Live Label */}
-              <div className="listen-live-label">Listen Live</div>
+              <div className="listen-live-label">{listenLiveLabel}</div>
 
               {/* Schedule Info */}
-              <p className="schedule-info">
-                Arizona Sports 98.7 FM Wednesday nights 7 – 8 p.m.
-              </p>
+              <p
+                className="schedule-info"
+                dangerouslySetInnerHTML={{ __html: schedule }}
+              />
 
               {/* Watch Button */}
               <div className="action-buttons">
                 <button
                   type="button"
-                  className="btn btn-gold"
+                  className="btn btn-md btn-gold"
                   onClick={() =>
                     window.open(
                       "https://www.youtube.com/watch?v=9hP0KtPjWbE",
@@ -221,21 +220,9 @@ export const SectionBackgroundVideoPlay = ({
                   }
                 >
                   <YouTubeIcon />
-                  <span>Watch on YouTube</span>
+                  <span style={{ marginLeft: "8px" }}>{youtubeButtonText}</span>
                 </button>
               </div>
-            </div>
-
-            {/* Description */}
-            <div className="show-description">
-              <p>
-                Join Head Coach Kenny Dillingham, Sun Devil Football players,
-                and special guests for a one-hour look inside Sun Devil
-                Football.{" "}
-                <a href="#schedule" className="schedule-link">
-                  See full schedule
-                </a>
-              </p>
             </div>
           </div>
         </div>
