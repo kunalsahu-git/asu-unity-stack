@@ -9,16 +9,27 @@ const HeaderMainWrapper = styled.div`
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
+    .content-container {
+      height: 80px;
+      margin-top: -40px;
+    }
   }
   .navbar-brand {
     .vert {
       display: block;
       height: 72px;
       width: auto;
-      margin: 20px 1rem 20px 0;
+      margin: 20px 1rem 20px 0px !important;
     }
     .horiz {
       display: none;
+    }
+  }
+  .sponsor-logo {
+    .vert {
+      margin-right: -28px !important;
+      position: relative;
+      top: 12px;
     }
   }
   .navbar-toggler {
@@ -65,9 +76,15 @@ const HeaderMainWrapper = styled.div`
 
       .horiz {
         display: block;
-
         height: 48px;
         width: auto;
+      }
+    }
+    .sponsor-logo {
+      .horiz {
+        width: 35px;
+        height: 21px;
+        margin-right: 20px;
       }
     }
     .navbar-toggler {
@@ -78,9 +95,12 @@ const HeaderMainWrapper = styled.div`
       border-radius: 50%;
       font-size: 1.25rem;
       /* margin-right: 2rem; */
-      padding: 0.25rem 0.45rem;
+      padding: 0.3rem 0.45rem;
       &.collapsed {
         border-radius: 0;
+      }
+      svg {
+        width: 17.5px;
       }
     }
     .no-navigation + nav .buttons-container {

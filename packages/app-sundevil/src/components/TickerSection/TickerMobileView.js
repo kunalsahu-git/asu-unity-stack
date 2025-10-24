@@ -27,13 +27,22 @@ export const TickerMobile = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(link);
       const data = await dataSource.findMany();
-
       const games = Array.isArray(data.games) ? data.games : [];
-      const sorted = games.sort(
-        (a, b) => new Date(b.gameday) - new Date(a.gameday)
-      );
 
-      setItems(prev => [...prev, ...sorted]);
+      const filtered = games
+        .filter(item => {
+          const firstScore = Number(item.firstTeam.score);
+          const secondScore = Number(item.secondTeam.score);
+          return (
+            !isNaN(firstScore) &&
+            !isNaN(secondScore) &&
+            firstScore !== 0 &&
+            secondScore !== 0
+          );
+        })
+        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+
+      setItems(prev => [...prev, ...filtered]);
       setNextLink(data.nextLink || null);
     } catch (error) {
       console.error("Failed to fetch ticker data", error);
@@ -50,7 +59,6 @@ export const TickerMobile = ({ tickerAPI }) => {
     setIsOpen(prev => !prev);
   };
 
-  // Reattach scroll listener each time dropdown opens
   useEffect(() => {
     const container = contentRef.current;
     if (!isOpen || !container) return;
@@ -139,9 +147,10 @@ export const TickerMobile = ({ tickerAPI }) => {
             </div>
           ))}
 
-          {/* Optional loader */}
           {isFetching && (
-            <div style={{ textAlign: "center", padding: "10px", color: "#ccc" }}>
+            <div
+              style={{ textAlign: "center", padding: "10px", color: "#ccc" }}
+            >
               Loading more...
             </div>
           )}

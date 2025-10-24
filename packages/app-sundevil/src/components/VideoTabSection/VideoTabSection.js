@@ -34,7 +34,7 @@ export const VideoTabSection = ({
     >
       <div className="body-section">
         <div className="header-section container">
-          <p className="header-1">{title}</p>
+          <div className="header-1">{title}</div>
           <p className="header-2">{subtitle}</p>
           <p className="header-3">{subtitle2}</p>
         </div>
@@ -99,5 +99,4 @@ export const VideoTabSection = ({
     </section>
   );
 };
-
 export default VideoTabSection;

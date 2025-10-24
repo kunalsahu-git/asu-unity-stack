@@ -18,10 +18,10 @@ export const TickerCarousel = ({ tickerAPI }) => {
 
   const slideLeft = () => setPosition(prev => Math.min(prev + itemWidth, 0));
 
-  const winningHighlightStyle = (highlight) => ({
-    background: highlight ? '#FFC627' : '#191919',
-    color: highlight ? '#191919' : '#D0D0D0',
-    padding: '2px',
+  const winningHighlightStyle = highlight => ({
+    background: highlight ? "#FFC627" : "#191919",
+    color: highlight ? "#191919" : "#D0D0D0",
+    padding: "2px",
   });
 
   const fetchData = async (url = tickerAPI) => {
@@ -30,9 +30,22 @@ export const TickerCarousel = ({ tickerAPI }) => {
     try {
       const dataSource = new GameDataTicker(url);
       const data = await dataSource.findMany();
-      const games = data.games.sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+      const games = data.games
+        .filter(item => {
+          const firstScore = Number(item.firstTeam.score);
+          const secondScore = Number(item.secondTeam.score);
+
+          return (
+            !isNaN(firstScore) &&
+            !isNaN(secondScore) &&
+            firstScore !== 0 &&
+            secondScore !== 0
+          );
+        })
+        .sort((a, b) => new Date(b.gameday) - new Date(a.gameday));
+
       setItems(prev => [...prev, ...games]);
-      setNextLink(data.nextLink); 
+      setNextLink(data.nextLink);
     } catch (e) {
       console.error("Error fetching ticker data:", e);
     } finally {
@@ -56,7 +69,7 @@ export const TickerCarousel = ({ tickerAPI }) => {
 
   return (
     <div className="carousel-wrapper">
-      <div className="carousel-score">Scores :</div>
+      <div className="carousel-score">Scores:</div>
       <div className="carousel-view">
         <div
           className="carousel-track"
@@ -65,12 +78,16 @@ export const TickerCarousel = ({ tickerAPI }) => {
           {items.map((item, index) => (
             <div key={index} className="carousel-item">
               <div className="line">
-                <div style={{ color: '#fafafa' }}>
-                  <SportIcon sportName={stringToClosestSportName(item.sportName)} />
+                <div style={{ color: "#fafafa" }}>
+                  <SportIcon
+                    sportName={stringToClosestSportName(item.sportName)}
+                  />
                 </div>
                 {item.sportName}
               </div>
-              <div className="line" style={{ fontWeight: "normal" }}>{item.gameday}</div>
+              <div className="line" style={{ fontWeight: "normal" }}>
+                {item.gameday}
+              </div>
               <div className="line">
                 <div style={winningHighlightStyle(item.firstTeam.won)}>
                   {item.firstTeam.name} {item.firstTeam.score}
