@@ -4,7 +4,7 @@ import { ALL_ID } from "../../../select-all-option";
 import { IGameDataSource } from "./game-data-source";
 import { GameDataSourceStatic } from "./game-data-source-impl-static";
 
-const ALL_GAME_TYPE = [ALL_ID, "home", "away"];
+const ALL_GAME_TYPE = [ALL_ID, "home", "away", "neutral"];
 
 const ALL_ADMISSION_COST = ["free", "price_varies"];
 
@@ -19,7 +19,7 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
     sportIcon: "fa fas fa-football-ball",
     sportName: "Football Football Football",
     sportId: "football",
-    title: "ITA Master&amp;#039;s Championships",
+    title: "Sun Devil Volleyball: Arizona State vs. TCU",
     titleHref: "https://www.example.com",
     dateDay: "11",
     dateMonth: "Oct.",
@@ -72,11 +72,11 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
     ].slice(index % 4),
     chips: [
       {
-        label: "Featured",
+        label: "TV: HBO Max, TV: TNT",
         color: "gray",
       },
       {
-        label: "Free",
+        label: "Streaming: NCHC.tv",
         color: "gray",
       },
       {
@@ -85,6 +85,10 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
       },
       {
         label: "Wear Gold",
+        color: "gold",
+      },
+      {
+        label: "Wear Gold out",
         color: "gold",
       },
       {
@@ -100,7 +104,7 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
         color: "gray",
       },
       {
-        label: "Free 1",
+        label: "Air Force, Alaska Anchorage, Arizona State, Michigan Tech",
         color: "gray",
       },
       {

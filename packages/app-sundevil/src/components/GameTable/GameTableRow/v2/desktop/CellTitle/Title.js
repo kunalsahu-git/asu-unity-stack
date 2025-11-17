@@ -38,6 +38,11 @@ const Root = styled.a`
 export const Title = props => {
   const { game } = props;
 
+  // Extract the portion starting from "vs." or "at" (inclusive)
+  const fullTitle = game?.title ?? "";
+  const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
+  const displayTitle = match ? match[0].trim() : fullTitle;
+
   return (
     <Root
       style={{
@@ -47,7 +52,7 @@ export const Title = props => {
         flexShrink: 0,
       }}
       href={game?.titleHref}
-      dangerouslySetInnerHTML={{ __html: decodeHtml(game?.title ?? "") }}
+      dangerouslySetInnerHTML={{ __html: decodeHtml(displayTitle) }}
       onClick={() => {
         trackGAEvent({
           event: "link",
@@ -56,7 +61,7 @@ export const Title = props => {
           type: "internal link",
           region: "main content",
           section: props.sectionName,
-          text: game?.title,
+          text: displayTitle,
           component: "text",
         });
       }}

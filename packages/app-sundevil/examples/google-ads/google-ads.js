@@ -309,6 +309,7 @@ function initExample({ variant = VARIANT.SECTION_HEADER } = {}) {
       { label: "All Games", active: true },
       { label: "Home", active: false },
       { label: "Away", active: false },
+      { label: "Neutral", active: false },
     ],
     social: [
       { label: "Facebook", url: "https://www.facebook.com" },

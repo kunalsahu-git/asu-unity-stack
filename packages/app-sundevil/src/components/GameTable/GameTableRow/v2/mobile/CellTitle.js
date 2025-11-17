@@ -29,6 +29,12 @@ export const CellTitle = props => {
   const { game, configLayout, sectionName } = props;
 
   const hasContent = game?.title;
+
+  // Extract text starting from "vs." or "at" (keep them included)
+  const fullTitle = game?.title ?? "";
+  const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
+  const displayTitle = match ? match[0].trim() : fullTitle;
+
   return configLayout.includeCellTitle && hasContent ? (
     <div
       style={{
@@ -43,7 +49,7 @@ export const CellTitle = props => {
         padding: "0 1rem",
       }}
     >
-      {game?.title && (
+      {displayTitle && (
         <Title
           href={game?.titleHref}
           style={{
@@ -53,7 +59,7 @@ export const CellTitle = props => {
             fontWeight: "bold",
             width: "fit-content",
           }}
-          dangerouslySetInnerHTML={{ __html: decodeHtml(game?.title ?? "") }}
+          dangerouslySetInnerHTML={{ __html: decodeHtml(displayTitle) }}
           onClick={() => {
             trackGAEvent({
               event: "link",
@@ -62,7 +68,7 @@ export const CellTitle = props => {
               type: "internal link",
               region: "main content",
               section: sectionName,
-              text: game?.title,
+              text: displayTitle,
               component: "text",
             });
           }}

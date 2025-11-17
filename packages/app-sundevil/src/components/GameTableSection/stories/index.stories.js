@@ -257,6 +257,11 @@ SingleSport.args = {
         active: false,
         id: "away",
       },
+      {
+        label: "Neutral",
+        active: false,
+        id: "neutral",
+      },
     ],
     sponsorBlock: {
       text: "Presented By",

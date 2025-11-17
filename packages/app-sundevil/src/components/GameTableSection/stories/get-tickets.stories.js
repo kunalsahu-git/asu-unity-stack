@@ -75,7 +75,7 @@ GetTickets.args = {
       filterOptionsAvailableInDataSource: true,
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -256,7 +256,7 @@ GetTicketsUpcomingGames.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -405,7 +405,7 @@ GetTicketsOverlapFirstRow.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -524,7 +524,7 @@ GetTicketsOverlapWithSportTabs.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -662,7 +662,7 @@ GetTicketsLight.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -808,7 +808,7 @@ GetTicketsLightSidebar.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {
@@ -934,7 +934,7 @@ GetTicketsSportTabsOnly.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {

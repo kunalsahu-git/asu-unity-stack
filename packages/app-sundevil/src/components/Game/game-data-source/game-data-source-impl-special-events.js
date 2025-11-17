@@ -5,7 +5,7 @@ import { GameDataSourceStatic } from "./game-data-source-impl-static";
 const itemToGame = item => {
   return {
     id: item.id,
-    gameType: item.game_type, // "home" | "away" | null
+    gameType: item.game_type, // "home" | "away" | "neutral" | null
     ticketLink: item.ticketing_rsvp_url,
     ticketText: item.ticketing_rsvp_txt || "Buy Tickets",
     titleHref: item.field_cta,

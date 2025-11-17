@@ -85,7 +85,7 @@ Schedule.args = {
       placeholder: "Select one",
     },
     homeOrAwaySelect: {
-      label: "Home or away",
+      label: "Game type",
       placeholder: "Select one",
     },
     venueSelect: {

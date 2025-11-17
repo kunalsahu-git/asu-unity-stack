@@ -20,6 +20,11 @@ const DEFAULT_OPTIONS = [
     label: "Away",
     value: "away",
   },
+  {
+    id: "neutral",
+    label: "Neutral",
+    value: "neutral",
+  },
 ];
 
 export const InputGameTypeSelect = () => {

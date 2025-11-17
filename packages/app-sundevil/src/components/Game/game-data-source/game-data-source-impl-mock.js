@@ -15,7 +15,7 @@ const ALL_SPORT_IDS = [
   "golf",
 ];
 
-const ALL_GAME_TYPE = [ALL_ID, "home", "away"];
+const ALL_GAME_TYPE = [ALL_ID, "home", "away", "neutral"];
 
 const ALL_ADMISSION_COST = ["free", "price_varies"];
 

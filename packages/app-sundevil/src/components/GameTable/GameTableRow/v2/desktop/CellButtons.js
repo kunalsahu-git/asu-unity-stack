@@ -56,7 +56,7 @@ export const CellButtons = props => {
         const forcedColor = isSingleButton
           ? "dark"
           : stringToColor(button.color);
-        console.log(button, "button");
+        // console.log(button, "button");
         const buttonProps = {
           ...button,
           color: forcedColor,
