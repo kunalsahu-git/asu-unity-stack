@@ -38,7 +38,7 @@ export const CellButtons = props => {
 
   return configLayout?.includeCellTickets && hasContent ? (
     <Cell
-      className="game-table-buttons btn-ticket text-center align-middle px-2"
+      className="btn-ticket text-center align-middle px-2"
       ref={ticketCellRef}
       style={{
         minWidth: ticketCellMaxDimensions.width,
@@ -50,16 +50,10 @@ export const CellButtons = props => {
         gap: "12px",
       }}
     >
-      {game?.buttons?.map((button, idx) => {
-        const isSingleButton = game.buttons.length === 1;
-
-        const forcedColor = isSingleButton
-          ? "dark"
-          : stringToColor(button.color);
-        // console.log(button, "button");
+      {game?.buttons?.map(button => {
         const buttonProps = {
           ...button,
-          color: forcedColor,
+          color: stringToColor(button.color),
           target: stringToTarget(configCells?.cellTicketButton?.button?.target),
           size: stringToSize(configCells?.cellTicketButton?.button?.size),
           icon: [],
@@ -69,21 +63,21 @@ export const CellButtons = props => {
           trackingOverrides: {
             type: TYPE_INTERNAL_LINK,
           },
-          className: `force-btn-color-${forcedColor}`, // ✅ custom class for important override
         };
-
         return (
           <Button
-            key={button.href ?? button.label ?? idx}
-            renderIcon={() => (
-              <Icon
-                icon={button.startIcon}
-                style={{
-                  paddingRight: "4px",
-                  textDecoration: "none !important",
-                }}
-              />
-            )}
+            key={button.href ?? button.label}
+            renderIcon={() => {
+              return (
+                <Icon
+                  icon={button.startIcon}
+                  style={{
+                    paddingRight: "4px",
+                    textDecoration: "none !important",
+                  }}
+                />
+              );
+            }}
             {...buttonProps}
           />
         );
