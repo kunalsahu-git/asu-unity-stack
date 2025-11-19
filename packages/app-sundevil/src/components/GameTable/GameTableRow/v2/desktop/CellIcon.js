@@ -20,6 +20,7 @@ export const CellIcon = props => {
 
   return configLayout?.includeCellIcon ? (
     <Cell
+      className="section-icon-cell"
       style={{
         display: "flex",
         alignItems: "center",

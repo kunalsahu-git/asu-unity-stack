@@ -18,6 +18,7 @@ export const CellIcon = props => {
 
   return configLayout?.includeCellIcon && game?.sportIcon ? (
     <Cell
+      className="section-icon-cell"
       style={{
         display: "flex",
         alignItems: "center",

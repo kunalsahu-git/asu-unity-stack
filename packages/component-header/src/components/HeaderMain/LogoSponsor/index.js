@@ -50,6 +50,9 @@ const LogoSponsor = () => {
         width="400"
         height="72"
         decoding="async"
+        style={{
+          marginRight: "0rem",
+        }}
         // eslint-disable-next-line
         fetchpriority="high"
       />

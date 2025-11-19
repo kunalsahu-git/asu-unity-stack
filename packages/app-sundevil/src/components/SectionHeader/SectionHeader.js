@@ -73,7 +73,11 @@ export const SectionHeader = forwardRef((props, ref) => {
     <div className="container" ref={ref} style={style}>
       {hasContent && (
         <div className="row">
-          <div className="col-md-8 col-sm-12">
+          <div
+            className={`col-md-8 col-sm-12 ${
+              isMobile ? "px-0" : "px-lg-auto px-md-auto"
+            }`}
+          >
             <div className="d-flex flex-row align-items-end justify-content-between gap-2 pt-2">
               <Title
                 // @ts-ignore

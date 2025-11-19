@@ -108,6 +108,9 @@ const Header = styled.header`
       padding-left: 0;
       padding-right: 0;
       max-width: 100%;
+      .navbar.navbar-expand-xl {
+        flex-wrap: nowrap;
+      }
     }
   }
   @media (max-width: 922px) {

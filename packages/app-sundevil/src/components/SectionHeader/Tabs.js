@@ -63,6 +63,11 @@ const Tab = styled.button`
     box-shadow: none !important;
     border: none !important;
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 16px 8px;
+  }
 `;
 
 const Tabs = ({ tabs, onTabItemClick, stretch = false }) => {

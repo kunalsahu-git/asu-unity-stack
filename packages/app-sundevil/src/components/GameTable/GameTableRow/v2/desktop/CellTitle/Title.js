@@ -17,6 +17,10 @@ const Root = styled.a`
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   white-space: nowrap;
   font-weight: bold;
   width: fit-content;
