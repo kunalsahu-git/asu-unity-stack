@@ -55,18 +55,6 @@ const games = [1, 2, 3, 4, 5].flatMap((id, index) => [
       // },
       // {
       //   label: "Supplemental Link",
-      //   href: "https://www.example.com/1",
-      // },
-      // {
-      //   label: "Supplemental Link",
-      //   href: "https://www.example.com/1",
-      // },
-      // {
-      //   label: "Supplemental Link",
-      //   href: "https://www.example.com/2",
-      // },
-      // {
-      //   label: "Supplemental Link",
       //   href: "https://www.example.com/3",
       // },
     ].slice(index % 4),
