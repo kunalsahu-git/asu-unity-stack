@@ -12,14 +12,8 @@ import { basePropTypes, cleanSportTabs } from "./sports-tabs";
 import { SportsTabDropDownItem } from "./SportsTabDropDownItem";
 
 /**
- * @typedef {import("./sports-tabs").Sport} Sport
- * @typedef {import("./sports-tabs").BaseProps} BaseProps
- * @typedef {BaseProps & {skeleton?: boolean; variant?: "bottom-bordered" | "borderless" | null | undefined; className?: string; sectionName: string}} Props
- */
-
-/**
  * @type {React.FC<Props>}
- * */
+ */
 export const SportsTabsMobile = ({
   sports: propsSports = [],
   onSportItemClick,
@@ -30,40 +24,46 @@ export const SportsTabsMobile = ({
 }) => {
   const sports = cleanSportTabs(propsSports);
 
-  // No default selection — force user to choose
+  // ⬇️ NEW: start with no selection
   const [selectedSport, setSelectedSport] = React.useState(null);
+
   const [state, setState] = React.useState({ opened: null });
 
   return (
-    // @ts-ignore
     <Skeleton skeleton={Boolean(skeleton)} className={className}>
       <DropDown
         open={state.opened === "dropdown"}
-        onClose={() => setState(current => ({ ...current, opened: null }))}
+        onClose={() =>
+          setState(currentState => ({ ...currentState, opened: null }))
+        }
         style={{ height: "100%", width: "100%" }}
-        renderReference={input => (
-          <SelectBase
-            // @ts-ignore
-            ref={input.ref}
-            sectionName={sectionName}
-            variant={variant}
-            renderIcon={props =>
-              selectedSport?.icon ? (
-                <div>
-                  <Icon style={props?.style} icon={selectedSport.icon} />
-                </div>
-              ) : null
-            }
-            name={selectedSport?.name || "Choose a sport"}
-            open={input.open}
-            onClick={() =>
-              setState(current => ({
-                ...current,
-                opened: current.opened === "dropdown" ? null : "dropdown",
-              }))
-            }
-          />
-        )}
+        renderReference={input => {
+          return (
+            <SelectBase
+              ref={input.ref}
+              sectionName={sectionName}
+              variant={variant}
+              // ⬇️ NEW: show icon only when selected
+              renderIcon={props =>
+                selectedSport?.icon ? (
+                  <div key={selectedSport.id}>
+                    <Icon style={props?.style} icon={selectedSport.icon} />
+                  </div>
+                ) : null
+              }
+              // ⬇️ NEW: default text
+              name={selectedSport?.name || "Choose a sport"}
+              open={input.open}
+              onClick={() =>
+                setState(currentState => ({
+                  ...currentState,
+                  opened:
+                    currentState.opened === "dropdown" ? null : "dropdown",
+                }))
+              }
+            />
+          );
+        }}
         renderContent={input => (
           <DropDownSurface style={{ width: input.referenceWidth }}>
             {sports.map(sport => (
@@ -72,8 +72,8 @@ export const SportsTabsMobile = ({
                 label={sport.name}
                 active={selectedSport?.id === sport.id}
                 onClick={() => {
-                  setSelectedSport(sport); // set user's choice
-                  setState(current => ({ ...current, opened: null }));
+                  setSelectedSport(sport); // ⬅️ NEW: select sport
+                  setState(currentState => ({ ...currentState, opened: null }));
                   onSportItemClick(sport.id);
                   trackGAEvent({
                     event: "link",
