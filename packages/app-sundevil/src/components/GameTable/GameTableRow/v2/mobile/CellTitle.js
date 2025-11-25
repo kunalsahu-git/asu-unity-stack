@@ -31,9 +31,18 @@ export const CellTitle = props => {
   const hasContent = game?.title;
 
   // Extract text starting from "vs." or "at" (keep them included)
+  // const fullTitle = game?.title ?? "";
+  // const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
+  // const displayTitle = match ? match[0].trim() : fullTitle;
+
+  // Extract the portion starting from "vs." or "at" (inclusive)
   const fullTitle = game?.title ?? "";
-  const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
-  const displayTitle = match ? match[0].trim() : fullTitle;
+  // Step 1: Remove everything before the colon (including the colon)
+  const cleanedTitle = fullTitle.replace(/^[^:]*:\s*/, "");
+  // Step 2: Apply the original match logic on the cleaned title
+  const match = cleanedTitle.match(/\b(vs\.|at)\s+.*$/i);
+  // Final title
+  const displayTitle = match ? match[0].trim() : cleanedTitle;
 
   return configLayout.includeCellTitle && hasContent ? (
     <div
