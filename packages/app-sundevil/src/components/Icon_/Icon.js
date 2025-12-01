@@ -163,8 +163,18 @@ export const Icon = ({ icon, ...props }) => {
   const color = useColor(ref);
   const fontSize = useFontSize(ref);
 
+  // HARD CHECK — if empty string, null, undefined, empty object → hide
+  if (
+    !icon ||
+    (typeof icon === "string" && icon.trim() === "") ||
+    (typeof icon === "object" && Object.keys(icon).length === 0)
+  ) {
+    return <span style={{ display: "none" }} />;
+  }
+
+  // Soft check (existing logic)
   if (!isValidIcon(icon)) {
-    return null;
+    return <span style={{ display: "none" }} />;
   }
 
   const iconProps = mergeIconProps(
