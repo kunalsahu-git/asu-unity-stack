@@ -62,6 +62,7 @@ export const gamePropTypes = PropTypes.shape({
   subtitles: PropTypes.arrayOf(PropTypes.string),
   subtitleStyle: PropTypes.object,
   startDate: PropTypes.string,
+  hideVsAt: PropTypes.string,
 });
 
 /**
@@ -132,4 +133,5 @@ export const isGameTicketed = game => {
  * @property {string[]} [subtitles]
  * @property {import("react").CSSProperties} [subtitleStyle]
  * @property {string} [startDate]
+ * @property {string} [hideVsAt]
  */

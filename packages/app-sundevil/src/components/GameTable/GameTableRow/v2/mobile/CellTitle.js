@@ -35,14 +35,47 @@ export const CellTitle = props => {
   // const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
   // const displayTitle = match ? match[0].trim() : fullTitle;
 
-  // Extract the portion starting from "vs." or "at" (inclusive)
   const fullTitle = game?.title ?? "";
-  // Step 1: Remove everything before the colon (including the colon)
-  const cleanedTitle = fullTitle.replace(/^[^:]*:\s*/, "");
-  // Step 2: Apply the original match logic on the cleaned title
-  const match = cleanedTitle.match(/\b(vs\.|at)\s+.*$/i);
-  // Final title
-  const displayTitle = match ? match[0].trim() : cleanedTitle;
+
+  // Count occurrences
+  const vsMatches = fullTitle.match(/\bvs\./gi) || [];
+  const atMatches = fullTitle.match(/\bat\b/gi) || [];
+
+  let displayTitle = "";
+
+  // --- CASE 1: Multiple "vs."
+  if (vsMatches.length > 1) {
+    // Remove everything up to the first "vs."
+    const firstVsIndex = fullTitle.toLowerCase().indexOf("vs.");
+    const temp = fullTitle.substring(firstVsIndex).trim();
+
+    // Remove the first "vs." only (keep the rest)
+    displayTitle = temp.replace(/^vs\.\s*/i, "").trim();
+  }
+
+  // ============================
+  // CASE 2: Multiple "at"
+  // ============================
+  else if (atMatches.length > 1) {
+    const firstAtIndex = fullTitle.toLowerCase().indexOf("at");
+    const temp = fullTitle.substring(firstAtIndex).trim();
+
+    // Remove only the first "at"
+    displayTitle = temp.replace(/^at\s*/i, "").trim();
+  }
+
+  // --- CASE 2: Single vs. or at
+  else if (vsMatches.length === 1 || atMatches.length === 1) {
+    const match = fullTitle.match(/\b(vs\.|at)\s+.*$/i);
+    displayTitle = match ? match[0].trim() : fullTitle;
+  }
+
+  // --- CASE 3: No vs. or at → use part after :
+  else if (fullTitle.includes(":")) {
+    displayTitle = fullTitle.split(":")[1].trim();
+  } else {
+    displayTitle = fullTitle.trim();
+  }
 
   return configLayout.includeCellTitle && hasContent ? (
     <div

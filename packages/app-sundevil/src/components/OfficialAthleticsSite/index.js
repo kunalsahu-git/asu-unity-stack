@@ -8,7 +8,7 @@ import { trackGAEvent } from "../../track-ga/track-ga-event";
 
 const Root = styled.p`
   margin: 0;
-  font-size: 12px;
+  font-size: 75%;
   font-weight: bold;
   a:link {
   }
