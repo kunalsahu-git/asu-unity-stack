@@ -13,6 +13,14 @@ const Card = styled.div`
     opacity: 1;
     max-height: 200px;
   }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, #19191900, #191919c9);
+  }
 `;
 
 const CardImage = styled.img`
