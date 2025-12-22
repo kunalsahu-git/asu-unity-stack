@@ -51,9 +51,8 @@ const PlayButton = styled.button`
   &:active,
   &:focus,
   &:focus-visible {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px,
+      rgb(25, 25, 25) 0px 0px 0px 4px !important;
   }
 `;
 
