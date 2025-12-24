@@ -204,7 +204,9 @@ export const PartnerLogoCarousel = ({
               </div>
             </ArrowButtonsWrapper>
           )}
-          <a href={footerLink}>{footerLabel}</a>
+          <a className="text-gold" href={footerLink}>
+            {footerLabel}
+          </a>
         </div>
       </div>
     </Root>

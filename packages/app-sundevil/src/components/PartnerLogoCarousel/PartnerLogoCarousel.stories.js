@@ -1,7 +1,6 @@
 // @ts-check
 import React from "react";
 import { PartnerLogoCarousel } from "./PartnerLogoCarousel";
-import { idGenerator } from "../../../../../shared";
 
 const props = {
   title: "Featured partners",
@@ -52,6 +51,18 @@ const props = {
     },
     {
       id: "7",
+      imageUrl:
+        "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/mountain-america-stadium.webp",
+      imageAlt: "From The Buttes, Give 'Em Hell Devils! Cheer",
+    },
+    {
+      id: "8",
+      imageUrl:
+        "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/mountain-america-stadium.webp",
+      imageAlt: "From The Buttes, Give 'Em Hell Devils! Cheer",
+    },
+    {
+      id: "9",
       imageUrl:
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/mountain-america-stadium.webp",
       imageAlt: "From The Buttes, Give 'Em Hell Devils! Cheer",
