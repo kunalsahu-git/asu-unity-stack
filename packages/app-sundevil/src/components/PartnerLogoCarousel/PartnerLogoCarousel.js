@@ -3,10 +3,11 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import "./style.css";
 
-import { APP_CONFIG } from "../../config";
-import { useBreakpoint } from "../../utils/use-breakpoint";
+import { APP_CONFIG } from "../../config"; // adjust if needed
+import { useBreakpoint } from "../../utils/use-breakpoint"; // adjust path
 import { ArrowButtons } from "../ArrowButtons";
 import { Carousel, CarouselController, CarouselItem } from "../Carousel";
+import { useElementContentXPosition } from "../../utils/use-element-content-x-position";
 
 const propTypes = {
   cards: PropTypes.arrayOf(
@@ -27,26 +28,17 @@ const propTypes = {
   footerLabel: PropTypes.string,
   imageWidth: PropTypes.string,
   imageHeight: PropTypes.string,
+  initialSlide: PropTypes.number,
 };
 
-/**
- * @typedef {Object} Props
- * @property {import('../carousel-tall-card').SpecialEvent[]} cards
- * @property {number} [cardWidth]
- * @property {boolean} [skeleton]
- * @property {number} [slidesOffsetBefore]
- * @property {string} sectionName
- */
-
 const Root = styled.div`
-  /* Ensure swiper-container and swiper-slide have full width */
   swiper-container {
     width: 100%;
   }
 
   swiper-slide {
     width: auto;
-    padding-right: 24px;
+    padding: 0 24px 0 0;
     height: auto !important;
   }
 
@@ -56,9 +48,7 @@ const Root = styled.div`
 
   @media (max-width: 768px) {
     swiper-slide {
-      width: auto;
       padding: 0 12px 0 0;
-      height: auto !important;
     }
   }
 `;
@@ -88,7 +78,7 @@ const ArrowButtonsWrapper = styled.div`
   }
 
   .arrow-buttons button:hover {
-    background-color: transparent !important;
+    background-color: white !important;
     color: black !important;
     border-color: white !important;
   }
@@ -99,14 +89,9 @@ const ArrowButtonsWrapper = styled.div`
   }
 `;
 
-/**
- * @type {React.FC<Props>}
- */
 export const PartnerLogoCarousel = ({
   cards,
-  slidesOffsetBefore,
   cardWidth,
-  skeleton,
   sectionName,
   title,
   buttonLink,
@@ -115,103 +100,80 @@ export const PartnerLogoCarousel = ({
   footerLabel,
   imageWidth,
   imageHeight,
+  initialSlide = 0,
 }) => {
   const [carouselController] = useState(() => new CarouselController());
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(initialSlide);
   const isMobile = useBreakpoint(APP_CONFIG.breakpointMobile);
   const carouselRef = useRef(null);
+  const sectionHeaderRef = React.useRef();
+  const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
 
   return (
-    <Root>
-      <div id="partner-logo-carousel">
-        <div className="carousel-header container mb-4">
-          {title && <h2 className="carousel-title mb-0 text-white">{title}</h2>}
-
-          {buttonLink && buttonLabel && (
-            <div className="my-auto">
-              <a href={buttonLink} className="carousel-cta btn">
-                {buttonLabel}
-              </a>
-            </div>
-          )}
-        </div>
+    <Root id="partner-logo-carousel">
+      <div className="carousel-header container mb-4">
+        {title && <h2 className="carousel-title mb-0 text-white">{title}</h2>}
+        {buttonLink && buttonLabel && (
+          <div className="my-auto">
+            <a href={buttonLink} className="carousel-cta btn">
+              {buttonLabel}
+            </a>
+          </div>
+        )}
+      </div>
+      <div className="section-carousel">
         <Carousel
+          loop="true"
           slidesPerView="auto"
-          slidesOffsetBefore={isMobile ? 32 : slidesOffsetBefore}
-          slidesOffsetAfter={isMobile ? 0 : cardWidth}
+          slidesOffsetBefore={sectionHeaderPosition.left}
+          slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
           centeredSlides={false}
-          initialSlide={0}
+          cardWidth={cardWidth}
+          initialSlide={initialSlide}
           controller={carouselController}
           index={index}
           onIndexChanged={setIndex}
           ref={carouselRef}
-          disabled={skeleton}
         >
-          {!skeleton && (
-            <>
-              {cards.map(card => (
-                <CarouselItem key={card.id}>
-                  <div className="partner-logo-card">
-                    <img
-                      src={card.imageUrl}
-                      alt={card.imageAlt || ""}
-                      loading="lazy"
-                      width="auto"
-                      height="auto"
-                      style={{
-                        maxWidth: { imageWidth },
-                        maxHeight: { imageHeight },
-                      }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </>
-          )}
-
-          {skeleton && (
-            <>
-              {cards.map(card => (
-                <CarouselItem key={card.id}>
-                  <div className="partner-logo-card">
-                    <img
-                      src={card.imageUrl}
-                      alt={card.imageAlt || ""}
-                      loading="lazy"
-                      width="auto"
-                      height="auto"
-                      style={{
-                        maxWidth: { imageWidth },
-                        maxHeight: { imageHeight },
-                      }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </>
-          )}
-        </Carousel>
-        <div className="footer-section container mt-4">
-          {(cards.length > 0 || skeleton) && (
-            <ArrowButtonsWrapper>
-              <div className="arrow-buttons">
-                <ArrowButtons
-                  skeleton={skeleton}
-                  onLeft={() => carouselController.slidePrev()}
-                  onRight={() => carouselController.slideNext()}
-                  sectionName={sectionName}
+          {cards.map(card => (
+            <CarouselItem>
+              <div className="partner-logo-card">
+                <img
+                  src={card.imageUrl}
+                  alt={card.imageAlt || ""}
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                  style={{
+                    maxWidth: { imageWidth },
+                    maxHeight: { imageHeight },
+                  }}
                 />
               </div>
-            </ArrowButtonsWrapper>
-          )}
-          <a className="text-gold" href={footerLink}>
-            {footerLabel}
-          </a>
-        </div>
+            </CarouselItem>
+          ))}
+        </Carousel>
+      </div>
+      <div className="footer-section container mt-4">
+        {cards.length > 0 && (
+          <ArrowButtonsWrapper>
+            <div className="arrow-buttons">
+              <ArrowButtons
+                onLeft={() => carouselController.slidePrev()}
+                onRight={() => carouselController.slideNext()}
+                sectionName={sectionName}
+              />
+            </div>
+          </ArrowButtonsWrapper>
+        )}
+        <a className="footer-link" href={footerLink}>
+          {footerLabel}
+        </a>
       </div>
     </Root>
   );
 };
+
 PartnerLogoCarousel.propTypes = propTypes;
 
 export default PartnerLogoCarousel;

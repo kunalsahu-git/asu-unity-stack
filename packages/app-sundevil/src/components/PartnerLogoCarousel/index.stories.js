@@ -1,8 +1,15 @@
-// @ts-check
 import React from "react";
-import { PartnerLogoCarousel } from "./PartnerLogoCarousel";
+import PartnerLogoCarousel from "./PartnerLogoCarousel";
 
-const props = {
+export default {
+  title: "Partner Logo Carousel",
+  component: PartnerLogoCarousel,
+};
+
+const Template = args => <PartnerLogoCarousel {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
   title: "Featured partners",
   sectionName: "Featured partners",
   buttonLink: "https://example.com",
@@ -69,15 +76,3 @@ const props = {
     },
   ],
 };
-
-export default {
-  title: "Partner Logo Carousel",
-  component: <PartnerLogoCarousel {...props} />,
-};
-
-const Template = () => {
-  return <PartnerLogoCarousel {...props} />;
-};
-
-export const Default = Template.bind({});
-Default.args = props;

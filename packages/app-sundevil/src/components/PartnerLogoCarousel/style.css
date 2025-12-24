@@ -80,6 +80,11 @@
   justify-content: space-between;
 }
 
+#partner-logo-carousel .footer-section .footer-link {
+  margin-top: auto;
+  color: #FFC627;
+}
+
 #partner-logo-carousel .footer-section .arrow-buttons-wrapper button[aria-label="Go to previous"] {
   fill: #fff !important;
   color: #fff !important;
