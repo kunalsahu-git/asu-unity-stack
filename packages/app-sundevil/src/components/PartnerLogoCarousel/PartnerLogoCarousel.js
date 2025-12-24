@@ -15,6 +15,8 @@ const propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       imageUrl: PropTypes.string,
       imageAlt: PropTypes.string,
+      imageWidth: PropTypes.string,
+      imageHeight: PropTypes.string,
     })
   ),
   cardWidth: PropTypes.number,
@@ -24,8 +26,6 @@ const propTypes = {
   buttonLabel: PropTypes.string,
   footerLink: PropTypes.string,
   footerLabel: PropTypes.string,
-  imageWidth: PropTypes.string,
-  imageHeight: PropTypes.string,
   initialSlide: PropTypes.number,
 };
 
@@ -96,8 +96,6 @@ export const PartnerLogoCarousel = ({
   buttonLabel,
   footerLink,
   footerLabel,
-  imageWidth,
-  imageHeight,
   initialSlide = 0,
 }) => {
   const [carouselController] = useState(() => new CarouselController());
@@ -126,7 +124,7 @@ export const PartnerLogoCarousel = ({
           <div className="section-carousel">
             <Carousel
               loop="true"
-              slidesPerView="auto"
+              slidesPerView="6"
               slidesOffsetBefore={sectionHeaderPosition.left}
               slidesOffsetAfter={
                 window.innerWidth - sectionHeaderPosition.right
@@ -149,8 +147,8 @@ export const PartnerLogoCarousel = ({
                       width="auto"
                       height="auto"
                       style={{
-                        maxWidth: { imageWidth },
-                        maxHeight: { imageHeight },
+                        maxWidth: card.imageWidth,
+                        maxHeight: card.imageHeight,
                       }}
                     />
                   </div>
@@ -211,8 +209,8 @@ export const PartnerLogoCarousel = ({
                       width="auto"
                       height="auto"
                       style={{
-                        maxWidth: { imageWidth },
-                        maxHeight: { imageHeight },
+                        maxWidth: card.imageWidth,
+                        maxHeight: card.imageHeight,
                       }}
                     />
                   </div>
