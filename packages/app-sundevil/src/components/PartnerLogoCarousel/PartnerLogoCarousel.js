@@ -170,9 +170,11 @@ export const PartnerLogoCarousel = ({
                 </div>
               </ArrowButtonsWrapper>
             )}
-            <a className="footer-link" href={footerLink}>
-              {footerLabel}
-            </a>
+            {footerLink && footerLabel && (
+              <a className="footer-link mt-4" href={footerLink}>
+                {footerLabel}
+              </a>
+            )}
           </div>
         </div>
       )}
@@ -237,9 +239,11 @@ export const PartnerLogoCarousel = ({
                 </a>
               </div>
             )}
-            <a className="footer-link mt-4" href={footerLink}>
-              {footerLabel}
-            </a>
+            {footerLink && footerLabel && (
+              <a className="footer-link mt-4" href={footerLink}>
+                {footerLabel}
+              </a>
+            )}
           </div>
         </div>
       )}
