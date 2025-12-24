@@ -177,12 +177,19 @@ import { SpecialEventsSection } from "./components/SpecialEventsSection";
 // );
 
 import { VideoSection } from "./components/VideoSection";
+
 import { SingleVideoSection } from "./components/SingleVideoSection";
+
 import { PlayPauseButton } from "./components/PlayPauseButton/PlayPauseButton";
+
 import { TickerSection } from "./components/TickerSection";
+
 import { VideoTabSection } from "./components/VideoTabSection";
 
 import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
+
+import { PartnerLogoCarousel } from "./components/PartnerLogoCarousel";
+
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -379,6 +386,13 @@ export const initCardSectionThreeColumn = input => {
   RenderReact({
     ...input,
     component: CardSectionThreeColumn,
+  });
+};
+
+export const initPartnerLogoCarousel = input => {
+  RenderReact({
+    ...input,
+    component: PartnerLogoCarousel,
   });
 };
 
