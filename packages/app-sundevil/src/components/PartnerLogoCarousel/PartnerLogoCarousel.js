@@ -109,65 +109,140 @@ export const PartnerLogoCarousel = ({
 
   return (
     <Root id="partner-logo-carousel">
-      <div className="carousel-header container mb-4">
-        {title && <h2 className="carousel-title mb-0 text-white">{title}</h2>}
-        {buttonLink && buttonLabel && (
-          <div className="my-auto">
-            <a href={buttonLink} className="carousel-cta btn">
-              {buttonLabel}
+      {!isMobile && (
+        <div>
+          <div className="carousel-header container mb-4">
+            {title && (
+              <h2 className="carousel-title mb-0 text-white">{title}</h2>
+            )}
+            {buttonLink && buttonLabel && (
+              <div className="my-auto">
+                <a href={buttonLink} className="carousel-cta btn">
+                  {buttonLabel}
+                </a>
+              </div>
+            )}
+          </div>
+          <div className="section-carousel">
+            <Carousel
+              loop="true"
+              slidesPerView="auto"
+              slidesOffsetBefore={sectionHeaderPosition.left}
+              slidesOffsetAfter={
+                window.innerWidth - sectionHeaderPosition.right
+              }
+              centeredSlides={false}
+              cardWidth={cardWidth}
+              initialSlide={initialSlide}
+              controller={carouselController}
+              index={index}
+              onIndexChanged={setIndex}
+              ref={carouselRef}
+            >
+              {cards.map(card => (
+                <CarouselItem>
+                  <div className="partner-logo-card">
+                    <img
+                      src={card.imageUrl}
+                      alt={card.imageAlt || ""}
+                      loading="lazy"
+                      width="auto"
+                      height="auto"
+                      style={{
+                        maxWidth: { imageWidth },
+                        maxHeight: { imageHeight },
+                      }}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </Carousel>
+          </div>
+          <div className="footer-section container mt-4">
+            {cards.length > 0 && (
+              <ArrowButtonsWrapper>
+                <div className="arrow-buttons">
+                  <ArrowButtons
+                    onLeft={() => carouselController.slidePrev()}
+                    onRight={() => carouselController.slideNext()}
+                    sectionName={sectionName}
+                  />
+                </div>
+              </ArrowButtonsWrapper>
+            )}
+            <a className="footer-link" href={footerLink}>
+              {footerLabel}
             </a>
           </div>
-        )}
-      </div>
-      <div className="section-carousel">
-        <Carousel
-          loop="true"
-          slidesPerView="auto"
-          slidesOffsetBefore={sectionHeaderPosition.left}
-          slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
-          centeredSlides={false}
-          cardWidth={cardWidth}
-          initialSlide={initialSlide}
-          controller={carouselController}
-          index={index}
-          onIndexChanged={setIndex}
-          ref={carouselRef}
-        >
-          {cards.map(card => (
-            <CarouselItem>
-              <div className="partner-logo-card">
-                <img
-                  src={card.imageUrl}
-                  alt={card.imageAlt || ""}
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                  style={{
-                    maxWidth: { imageWidth },
-                    maxHeight: { imageHeight },
-                  }}
-                />
+        </div>
+      )}
+      {isMobile && (
+        <div>
+          <div className="carousel-header container mb-4">
+            {title && (
+              <h2 className="carousel-title mb-0 text-white">{title}</h2>
+            )}
+          </div>
+          <div className="section-carousel">
+            <Carousel
+              loop="true"
+              slidesPerView="auto"
+              slidesOffsetBefore={sectionHeaderPosition.left}
+              slidesOffsetAfter={
+                window.innerWidth - sectionHeaderPosition.right
+              }
+              centeredSlides={false}
+              cardWidth={cardWidth}
+              initialSlide={initialSlide}
+              controller={carouselController}
+              index={index}
+              onIndexChanged={setIndex}
+              ref={carouselRef}
+            >
+              {cards.map(card => (
+                <CarouselItem>
+                  <div className="partner-logo-card">
+                    <img
+                      src={card.imageUrl}
+                      alt={card.imageAlt || ""}
+                      loading="lazy"
+                      width="auto"
+                      height="auto"
+                      style={{
+                        maxWidth: { imageWidth },
+                        maxHeight: { imageHeight },
+                      }}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </Carousel>
+          </div>
+          <div className="footer-section container mt-4">
+            {cards.length > 0 && (
+              <ArrowButtonsWrapper>
+                <div className="arrow-buttons mb-4">
+                  <ArrowButtons
+                    onLeft={() => carouselController.slidePrev()}
+                    onRight={() => carouselController.slideNext()}
+                    sectionName={sectionName}
+                  />
+                </div>
+              </ArrowButtonsWrapper>
+            )}
+            {buttonLink && buttonLabel && (
+              <div className="my-auto">
+                <a href={buttonLink} className="carousel-cta btn">
+                  {buttonLabel}
+                </a>
               </div>
-            </CarouselItem>
-          ))}
-        </Carousel>
-      </div>
-      <div className="footer-section container mt-4">
-        {cards.length > 0 && (
-          <ArrowButtonsWrapper>
-            <div className="arrow-buttons">
-              <ArrowButtons
-                onLeft={() => carouselController.slidePrev()}
-                onRight={() => carouselController.slideNext()}
-                sectionName={sectionName}
-              />
-            </div>
-          </ArrowButtonsWrapper>
-        )}
-        <a className="footer-link" href={footerLink}>
-          {footerLabel}
-        </a>
-      </div>
+            )}
+            <a className="footer-link mt-4" href={footerLink}>
+              {footerLabel}
+            </a>
+          </div>
+        </div>
+      )}
     </Root>
   );
 };

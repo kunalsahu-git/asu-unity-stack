@@ -46,7 +46,7 @@
   color: white !important;
 }
 
-#partner-logo-carousel .carousel-header .carousel-cta {
+#partner-logo-carousel .carousel-cta {
   font-size: 16px;
   font-weight: 700;
   border: 1.5px solid #FFC627;
@@ -93,4 +93,12 @@
 #partner-logo-carousel .footer-section .arrow-buttons-wrapper button[aria-label="Go to next"] {
   fill: #fff !important;
   color: #fff !important;
+}
+
+
+@media (max-width:767px) {
+  #partner-logo-carousel .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
 }
