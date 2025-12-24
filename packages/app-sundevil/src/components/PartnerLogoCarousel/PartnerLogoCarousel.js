@@ -17,9 +17,7 @@ const propTypes = {
       imageAlt: PropTypes.string,
     })
   ),
-  slidesOffsetBefore: PropTypes.number,
   cardWidth: PropTypes.number,
-  skeleton: PropTypes.bool,
   sectionName: PropTypes.string,
   title: PropTypes.string,
   buttonLink: PropTypes.string,
