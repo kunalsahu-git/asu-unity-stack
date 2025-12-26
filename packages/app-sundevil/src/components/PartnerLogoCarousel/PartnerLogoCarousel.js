@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import "./style.css";
 
@@ -22,6 +22,7 @@ const propTypes = {
   cardWidth: PropTypes.number,
   sectionName: PropTypes.string,
   title: PropTypes.string,
+  arrowAlignment: PropTypes.string,
   buttonLink: PropTypes.string,
   buttonLabel: PropTypes.string,
   footerLink: PropTypes.string,
@@ -36,8 +37,9 @@ const Root = styled.div`
 
   swiper-slide {
     width: auto;
-    padding: 0 24px 0 0;
     height: auto !important;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .swiper-content {
@@ -95,6 +97,7 @@ export const PartnerLogoCarousel = ({
   buttonLink,
   buttonLabel,
   footerLink,
+  arrowAlignment,
   footerLabel,
   initialSlide = 0,
 }) => {
@@ -104,6 +107,7 @@ export const PartnerLogoCarousel = ({
   const carouselRef = useRef(null);
   const sectionHeaderRef = React.useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
+  const SLIDES_PER_VIEW = 6;
 
   return (
     <Root id="partner-logo-carousel">
@@ -137,8 +141,8 @@ export const PartnerLogoCarousel = ({
               onIndexChanged={setIndex}
               ref={carouselRef}
             >
-              {cards.map(card => (
-                <CarouselItem>
+              {cards.map((card, i) => (
+                <CarouselItem key={card.id ?? i}>
                   <div className="partner-logo-card">
                     <img
                       src={card.imageUrl}
@@ -155,11 +159,9 @@ export const PartnerLogoCarousel = ({
                 </CarouselItem>
               ))}
             </Carousel>
-          </div>
-          <div className="footer-section container mt-4">
-            {cards.length > 0 && (
-              <ArrowButtonsWrapper>
-                <div className="arrow-buttons">
+            {arrowAlignment === "center_separated" && cards.length > 0 && (
+              <ArrowButtonsWrapper className="center-separated-aligned">
+                <div className="arrow-buttons mb-4">
                   <ArrowButtons
                     onLeft={() => carouselController.slidePrev()}
                     onRight={() => carouselController.slideNext()}
@@ -168,6 +170,20 @@ export const PartnerLogoCarousel = ({
                 </div>
               </ArrowButtonsWrapper>
             )}
+          </div>
+          <div className="footer-section container mt-4">
+            {arrowAlignment === "bottom_left" && cards.length > 0 && (
+              <ArrowButtonsWrapper>
+                <div className="arrow-buttons bottom-left-aligned">
+                  <ArrowButtons
+                    onLeft={() => carouselController.slidePrev()}
+                    onRight={() => carouselController.slideNext()}
+                    sectionName={sectionName}
+                  />
+                </div>
+              </ArrowButtonsWrapper>
+            )}
+
             {footerLink && footerLabel && (
               <a className="footer-link mt-4" href={footerLink}>
                 {footerLabel}
@@ -186,7 +202,7 @@ export const PartnerLogoCarousel = ({
           <div className="section-carousel">
             <Carousel
               loop="true"
-              slidesPerView="auto"
+              slidesPerView="1"
               slidesOffsetBefore={sectionHeaderPosition.left}
               slidesOffsetAfter={
                 window.innerWidth - sectionHeaderPosition.right
@@ -217,11 +233,22 @@ export const PartnerLogoCarousel = ({
                 </CarouselItem>
               ))}
             </Carousel>
+            {arrowAlignment === "center_separated" && cards.length > 0 && (
+              <ArrowButtonsWrapper className="center-separated-aligned">
+                <div className="arrow-buttons mb-4">
+                  <ArrowButtons
+                    onLeft={() => carouselController.slidePrev()}
+                    onRight={() => carouselController.slideNext()}
+                    sectionName={sectionName}
+                  />
+                </div>
+              </ArrowButtonsWrapper>
+            )}
           </div>
           <div className="footer-section container mt-4">
-            {cards.length > 0 && (
+            {arrowAlignment === "bottom_left" && cards.length > 0 && (
               <ArrowButtonsWrapper>
-                <div className="arrow-buttons mb-4">
+                <div className="arrow-buttons mb-4 bottom-left-aligned">
                   <ArrowButtons
                     onLeft={() => carouselController.slidePrev()}
                     onRight={() => carouselController.slideNext()}
