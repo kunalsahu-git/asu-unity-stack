@@ -1,0 +1,122 @@
+#large-image-carousel .partner-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 0px;
+}
+
+#large-image-carousel .arrow-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#partner-logo-carousel .arrow-buttons button {
+  border: 2px solid white !important;
+  background-color: transparent !important;
+  color: white !important;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#partner-logo-carousel .arrow-buttons button svg {
+  fill: white !important;
+  color: white !important;
+}
+
+#partner-logo-carousel .arrow-buttons button:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+#partner-logo-carousel .arrow-buttons button:hover svg {
+  fill: white !important;
+  color: white !important;
+}
+
+#partner-logo-carousel .carousel-cta {
+  font-size: 16px;
+  font-weight: 700;
+  border: 1.5px solid #FFC627;
+  border-radius: 100px;
+  padding: 16px 32px;
+  background: #191919;
+  color: #FFC627;
+  text-decoration: none;
+}
+
+#partner-logo-carousel .carousel-cta:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #191919 !important;
+  outline: none !important;
+}
+
+#partner-logo-carousel .carousel-cta:active {
+  transform: scale(1);
+}
+
+#partner-logo-carousel .carousel-cta:hover {
+  transform: scale(1.05);
+}
+
+#partner-logo-carousel .carousel-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#partner-logo-carousel .footer-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#partner-logo-carousel .footer-section .footer-link {
+  margin-top: auto;
+  color: #FFC627;
+}
+
+#partner-logo-carousel .footer-section .arrow-buttons-wrapper button[aria-label="Go to previous"] {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+#partner-logo-carousel .footer-section .arrow-buttons-wrapper button[aria-label="Go to next"] {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+
+@media (max-width:767px) {
+  #partner-logo-carousel .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#partner-logo-carousel swiper-slide {
+  /* opacity: 0.5; */
+  transition: opacity 0.3s ease;
+}
+
+/* Middle slides (2nd → 5th when 6 are visible) */
+#partner-logo-carousel swiper-slide.is-middle {
+  opacity: 1;
+}
+
+#partner-logo-carousel .center-separated-aligned {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  padding-top: 0px;
+  top: 36%;
+}
+
+#partner-logo-carousel .center-separated-aligned .arrow-buttons {
+  width: 100%;
+}
+
+#partner-logo-carousel .center-separated-aligned .arrow-buttons>div {
+  justify-content: space-between;
+}

@@ -190,6 +190,8 @@ import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 
 import { PartnerLogoCarousel } from "./components/PartnerLogoCarousel";
 
+import { LargeImageCarousel } from "./components/LargeImageCarousel";
+
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -393,6 +395,13 @@ export const initPartnerLogoCarousel = input => {
   RenderReact({
     ...input,
     component: PartnerLogoCarousel,
+  });
+};
+
+export const initLargeImageCarousel = input => {
+  RenderReact({
+    ...input,
+    component: LargeImageCarousel,
   });
 };
 
