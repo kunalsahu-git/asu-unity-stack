@@ -106,11 +106,11 @@
 }
 
 #partner-logo-carousel .center-separated-aligned {
-  position: absolute;
+  position: relative;
   z-index: 3;
   width: 100%;
   padding-top: 0px;
-  top: 36%;
+  margin-top: -174px;
 }
 
 #partner-logo-carousel .center-separated-aligned .arrow-buttons {

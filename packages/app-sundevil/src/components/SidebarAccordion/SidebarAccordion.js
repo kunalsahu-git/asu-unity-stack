@@ -2,12 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./style.css";
 
-export const PartnershipsAccordion = ({
-  eyebrow,
-  title,
-  description,
-  cards,
-}) => {
+export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
   const [expandedId, setExpandedId] = useState(
     cards && cards.length > 0 ? cards[0].id : null
   );
@@ -24,10 +19,20 @@ export const PartnershipsAccordion = ({
             <div className="hero-left-column">
               <div className="hero-header">
                 {eyebrow && <h3 className="hero-label">{eyebrow}</h3>}
-                {title && <h2 className="hero-title">{title}</h2>}
+                {title && (
+                  <h2
+                    className="hero-title"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  />
+                )}
               </div>
 
-              {description && <p className="hero-description">{description}</p>}
+              {description && (
+                <p
+                  className="hero-description"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              )}
             </div>
 
             {/* Right Column */}
@@ -52,14 +57,22 @@ export const PartnershipsAccordion = ({
                     {/* Expanded Content */}
                     {expandedId === card.id && (
                       <div className="partnership-content">
-                        {card.logo && (
-                          <img
-                            src={card.logo}
-                            alt={`${card.name} logo`}
-                            className="partnership-logo"
-                            loading="lazy"
-                          />
-                        )}
+                        <div className="d-flex">
+                          {card.logo && (
+                            <img
+                              src={card.logo}
+                              alt={`${card.name} logo`}
+                              className="partnership-logo"
+                              loading="lazy"
+                            />
+                          )}
+
+                          {card.logoTitle && (
+                            <div className="partnership-title">
+                              {card.logoTitle}
+                            </div>
+                          )}
+                        </div>
 
                         {card.name && (
                           <h4 className="partnership-title">{card.name}</h4>
@@ -74,24 +87,29 @@ export const PartnershipsAccordion = ({
                         )}
 
                         {card.description && (
-                          <p className="partnership-description">
-                            {card.description}
-                          </p>
+                          <p
+                            className="partnership-description"
+                            dangerouslySetInnerHTML={{
+                              __html: card.description,
+                            }}
+                          />
                         )}
 
-                        {card.cta && (
+                        {card.ctaLabel && (
                           <div>
-                            <button type="button" className="cta-button">
-                              <svg
-                                className="cta-icon"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                              </svg>
-                              {card.cta}
-                            </button>
+                            <a href={card.ctaLink}>
+                              <button type="button" className="cta-button">
+                                <svg
+                                  className="cta-icon"
+                                  viewBox="0 0 24 24"
+                                  fill="currentColor"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                {card.ctaLabel}
+                              </button>
+                            </a>
                           </div>
                         )}
                       </div>
@@ -107,7 +125,7 @@ export const PartnershipsAccordion = ({
   );
 };
 
-PartnershipsAccordion.propTypes = {
+SidebarAccordion.propTypes = {
   eyebrow: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
@@ -123,4 +141,4 @@ PartnershipsAccordion.propTypes = {
   ).isRequired,
 };
 
-export default PartnershipsAccordion;
+export default SidebarAccordion;

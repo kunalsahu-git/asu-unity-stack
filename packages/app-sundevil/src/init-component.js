@@ -190,7 +190,7 @@ import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 
 import { PartnerLogoCarousel } from "./components/PartnerLogoCarousel";
 
-import { LargeImageCarousel } from "./components/LargeImageCarousel";
+import { SidebarAccordion } from "./components/SidebarAccordion";
 
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
@@ -398,10 +398,10 @@ export const initPartnerLogoCarousel = input => {
   });
 };
 
-export const initLargeImageCarousel = input => {
+export const initSidebarAccordion = input => {
   RenderReact({
     ...input,
-    component: LargeImageCarousel,
+    component: SidebarAccordion,
   });
 };
 

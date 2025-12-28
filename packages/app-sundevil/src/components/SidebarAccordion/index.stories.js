@@ -1,11 +1,11 @@
 // index.stories.js
 import React from "react";
 
-import LeftContentAndRightAccordion from "./LeftContentAndRightAccordion";
+import SidebarAccordion from "./SidebarAccordion";
 
 export default {
-  title: "Left Content And Right Accordion",
-  component: LeftContentAndRightAccordion,
+  title: "Sidebar Accordion",
+  component: SidebarAccordion,
 };
 
 const mockCards = [
@@ -18,6 +18,7 @@ const mockCards = [
       "Contemporary luxury jewelry brand, gorjana teams up with ASU to celebrate, amplify and empower women in sport. This first-of-its-kind partnership aims to shine a spotlight on women's sports.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    logoTitle: "gorjana",
   },
   {
     id: "hockey",
@@ -40,25 +41,28 @@ const mockCards = [
     name: "Bailey Miller x Sidral Mundet",
     description:
       "A refreshing partnership bringing together Bailey Miller's athletic prowess with Sidral Mundet's vibrant brand energy.",
-    cta: "Learn more",
+    ctaLabel: "See how we shine together",
+    ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
   },
   {
     id: "sda",
     name: "SDA x Venezia's Pizzeria",
     description:
       "Supporting Sun Devil Athletics with authentic flavor and local spirit. Venezia's Pizzeria stands with our athletes.",
-    cta: "Learn more",
+    ctaLabel: "See how we shine together",
+    ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
   },
   {
     id: "kenzie",
     name: "Kenzie Brown x Lapis Skin Lounge",
     description:
       "Kenzie Brown partners with Lapis Skin Lounge to champion self-care and wellness for student-athletes.",
-    cta: "Learn more",
+    ctaLabel: "See how we shine together",
+    ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
   },
 ];
 
-const Template = args => <LeftContentAndRightAccordion {...args} />;
+const Template = args => <SidebarAccordion {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -67,12 +71,4 @@ Default.args = {
   description:
     "From kickoff to goal, explore ways Sun Devil Athletics delivers real, meaningful and measurable impact for global brands.",
   cards: mockCards,
-};
-
-export const WithoutLogos = Template.bind({});
-WithoutLogos.args = {
-  eyebrow: "Strategic partnerships",
-  title: "Impact-driven collaborations",
-  description: "Highlighting partnerships that fuel Sun Devil success.",
-  cards: mockCards.map(({ logo, ...rest }) => rest),
 };

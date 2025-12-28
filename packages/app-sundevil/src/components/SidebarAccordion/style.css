@@ -141,8 +141,10 @@
 
 #left-content-right-accordion .partnership-logo {
   width: 100%;
-  max-width: 340px;
+  max-width: 86px;
+  max-height: 86px;
   height: auto;
+  margin-right: 24px;
 }
 
 #left-content-right-accordion .partnership-badge {

@@ -33,6 +33,7 @@ const propTypes = {
 const Root = styled.div`
   swiper-container {
     width: 100%;
+    margin-bottom: 72px;
   }
 
   swiper-slide {
