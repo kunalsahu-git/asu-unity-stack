@@ -123,7 +123,7 @@ export const LargeImageCarousel = ({
       >
         {images.map(post => (
           <CarouselItem>
-            <a href={post.pageUrl}>
+            <a className="text-decoration-none" href={post.pageUrl}>
               <div
                 className="image-card"
                 style={{
@@ -131,14 +131,10 @@ export const LargeImageCarousel = ({
                  url(${post.backgroundUrl}) center center / cover no-repeat`,
                 }}
               >
-                {post.title && (
-                  <h2 className="text-white text-decoration-none">
-                    {post.title}
-                  </h2>
-                )}
+                {post.title && <h2 className="text-white">{post.title}</h2>}
                 {post.body && (
                   <p
-                    className="text-white text-decoration-none"
+                    className="text-white"
                     dangerouslySetInnerHTML={{ __html: post.body }}
                   />
                 )}

@@ -1,7 +1,9 @@
 .large-image-carousel .image-card {
   display: flex;
-  min-width: 384px;
-  min-height: 220px;
+  min-width: 900px;
+  max-width: 900px;
+  min-height: 676px;
+  max-height: 676px;
   padding: 24px;
   position: relative;
   flex-direction: column;
