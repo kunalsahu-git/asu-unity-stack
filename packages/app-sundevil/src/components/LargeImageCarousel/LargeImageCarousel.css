@@ -1,0 +1,20 @@
+.large-image-carousel .image-card {
+  display: flex;
+  min-width: 384px;
+  min-height: 220px;
+  padding: 24px;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border: 1px solid #D0D0D0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width:992px) {
+  .large-image-carousel .image-card {
+    min-width: 100%;
+    max-width: 270px;
+    min-height: 178px;
+  }
+}

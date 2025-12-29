@@ -191,6 +191,7 @@ import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 import { PartnerLogoCarousel } from "./components/PartnerLogoCarousel";
 
 import { SidebarAccordion } from "./components/SidebarAccordion";
+import { LargeImageCarousel } from "./components/LargeImageCarousel";
 
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
@@ -416,6 +417,13 @@ export const initNonTicketedIntro = input => {
   RenderReact({
     ...input,
     component: NonTicketedIntro,
+  });
+};
+
+export const initLargeImageCarousel = input => {
+  RenderReact({
+    ...input,
+    component: LargeImageCarousel,
   });
 };
 
