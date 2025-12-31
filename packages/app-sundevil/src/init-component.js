@@ -191,7 +191,10 @@ import { CarouselTallCardSection } from "./components/CarouselTallCardSection";
 import { PartnerLogoCarousel } from "./components/PartnerLogoCarousel";
 
 import { SidebarAccordion } from "./components/SidebarAccordion";
+
 import { LargeImageCarousel } from "./components/LargeImageCarousel";
+
+import { SectionAnimatedAccordions } from "./components/SectionAnimatedAccordions";
 
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
@@ -344,6 +347,13 @@ export const initEnhanceExperienceSection = input => {
   RenderReact({
     ...input,
     component: EnhanceExperience,
+  });
+};
+
+export const initSectionAnimatedAccordions = input => {
+  RenderReact({
+    ...input,
+    component: SectionAnimatedAccordions,
   });
 };
 

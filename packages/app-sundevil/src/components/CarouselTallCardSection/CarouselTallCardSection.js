@@ -39,7 +39,7 @@ const SectionHeaderWrapper = styled.div`
 `;
 
 export const CarouselTallCardSection = ({
-  sectionHeader,  
+  sectionHeader,
   cards = [],
   skeleton = false,
   backgroundImageUrl,
@@ -62,8 +62,9 @@ export const CarouselTallCardSection = ({
     <Root
       $visible={!skeleton && cards.length > 0}
       backgroundImageUrl={backgroundImageUrl}
+      className="section-carousel"
     >
-      <div style={{ padding: "24px" }}>
+      <div className="heading-section" style={{ padding: "24px" }}>
         <SectionHeaderWrapper>
           <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
         </SectionHeaderWrapper>

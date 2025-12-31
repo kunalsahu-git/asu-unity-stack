@@ -1,0 +1,78 @@
+#animated-accordions .tier-item.tier-1 {
+  width: 332px;
+  clip-path: polygon(0 0,
+      100% 0,
+      86% 100%,
+      0 100%);
+  position: relative;
+  z-index: 0;
+}
+
+#animated-accordions .tier-item.tier-2 {
+  width: 281px;
+  clip-path: polygon(0 0,
+      98% 0,
+      82% 100%,
+      0 100%);
+
+  span {
+    display: none;
+  }
+}
+
+#animated-accordions .tier-item.tier-3 {
+  width: 219px;
+  clip-path: polygon(0 0,
+      100% 0,
+      80% 100%,
+      0 100%);
+
+  span {
+    display: none;
+  }
+}
+
+#animated-accordions .tier-item.tier-4 {
+  width: 174px;
+  clip-path: polygon(0 0,
+      96% 0,
+      72% 100%,
+      0 100%);
+
+  span {
+    display: none;
+  }
+}
+
+#animated-accordions .tier-item.tier-5 {
+  width: 116px;
+  clip-path: polygon(0 0,
+      100% 0,
+      65% 100%,
+      0 100%);
+
+  span {
+    display: none;
+  }
+}
+
+#animated-accordions .tier-content .dot::before {
+  content: "•";
+  margin: 0 8px;
+  font-size: 24px;
+  line-height: 1;
+  position: relative;
+  top: 4px;
+}
+
+#animated-accordions .our-partnership {
+  position: absolute;
+  bottom: 96px;
+  right: 0px;
+}
+
+#animated-accordions .tier-content {
+  position: relative;
+  left: -16px;
+  z-index: 1;
+}
