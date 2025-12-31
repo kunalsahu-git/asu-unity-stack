@@ -76,3 +76,19 @@
   left: -16px;
   z-index: 1;
 }
+
+#animated-accordions .tier-content .section-body-title {
+  padding-left: 16px;
+  padding-top: 16px;
+  font-weight: 700;
+}
+
+#animated-accordions .tier-content .section-body-description {
+  padding-left: 48px;
+  padding-top: 20px;
+}
+
+#animated-accordions .tier-content .tier-tags {
+  padding-left: 48px;
+  padding-top: 42px;
+}

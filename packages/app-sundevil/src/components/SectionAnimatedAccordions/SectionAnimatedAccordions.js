@@ -115,7 +115,7 @@ const TierContentInner = styled.div`
   position: relative;
   background: ${({ $isFirst }) => ($isFirst ? "#FFC627" : "#FFFFFF")};
   color: #000;
-  padding: 40px 76px 40px 40px;
+  padding: 0px 76px 40px 16px;
   margin-left: -16px;
 
   display: grid;
@@ -268,8 +268,17 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
                     )}
 
                     <TierText>
+                      <div className="section-body-title">
+                        {tier.isPremium && (
+                          <PremiumIcon style={{ marginRight: "8px" }}>
+                            ★
+                          </PremiumIcon>
+                        )}
+                        {tier.label}
+                      </div>
                       {tier.description && (
                         <p
+                          className="section-body-description"
                           dangerouslySetInnerHTML={{ __html: tier.description }}
                         />
                       )}
