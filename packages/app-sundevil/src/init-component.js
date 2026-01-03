@@ -196,6 +196,8 @@ import { LargeImageCarousel } from "./components/LargeImageCarousel";
 
 import { SectionAnimatedAccordions } from "./components/SectionAnimatedAccordions";
 
+import { SectionLogoCarousel } from "./components/SectionLogoCarousel";
+
 // const VideoSection = React.lazy(() =>
 //   import("./components/VideoSection").then(module => ({
 //     default: module.VideoSection,
@@ -399,6 +401,13 @@ export const initCardSectionThreeColumn = input => {
   RenderReact({
     ...input,
     component: CardSectionThreeColumn,
+  });
+};
+
+export const initSectionLogoCarousel = input => {
+  RenderReact({
+    ...input,
+    component: SectionLogoCarousel,
   });
 };
 
