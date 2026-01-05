@@ -12,7 +12,7 @@ const propTypes = {
   bottomImage: PropTypes.string,
   tiers: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number,
       label: PropTypes.string.isRequired,
       description: PropTypes.string,
       tags: PropTypes.string,
@@ -94,7 +94,7 @@ const PremiumIcon = styled.span`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #191919;
+  background: #747474;
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -284,7 +284,7 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
                       )}
 
                       {tier.tags && (
-                        <p className="tier-tags">
+                        <p className="tier-tags" style={{ fontWeight: "700" }}>
                           {tier.tags.split(",").map((tag, i) => (
                             <React.Fragment key={tag}>
                               {i > 0 && <span className="dot" />}

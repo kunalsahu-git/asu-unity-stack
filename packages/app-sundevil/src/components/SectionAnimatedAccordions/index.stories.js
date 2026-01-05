@@ -15,7 +15,7 @@ Default.args = {
     "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/partnership-tiers-text-lockup.png",
   tiers: [
     {
-      id: "premium",
+      id: "7211",
       label: "Premium tier",
       isPremium: true,
       showIcon: true,
@@ -29,7 +29,7 @@ Default.args = {
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/styles/image/public/2025-12/corporate-hospitality_1.webp?itok=RZwBX7R3",
     },
     {
-      id: "tier1",
+      id: "7216",
       label: "Tier 1",
       color: "#747474",
       activeColor: "#747474",
@@ -38,7 +38,7 @@ Default.args = {
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/styles/image/public/2025-12/corporate-hospitality_1.webp?itok=RZwBX7R3",
     },
     {
-      id: "tier2",
+      id: "7221",
       label: "Tier 2",
       color: "#747474",
       description: "Top-level partnerships with maximum exposure.",
@@ -46,7 +46,7 @@ Default.args = {
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/styles/image/public/2025-12/corporate-hospitality_1.webp?itok=RZwBX7R3",
     },
     {
-      id: "tier3",
+      id: "7226",
       label: "Tier 3",
       color: "#747474",
       description: "Top-level partnerships with maximum exposure.",
@@ -54,7 +54,7 @@ Default.args = {
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/styles/image/public/2025-12/corporate-hospitality_1.webp?itok=RZwBX7R3",
     },
     {
-      id: "tier4",
+      id: "7231",
       label: "Tier 4",
       color: "#747474",
       description: "Top-level partnerships with maximum exposure.",
