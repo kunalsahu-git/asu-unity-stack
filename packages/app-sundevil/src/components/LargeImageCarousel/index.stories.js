@@ -21,12 +21,15 @@ Default.args = {
       pageUrl: "/test",
       title: "title",
       body: "body",
+      badge: "New Partnership",
     },
     {
       backgroundUrl:
         "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
-      url: "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/Vector%20%281%29.webp",
       pageUrl: "/test",
+      title: "title",
+      body: "body",
+      badge: "New Partnership",
     },
     {
       backgroundUrl:

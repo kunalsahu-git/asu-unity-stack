@@ -12,10 +12,15 @@ import { mapSectionHeaderProps, SectionHeader } from "../SectionHeader";
 
 const propTypes = {
   sectionHeader: SectionHeader.propTypes,
+  title: PropTypes.string,
+  titleColor: PropTypes.string,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       backgroundUrl: PropTypes.string,
-      url: PropTypes.string,
+      pageUrl: PropTypes.string,
+      badge: PropTypes.string,
+      body: PropTypes.string,
+      title: PropTypes.string,
     })
   ),
   loop: PropTypes.bool,
@@ -85,7 +90,9 @@ const ArrowButtonsWrapper = styled.div`
 
 export const LargeImageCarousel = ({
   sectionHeader,
+  title,
   images = [],
+  titleColor,
   loop = false,
   pageUrl,
   slidesOffsetBefore = 0,
@@ -104,9 +111,11 @@ export const LargeImageCarousel = ({
   );
 
   return (
-    <Root className="large-image-carousel">
-      <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} />
-
+    <Root className="large-image-carousel container">
+      {/* <SectionHeader {...sectionHeaderProps} ref={sectionHeaderRef} /> */}
+      <h2 className={titleColor ? `text-${titleColor}` : "text-white"}>
+        {title}
+      </h2>
       <Carousel
         slidesPerView="auto"
         loop={loop}
@@ -127,10 +136,11 @@ export const LargeImageCarousel = ({
               <div
                 className="image-card"
                 style={{
-                  background: `linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.80) 100%),
+                  background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%),
                  url(${post.backgroundUrl}) center center / cover no-repeat`,
                 }}
               >
+                <div className="badge">{post.badge}</div>
                 {post.title && <h2 className="text-white">{post.title}</h2>}
                 {post.body && (
                   <p

@@ -84,7 +84,7 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                         </div>
 
                         {card.name && (
-                          <h4 className="partnership-title">{card.name}</h4>
+                          <h3 className="h4 text-white">{card.name}</h3>
                         )}
 
                         {card.badge && (
