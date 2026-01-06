@@ -19,6 +19,8 @@ const mockCards = [
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     logoTitle: "gorjana",
+    backgroundImage:
+      "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
   },
   {
     id: "hockey",
@@ -27,6 +29,8 @@ const mockCards = [
       "Elevating Sun Devil hockey through premier equipment partnerships. CCM's cutting-edge technology combines with ASU's athletic excellence.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    backgroundImage:
+      "https://thesundevils.com/imgproxy/xiRGf_QtswtagsndqDja2AROu42uSSFYwipPLt_MlTQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RoZXN1bmRldmlscy1jb20tcHJvZC8yMDI1LzA3LzE4L3g4VjZOclc5bTc4c29BMnJoTWhpQWNGSXlDODBpYjJMZW9BeXAxNXIuanBn.jpg",
   },
   {
     id: "jordyn",
@@ -35,6 +39,8 @@ const mockCards = [
       "Celebrating Jordyn Tyson's excellence in athletics with All State's commitment to protecting what matters.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    backgroundImage:
+      "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
   },
   {
     id: "bailey",
@@ -43,6 +49,8 @@ const mockCards = [
       "A refreshing partnership bringing together Bailey Miller's athletic prowess with Sidral Mundet's vibrant brand energy.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    backgroundImage:
+      "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
   },
   {
     id: "sda",
@@ -51,6 +59,8 @@ const mockCards = [
       "Supporting Sun Devil Athletics with authentic flavor and local spirit. Venezia's Pizzeria stands with our athletes.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    backgroundImage:
+      "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
   },
   {
     id: "kenzie",
@@ -59,6 +69,8 @@ const mockCards = [
       "Kenzie Brown partners with Lapis Skin Lounge to champion self-care and wellness for student-athletes.",
     ctaLabel: "See how we shine together",
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
+    backgroundImage:
+      "https://thesundevils.com/imgproxy/xiRGf_QtswtagsndqDja2AROu42uSSFYwipPLt_MlTQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RoZXN1bmRldmlscy1jb20tcHJvZC8yMDI1LzA3LzE4L3g4VjZOclc5bTc4c29BMnJoTWhpQWNGSXlDODBpYjJMZW9BeXAxNXIuanBn.jpg",
   },
 ];
 

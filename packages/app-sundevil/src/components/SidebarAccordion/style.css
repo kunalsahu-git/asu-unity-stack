@@ -5,6 +5,10 @@
   gap: 1.5rem;
 }
 
+#left-content-right-accordion {
+  padding: 96px 0px;
+}
+
 @media (min-width: 1024px) {
   #left-content-right-accordion .hero-layout {
     flex-direction: row;
@@ -214,4 +218,25 @@
 
 #left-content-right-accordion .partnership-item .partnership-header {
   display: block;
+}
+
+@media (max-width:767px) {
+  #left-content-right-accordion .hero-header .hero-label {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  #left-content-right-accordion .hero-header .hero-title {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-size: 48px !important;
+  }
+
+  #left-content-right-accordion .hero-header {
+    gap: 8px !important;
+  }
+
+  #left-content-right-accordion .hero-left-column {
+    gap: 8px !important;
+  }
 }

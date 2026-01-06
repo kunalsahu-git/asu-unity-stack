@@ -7,12 +7,21 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
     cards && cards.length > 0 ? cards[0].id : null
   );
 
+  const activeCard = cards.find(card => card.id === expandedId);
+  const backgroundImage = activeCard?.backgroundImage;
+
   const togglePartnership = id => {
     setExpandedId(expandedId === id ? null : id);
   };
 
   return (
-    <div id="left-content-right-accordion">
+    <div
+      id="left-content-right-accordion"
+      style={{
+        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.80) 100%),
+                 url(${backgroundImage}) center center / cover no-repeat`,
+      }}
+    >
       <div className="container">
         <div className="hero-content-wrapper">
           <div className="hero-layout">
@@ -51,7 +60,7 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                       className="partnership-header"
                       onClick={() => togglePartnership(card.id)}
                     >
-                      <h4 className="partnership-title">{card.name}</h4>
+                      <h3 className="partnership-title">{card.name}</h3>
                     </button>
 
                     {/* Expanded Content */}
@@ -137,6 +146,7 @@ SidebarAccordion.propTypes = {
       badge: PropTypes.string,
       description: PropTypes.string,
       cta: PropTypes.string,
+      backgroundImage: PropTypes.string,
     })
   ).isRequired,
 };
