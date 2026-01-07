@@ -29,7 +29,6 @@ const propTypes = {
 
 const Root = styled.div`
   position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
   padding: 96px 0;
   overflow: hidden;
 `;

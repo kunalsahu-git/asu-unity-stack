@@ -108,7 +108,7 @@
 #left-content-right-accordion .partnership-header {
   width: 100%;
   text-align: left;
-  padding: 0.5rem 1.5rem;
+  padding: 0rem 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -118,6 +118,7 @@
 #left-content-right-accordion .partnership-title {
   font-weight: 700;
   font-size: 1.5rem;
+  margin: 0px;
   line-height: 1.75rem;
   letter-spacing: -0.72px;
   color: #747474;
@@ -233,10 +234,10 @@
   }
 
   #left-content-right-accordion .hero-header {
-    gap: 8px !important;
+    gap: 24px !important;
   }
 
   #left-content-right-accordion .hero-left-column {
-    gap: 8px !important;
+    gap: 24px !important;
   }
 }

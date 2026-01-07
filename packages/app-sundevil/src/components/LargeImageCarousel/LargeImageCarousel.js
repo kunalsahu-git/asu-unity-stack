@@ -141,7 +141,7 @@ export const LargeImageCarousel = ({
                 }}
               >
                 <div className="badge">{post.badge}</div>
-                {post.title && <h2 className="text-white">{post.title}</h2>}
+                {post.title && <h3 className="text-white h2">{post.title}</h3>}
                 {post.body && (
                   <p
                     className="text-white"
