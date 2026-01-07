@@ -108,6 +108,10 @@ const TierContent = styled.div`
   max-height: ${({ $expanded }) => ($expanded ? "360px" : "0")};
   overflow: hidden;
   transition: max-height 0.35s ease;
+  @media (max-width: 768px) {
+    max-height: none;
+    display: ${({ $expanded }) => ($expanded ? "block" : "none")};
+  }
 `;
 
 const TierContentInner = styled.div`
@@ -119,9 +123,10 @@ const TierContentInner = styled.div`
 
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
-  gap: 32px;
+  /* gap: 32px; */
 
-  clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%); */
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -133,7 +138,7 @@ const TierContentInner = styled.div`
 const CloseButton = styled.button`
   position: absolute;
   top: 16px;
-  right: 16px;
+  right: 32px;
 
   width: 24px;
   height: 24px;
@@ -172,7 +177,8 @@ const TierImage = styled.div`
   height: 100%;
   overflow: visible;
 
-  clip-path: polygon(22% 0, 100% 0, 78% 100%, 0 100%);
+  /* clip-path: polygon(22% 0, 100% 0, 78% 100%, 0 100%); */
+  clip-path: polygon(39% 0, 100% 0, 44% 100%, 0 76%);
 
   img {
     width: 100%;
@@ -195,11 +201,11 @@ const TierImage = styled.div`
     content: "";
     position: absolute;
     top: 0;
-    right: 86px;
+    right: 134px;
     width: 8px;
     height: 100%;
     background: ${({ $isFirst }) => ($isFirst ? "#FFFFFF" : "#FFC627")};
-    transform: skewX(-10deg);
+    transform: skewX(-21deg);
     z-index: 3;
   }
 
@@ -231,7 +237,7 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
           />
         )}
 
-        <Accordion>
+        <Accordion className="section-accordion">
           {tiers.map((tier, index) => {
             const isOpen = expandedId === tier.id;
             const isFirst = index === 0;

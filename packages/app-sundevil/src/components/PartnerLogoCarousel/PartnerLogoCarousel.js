@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import "./style.css";
+import "./PartnerLogoCarousel.css";
 
 import { APP_CONFIG } from "../../config"; // adjust if needed
 import { useBreakpoint } from "../../utils/use-breakpoint"; // adjust path
 import { ArrowButtons } from "../ArrowButtons";
 import { Carousel, CarouselController, CarouselItem } from "../Carousel";
 import { useElementContentXPosition } from "../../utils/use-element-content-x-position";
+import { mapSectionHeaderProps, SectionHeader } from "../SectionHeader";
 
 const propTypes = {
+  sectionHeader: SectionHeader.propTypes,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -19,28 +21,27 @@ const propTypes = {
       imageHeight: PropTypes.string,
     })
   ),
-  cardWidth: PropTypes.number,
-  sectionName: PropTypes.string,
   title: PropTypes.string,
-  arrowAlignment: PropTypes.string,
   buttonLink: PropTypes.string,
   buttonLabel: PropTypes.string,
   footerLink: PropTypes.string,
   footerLabel: PropTypes.string,
+  loop: PropTypes.bool,
+  arrowAlignment: PropTypes.string,
+  slidesOffsetBefore: PropTypes.number,
   initialSlide: PropTypes.number,
+  sectionName: PropTypes.string,
 };
 
 const Root = styled.div`
   swiper-container {
     width: 100%;
-    margin-bottom: 72px;
   }
 
   swiper-slide {
     width: auto;
+    padding: 0 24px 0 0;
     height: auto !important;
-    margin-top: auto;
-    margin-bottom: auto;
   }
 
   .swiper-content {
@@ -91,16 +92,18 @@ const ArrowButtonsWrapper = styled.div`
 `;
 
 export const PartnerLogoCarousel = ({
-  cards,
-  cardWidth,
-  sectionName,
+  sectionHeader,
+  cards = [],
+  loop = true,
   title,
   buttonLink,
   buttonLabel,
   footerLink,
-  arrowAlignment,
   footerLabel,
+  arrowAlignment,
+  slidesOffsetBefore = 0,
   initialSlide = 0,
+  sectionName,
 }) => {
   const [carouselController] = useState(() => new CarouselController());
   const [index, setIndex] = useState(initialSlide);
@@ -108,171 +111,110 @@ export const PartnerLogoCarousel = ({
   const carouselRef = useRef(null);
   const sectionHeaderRef = React.useRef();
   const sectionHeaderPosition = useElementContentXPosition(sectionHeaderRef);
-  const SLIDES_PER_VIEW = 6;
+  const sectionHeaderProps = mapSectionHeaderProps(sectionHeader);
+  const cardWidth = Math.abs(
+    sectionHeaderPosition.left - sectionHeaderPosition.right
+  );
 
   return (
-    <Root id="partner-logo-carousel">
-      {!isMobile && (
-        <div>
-          <div className="carousel-header container mb-4">
-            {title && (
-              <h2 className="carousel-title mb-0 text-white">{title}</h2>
-            )}
-            {buttonLink && buttonLabel && (
-              <div className="my-auto">
-                <a href={buttonLink} className="carousel-cta btn">
-                  {buttonLabel}
-                </a>
+    <Root className="partner-logo-carousel">
+      <SectionHeader
+        className="d-none"
+        {...sectionHeaderProps}
+        ref={sectionHeaderRef}
+      />
+      <div className="carousel-header container mb-4">
+        {title && (
+          <h2 className="carousel-title mt-0 mb-0 text-white">{title}</h2>
+        )}
+        {buttonLink && buttonLabel && (
+          <div className="my-auto">
+            <a href={buttonLink} className="carousel-cta btn">
+              {buttonLabel}
+            </a>
+          </div>
+        )}
+      </div>
+      <div className="carousel-mask">
+        <Carousel
+          slidesPerView="auto"
+          loop={loop}
+          slidesOffsetBefore={0}
+          slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
+          centeredSlides={false}
+          cardWidth={cardWidth}
+          initialSlide={initialSlide}
+          controller={carouselController}
+          index={index}
+          onIndexChanged={setIndex}
+          ref={carouselRef}
+        >
+          {cards.map(card => (
+            <CarouselItem>
+              <div className="image-card">
+                <img
+                  src={card.imageUrl}
+                  alt={card.imageAlt || ""}
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                  style={{
+                    maxWidth: card.imageWidth,
+                    maxHeight: card.imageHeight,
+                  }}
+                />
               </div>
-            )}
-          </div>
-          <div className="section-carousel">
-            <Carousel
-              loop="true"
-              slidesPerView="6"
-              slidesOffsetBefore={sectionHeaderPosition.left}
-              slidesOffsetAfter={
-                window.innerWidth - sectionHeaderPosition.right
-              }
-              centeredSlides={false}
-              cardWidth={cardWidth}
-              initialSlide={initialSlide}
-              controller={carouselController}
-              index={index}
-              onIndexChanged={setIndex}
-              ref={carouselRef}
-            >
-              {cards.map((card, i) => (
-                <CarouselItem key={card.id ?? i}>
-                  <div className="partner-logo-card">
-                    <img
-                      src={card.imageUrl}
-                      alt={card.imageAlt || ""}
-                      loading="lazy"
-                      width="auto"
-                      height="auto"
-                      style={{
-                        maxWidth: card.imageWidth,
-                        maxHeight: card.imageHeight,
-                      }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </Carousel>
-            {arrowAlignment === "center_separated" && cards.length > 0 && (
-              <ArrowButtonsWrapper className="center-separated-aligned">
-                <div className="arrow-buttons mb-4">
-                  <ArrowButtons
-                    onLeft={() => carouselController.slidePrev()}
-                    onRight={() => carouselController.slideNext()}
-                    sectionName={sectionName}
-                  />
-                </div>
-              </ArrowButtonsWrapper>
-            )}
-          </div>
-          <div className="footer-section container mt-4">
-            {arrowAlignment === "bottom_left" && cards.length > 0 && (
-              <ArrowButtonsWrapper>
-                <div className="arrow-buttons bottom-left-aligned">
-                  <ArrowButtons
-                    onLeft={() => carouselController.slidePrev()}
-                    onRight={() => carouselController.slideNext()}
-                    sectionName={sectionName}
-                  />
-                </div>
-              </ArrowButtonsWrapper>
-            )}
+            </CarouselItem>
+          ))}
+        </Carousel>
+      </div>
+      {arrowAlignment === "center_separated" && cards.length > 0 && (
+        <>
+          {!isMobile && (
+            <ArrowButtonsWrapper className="center-separated-aligned">
+              <div className="arrow-buttons mb-4">
+                <ArrowButtons
+                  onLeft={() => carouselController.slidePrev()}
+                  onRight={() => carouselController.slideNext()}
+                  sectionName={sectionName}
+                />
+              </div>
+            </ArrowButtonsWrapper>
+          )}
 
-            {footerLink && footerLabel && (
-              <a className="footer-link mt-4" href={footerLink}>
-                {footerLabel}
-              </a>
-            )}
-          </div>
-        </div>
-      )}
-      {isMobile && (
-        <div>
-          <div className="carousel-header container mb-4">
-            {title && (
-              <h2 className="carousel-title mb-0 text-white">{title}</h2>
-            )}
-          </div>
-          <div className="section-carousel">
-            <Carousel
-              loop="true"
-              slidesPerView="1"
-              slidesOffsetBefore={sectionHeaderPosition.left}
-              slidesOffsetAfter={
-                window.innerWidth - sectionHeaderPosition.right
-              }
-              centeredSlides={false}
-              cardWidth={cardWidth}
-              initialSlide={initialSlide}
-              controller={carouselController}
-              index={index}
-              onIndexChanged={setIndex}
-              ref={carouselRef}
-            >
-              {cards.map(card => (
-                <CarouselItem>
-                  <div className="partner-logo-card">
-                    <img
-                      src={card.imageUrl}
-                      alt={card.imageAlt || ""}
-                      loading="lazy"
-                      width="auto"
-                      height="auto"
-                      style={{
-                        maxWidth: card.imageWidth,
-                        maxHeight: card.imageHeight,
-                      }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </Carousel>
-            {arrowAlignment === "center_separated" && cards.length > 0 && (
-              <ArrowButtonsWrapper className="center-separated-aligned">
-                <div className="arrow-buttons mb-4">
-                  <ArrowButtons
-                    onLeft={() => carouselController.slidePrev()}
-                    onRight={() => carouselController.slideNext()}
-                    sectionName={sectionName}
-                  />
-                </div>
-              </ArrowButtonsWrapper>
-            )}
-          </div>
-          <div className="footer-section container mt-4">
-            {arrowAlignment === "bottom_left" && cards.length > 0 && (
-              <ArrowButtonsWrapper>
-                <div className="arrow-buttons mb-4 bottom-left-aligned">
-                  <ArrowButtons
-                    onLeft={() => carouselController.slidePrev()}
-                    onRight={() => carouselController.slideNext()}
-                    sectionName={sectionName}
-                  />
-                </div>
-              </ArrowButtonsWrapper>
-            )}
-            {buttonLink && buttonLabel && (
-              <div className="my-auto">
-                <a href={buttonLink} className="carousel-cta btn">
-                  {buttonLabel}
-                </a>
+          {isMobile && (
+            <ArrowButtonsWrapper>
+              <div className="arrow-buttons bottom-left-aligned">
+                <ArrowButtons
+                  onLeft={() => carouselController.slidePrev()}
+                  onRight={() => carouselController.slideNext()}
+                  sectionName={sectionName}
+                />
               </div>
-            )}
-            {footerLink && footerLabel && (
-              <a className="footer-link mt-4" href={footerLink}>
-                {footerLabel}
-              </a>
-            )}
-          </div>
-        </div>
+            </ArrowButtonsWrapper>
+          )}
+        </>
       )}
+
+      <div className="footer-section container mt-4">
+        {arrowAlignment === "bottom_left" && cards.length > 0 && (
+          <ArrowButtonsWrapper>
+            <div className="arrow-buttons bottom-left-aligned">
+              <ArrowButtons
+                onLeft={() => carouselController.slidePrev()}
+                onRight={() => carouselController.slideNext()}
+                sectionName={sectionName}
+              />
+            </div>
+          </ArrowButtonsWrapper>
+        )}
+
+        {footerLink && footerLabel && (
+          <a className="footer-link mt-4" href={footerLink}>
+            {footerLabel}
+          </a>
+        )}
+      </div>
     </Root>
   );
 };

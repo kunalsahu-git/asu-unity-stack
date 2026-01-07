@@ -16,7 +16,7 @@ Default.args = {
   buttonLabel: "Partner with us",
   footerLink: "https://example.com",
   footerLabel: "Learn more about our partnerships",
-  arrowAlignment: "center_separated",
+  arrowAlignment: "bottom_left",
   length: "3",
   cards: [
     {

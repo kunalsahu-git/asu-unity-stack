@@ -157,7 +157,7 @@ export const LargeImageCarousel = ({
       </Carousel>
 
       {images.length > 0 && (
-        <ArrowButtonsWrapper className="container">
+        <ArrowButtonsWrapper className="container px-0">
           <div className="arrow-buttons">
             <ArrowButtons
               onLeft={() => carouselController.slidePrev()}
