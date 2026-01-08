@@ -13,6 +13,7 @@ const mockCards = [
     id: "gorjana",
     name: "ASU x gorjana",
     logo: "https://api.builder.io/api/v1/image/assets/TEMP/cfa04ab778a96a91569a869e0e8e35c4b6a14a3e?width=681",
+    icon: "fas fa-sync-alt",
     badge: "National partnership",
     description:
       "Contemporary luxury jewelry brand, gorjana teams up with ASU to celebrate, amplify and empower women in sport. This first-of-its-kind partnership aims to shine a spotlight on women's sports.",
@@ -25,6 +26,7 @@ const mockCards = [
   {
     id: "hockey",
     name: "Hockey x CCM",
+    icon: "fas fa-sync-alt",
     description:
       "Elevating Sun Devil hockey through premier equipment partnerships. CCM's cutting-edge technology combines with ASU's athletic excellence.",
     ctaLabel: "See how we shine together",
@@ -35,6 +37,7 @@ const mockCards = [
   {
     id: "jordyn",
     name: "Jordyn Tyson x All State",
+    icon: "fas fa-sync-alt",
     description:
       "Celebrating Jordyn Tyson's excellence in athletics with All State's commitment to protecting what matters.",
     ctaLabel: "See how we shine together",
@@ -45,6 +48,7 @@ const mockCards = [
   {
     id: "bailey",
     name: "Bailey Miller x Sidral Mundet",
+    icon: "fas fa-sync-alt",
     description:
       "A refreshing partnership bringing together Bailey Miller's athletic prowess with Sidral Mundet's vibrant brand energy.",
     ctaLabel: "See how we shine together",
@@ -55,6 +59,7 @@ const mockCards = [
   {
     id: "sda",
     name: "SDA x Venezia's Pizzeria",
+    icon: "fas fa-sync-alt",
     description:
       "Supporting Sun Devil Athletics with authentic flavor and local spirit. Venezia's Pizzeria stands with our athletes.",
     ctaLabel: "See how we shine together",
@@ -65,6 +70,7 @@ const mockCards = [
   {
     id: "kenzie",
     name: "Kenzie Brown x Lapis Skin Lounge",
+    icon: "fas fa-sync-alt",
     description:
       "Kenzie Brown partners with Lapis Skin Lounge to champion self-care and wellness for student-athletes.",
     ctaLabel: "See how we shine together",

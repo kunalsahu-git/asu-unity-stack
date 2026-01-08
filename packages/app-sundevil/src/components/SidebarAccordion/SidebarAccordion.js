@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./style.css";
+import { Icon } from "../Icon_";
 
 export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
   const [expandedId, setExpandedId] = useState(
@@ -60,7 +61,16 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                       className="partnership-header"
                       onClick={() => togglePartnership(card.id)}
                     >
-                      <h3 className="partnership-title">{card.name}</h3>
+                      <h3 className="partnership-title d-flex align-items-center gap-2">
+                        {card.icon && (
+                          <Icon
+                            icon={card.icon}
+                            className="partnership-icon"
+                            aria-hidden="true"
+                          />
+                        )}
+                        {card.name}
+                      </h3>
                     </button>
 
                     {/* Expanded Content */}
@@ -84,7 +94,16 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                         </div>
 
                         {card.name && (
-                          <h3 className="h4 text-white">{card.name}</h3>
+                          <h3 className="h4 text-white d-flex align-items-center gap-2">
+                            {card.icon && (
+                              <Icon
+                                icon={card.icon}
+                                className="partnership-icon"
+                                aria-hidden="true"
+                              />
+                            )}
+                            {card.name}
+                          </h3>
                         )}
 
                         {card.badge && (

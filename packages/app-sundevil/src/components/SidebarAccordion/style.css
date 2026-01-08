@@ -239,3 +239,36 @@
     gap: 24px !important;
   }
 }
+
+/* Base (collapsed) icon */
+#left-content-right-accordion .partnership-icon {
+  display: inline-flex !important; /* beats global overrides */
+  align-items: center;
+  justify-content: center;
+  color: #747474; /* collapsed */
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Expanded icon */
+#left-content-right-accordion
+.partnership-item.expanded
+.partnership-icon {
+  color: #ffffff;
+}
+
+/* Hover (collapsed but hovered) */
+#left-content-right-accordion
+.partnership-item:hover:not(.expanded)
+.partnership-icon {
+  color: #ffffff;
+}
+
+
+#left-content-right-accordion .partnership-item .partnership-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
