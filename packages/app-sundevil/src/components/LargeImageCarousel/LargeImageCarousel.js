@@ -24,10 +24,11 @@ const propTypes = {
     })
   ),
   loop: PropTypes.bool,
+  arrowAlignment: PropTypes.string,
   slidesOffsetBefore: PropTypes.number,
   initialSlide: PropTypes.number,
-  pageUrl: PropTypes.string,
   sectionName: PropTypes.string,
+  pageUrl: PropTypes.string,
 };
 
 const Root = styled.div`
@@ -90,11 +91,12 @@ const ArrowButtonsWrapper = styled.div`
 
 export const LargeImageCarousel = ({
   sectionHeader,
-  title,
   images = [],
-  titleColor,
   loop = false,
+  title,
+  titleColor,
   pageUrl,
+  arrowAlignment,
   slidesOffsetBefore = 0,
   initialSlide = 0,
   sectionName,
@@ -120,7 +122,7 @@ export const LargeImageCarousel = ({
         slidesPerView="auto"
         loop={loop}
         slidesOffsetBefore={sectionHeaderPosition.left}
-        slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
+        slidesOffsetAfter={0}
         centeredSlides={false}
         cardWidth={cardWidth}
         initialSlide={initialSlide}
@@ -136,15 +138,14 @@ export const LargeImageCarousel = ({
               <div
                 className="image-card"
                 style={{
-                  background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%),
-                 url(${post.backgroundUrl}) center center / cover no-repeat`,
+                  "--bg-image": `url(${post.backgroundUrl})`,
                 }}
               >
                 <div className="badge">{post.badge}</div>
                 {post.title && <h3 className="text-white h2">{post.title}</h3>}
                 {post.body && (
                   <p
-                    className="text-white"
+                    className="text-white large-image-description"
                     dangerouslySetInnerHTML={{ __html: post.body }}
                   />
                 )}
@@ -162,7 +163,7 @@ export const LargeImageCarousel = ({
             <ArrowButtons
               onLeft={() => carouselController.slidePrev()}
               onRight={() => carouselController.slideNext()}
-              sectionName={sectionName}
+              sectionName={title}
             />
           </div>
         </ArrowButtonsWrapper>

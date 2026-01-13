@@ -2,10 +2,22 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 import "./style.css";
+import { trackGAEvent } from "../../track-ga/track-ga-event";
 
 /* -------------------------------------------------------------------------- */
 /* PropTypes */
 /* -------------------------------------------------------------------------- */
+const defaultGAEvent = {
+  event: "collapse",
+  name: "onclick",
+  type: "click",
+  region: "main content",
+};
+
+const AVAILABLE_GA_ACTIONS = {
+  OPEN: "open",
+  CLOSE: "close",
+};
 
 const propTypes = {
   title: PropTypes.string,
@@ -31,6 +43,9 @@ const Root = styled.div`
   position: relative;
   padding: 96px 0;
   overflow: hidden;
+  @media (max-width: 768px) {
+    padding-bottom: 260px;
+  }
 `;
 
 const Accordion = styled.div`
@@ -221,8 +236,19 @@ const TierImage = styled.div`
 export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
   const [expandedId, setExpandedId] = useState(null);
 
-  const toggleTier = id => {
+  const toggleTier = (id, label, action) => {
     setExpandedId(prev => (prev === id ? null : id));
+
+    trackGAEvent({
+      event: "collapse",
+      action: action ? "close" : "open",
+      name: "onclick",
+      type: "accordion",
+      region: "main content",
+      section: title ?? " ",
+      text: label,
+      component: "accordion tier",
+    });
   };
 
   return (
@@ -231,7 +257,7 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
         {title && <h2 className="text-white mb-6">{title}</h2>}
         {bottomImage && (
           <img
-            className="our-partnership"
+            className="our-partnership img-fluid"
             alt="our-partnership"
             src={bottomImage}
           />
@@ -254,7 +280,7 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
                     tier.isPremium ? "premium" : "",
                     isOpen ? "active" : "",
                   ].join(" ")}
-                  onClick={() => toggleTier(tier.id)}
+                  onClick={() => toggleTier(tier.id, tier.label, isOpen)}
                   aria-expanded={isOpen}
                 >
                   {tier.isPremium && <PremiumIcon>★</PremiumIcon>}
@@ -267,7 +293,9 @@ export const SectionAnimatedAccordions = ({ bottomImage, title, tiers }) => {
                 >
                   <TierContentInner $isFirst={isFirst}>
                     {isOpen && (
-                      <CloseButton onClick={() => toggleTier(tier.id)}>
+                      <CloseButton
+                        onClick={() => toggleTier(tier.id, tier.label, isOpen)}
+                      >
                         ✕
                       </CloseButton>
                     )}

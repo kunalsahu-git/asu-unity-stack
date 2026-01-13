@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./style.css";
+import { Icon } from "../Icon_";
+import { trackGAEvent } from "../../track-ga/track-ga-event";
 
 export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
   const [expandedId, setExpandedId] = useState(
@@ -10,8 +12,19 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
   const activeCard = cards.find(card => card.id === expandedId);
   const backgroundImage = activeCard?.backgroundImage;
 
-  const togglePartnership = id => {
+  const togglePartnership = (id, label, action) => {
     setExpandedId(expandedId === id ? null : id);
+
+    trackGAEvent({
+      event: "collapse",
+      action: action ? "close" : "open",
+      name: "onclick",
+      type: "accordion",
+      region: "main content",
+      section: title.replace(/<br\s*\/?>/gi, " ").trim() ?? " ",
+      text: label,
+      component: "accordion tier",
+    });
   };
 
   return (
@@ -57,9 +70,16 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                     {/* Header */}
                     <button
                       type="button"
-                      className="partnership-header"
-                      onClick={() => togglePartnership(card.id)}
+                      className="partnership-header d-flex"
+                      onClick={() =>
+                        togglePartnership(
+                          card.id,
+                          card.name,
+                          expandedId === card.id
+                        )
+                      }
                     >
+                      {card.icon && <Icon icon={card.icon} />}
                       <h3 className="partnership-title">{card.name}</h3>
                     </button>
 
@@ -71,7 +91,7 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                             <img
                               src={card.logo}
                               alt={`${card.name} logo`}
-                              className="partnership-logo"
+                              className="partnership-logo img-fluid"
                               loading="lazy"
                             />
                           )}
@@ -83,9 +103,12 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                           )}
                         </div>
 
-                        {card.name && (
-                          <h3 className="h4 text-white">{card.name}</h3>
-                        )}
+                        <div className="d-flex title-section">
+                          {card.icon && <Icon icon={card.icon} />}
+                          {card.name && (
+                            <h3 className="h4 text-white">{card.name}</h3>
+                          )}
+                        </div>
 
                         {card.badge && (
                           <div className="partnership-badge">

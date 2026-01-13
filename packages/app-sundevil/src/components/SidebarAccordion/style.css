@@ -105,6 +105,10 @@
   border-left-color: #ffc627;
 }
 
+#left-content-right-accordion .partnership-item.expanded .partnership-header {
+  display: none !important;
+}
+
 #left-content-right-accordion .partnership-header {
   width: 100%;
   text-align: left;
@@ -133,6 +137,23 @@
   color: #ffffff;
 }
 
+#left-content-right-accordion .partnership-header:hover span {
+  color: #ffffff !important;
+}
+
+#left-content-right-accordion .partnership-header span {
+  color: #747474 !important;
+}
+
+#left-content-right-accordion .partnership-header:hover svg {
+  color: #ffffff !important;
+}
+
+#left-content-right-accordion .partnership-header svg {
+  color: #747474 !important;
+}
+
+
 /* Expanded Content */
 #left-content-right-accordion .partnership-content {
   padding-left: 1.5rem;
@@ -148,6 +169,7 @@
   width: 100%;
   height: auto;
   margin-right: 24px;
+  max-width: 340px;
 }
 
 #left-content-right-accordion .partnership-badge {
@@ -211,9 +233,9 @@
   }
 }
 
-#left-content-right-accordion .partnership-item.expanded .partnership-header {
+/* #left-content-right-accordion .partnership-item.expanded .partnership-header {
   display: none;
-}
+} */
 
 #left-content-right-accordion .partnership-item .partnership-header {
   display: block;
@@ -238,4 +260,42 @@
   #left-content-right-accordion .hero-left-column {
     gap: 24px !important;
   }
+}
+
+#left-content-right-accordion .partnership-content .title-section span {
+  color: #e8e8e8 !important;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 8px;
+  width: 16px;
+}
+
+#left-content-right-accordion .partnership-content .title-section svg {
+  color: #e8e8e8 !important;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 8px;
+  width: 16px;
+}
+
+#left-content-right-accordion .partnership-header span {
+  margin-right: 8px;
+  width: 16px;
+  font-size: 16px;
+  height: 16px;
+  padding-top: 4px;
+  margin-bottom: auto;
+}
+
+#left-content-right-accordion .partnership-header span::before {
+  font-size: 20px;
+}
+
+#left-content-right-accordion .partnership-header svg {
+  text-decoration: none;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  padding-top: 4px;
+  margin-bottom: auto;
 }

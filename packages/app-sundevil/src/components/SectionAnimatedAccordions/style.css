@@ -131,6 +131,14 @@
   right: 0px;
 }
 
+@media (max-width:767px) {
+  #animated-accordions .our-partnership {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+}
+
 #animated-accordions .tier-content {
   position: relative;
   left: -16px;
@@ -157,7 +165,7 @@
   #animated-accordions .tier-content.tier-1 {
     max-height: fit-content;
     left: -22px;
-    top: -12px;
+    top: -4px;
     width: 100%;
     min-width: 110%;
   }
@@ -165,7 +173,7 @@
   #animated-accordions .tier-content.tier-2 {
     position: relative;
     left: -24px;
-    top: -12px;
+    top: -4px;
     z-index: 1;
     min-width: 110%;
     max-height: fit-content;
@@ -174,7 +182,7 @@
   #animated-accordions .tier-content.tier-3 {
     position: relative;
     left: -24px;
-    top: -12px;
+    top: -4px;
     z-index: 1;
     min-width: 110%;
     max-height: fit-content;
@@ -183,7 +191,7 @@
   #animated-accordions .tier-content.tier-4 {
     position: relative;
     left: -24px;
-    top: -12px;
+    top: -4px;
     z-index: 1;
     min-width: 110%;
     max-height: fit-content;
@@ -192,65 +200,9 @@
   #animated-accordions .tier-content.tier-5 {
     position: relative;
     left: -24px;
-    top: -12px;
+    top: -4px;
     z-index: 1;
     min-width: 110%;
     max-height: fit-content;
-  }
-
-  #animated-accordions .tier-item.tier-1 {
-    width: 100%;
-    clip-path: unset;
-    transform: translate(0px) scale(1.1) !important;
-    -webkit-transform: translate(0px) scale(1.1) !important;
-    -moz-transform: translate(0px) scale(1.1) !important;
-    -ms-transform: translate(0px) scale(1.1) !important;
-    -o-transform: translate(0px) scale(1.1) !important;
-  }
-
-  #animated-accordions .tier-item.tier-2 {
-    width: 100%;
-    clip-path: unset;
-    transform: translate(0px) scale(1.1) !important;
-    -webkit-transform: translate(0px) scale(1.1) !important;
-    -moz-transform: translate(0px) scale(1.1) !important;
-    -ms-transform: translate(0px) scale(1.1) !important;
-    -o-transform: translate(0px) scale(1.1) !important;
-  }
-
-  #animated-accordions .tier-item.tier-3 {
-    width: 100%;
-    clip-path: unset;
-    transform: translate(0px) scale(1.1) !important;
-    -webkit-transform: translate(0px) scale(1.1) !important;
-    -moz-transform: translate(0px) scale(1.1) !important;
-    -ms-transform: translate(0px) scale(1.1) !important;
-    -o-transform: translate(0px) scale(1.1) !important;
-  }
-
-  #animated-accordions .tier-item.tier-4 {
-    width: 100%;
-    clip-path: unset;
-    transform: translate(0px) scale(1.1) !important;
-    -webkit-transform: translate(0px) scale(1.1) !important;
-    -moz-transform: translate(0px) scale(1.1) !important;
-    -ms-transform: translate(0px) scale(1.1) !important;
-    -o-transform: translate(0px) scale(1.1) !important;
-  }
-
-  #animated-accordions .tier-item.tier-5 {
-    width: 100%;
-    clip-path: unset;
-    transform: translate(0px) scale(1.1) !important;
-    -webkit-transform: translate(0px) scale(1.1) !important;
-    -moz-transform: translate(0px) scale(1.1) !important;
-    -ms-transform: translate(0px) scale(1.1) !important;
-    -o-transform: translate(0px) scale(1.1) !important;
-  }
-
-  #animated-accordions .section-accordion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 }

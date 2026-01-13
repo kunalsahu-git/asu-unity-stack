@@ -21,6 +21,7 @@ const mockCards = [
     logoTitle: "gorjana",
     backgroundImage:
       "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
+    icon: "fas fa-youtube",
   },
   {
     id: "hockey",
@@ -31,6 +32,7 @@ const mockCards = [
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     backgroundImage:
       "https://thesundevils.com/imgproxy/xiRGf_QtswtagsndqDja2AROu42uSSFYwipPLt_MlTQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RoZXN1bmRldmlscy1jb20tcHJvZC8yMDI1LzA3LzE4L3g4VjZOclc5bTc4c29BMnJoTWhpQWNGSXlDODBpYjJMZW9BeXAxNXIuanBn.jpg",
+    icon: "fas fa-volleyball",
   },
   {
     id: "jordyn",
@@ -41,6 +43,7 @@ const mockCards = [
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     backgroundImage:
       "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
+    icon: "fas fa-baseball",
   },
   {
     id: "bailey",
@@ -51,6 +54,7 @@ const mockCards = [
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     backgroundImage:
       "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
+    icon: "fas fa-sync-alt",
   },
   {
     id: "sda",
@@ -61,6 +65,7 @@ const mockCards = [
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     backgroundImage:
       "https://asuapp4dev.prod.acquia-sites.com/sites/default/files/2025-12/06%20connect-with-us-bg.png",
+    icon: "fas fa-youtube",
   },
   {
     id: "kenzie",
@@ -71,6 +76,7 @@ const mockCards = [
     ctaLink: "https://asuapp4dev.prod.acquia-sites.com/brand-partnership",
     backgroundImage:
       "https://thesundevils.com/imgproxy/xiRGf_QtswtagsndqDja2AROu42uSSFYwipPLt_MlTQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RoZXN1bmRldmlscy1jb20tcHJvZC8yMDI1LzA3LzE4L3g4VjZOclc5bTc4c29BMnJoTWhpQWNGSXlDODBpYjJMZW9BeXAxNXIuanBn.jpg",
+    icon: "fas fa-sync-alt",
   },
 ];
 

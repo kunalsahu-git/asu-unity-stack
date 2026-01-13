@@ -21,7 +21,8 @@ const propTypes = {
       imageHeight: PropTypes.string,
     })
   ),
-  title: PropTypes.string,
+  titleH2: PropTypes.string,
+  titleH3: PropTypes.string,
   buttonLink: PropTypes.string,
   buttonLabel: PropTypes.string,
   footerLink: PropTypes.string,
@@ -31,6 +32,7 @@ const propTypes = {
   slidesOffsetBefore: PropTypes.number,
   initialSlide: PropTypes.number,
   sectionName: PropTypes.string,
+  carouselType: PropTypes.string,
 };
 
 const Root = styled.div`
@@ -42,6 +44,8 @@ const Root = styled.div`
     width: auto;
     padding: 0 24px 0 0;
     height: auto !important;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .swiper-content {
@@ -50,7 +54,7 @@ const Root = styled.div`
 
   @media (max-width: 768px) {
     swiper-slide {
-      padding: 0 12px 0 0;
+      padding: 0px;
     }
   }
 `;
@@ -59,7 +63,6 @@ const ArrowButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 52px;
 
   .arrow-buttons button {
     border: 2px solid white !important;
@@ -95,11 +98,13 @@ export const PartnerLogoCarousel = ({
   sectionHeader,
   cards = [],
   loop = true,
-  title,
+  titleH2,
+  titleH3,
   buttonLink,
   buttonLabel,
   footerLink,
   footerLabel,
+  carouselType,
   arrowAlignment,
   slidesOffsetBefore = 0,
   initialSlide = 0,
@@ -124,18 +129,134 @@ export const PartnerLogoCarousel = ({
         ref={sectionHeaderRef}
       />
       <div className="carousel-header container mb-4">
-        {title && (
-          <h2 className="carousel-title mt-0 mb-0 text-white">{title}</h2>
+        {titleH2 && !titleH3 && (
+          <h2 className="carousel-title mt-0 mb-0 text-white">{titleH2}</h2>
+        )}
+        {titleH3 && !titleH2 && (
+          <h2 className="carousel-title h3 mt-0 mb-0 text-white">{titleH3}</h2>
         )}
         {buttonLink && buttonLabel && (
           <div className="my-auto">
-            <a href={buttonLink} className="carousel-cta btn">
+            <a href={buttonLink} className="carousel-cta btn btn-lg">
               {buttonLabel}
             </a>
           </div>
         )}
       </div>
       <div className="carousel-mask">
+        {!isMobile && carouselType === "featured_partner_carousel" && (
+          <Carousel
+            slidesPerView="5"
+            loop={loop}
+            slidesOffsetBefore={0}
+            slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
+            centeredSlides={false}
+            cardWidth={cardWidth}
+            initialSlide={initialSlide}
+            controller={carouselController}
+            index={index}
+            onIndexChanged={setIndex}
+            ref={carouselRef}
+            className="featured_partner_carousel"
+          >
+            {cards.map(card => (
+              <CarouselItem>
+                <div
+                  className="image-card"
+                  style={{
+                    maxWidth: card.imageWidth,
+                    maxHeight: card.imageHeight,
+                  }}
+                >
+                  <img
+                    src={card.imageUrl}
+                    alt={card.imageAlt || ""}
+                    loading="lazy"
+                    width="auto"
+                    height="auto"
+                    className="img-fluid"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </Carousel>
+        )}
+        {!isMobile && carouselType === "additional_partner_carousel" && (
+          <Carousel
+            slidesPerView="auto"
+            loop={loop}
+            slidesOffsetBefore={0}
+            slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
+            centeredSlides={false}
+            cardWidth={cardWidth}
+            initialSlide={initialSlide}
+            controller={carouselController}
+            index={index}
+            onIndexChanged={setIndex}
+            ref={carouselRef}
+            className="additional_partner_carousel"
+          >
+            {cards.map(card => (
+              <CarouselItem>
+                <div
+                  className="image-card"
+                  style={{
+                    maxWidth: card.imageWidth,
+                    maxHeight: card.imageHeight,
+                  }}
+                >
+                  <img
+                    src={card.imageUrl}
+                    alt={card.imageAlt || ""}
+                    loading="lazy"
+                    width="auto"
+                    height="auto"
+                    className="img-fluid"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </Carousel>
+        )}
+      </div>
+      {isMobile && carouselType === "featured_partner_carousel" && (
+        <Carousel
+          slidesPerView="1"
+          loop={loop}
+          slidesOffsetBefore={0}
+          slidesOffsetAfter={window.innerWidth - sectionHeaderPosition.right}
+          centeredSlides={false}
+          cardWidth={cardWidth}
+          initialSlide={initialSlide}
+          controller={carouselController}
+          index={index}
+          onIndexChanged={setIndex}
+          ref={carouselRef}
+          className="featured_partner_carousel"
+        >
+          {cards.map(card => (
+            <CarouselItem>
+              <div
+                className="image-card"
+                style={{
+                  maxWidth: card.imageWidth,
+                  maxHeight: card.imageHeight,
+                }}
+              >
+                <img
+                  src={card.imageUrl}
+                  alt={card.imageAlt || ""}
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                  className="img-fluid"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </Carousel>
+      )}
+      {isMobile && carouselType === "additional_partner_carousel" && (
         <Carousel
           slidesPerView="auto"
           loop={loop}
@@ -148,35 +269,39 @@ export const PartnerLogoCarousel = ({
           index={index}
           onIndexChanged={setIndex}
           ref={carouselRef}
+          className="additional_partner_carousel"
         >
           {cards.map(card => (
             <CarouselItem>
-              <div className="image-card">
+              <div
+                className="image-card"
+                style={{
+                  maxWidth: card.imageWidth,
+                  maxHeight: card.imageHeight,
+                }}
+              >
                 <img
                   src={card.imageUrl}
                   alt={card.imageAlt || ""}
                   loading="lazy"
                   width="auto"
                   height="auto"
-                  style={{
-                    maxWidth: card.imageWidth,
-                    maxHeight: card.imageHeight,
-                  }}
+                  className="img-fluid"
                 />
               </div>
             </CarouselItem>
           ))}
         </Carousel>
-      </div>
+      )}
       {arrowAlignment === "center_separated" && cards.length > 0 && (
         <>
           {!isMobile && (
-            <ArrowButtonsWrapper className="center-separated-aligned">
-              <div className="arrow-buttons mb-4">
+            <ArrowButtonsWrapper className="center-separated-aligned ">
+              <div className={`arrow-buttons mb-4 ${carouselType}`}>
                 <ArrowButtons
                   onLeft={() => carouselController.slidePrev()}
                   onRight={() => carouselController.slideNext()}
-                  sectionName={sectionName}
+                  sectionName={titleH2 !== "" ? titleH2 : titleH3}
                 />
               </div>
             </ArrowButtonsWrapper>
@@ -184,11 +309,13 @@ export const PartnerLogoCarousel = ({
 
           {isMobile && (
             <ArrowButtonsWrapper>
-              <div className="arrow-buttons bottom-left-aligned">
+              <div
+                className={`arrow-buttons bottom-left-aligned ${carouselType}`}
+              >
                 <ArrowButtons
                   onLeft={() => carouselController.slidePrev()}
                   onRight={() => carouselController.slideNext()}
-                  sectionName={sectionName}
+                  sectionName={titleH2 !== "" ? titleH2 : titleH3}
                 />
               </div>
             </ArrowButtonsWrapper>
@@ -199,18 +326,32 @@ export const PartnerLogoCarousel = ({
       <div className="footer-section container mt-4">
         {arrowAlignment === "bottom_left" && cards.length > 0 && (
           <ArrowButtonsWrapper>
-            <div className="arrow-buttons bottom-left-aligned">
+            <div
+              className={`arrow-buttons bottom-left-aligned ${carouselType}`}
+            >
               <ArrowButtons
                 onLeft={() => carouselController.slidePrev()}
                 onRight={() => carouselController.slideNext()}
-                sectionName={sectionName}
+                sectionName={titleH2 !== "" ? titleH2 : titleH3}
               />
             </div>
           </ArrowButtonsWrapper>
         )}
-
+        {buttonLink && buttonLabel && (
+          <div className="my-auto">
+            <a
+              href={buttonLink}
+              className="carousel-cta mt-4 mobile-cta btn btn-lg"
+            >
+              {buttonLabel}
+            </a>
+          </div>
+        )}
         {footerLink && footerLabel && (
-          <a className="footer-link mt-4" href={footerLink}>
+          <a
+            className="footer-link my-lg-auto my-md-auto mt-4"
+            href={footerLink}
+          >
             {footerLabel}
           </a>
         )}

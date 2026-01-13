@@ -1,7 +1,5 @@
 .large-image-carousel .image-card {
   display: flex;
-  min-width: 1136px;
-  max-width: 1136px;
   min-height: 611px;
   max-height: 611px;
   padding: 24px;
@@ -13,11 +11,29 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+@media (min-width:1260px) {
+  .large-image-carousel .image-card {
+    min-width: 1136px;
+    max-width: 1136px;
+  }
+}
+
+@media (min-width:991px) and (max-width:1260px) {
+  .large-image-carousel .image-card {
+    min-width: 850px;
+    max-width: 850px;
+  }
+}
+
 @media (max-width:992px) {
   .large-image-carousel .image-card {
     min-width: 100%;
     max-width: fit-content;
-    min-height: 178px;
+    min-height: 300px;
+  }
+
+  .large-image-carousel h3 {
+    max-width: 250px;
   }
 
   .large-image-carousel .badge {
@@ -41,4 +57,50 @@
   right: 1rem;
   margin-top: 18px;
   margin-right: 15px;
+}
+
+@media (max-width:768px) {
+  .large-image-carousel .large-image-description {
+    max-width: 250px;
+  }
+}
+
+@media (max-width:992px) {
+  .large-image-carousel .large-image-description p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.image-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%),
+    var(--bg-image) center / cover no-repeat;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+/* Hover effect */
+.image-card:hover::before {
+  transform: scale(1.12);
+}
+
+/* Content stays fixed */
+.image-card>* {
+  position: relative;
+  z-index: 1;
 }
