@@ -32,7 +32,7 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
       id="left-content-right-accordion"
       style={{
         background: `linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.80) 100%),
-                 url(${backgroundImage}) center center / cover no-repeat`,
+                 url(${backgroundImage}) top center / cover no-repeat`,
       }}
     >
       <div className="container">

@@ -166,10 +166,16 @@
 }
 
 #left-content-right-accordion .partnership-logo {
-  width: 100%;
+  width: auto;
   height: auto;
   margin-right: 24px;
-  max-width: 340px;
+
+}
+
+@media (min-width:767px) {
+  #left-content-right-accordion .partnership-logo {
+    max-width: 340px;
+  }
 }
 
 #left-content-right-accordion .partnership-badge {
