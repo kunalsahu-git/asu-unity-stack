@@ -238,10 +238,6 @@
   }
 }
 
-/* #left-content-right-accordion .partnership-item.expanded .partnership-header {
-  display: none;
-} */
-
 #left-content-right-accordion .partnership-item .partnership-header {
   display: block;
 }
