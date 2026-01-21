@@ -105,3 +105,4 @@ CarouselTallCard.propTypes = {
   cardHeight: PropTypes.number,
   skeleton: PropTypes.bool,
 };
+

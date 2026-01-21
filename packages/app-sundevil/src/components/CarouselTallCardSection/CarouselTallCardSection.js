@@ -93,3 +93,4 @@ CarouselTallCardSection.propTypes = {
   cardWidth: PropTypes.number,
   cardHeight: PropTypes.number,
 };
+

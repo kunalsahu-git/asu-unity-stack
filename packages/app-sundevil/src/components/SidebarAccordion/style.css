@@ -16,7 +16,6 @@
   }
 }
 
-/* Left Column - Hero Text */
 #left-content-right-accordion .hero-left-column {
   flex: 1;
   display: flex;
@@ -71,7 +70,6 @@
   }
 }
 
-/* Right Column - Partnerships */
 #left-content-right-accordion .partnerships-container {
   width: 100%;
   display: flex;
@@ -153,8 +151,6 @@
   color: #747474 !important;
 }
 
-
-/* Expanded Content */
 #left-content-right-accordion .partnership-content {
   padding-left: 1.5rem;
   padding-top: 1rem;

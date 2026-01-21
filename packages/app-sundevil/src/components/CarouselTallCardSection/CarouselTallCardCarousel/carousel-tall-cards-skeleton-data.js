@@ -29,3 +29,4 @@ export const specialEventsSkeletonData = Array.from(
     id: String(index + 1),
   })
 );
+

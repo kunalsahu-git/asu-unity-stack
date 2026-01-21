@@ -35,10 +35,6 @@ const propTypes = {
   ).isRequired,
 };
 
-/* -------------------------------------------------------------------------- */
-/* Styled Components */
-/* -------------------------------------------------------------------------- */
-
 const Root = styled.div`
   position: relative;
   padding: 96px 0;
@@ -58,8 +54,6 @@ const Accordion = styled.div`
 const TierItem = styled.div`
   display: contents;
 `;
-
-/* ----------------------------- BUTTON ------------------------------------- */
 
 const TierButton = styled.button`
   grid-column: 1;

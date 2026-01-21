@@ -28,7 +28,6 @@ const propTypes = {
  */
 
 const Root = styled.div`
-  /* Ensure swiper-container and swiper-slide have full width */
   swiper-container {
     width: 100%;
   }

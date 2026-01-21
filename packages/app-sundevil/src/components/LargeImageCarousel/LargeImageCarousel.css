@@ -94,12 +94,10 @@
   z-index: -1;
 }
 
-/* Hover effect */
 .image-card:hover::before {
   transform: scale(1.12);
 }
 
-/* Content stays fixed */
 .image-card>* {
   position: relative;
   z-index: 1;

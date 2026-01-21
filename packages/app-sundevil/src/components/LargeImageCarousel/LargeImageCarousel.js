@@ -175,3 +175,4 @@ export const LargeImageCarousel = ({
 LargeImageCarousel.propTypes = propTypes;
 
 export default LargeImageCarousel;
+

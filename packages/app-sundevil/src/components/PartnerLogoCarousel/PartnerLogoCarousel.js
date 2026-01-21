@@ -363,3 +363,4 @@ export const PartnerLogoCarousel = ({
 PartnerLogoCarousel.propTypes = propTypes;
 
 export default PartnerLogoCarousel;
+

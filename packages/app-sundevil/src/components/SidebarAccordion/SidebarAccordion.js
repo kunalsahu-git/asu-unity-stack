@@ -57,7 +57,6 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
               )}
             </div>
 
-            {/* Right Column */}
             <div className="partnerships-container">
               <div className="partnerships-list">
                 {cards.map(card => (
@@ -67,7 +66,6 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                       expandedId === card.id ? "expanded" : ""
                     }`}
                   >
-                    {/* Header */}
                     <button
                       type="button"
                       className="partnership-header d-flex"
@@ -83,7 +81,6 @@ export const SidebarAccordion = ({ eyebrow, title, description, cards }) => {
                       <h3 className="partnership-title">{card.name}</h3>
                     </button>
 
-                    {/* Expanded Content */}
                     {expandedId === card.id && (
                       <div className="partnership-content">
                         <div className="d-flex">

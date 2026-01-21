@@ -47,3 +47,4 @@ const Template = args => <CarouselTallCardSection {...commonProps} {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+
